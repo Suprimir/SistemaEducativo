@@ -11,17 +11,14 @@ using System.Windows.Forms;
 
 namespace SistemaEducativo.Views.Maestro
 {
-    public partial class FrmMenuMaestro : Form
+    public partial class FrmVerGeneraciones : Form
     {
-        public FrmLogin _frmLogin;
-        private MenuMaestroController menuMaestroController;
-        public FrmMenuMaestro(FrmLogin frmLogin)
+        private VerGeneracionesController controller;
+        public FrmVerGeneraciones()
         {
-            _frmLogin = frmLogin;
-
             InitializeComponent();
 
-            menuMaestroController = new MenuMaestroController(this);
+            controller = new VerGeneracionesController(this);
         }
     }
 }

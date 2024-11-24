@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaEducativo.Controllers.AlumnoControllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace SistemaEducativo.Views.Alumno
 {
     public partial class FrmMenuAlumno : Form
     {
-        public FrmMenuAlumno()
+        public FrmLogin _frmLogin;
+        private MenuAlumnoController menuAlumnoController;
+        public FrmMenuAlumno(FrmLogin frmLogin)
         {
+            _frmLogin = frmLogin;
+
             InitializeComponent();
+
+            menuAlumnoController = new MenuAlumnoController(this);
         }
     }
 }

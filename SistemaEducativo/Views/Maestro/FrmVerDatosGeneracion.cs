@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.Controllers.MaestroControllers;
+using SistemaEducativo.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +12,17 @@ using System.Windows.Forms;
 
 namespace SistemaEducativo.Views.Maestro
 {
-    public partial class FrmMenuMaestro : Form
+    public partial class FrmVerDatosGeneracion : Form
     {
-        public FrmLogin _frmLogin;
-        private MenuMaestroController menuMaestroController;
-        public FrmMenuMaestro(FrmLogin frmLogin)
-        {
-            _frmLogin = frmLogin;
+        private VerDatosGeneracionController controller;
+        public Generacion generacion;
 
+        public FrmVerDatosGeneracion(Generacion generacion)
+        {
             InitializeComponent();
 
-            menuMaestroController = new MenuMaestroController(this);
+            controller = new VerDatosGeneracionController(this);
+            this.generacion = generacion;
         }
     }
 }

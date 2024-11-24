@@ -1,4 +1,7 @@
 ﻿using SistemaEducativo.DAO;
+using SistemaEducativo.Models;
+using SistemaEducativo.Views.Alumno;
+using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +13,8 @@ namespace SistemaEducativo.Controllers
     internal class LoginController
     {
         private FrmLogin _frmLogin;
+        private FrmMenuAlumno frmMenuAlumno;
+        private FrmMenuMaestro frmMenuMaestro;
 
         public LoginController(FrmLogin frmLogin)
         {
@@ -22,15 +27,31 @@ namespace SistemaEducativo.Controllers
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            int matricula = Convert.ToInt32(_frmLogin.textBoxUsuario.Text);
-            string pass = _frmLogin.textBoxPass.Text;
+            string matricula = _frmLogin.textBoxUsuario.Text;
+            string contraseña = _frmLogin.textBoxPass.Text;
 
-            if(UsuarioDAO.ValidarUsuario(matricula, pass))
+            Usuario usuario = UsuarioDAO.ValidarUsuario(matricula, contraseña);
+
+            if(usuario != null)
             {
-                MessageBox.Show("EL USUARIO EXISTE");
-            } else
-            {
-                MessageBox.Show("EL USUARIO NO EXISTE");
+                switch(usuario.Rol)
+                {
+                    case "alumno":
+                        frmMenuAlumno = new FrmMenuAlumno(_frmLogin);
+                        frmMenuAlumno.ShowDialog();
+                        break;
+                    case "maestro":
+                        frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
+                        frmMenuMaestro.ShowDialog();
+                        break;
+                    case "admin":
+                        frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
+                        frmMenuMaestro.ShowDialog();
+                        break;
+                    case "default":
+                        MessageBox.Show("El usuario existe pero tiene un rol no identificado.");
+                        break;
+                }
             }
         }
 
