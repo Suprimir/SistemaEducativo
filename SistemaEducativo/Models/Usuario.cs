@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaEducativo.Models
 {
-    internal class Usuario
+    public class Usuario
     {
         private int id;
         private string matricula;

@@ -1,4 +1,4 @@
-﻿using SistemaEducativo.Controllers.MaestroControllers;
+﻿using SistemaEducativo.Controllers.AdminControllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace SistemaEducativo.Views.Maestro
 {
-    public partial class FrmVerGeneraciones : Form
+    public partial class FrmGestionUsuarios : Form
     {
-        private VerGeneracionesController controller;
-        public FrmVerGeneraciones()
+        private GestionUsuariosController controller;
+        public FrmGestionUsuarios()
         {
             InitializeComponent();
 
-            controller = new VerGeneracionesController(this);
+            controller = new GestionUsuariosController(this);
         }
     }
 }

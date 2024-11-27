@@ -78,6 +78,7 @@
             // btnIniciarSesion
             // 
             btnIniciarSesion.BackColor = Color.Black;
+            btnIniciarSesion.Cursor = Cursors.Hand;
             btnIniciarSesion.FlatAppearance.BorderSize = 0;
             btnIniciarSesion.FlatStyle = FlatStyle.Flat;
             btnIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -113,7 +114,8 @@
             // 
             btnCerrarVentana.FlatAppearance.BorderSize = 0;
             btnCerrarVentana.FlatStyle = FlatStyle.Flat;
-            btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarVentana.ForeColor = SystemColors.ControlText;
             btnCerrarVentana.Location = new Point(679, 0);
             btnCerrarVentana.Margin = new Padding(0);
             btnCerrarVentana.Name = "btnCerrarVentana";
@@ -126,7 +128,7 @@
             // 
             btnMinimizarVentana.FlatAppearance.BorderSize = 0;
             btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
-            btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMinimizarVentana.Location = new Point(650, 0);
             btnMinimizarVentana.Margin = new Padding(0);
             btnMinimizarVentana.Name = "btnMinimizarVentana";

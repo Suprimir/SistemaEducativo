@@ -1,5 +1,6 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 using System;
@@ -15,13 +16,15 @@ namespace SistemaEducativo.Controllers
         private FrmLogin _frmLogin;
         private FrmMenuAlumno frmMenuAlumno;
         private FrmMenuMaestro frmMenuMaestro;
+        private FrmMenuAdmin frmMenuAdmin;
 
         public LoginController(FrmLogin frmLogin)
         {
             _frmLogin = frmLogin;
 
-            _frmLogin.btnCerrarVentana.Click += frmLogin_Dispose;
-            _frmLogin.btnMinimizarVentana.Click += frmLogin_Minimize;
+            _frmLogin.btnCerrarVentana.Click += (sender, e) => _frmLogin.Dispose();
+            _frmLogin.btnMinimizarVentana.Click += (sender, e) => _frmLogin.WindowState = FormWindowState.Minimized;
+
             _frmLogin.btnIniciarSesion.Click += btnIniciarSesion_Click;
         }
 
@@ -30,39 +33,36 @@ namespace SistemaEducativo.Controllers
             string matricula = _frmLogin.textBoxUsuario.Text;
             string contraseña = _frmLogin.textBoxPass.Text;
 
-            Usuario usuario = UsuarioDAO.ValidarUsuario(matricula, contraseña);
-
-            if(usuario != null)
+            if (!string.IsNullOrEmpty(matricula) || !string.IsNullOrEmpty(contraseña))
             {
-                switch(usuario.Rol)
+                Usuario usuario = UsuarioDAO.ValidarUsuario(matricula, contraseña);
+
+                if (usuario != null)
                 {
-                    case "alumno":
-                        frmMenuAlumno = new FrmMenuAlumno(_frmLogin);
-                        frmMenuAlumno.ShowDialog();
-                        break;
-                    case "maestro":
-                        frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
-                        frmMenuMaestro.ShowDialog();
-                        break;
-                    case "admin":
-                        frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
-                        frmMenuMaestro.ShowDialog();
-                        break;
-                    case "default":
-                        MessageBox.Show("El usuario existe pero tiene un rol no identificado.");
-                        break;
+                    switch (usuario.Rol)
+                    {
+                        case "alumno":
+                            frmMenuAlumno = new FrmMenuAlumno(_frmLogin);
+                            frmMenuAlumno.Show();
+                            break;
+                        case "maestro":
+                            frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
+                            frmMenuMaestro.Show();
+                            break;
+                        case "admin":
+                            frmMenuAdmin = new FrmMenuAdmin(_frmLogin, usuario);
+                            frmMenuAdmin.Show();
+                            break;
+                        case "default":
+                            MessageBox.Show("El usuario existe pero tiene un rol no identificado.");
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Credenciales incorrectas");
                 }
             }
-        }
-
-        private void frmLogin_Dispose(object sender, EventArgs e)
-        {
-            _frmLogin.Dispose();
-        }
-
-        private void frmLogin_Minimize(object sender, EventArgs e)
-        {
-            _frmLogin.WindowState = FormWindowState.Minimized;
         }
     }
 }

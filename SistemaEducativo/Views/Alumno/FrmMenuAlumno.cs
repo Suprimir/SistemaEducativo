@@ -14,14 +14,15 @@ namespace SistemaEducativo.Views.Alumno
     public partial class FrmMenuAlumno : Form
     {
         public FrmLogin _frmLogin;
-        private MenuAlumnoController menuAlumnoController;
+        private MenuAlumnoController controller;
+
         public FrmMenuAlumno(FrmLogin frmLogin)
         {
             _frmLogin = frmLogin;
 
             InitializeComponent();
 
-            menuAlumnoController = new MenuAlumnoController(this);
+            controller = new MenuAlumnoController(this);
         }
     }
 }

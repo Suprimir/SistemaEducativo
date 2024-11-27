@@ -12,7 +12,7 @@ namespace SistemaEducativo.DAO
 {
     internal class CarreraDAO
     {
-        public static List<Carrera> ObtenerTodas()
+        public static List<Carrera> ObtenerCarreras()
         {
             List<Carrera> lstCarreras = new List<Carrera>();
 

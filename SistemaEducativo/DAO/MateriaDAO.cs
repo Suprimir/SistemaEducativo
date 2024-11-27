@@ -11,19 +11,16 @@ namespace SistemaEducativo.DAO
 {
     internal class MateriaDAO
     {
-        public static List<Materia> ObtenerMateriasPorSemestre(int carreraID, int semestre)
+        public static List<Materia> ObtenerMaterias()
         {
             List<Materia> lstMaterias = new List<Materia>();
 
             using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
             {
-                string query = "SELECT materia_ID, nombre_Materia, descripcion FROM materiasRelacionCarrera WHERE carrera_ID = @carreraID AND semestre = @semestre;";
+                string query = "SELECT materia_ID, nombre_Carrera, semestre, nombre_Materia, descripcion FROM materiasRelacionCarrera;";
 
                 using(MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@carreraID", carreraID);
-                    cmd.Parameters.AddWithValue("@semestre", semestre);
-
                     conn.Open();
 
                     using(MySqlDataReader reader = cmd.ExecuteReader())
@@ -35,8 +32,10 @@ namespace SistemaEducativo.DAO
                                 Materia materia = new Materia();
 
                                 materia.MateriaId = reader.GetInt32(0);
-                                materia.NombreMateria = reader.GetString(1);
-                                materia.Descripcion = reader.GetString(2);
+                                materia.NombreCarrera = reader.IsDBNull(1) ? "No Asignada" : reader.GetString(1);
+                                materia.Semestre = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
+                                materia.NombreMateria = reader.GetString(3);
+                                materia.Descripcion = reader.GetString(4);
 
                                 lstMaterias.Add(materia);
                             }
@@ -46,6 +45,54 @@ namespace SistemaEducativo.DAO
             }
 
             return lstMaterias;
+        }
+
+        public static bool RegistrarMateria(string nombreMateria, string descripcion)
+        {
+            using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            {
+                string query = "INSERT INTO materias (nombre_Materia, descripcion) VALUES (@nombreMateria, @descripcion);";
+
+                using(MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombreMateria", nombreMateria);
+                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
+
+                    conn.Open();
+
+                    if(cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public static bool ActualizarMateria(Materia materia)
+        {
+
+            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            {
+                string query = "UPDATE materias SET nombre_Materia = @nombreMateria, descripcion = @descripcion WHERE materia_ID = @materiaID;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombreMateria", materia.NombreMateria);
+                    cmd.Parameters.AddWithValue("@descripcion", materia.Descripcion);
+                    cmd.Parameters.AddWithValue("@materiaID", materia.MateriaId);
+
+                    conn.Open();
+
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

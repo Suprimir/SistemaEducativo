@@ -14,14 +14,15 @@ namespace SistemaEducativo.Views.Maestro
     public partial class FrmMenuMaestro : Form
     {
         public FrmLogin _frmLogin;
-        private MenuMaestroController menuMaestroController;
+        private MenuMaestroController controller;
+
         public FrmMenuMaestro(FrmLogin frmLogin)
         {
             _frmLogin = frmLogin;
 
             InitializeComponent();
 
-            menuMaestroController = new MenuMaestroController(this);
+            controller = new MenuMaestroController(this);
         }
     }
 }

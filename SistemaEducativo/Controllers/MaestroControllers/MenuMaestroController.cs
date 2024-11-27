@@ -1,9 +1,7 @@
-﻿using SistemaEducativo.Views.Maestro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Org.BouncyCastle.Tls;
+using SistemaEducativo.DAO;
+using SistemaEducativo.Models;
+using SistemaEducativo.Views.Maestro;
 
 namespace SistemaEducativo.Controllers.MaestroControllers
 {
@@ -13,29 +11,14 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         public MenuMaestroController(FrmMenuMaestro frmMenuMaestro)
         {
             _frmMenuMaestro = frmMenuMaestro;
-
             _frmMenuMaestro._frmLogin.Hide();
 
-            _frmMenuMaestro.btnRegistrarGeneracion.Click += btnRegistrarGeneracion_Click;
-            _frmMenuMaestro.btnVerGeneraciones.Click += btnVerGeneraciones_Click;
-            _frmMenuMaestro.btnCerrarVentana.Click += btnCerrarVentana_Click;
-        }
+            _frmMenuMaestro.btnCerrarSesion.Click += (sender, e) => { _frmMenuMaestro._frmLogin.Show(); _frmMenuMaestro.Dispose(); };
 
-        private void btnRegistrarGeneracion_Click(object sender, EventArgs e)
-        {
-            FrmRegistroGeneracion frmRegistroGeneracion = new FrmRegistroGeneracion();
-            frmRegistroGeneracion.ShowDialog();
-        }
+            _frmMenuMaestro.btnCerrarVentana.Click += (sender, e) => _frmMenuMaestro._frmLogin.Dispose();
+            _frmMenuMaestro.btnMinimizarVentana.Click += (sender, e) => _frmMenuMaestro.WindowState = FormWindowState.Minimized;
 
-        private void btnVerGeneraciones_Click(object sender, EventArgs e)
-        {
-            FrmVerGeneraciones frmVerGSP = new FrmVerGeneraciones();
-            frmVerGSP.ShowDialog();
-        }
-
-        private void btnCerrarVentana_Click(object sender, EventArgs e)
-        {
-            _frmMenuMaestro._frmLogin.Dispose();
+            _frmMenuMaestro.FormClosing += (sender, e) => _frmMenuMaestro._frmLogin.Dispose();
         }
     }
 }

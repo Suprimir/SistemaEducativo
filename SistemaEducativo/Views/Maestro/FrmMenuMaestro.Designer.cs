@@ -32,7 +32,6 @@
             lblMenuTitle = new Label();
             btnCerrarVentana = new Button();
             btnMinimizarVentana = new Button();
-            tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             lblRol = new Label();
@@ -40,13 +39,19 @@
             lblUsuario = new Label();
             lblUsuarioStatic = new Label();
             pictureBoxMPfp = new PictureBox();
-            btnRegistrarGeneracion = new Button();
-            btnVerGeneraciones = new Button();
+            btnGestionTareas = new Button();
+            dataGridViewGrupos = new DataGridView();
+            lblGruposStatic = new Label();
+            dataGridViewTareas = new DataGridView();
+            label1 = new Label();
+            btnCerrarSesion = new Button();
+            btnConfigurarPerfil = new Button();
             tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -104,26 +109,11 @@
             btnMinimizarVentana.Text = "-";
             btnMinimizarVentana.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.BackColor = SystemColors.Control;
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(0, 37);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.4854355F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.5145645F));
-            tableLayoutPanel1.Size = new Size(204, 412);
-            tableLayoutPanel1.TabIndex = 12;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
             flowLayoutPanel1.Controls.Add(pictureBoxMPfp);
-            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Location = new Point(20, 47);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(204, 65);
@@ -204,44 +194,94 @@
             pictureBoxMPfp.TabIndex = 11;
             pictureBoxMPfp.TabStop = false;
             // 
-            // btnRegistrarGeneracion
+            // btnGestionTareas
             // 
-            btnRegistrarGeneracion.Location = new Point(641, 55);
-            btnRegistrarGeneracion.Name = "btnRegistrarGeneracion";
-            btnRegistrarGeneracion.Size = new Size(105, 43);
-            btnRegistrarGeneracion.TabIndex = 13;
-            btnRegistrarGeneracion.Text = "Registrar Generacion";
-            btnRegistrarGeneracion.UseVisualStyleBackColor = true;
+            btnGestionTareas.Location = new Point(20, 126);
+            btnGestionTareas.Name = "btnGestionTareas";
+            btnGestionTareas.Size = new Size(204, 46);
+            btnGestionTareas.TabIndex = 14;
+            btnGestionTareas.Text = "Gestionar Tareas";
+            btnGestionTareas.UseVisualStyleBackColor = true;
             // 
-            // btnVerGeneraciones
+            // dataGridViewGrupos
             // 
-            btnVerGeneraciones.Location = new Point(641, 104);
-            btnVerGeneraciones.Name = "btnVerGeneraciones";
-            btnVerGeneraciones.Size = new Size(95, 46);
-            btnVerGeneraciones.TabIndex = 14;
-            btnVerGeneraciones.Text = "Ver Generaciones";
-            btnVerGeneraciones.UseVisualStyleBackColor = true;
+            dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewGrupos.Location = new Point(258, 73);
+            dataGridViewGrupos.Name = "dataGridViewGrupos";
+            dataGridViewGrupos.Size = new Size(488, 141);
+            dataGridViewGrupos.TabIndex = 15;
+            // 
+            // lblGruposStatic
+            // 
+            lblGruposStatic.AutoSize = true;
+            lblGruposStatic.Location = new Point(258, 53);
+            lblGruposStatic.Name = "lblGruposStatic";
+            lblGruposStatic.Size = new Size(103, 15);
+            lblGruposStatic.TabIndex = 16;
+            lblGruposStatic.Text = "Grupos Asignados";
+            // 
+            // dataGridViewTareas
+            // 
+            dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTareas.Location = new Point(258, 267);
+            dataGridViewTareas.Name = "dataGridViewTareas";
+            dataGridViewTareas.Size = new Size(488, 141);
+            dataGridViewTareas.TabIndex = 17;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(258, 249);
+            label1.Name = "label1";
+            label1.Size = new Size(83, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Ultimas Tareas";
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.Location = new Point(23, 362);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(204, 46);
+            btnCerrarSesion.TabIndex = 19;
+            btnCerrarSesion.Text = "Cerrar Sesión";
+            btnCerrarSesion.UseVisualStyleBackColor = true;
+            // 
+            // btnConfigurarPerfil
+            // 
+            btnConfigurarPerfil.Location = new Point(20, 189);
+            btnConfigurarPerfil.Name = "btnConfigurarPerfil";
+            btnConfigurarPerfil.Size = new Size(204, 46);
+            btnConfigurarPerfil.TabIndex = 20;
+            btnConfigurarPerfil.Text = "Configurar Perfil";
+            btnConfigurarPerfil.UseVisualStyleBackColor = true;
             // 
             // FrmMenuMaestro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(773, 446);
-            Controls.Add(btnVerGeneraciones);
-            Controls.Add(btnRegistrarGeneracion);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(btnConfigurarPerfil);
+            Controls.Add(btnCerrarSesion);
+            Controls.Add(label1);
+            Controls.Add(dataGridViewTareas);
+            Controls.Add(lblGruposStatic);
+            Controls.Add(dataGridViewGrupos);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(btnGestionTareas);
             Controls.Add(tableLayoutPanel2);
             Name = "FrmMenuMaestro";
             Text = "FrmMenuMaestro";
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -259,6 +299,12 @@
         private Label lblUsuarioStatic;
         private PictureBox pictureBoxMPfp;
         public Button btnRegistrarGeneracion;
-        public Button btnVerGeneraciones;
+        public Button btnGestionTareas;
+        private Label lblGruposStatic;
+        private Label label1;
+        public Button btnCerrarSesion;
+        public Button btnConfigurarPerfil;
+        public DataGridView dataGridViewGrupos;
+        public DataGridView dataGridViewTareas;
     }
 }

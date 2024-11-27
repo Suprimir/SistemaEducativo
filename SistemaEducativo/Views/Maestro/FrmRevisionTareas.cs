@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace SistemaEducativo.Views.Maestro
 {
-    public partial class FrmRegistroGeneracion : Form
+    public partial class FrmRevisionTareas : Form
     {
-        private RegistroGeneracionController registroGeneracionController;
-        public FrmRegistroGeneracion()
+        private RevisionTareasController controller;
+        public FrmRevisionTareas()
         {
             InitializeComponent();
 
-            registroGeneracionController = new RegistroGeneracionController(this);
+            controller = new RevisionTareasController(this);
         }
     }
 }

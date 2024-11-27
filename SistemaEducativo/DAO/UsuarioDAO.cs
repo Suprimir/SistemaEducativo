@@ -57,41 +57,56 @@ namespace SistemaEducativo.DAO
             return null;
         }
 
-        public static List<Usuario> ObtenerAlumnosPorGeneracion(int generacionID)
+        public static List<UsuarioGeneral> ObtenerUsuarios()
         {
-            List<Usuario> lstAlumnos = new List<Usuario>();
+            List<UsuarioGeneral> lstUsuarios = new List<UsuarioGeneral>();
 
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
             {
-                string query = "SELECT * FROM alumnos WHERE generacion_ID = @generacionID";
+                string query = "SELECT * FROM usuariosGeneral;";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@generacionID", generacionID);
-
                     conn.Open();
 
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if(reader.HasRows)
                         {
                             while(reader.Read())
                             {
-                                Usuario usuario = new Usuario();
+                                UsuarioGeneral usuario = new UsuarioGeneral();
 
                                 usuario.Id = reader.GetInt32(0);
                                 usuario.Matricula = reader.GetString(1);
-                                usuario.NombreCompleto = reader.GetString(2);
-                                usuario.Correo = reader.GetString(3);
+                                usuario.Pass = reader.GetString(2);
+                                usuario.NombreCompleto = reader.GetString(3);
+                                usuario.Correo = reader.GetString(4);
+                                usuario.Rol = reader.GetString(5);
 
-                                lstAlumnos.Add(usuario);
+                                lstUsuarios.Add(usuario);
                             }
                         }
                     }
                 }
             }
 
-            return lstAlumnos;
+            return lstUsuarios;
+        }
+
+        public static bool CrearUsuario(Usuario usuario)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    string query = "INSERT INTO usuarios ";
+                    return true;
+                }
+            } catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
