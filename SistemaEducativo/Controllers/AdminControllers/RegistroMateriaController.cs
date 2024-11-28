@@ -16,7 +16,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             _frmRegistroMateria = frmRegistroMateria;
 
-            if (_frmRegistroMateria._materiaSeleccionada != null)
+            if (_frmRegistroMateria._materiaSeleccionada != null) // Si el formulario tiene una materia no nula
             {
                 _frmRegistroMateria.textBoxNombreMateria.Text = _frmRegistroMateria._materiaSeleccionada.NombreMateria;
                 _frmRegistroMateria.richTextBoxDescripcion.Text = _frmRegistroMateria._materiaSeleccionada.Descripcion;
