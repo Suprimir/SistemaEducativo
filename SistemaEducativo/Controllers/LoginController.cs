@@ -22,13 +22,15 @@ namespace SistemaEducativo.Controllers
         {
             _frmLogin = frmLogin;
 
+            // CIERRA Y MINIMIZA EL PROGRAMA CON EL BOTON CUSTOM
             _frmLogin.btnCerrarVentana.Click += (sender, e) => _frmLogin.Dispose();
             _frmLogin.btnMinimizarVentana.Click += (sender, e) => _frmLogin.WindowState = FormWindowState.Minimized;
 
-            _frmLogin.btnIniciarSesion.Click += btnIniciarSesion_Click;
+            // BOTON FUNCION INICIAR SESION
+            _frmLogin.btnIniciarSesion.Click += IniciarSesion;
         }
 
-        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        private void IniciarSesion(object sender, EventArgs e)
         {
             string matricula = _frmLogin.textBoxUsuario.Text;
             string contraseña = _frmLogin.textBoxPass.Text;
@@ -46,7 +48,7 @@ namespace SistemaEducativo.Controllers
                             frmMenuAlumno.Show();
                             break;
                         case "maestro":
-                            frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
+                            frmMenuMaestro = new FrmMenuMaestro(_frmLogin, usuario);
                             frmMenuMaestro.Show();
                             break;
                         case "admin":

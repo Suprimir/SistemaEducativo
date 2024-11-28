@@ -13,13 +13,15 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class RegistroGrupoController
     {
         private FrmRegistroGrupo _frmRegistroGrupo;
+
+        // LISTA DE CARRERAS
         private List<Carrera> lstCarreras;
 
         public RegistroGrupoController(FrmRegistroGrupo frmRegistroGrupo)
         {
             _frmRegistroGrupo = frmRegistroGrupo;
 
-            lstCarreras = CarreraDAO.ObtenerCarreras();
+            lstCarreras = CarreraDAO.ObtenerCarreras(); // LLAMA A LA BASE DE DATOS PARA OBTENER LAS CARRERAS
 
             if(_frmRegistroGrupo._grupoSeleccionado != null)
             {

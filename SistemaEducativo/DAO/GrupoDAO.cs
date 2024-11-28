@@ -75,6 +75,47 @@ namespace SistemaEducativo.DAO
             return lstGrupos;
         }
 
+        public static List<GrupoProfesor> ObtenerGruposAsignados(int maestroID)
+        {
+            try
+            {
+                List<GrupoProfesor> lstGrupos = new List<GrupoProfesor>();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerGruposAsignados", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@maestroID", maestroID);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                GrupoProfesor grupo = new GrupoProfesor();
+
+                                grupo.NombreGrupo = reader.GetString(0);
+                                grupo.Materia = reader.GetString(1);
+                                grupo.SemestreActual = reader.GetInt32(2);
+
+                                lstGrupos.Add(grupo);
+                            }
+                        }
+                    }
+                }
+
+                return lstGrupos;
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return null;
+            }
+        }
+
         public static bool EliminarGrupo(int grupoID)
         {
             try

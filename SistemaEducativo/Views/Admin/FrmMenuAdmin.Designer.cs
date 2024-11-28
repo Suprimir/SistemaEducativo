@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            btnMinimizarVentana = new Button();
-            lblMenuTitulo = new Label();
-            btnCerrarVentana = new Button();
             pictureBoxMPfp = new PictureBox();
             btnGrupos = new Button();
             panelPerfil = new Panel();
@@ -45,84 +41,35 @@
             lblUsuario = new Label();
             panel2 = new Panel();
             lblGestionStatic = new Label();
-            panel6 = new Panel();
-            btnCerrarSesion = new Button();
             panel5 = new Panel();
             btnMaterias = new Button();
             panel4 = new Panel();
             btnUsuarios = new Button();
             panel3 = new Panel();
+            panel6 = new Panel();
+            btnCerrarSesion = new Button();
             panelSubMenu = new Panel();
             lblBienvenida = new Label();
             pictureBox1 = new PictureBox();
-            tableLayoutPanel2.SuspendLayout();
+            pictureBox2 = new PictureBox();
+            panel1 = new Panel();
+            btnCerrarVentana = new Button();
+            lblMenuTitulo = new Label();
+            btnMinimizarVentana = new Button();
+            tableLayoutPanel2 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
             panelPerfil.SuspendLayout();
             contextMenuStripPerfil.SuspendLayout();
             panel2.SuspendLayout();
-            panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.BackColor = Color.FromArgb(199, 206, 206);
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.Controls.Add(btnMinimizarVentana, 1, 0);
-            tableLayoutPanel2.Controls.Add(lblMenuTitulo, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnCerrarVentana, 2, 0);
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(864, 36);
-            tableLayoutPanel2.TabIndex = 11;
-            // 
-            // btnMinimizarVentana
-            // 
-            btnMinimizarVentana.FlatAppearance.BorderSize = 0;
-            btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
-            btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMinimizarVentana.Location = new Point(806, 0);
-            btnMinimizarVentana.Margin = new Padding(0);
-            btnMinimizarVentana.Name = "btnMinimizarVentana";
-            btnMinimizarVentana.Size = new Size(29, 36);
-            btnMinimizarVentana.TabIndex = 8;
-            btnMinimizarVentana.Text = "-";
-            btnMinimizarVentana.UseVisualStyleBackColor = true;
-            // 
-            // lblMenuTitulo
-            // 
-            lblMenuTitulo.AutoSize = true;
-            lblMenuTitulo.Cursor = Cursors.Hand;
-            lblMenuTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMenuTitulo.Location = new Point(3, 3);
-            lblMenuTitulo.Margin = new Padding(3, 3, 3, 0);
-            lblMenuTitulo.Name = "lblMenuTitulo";
-            lblMenuTitulo.Size = new Size(70, 30);
-            lblMenuTitulo.TabIndex = 10;
-            lblMenuTitulo.Text = "Menú";
-            // 
-            // btnCerrarVentana
-            // 
-            btnCerrarVentana.FlatAppearance.BorderSize = 0;
-            btnCerrarVentana.FlatStyle = FlatStyle.Flat;
-            btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarVentana.ForeColor = SystemColors.ControlText;
-            btnCerrarVentana.Location = new Point(835, 0);
-            btnCerrarVentana.Margin = new Padding(0);
-            btnCerrarVentana.Name = "btnCerrarVentana";
-            btnCerrarVentana.Size = new Size(29, 36);
-            btnCerrarVentana.TabIndex = 0;
-            btnCerrarVentana.Text = "X";
-            btnCerrarVentana.UseVisualStyleBackColor = true;
             // 
             // pictureBoxMPfp
             // 
@@ -145,7 +92,7 @@
             btnGrupos.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGrupos.ForeColor = SystemColors.ControlText;
             btnGrupos.Image = Properties.Resources.GrupoIcon;
-            btnGrupos.Location = new Point(-69, 0);
+            btnGrupos.Location = new Point(-80, 0);
             btnGrupos.Name = "btnGrupos";
             btnGrupos.Size = new Size(273, 46);
             btnGrupos.TabIndex = 14;
@@ -154,6 +101,7 @@
             // 
             // panelPerfil
             // 
+            panelPerfil.BackColor = Color.White;
             panelPerfil.ContextMenuStrip = contextMenuStripPerfil;
             panelPerfil.Controls.Add(btnPerfil);
             panelPerfil.Controls.Add(lblRol);
@@ -161,7 +109,7 @@
             panelPerfil.Controls.Add(lblRolStatic);
             panelPerfil.Controls.Add(lblUsuarioStatic);
             panelPerfil.Controls.Add(lblUsuario);
-            panelPerfil.Location = new Point(606, 54);
+            panelPerfil.Location = new Point(611, 57);
             panelPerfil.Name = "panelPerfil";
             panelPerfil.Size = new Size(229, 65);
             panelPerfil.TabIndex = 22;
@@ -187,13 +135,13 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.BackColor = Color.FromArgb(232, 232, 226);
+            btnPerfil.BackColor = Color.White;
             btnPerfil.ContextMenuStrip = contextMenuStripPerfil;
             btnPerfil.Cursor = Cursors.Hand;
             btnPerfil.FlatAppearance.BorderSize = 0;
             btnPerfil.FlatStyle = FlatStyle.Flat;
             btnPerfil.Image = Properties.Resources.ArrowDown;
-            btnPerfil.Location = new Point(205, 43);
+            btnPerfil.Location = new Point(205, 44);
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(24, 21);
             btnPerfil.TabIndex = 13;
@@ -245,51 +193,24 @@
             // 
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lblGestionStatic);
-            panel2.Controls.Add(panel6);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(0, 36);
+            panel2.Location = new Point(7, 7);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(204, 434);
+            panel2.Size = new Size(187, 237);
             panel2.TabIndex = 23;
             // 
             // lblGestionStatic
             // 
             lblGestionStatic.AutoSize = true;
             lblGestionStatic.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblGestionStatic.Location = new Point(74, 38);
+            lblGestionStatic.Location = new Point(59, 38);
             lblGestionStatic.Name = "lblGestionStatic";
             lblGestionStatic.Size = new Size(72, 17);
             lblGestionStatic.TabIndex = 24;
             lblGestionStatic.Text = "- Gestion -";
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(btnCerrarSesion);
-            panel6.Location = new Point(0, 365);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(204, 49);
-            panel6.TabIndex = 27;
-            // 
-            // btnCerrarSesion
-            // 
-            btnCerrarSesion.BackColor = SystemColors.ControlLightLight;
-            btnCerrarSesion.Cursor = Cursors.Hand;
-            btnCerrarSesion.FlatAppearance.BorderColor = Color.Black;
-            btnCerrarSesion.FlatAppearance.BorderSize = 0;
-            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
-            btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarSesion.ForeColor = SystemColors.ControlText;
-            btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
-            btnCerrarSesion.Location = new Point(-97, 0);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(301, 46);
-            btnCerrarSesion.TabIndex = 14;
-            btnCerrarSesion.Text = "                                Cerrar Sesión";
-            btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -310,7 +231,7 @@
             btnMaterias.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMaterias.ForeColor = SystemColors.ControlText;
             btnMaterias.Image = Properties.Resources.MateriasIcon;
-            btnMaterias.Location = new Point(-69, 0);
+            btnMaterias.Location = new Point(-83, 0);
             btnMaterias.Name = "btnMaterias";
             btnMaterias.Size = new Size(273, 46);
             btnMaterias.TabIndex = 14;
@@ -336,7 +257,7 @@
             btnUsuarios.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUsuarios.ForeColor = SystemColors.ControlText;
             btnUsuarios.Image = Properties.Resources.UsuarioIcon;
-            btnUsuarios.Location = new Point(-69, 0);
+            btnUsuarios.Location = new Point(-80, 0);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Size = new Size(273, 46);
             btnUsuarios.TabIndex = 14;
@@ -352,6 +273,32 @@
             panel3.Size = new Size(204, 49);
             panel3.TabIndex = 24;
             // 
+            // panel6
+            // 
+            panel6.Controls.Add(btnCerrarSesion);
+            panel6.Location = new Point(16, 408);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(189, 49);
+            panel6.TabIndex = 27;
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.BackColor = SystemColors.Desktop;
+            btnCerrarSesion.Cursor = Cursors.Hand;
+            btnCerrarSesion.FlatAppearance.BorderColor = Color.Black;
+            btnCerrarSesion.FlatAppearance.BorderSize = 0;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
+            btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
+            btnCerrarSesion.Location = new Point(-112, 0);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.Size = new Size(301, 46);
+            btnCerrarSesion.TabIndex = 14;
+            btnCerrarSesion.Text = "                                Cerrar Sesión";
+            btnCerrarSesion.UseVisualStyleBackColor = false;
+            // 
             // panelSubMenu
             // 
             panelSubMenu.BackColor = Color.White;
@@ -363,16 +310,16 @@
             // lblBienvenida
             // 
             lblBienvenida.AutoSize = true;
-            lblBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblBienvenida.Location = new Point(221, 74);
+            lblBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblBienvenida.Location = new Point(23, 67);
             lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(123, 30);
+            lblBienvenida.Size = new Size(124, 30);
             lblBienvenida.TabIndex = 25;
             lblBienvenida.Text = "Bienvenido";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.PanelWhiteRounded1;
+            pictureBox1.Image = Properties.Resources.PanelWhiteRounded;
             pictureBox1.Location = new Point(221, 141);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(630, 316);
@@ -380,42 +327,119 @@
             pictureBox1.TabIndex = 26;
             pictureBox1.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.PanelWhiteRounded;
+            pictureBox2.Location = new Point(599, 46);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(252, 87);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            panel1.BackgroundImage = Properties.Resources.PanelWhiteRounded;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(panel2);
+            panel1.Location = new Point(9, 141);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 249);
+            panel1.TabIndex = 28;
+            // 
+            // btnCerrarVentana
+            // 
+            btnCerrarVentana.FlatAppearance.BorderSize = 0;
+            btnCerrarVentana.FlatStyle = FlatStyle.Flat;
+            btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarVentana.ForeColor = SystemColors.ControlText;
+            btnCerrarVentana.Location = new Point(835, 0);
+            btnCerrarVentana.Margin = new Padding(0);
+            btnCerrarVentana.Name = "btnCerrarVentana";
+            btnCerrarVentana.Size = new Size(29, 36);
+            btnCerrarVentana.TabIndex = 0;
+            btnCerrarVentana.Text = "X";
+            btnCerrarVentana.UseVisualStyleBackColor = true;
+            // 
+            // lblMenuTitulo
+            // 
+            lblMenuTitulo.AutoSize = true;
+            lblMenuTitulo.Cursor = Cursors.Hand;
+            lblMenuTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMenuTitulo.Location = new Point(3, 3);
+            lblMenuTitulo.Margin = new Padding(3, 3, 3, 0);
+            lblMenuTitulo.Name = "lblMenuTitulo";
+            lblMenuTitulo.Size = new Size(70, 30);
+            lblMenuTitulo.TabIndex = 10;
+            lblMenuTitulo.Text = "Menú";
+            // 
+            // btnMinimizarVentana
+            // 
+            btnMinimizarVentana.FlatAppearance.BorderSize = 0;
+            btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
+            btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMinimizarVentana.Location = new Point(806, 0);
+            btnMinimizarVentana.Margin = new Padding(0);
+            btnMinimizarVentana.Name = "btnMinimizarVentana";
+            btnMinimizarVentana.Size = new Size(29, 36);
+            btnMinimizarVentana.TabIndex = 8;
+            btnMinimizarVentana.Text = "-";
+            btnMinimizarVentana.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.BackColor = Color.RosyBrown;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanel2.Controls.Add(btnMinimizarVentana, 1, 0);
+            tableLayoutPanel2.Controls.Add(lblMenuTitulo, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnCerrarVentana, 2, 0);
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(864, 36);
+            tableLayoutPanel2.TabIndex = 11;
+            // 
             // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(232, 232, 226);
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(863, 469);
+            Controls.Add(panel6);
+            Controls.Add(panel1);
             Controls.Add(panelPerfil);
             Controls.Add(lblBienvenida);
             Controls.Add(panelSubMenu);
-            Controls.Add(panel2);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Name = "FrmMenuAdmin";
             Text = "FrmMenuAdmin";
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).EndInit();
             panelPerfil.ResumeLayout(false);
             panelPerfil.PerformLayout();
             contextMenuStripPerfil.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TableLayoutPanel tableLayoutPanel2;
-        public Button btnCerrarVentana;
-        public Button btnMinimizarVentana;
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBoxMPfp;
         public Button btnRegistrarGeneracion;
@@ -441,6 +465,11 @@
         public Panel panelSubMenu;
         private PictureBox pictureBox1;
         public Label lblBienvenida;
+        private PictureBox pictureBox2;
+        private Panel panel1;
+        public Button btnCerrarVentana;
         public Label lblMenuTitulo;
+        public Button btnMinimizarVentana;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }
