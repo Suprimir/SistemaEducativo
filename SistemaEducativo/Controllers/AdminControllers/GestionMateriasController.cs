@@ -34,13 +34,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionMaterias.comboBoxFiltroCarrera.Items.Add("No Asignada"); // Para la opcion de mostrar materias sin carrera asignada
 
             // AGREGA LAS CARRERAS DE LAS MATERIAS DISPONIBLES AL COMBOBOX DE FILTRO POR CARRERA
-            foreach (var materia in lstMaterias)
+            /*foreach (var materia in lstMaterias)
             {
                 if(!_frmGestionMaterias.comboBoxFiltroCarrera.Items.Contains(materia.NombreCarrera) && materia.NombreCarrera != "No Asignada")
                 {
                     _frmGestionMaterias.comboBoxFiltroCarrera.Items.Add(materia.NombreCarrera);
                 }
-            }
+            }*/
+
+            // CONFIGURACION DE LA TABLA MOSTRADA
+            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("id", "ID");
+            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("nombreMateria", "Materia");
+            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("descripcion", "Descripcion");
 
             // CARGA LA TABLA Y SE ACTUALIZA CADA QUE CAMBIA EL TEXTO DE CUALQUIERA DE LOS FILTROS
             _frmGestionMaterias.Load += frmGestionMaterias_Load;
@@ -50,14 +55,21 @@ namespace SistemaEducativo.Controllers.AdminControllers
             // EJECUTAN LAS FUNCIONES DE CREAR Y EDITAR MATERIA
             _frmGestionMaterias.btnCrearMateria.Click += btnCrearMateria_Click;
             _frmGestionMaterias.btnEditarMateria.Click += btnEditarMateria_Click;
+            _frmGestionMaterias.btnEliminarMateria.Click += btnEliminarMateria_Click;
+            _frmGestionMaterias.btnAsignarCarrera.Click += btnAsignarCarrera_Click;
         }
 
         private void frmGestionMaterias_Load(object sender, EventArgs e)
         {
-            List<Materia> lstMateriasFiltro1 = lstMaterias.Where(materia => materia.NombreMateria.Contains(nombreMateria, StringComparison.OrdinalIgnoreCase)).ToList();
-            List<Materia> lstMateriasFiltro2 = lstMateriasFiltro1.Where(materia => materia.NombreCarrera.Contains(nombreCarrera, StringComparison.OrdinalIgnoreCase)).ToList();
+            _frmGestionMaterias.dataGridViewMaterias.Rows.Clear();
 
-            _frmGestionMaterias.dataGridViewMaterias.DataSource = lstMateriasFiltro2;
+            List<Materia> lstMateriasFiltro1 = lstMaterias.Where(materia => materia.NombreMateria.Contains(nombreMateria, StringComparison.OrdinalIgnoreCase)).ToList();
+            //List<Materia> lstMateriasFiltro2 = lstMateriasFiltro1.Where(materia => materia.NombreCarrera.Contains(nombreCarrera, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            foreach(var materia in lstMateriasFiltro1)
+            {
+                _frmGestionMaterias.dataGridViewMaterias.Rows.Add(materia.MateriaId, materia.NombreMateria, materia.Descripcion);
+            }
         }
 
         private void textBoxFiltroMateria_TextChanged(object sender, EventArgs e)
@@ -82,13 +94,32 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void btnEditarMateria_Click(object sender, EventArgs e)
         {
-            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0 )
+            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0)
             {
                 Materia materia = lstMaterias.FirstOrDefault(materia => materia.MateriaId == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value));
 
                 FrmRegistroMateria frmGestionMaterias = new FrmRegistroMateria(materia);
                 frmGestionMaterias.Show();
             }
+        }
+
+        private void btnEliminarMateria_Click(object sender, EventArgs e)
+        {
+            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0)
+            {
+                int materiaID = Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value);
+
+                if(MateriaDAO.EliminarMateria(materiaID))
+                {
+                    cambioEnMaterias?.Invoke();
+                }
+            }
+        }
+
+        private void btnAsignarCarrera_Click(object sender, EventArgs e)
+        {
+            FrmAsignarMateria frmAsignarMateria = new FrmAsignarMateria();
+            frmAsignarMateria.Show();
         }
     }
 }

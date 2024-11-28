@@ -55,6 +55,7 @@
             panelSubMenu = new Panel();
             lblBienvenida = new Label();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
             panelPerfil.SuspendLayout();
@@ -65,6 +66,7 @@
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -154,6 +156,7 @@
             // 
             // panelPerfil
             // 
+            panelPerfil.BackColor = Color.White;
             panelPerfil.ContextMenuStrip = contextMenuStripPerfil;
             panelPerfil.Controls.Add(btnPerfil);
             panelPerfil.Controls.Add(lblRol);
@@ -161,7 +164,7 @@
             panelPerfil.Controls.Add(lblRolStatic);
             panelPerfil.Controls.Add(lblUsuarioStatic);
             panelPerfil.Controls.Add(lblUsuario);
-            panelPerfil.Location = new Point(606, 54);
+            panelPerfil.Location = new Point(611, 57);
             panelPerfil.Name = "panelPerfil";
             panelPerfil.Size = new Size(229, 65);
             panelPerfil.TabIndex = 22;
@@ -187,13 +190,13 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.BackColor = Color.FromArgb(232, 232, 226);
+            btnPerfil.BackColor = Color.White;
             btnPerfil.ContextMenuStrip = contextMenuStripPerfil;
             btnPerfil.Cursor = Cursors.Hand;
             btnPerfil.FlatAppearance.BorderSize = 0;
             btnPerfil.FlatStyle = FlatStyle.Flat;
             btnPerfil.Image = Properties.Resources.ArrowDown;
-            btnPerfil.Location = new Point(205, 43);
+            btnPerfil.Location = new Point(205, 44);
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(24, 21);
             btnPerfil.TabIndex = 13;
@@ -276,13 +279,13 @@
             // 
             // btnCerrarSesion
             // 
-            btnCerrarSesion.BackColor = SystemColors.ControlLightLight;
+            btnCerrarSesion.BackColor = SystemColors.Desktop;
             btnCerrarSesion.Cursor = Cursors.Hand;
             btnCerrarSesion.FlatAppearance.BorderColor = Color.Black;
             btnCerrarSesion.FlatAppearance.BorderSize = 0;
             btnCerrarSesion.FlatStyle = FlatStyle.Flat;
             btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarSesion.ForeColor = SystemColors.ControlText;
+            btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
             btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
             btnCerrarSesion.Location = new Point(-97, 0);
             btnCerrarSesion.Name = "btnCerrarSesion";
@@ -363,22 +366,32 @@
             // lblBienvenida
             // 
             lblBienvenida.AutoSize = true;
-            lblBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblBienvenida.Location = new Point(221, 74);
             lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(123, 30);
+            lblBienvenida.Size = new Size(124, 30);
             lblBienvenida.TabIndex = 25;
             lblBienvenida.Text = "Bienvenido";
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.PanelWhiteRounded1;
+            pictureBox1.Image = Properties.Resources.PanelWhiteRounded;
             pictureBox1.Location = new Point(221, 141);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(630, 316);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 26;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.PanelWhiteRounded;
+            pictureBox2.Location = new Point(599, 46);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(252, 87);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
             // 
             // FrmMenuAdmin
             // 
@@ -392,6 +405,7 @@
             Controls.Add(panel2);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Name = "FrmMenuAdmin";
             Text = "FrmMenuAdmin";
             tableLayoutPanel2.ResumeLayout(false);
@@ -407,6 +421,7 @@
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -442,5 +457,6 @@
         private PictureBox pictureBox1;
         public Label lblBienvenida;
         public Label lblMenuTitulo;
+        private PictureBox pictureBox2;
     }
 }

@@ -94,5 +94,31 @@ namespace SistemaEducativo.DAO
 
             return false;
         }
+
+        public static bool EliminarMateria(int materiaId)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    string query = "DELETE FROM materias WHERE materia_ID = @materiaID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@materiaID", materiaId);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        }
     }
 }

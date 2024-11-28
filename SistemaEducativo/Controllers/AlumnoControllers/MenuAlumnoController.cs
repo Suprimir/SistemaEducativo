@@ -1,4 +1,5 @@
-﻿using SistemaEducativo.Views.Alumno;
+﻿using SistemaEducativo.Views.Admin;
+using SistemaEducativo.Views.Alumno;
 
 namespace SistemaEducativo.Controllers.AlumnoControllers
 {

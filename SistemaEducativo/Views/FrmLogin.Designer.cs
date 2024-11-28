@@ -31,7 +31,6 @@
             textBoxUsuario = new TextBox();
             textBoxPass = new TextBox();
             btnIniciarSesion = new Button();
-            pictureBoxLogin = new PictureBox();
             pictureBox2 = new PictureBox();
             btnCerrarVentana = new Button();
             btnMinimizarVentana = new Button();
@@ -39,11 +38,12 @@
             lblLoginTitle = new Label();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).BeginInit();
+            pictureBoxLogin = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).BeginInit();
             SuspendLayout();
             // 
             // textBoxUsuario
@@ -83,22 +83,12 @@
             btnIniciarSesion.FlatStyle = FlatStyle.Flat;
             btnIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnIniciarSesion.ForeColor = SystemColors.ControlLightLight;
-            btnIniciarSesion.Location = new Point(108, 333);
+            btnIniciarSesion.Location = new Point(101, 329);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(164, 39);
             btnIniciarSesion.TabIndex = 3;
             btnIniciarSesion.Text = "Iniciar Sesión";
             btnIniciarSesion.UseVisualStyleBackColor = false;
-            // 
-            // pictureBoxLogin
-            // 
-            pictureBoxLogin.Image = Properties.Resources.logInBox;
-            pictureBoxLogin.Location = new Point(23, 66);
-            pictureBoxLogin.Name = "pictureBoxLogin";
-            pictureBoxLogin.Size = new Size(335, 341);
-            pictureBoxLogin.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxLogin.TabIndex = 5;
-            pictureBoxLogin.TabStop = false;
             // 
             // pictureBox2
             // 
@@ -187,6 +177,16 @@
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
             // 
+            // pictureBoxLogin
+            // 
+            pictureBoxLogin.Image = Properties.Resources.logInBox;
+            pictureBoxLogin.Location = new Point(23, 66);
+            pictureBoxLogin.Name = "pictureBoxLogin";
+            pictureBoxLogin.Size = new Size(335, 341);
+            pictureBoxLogin.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLogin.TabIndex = 5;
+            pictureBoxLogin.TabStop = false;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -204,12 +204,12 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FrmLogin";
             Text = "Iniciar Sesión";
-            ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -218,7 +218,6 @@
         public TextBox textBoxUsuario;
         public TextBox textBoxPass;
         public Button btnIniciarSesion;
-        private PictureBox pictureBoxLogin;
         private PictureBox pictureBox2;
         private TableLayoutPanel tableLayoutPanel1;
         private Label lblLoginTitle;
@@ -226,5 +225,6 @@
         public Button btnMinimizarVentana;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
+        private PictureBox pictureBoxLogin;
     }
 }

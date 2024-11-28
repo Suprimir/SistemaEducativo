@@ -33,6 +33,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionGrupos.btnCrearGrupo.Click += btnCrearGrupo_Click;
             _frmGestionGrupos.btnEditarGrupo.Click += btnEditarGrupo_Click;
             _frmGestionGrupos.btnEliminarGrupo.Click += btnEliminarGrupo_Click;
+            _frmGestionGrupos.btnAsignarAlumno.Click += btnAsignarAlumno_Click;
+            _frmGestionGrupos.btnAsignarMaestro.Click += btnAsignarMaestro_Click;
         }
 
         private void frmGestionGrupos_Load(object sender, EventArgs e)
@@ -75,6 +77,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
                     cambioEnGrupos?.Invoke();
                 }
             }
+        }
+
+        private void btnAsignarAlumno_Click(object sender, EventArgs e)
+        {
+            FrmAsignarAlumno frmAsignarAlumno = new FrmAsignarAlumno();
+            frmAsignarAlumno.Show();
+        }
+
+        private void btnAsignarMaestro_Click(object sender, EventArgs e)
+        {
+            FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro();
+            frmAsignarMaestro.Show();
         }
     }
 }

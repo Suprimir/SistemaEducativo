@@ -36,7 +36,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void frmMenuAdmin_Load(object sender, EventArgs e)
         {
-            _frmMenuAdmin.lblBienvenida.Text = $"Bienvenido {_frmMenuAdmin._usuarioLogueado.Nombre}!";
+            _frmMenuAdmin.lblBienvenida.Text = $"~ Bienvenido {_frmMenuAdmin._usuarioLogueado.Nombre}!";
             _frmMenuAdmin.lblUsuario.Text = _frmMenuAdmin._usuarioLogueado.Matricula;
             _frmMenuAdmin.lblRol.Text = _frmMenuAdmin._usuarioLogueado.Rol;
 

@@ -35,6 +35,7 @@ namespace SistemaEducativo.DAO
                             {
                                 Usuario usuario = new Usuario();
 
+                                usuario.Id = reader.GetInt32(0);
                                 usuario.Matricula = reader.GetString(1);
                                 usuario.Nombre = reader.GetString(3);
                                 usuario.ApellidoP = reader.GetString(4);

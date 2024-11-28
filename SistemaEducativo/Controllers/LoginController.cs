@@ -46,7 +46,7 @@ namespace SistemaEducativo.Controllers
                             frmMenuAlumno.Show();
                             break;
                         case "maestro":
-                            frmMenuMaestro = new FrmMenuMaestro(_frmLogin);
+                            frmMenuMaestro = new FrmMenuMaestro(_frmLogin, usuario);
                             frmMenuMaestro.Show();
                             break;
                         case "admin":

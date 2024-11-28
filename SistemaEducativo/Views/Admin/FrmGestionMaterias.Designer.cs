@@ -34,14 +34,24 @@
             btnEliminarMateria = new Button();
             textBoxFiltroMateria = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
+            btnAsignarCarrera = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).BeginInit();
             SuspendLayout();
             // 
             // dataGridViewMaterias
             // 
+            dataGridViewMaterias.AllowUserToAddRows = false;
+            dataGridViewMaterias.AllowUserToDeleteRows = false;
+            dataGridViewMaterias.AllowUserToResizeColumns = false;
+            dataGridViewMaterias.AllowUserToResizeRows = false;
+            dataGridViewMaterias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMaterias.Location = new Point(16, 42);
+            dataGridViewMaterias.MultiSelect = false;
             dataGridViewMaterias.Name = "dataGridViewMaterias";
+            dataGridViewMaterias.ReadOnly = true;
+            dataGridViewMaterias.RowHeadersVisible = false;
+            dataGridViewMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewMaterias.Size = new Size(435, 219);
             dataGridViewMaterias.TabIndex = 0;
             // 
@@ -87,12 +97,22 @@
             comboBoxFiltroCarrera.Size = new Size(121, 23);
             comboBoxFiltroCarrera.TabIndex = 5;
             // 
+            // btnAsignarCarrera
+            // 
+            btnAsignarCarrera.Location = new Point(457, 174);
+            btnAsignarCarrera.Name = "btnAsignarCarrera";
+            btnAsignarCarrera.Size = new Size(127, 38);
+            btnAsignarCarrera.TabIndex = 6;
+            btnAsignarCarrera.Text = "Asignar Carrera";
+            btnAsignarCarrera.UseVisualStyleBackColor = true;
+            // 
             // FrmGestionMaterias
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(596, 275);
+            Controls.Add(btnAsignarCarrera);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroMateria);
             Controls.Add(btnEliminarMateria);
@@ -114,5 +134,6 @@
         public Button btnCrearMateria;
         public Button btnEditarMateria;
         public Button btnEliminarMateria;
+        public Button btnAsignarCarrera;
     }
 }
