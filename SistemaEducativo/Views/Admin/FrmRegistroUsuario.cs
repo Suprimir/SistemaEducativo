@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.Controllers.AdminControllers;
+using SistemaEducativo.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,11 @@ namespace SistemaEducativo.Views.Admin
     {
         private RegistroUsuarioController controller;
 
-        public FrmRegistroUsuario()
+        public FrmRegistroUsuario(Usuario usuario)
         {
             InitializeComponent();
 
-            controller = new RegistroUsuarioController(this);
+            controller = new RegistroUsuarioController(this, usuario);
         }
     }
 }

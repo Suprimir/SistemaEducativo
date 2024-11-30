@@ -45,13 +45,13 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnGrupos_Click(object sender, EventArgs e)
         {
-            FrmGestionGruposAsignados frmGestionGruposAsignados = new FrmGestionGruposAsignados(_frmMenuMaestro._usuarioLogueado.Id);
+            FrmGestionGruposAsignados frmGestionGruposAsignados = new FrmGestionGruposAsignados(_frmMenuMaestro._usuarioLogueado);
             AbrirFormEnPanelSubmenu(frmGestionGruposAsignados);
         }
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
-            FrmGestionTareas frmGestionTareas = new FrmGestionTareas();
+            FrmGestionTareas frmGestionTareas = new FrmGestionTareas(null);
             AbrirFormEnPanelSubmenu(frmGestionTareas);
         }
 

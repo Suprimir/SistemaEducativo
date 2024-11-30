@@ -8,13 +8,13 @@ namespace SistemaEducativo.Models
 {
     public class Materia
     {
-        private int materiaId;
+        private int? id;
         private string nombreCarrera;
         private int semestre;
         private string nombreMateria;
         private string descripcion;
 
-        public int MateriaId { get { return materiaId; } set { materiaId = value; } }
+        public int? Id { get { return id; } set { id = value; } }
         public string NombreCarrera { get { return nombreCarrera; } set { nombreCarrera = value; } }
         public int Semestre { get { return semestre; } set { semestre = value; } }
         public string NombreMateria { get { return nombreMateria; } set { nombreMateria = value; } }

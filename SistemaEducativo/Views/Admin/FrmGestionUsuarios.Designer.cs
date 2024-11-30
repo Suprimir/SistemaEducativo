@@ -39,11 +39,17 @@
             // 
             // dataGridViewUsuarios
             // 
+            dataGridViewUsuarios.AllowUserToAddRows = false;
+            dataGridViewUsuarios.AllowUserToDeleteRows = false;
+            dataGridViewUsuarios.AllowUserToResizeColumns = false;
+            dataGridViewUsuarios.AllowUserToResizeRows = false;
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewUsuarios.Location = new Point(16, 42);
             dataGridViewUsuarios.Name = "dataGridViewUsuarios";
+            dataGridViewUsuarios.ReadOnly = true;
             dataGridViewUsuarios.RowHeadersVisible = false;
+            dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewUsuarios.Size = new Size(435, 219);
             dataGridViewUsuarios.TabIndex = 0;
             // 
@@ -56,7 +62,9 @@
             // 
             // comboBoxFiltroRol
             // 
+            comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroRol.FormattingEnabled = true;
+            comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
             comboBoxFiltroRol.Location = new Point(330, 15);
             comboBoxFiltroRol.Name = "comboBoxFiltroRol";
             comboBoxFiltroRol.Size = new Size(121, 23);

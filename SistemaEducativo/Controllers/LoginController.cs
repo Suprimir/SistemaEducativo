@@ -1,5 +1,6 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
@@ -41,6 +42,8 @@ namespace SistemaEducativo.Controllers
 
                 if (usuario != null)
                 {
+                    SesionUsuario.Instancia.IniciarSesion(usuario);
+
                     switch (usuario.Rol)
                     {
                         case "alumno":

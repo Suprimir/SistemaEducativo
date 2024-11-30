@@ -267,7 +267,6 @@
         private Label lblApellidoMStatic;
         private Label lblCorreoStatic;
         private Label lblRolStatic;
-        private Label lblAsignarGStatic;
         public TextBox textBoxNombre;
         public TextBox textBoxApellidoP;
         public TextBox textBoxApellidoM;
@@ -280,5 +279,6 @@
         public ComboBox comboBoxGrupo;
         public Button btnRegistrarUsuario;
         public CheckBox checkBoxCorreo;
+        public Label lblAsignarGStatic;
     }
 }

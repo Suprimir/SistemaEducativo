@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using SistemaEducativo.Models;
-using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -11,101 +11,144 @@ namespace SistemaEducativo.DAO
 {
     internal class MateriaDAO
     {
-        public static List<Materia> ObtenerMaterias()
+        public static bool CrearActualizarMateria(Materia materia)
         {
-            List<Materia> lstMaterias = new List<Materia>();
-
-            using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            try
             {
-                string query = "SELECT materia_ID, nombre_Carrera, semestre, nombre_Materia, descripcion FROM materiasRelacionCarrera;";
-
-                using(MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    conn.Open();
-
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlCommand cmd = new MySqlCommand("CrearActualizarMateria", conn))
                     {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                Materia materia = new Materia();
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                                materia.MateriaId = reader.GetInt32(0);
-                                materia.NombreCarrera = reader.IsDBNull(1) ? "No Asignada" : reader.GetString(1);
-                                materia.Semestre = reader.IsDBNull(2) ? 0 : reader.GetInt32(2);
-                                materia.NombreMateria = reader.GetString(3);
-                                materia.Descripcion = reader.GetString(4);
+                        cmd.Parameters.AddWithValue("@p_materia_ID", materia.Id);
+                        cmd.Parameters.AddWithValue("@p_nombre_Materia", materia.NombreMateria);
+                        cmd.Parameters.AddWithValue("@p_descripcion", materia.Descripcion);
 
-                                lstMaterias.Add(materia);
-                            }
-                        }
-                    }
-                }
-            }
+                        conn.Open();
 
-            return lstMaterias;
-        }
+                        cmd.ExecuteNonQuery();
 
-        public static bool RegistrarMateria(string nombreMateria, string descripcion)
-        {
-            using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
-            {
-                string query = "INSERT INTO materias (nombre_Materia, descripcion) VALUES (@nombreMateria, @descripcion);";
-
-                using(MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@nombreMateria", nombreMateria);
-                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
-
-                    conn.Open();
-
-                    if(cmd.ExecuteNonQuery() != 0)
-                    {
                         return true;
                     }
                 }
             }
-
-            return false;
-        }
-
-        public static bool ActualizarMateria(Materia materia)
-        {
-
-            using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            catch (Exception ex)
             {
-                string query = "UPDATE materias SET nombre_Materia = @nombreMateria, descripcion = @descripcion WHERE materia_ID = @materiaID;";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@nombreMateria", materia.NombreMateria);
-                    cmd.Parameters.AddWithValue("@descripcion", materia.Descripcion);
-                    cmd.Parameters.AddWithValue("@materiaID", materia.MateriaId);
-
-                    conn.Open();
-
-                    if (cmd.ExecuteNonQuery() != 0)
-                    {
-                        return true;
-                    }
-                }
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
             }
-
-            return false;
         }
-
         public static bool EliminarMateria(int materiaId)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    string query = "DELETE FROM materias WHERE materia_ID = @materiaID";
-
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand("EliminarMateria", conn))
                     {
-                        cmd.Parameters.AddWithValue("@materiaID", materiaId);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_materia_ID", materiaId);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        }
+        public static List<Materia> ObtenerMaterias(string nombreCarrera)
+        {
+            try
+            {
+                List<Materia> lstMaterias = new List<Materia>();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerMaterias", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_nombre_Carrera", nombreCarrera);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Materia materia = new Materia();
+
+                                materia.Id = reader.GetInt32(0);
+                                materia.NombreMateria = reader.GetString(1);
+                                materia.Descripcion = reader.GetString(2);
+                                
+                                if (nombreCarrera != null)
+                                {
+                                    materia.Semestre = reader.GetInt32(3);
+                                }
+
+                                lstMaterias.Add(materia);
+                            }
+
+                            return lstMaterias;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return null;
+            }
+        }
+        public static bool AsignarMateriaCarrera(Materia materia)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("AsignarMateriaCarrera", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_nombre_Carrera", materia.NombreCarrera);
+                        cmd.Parameters.AddWithValue("@p_materia_ID", materia.Id);
+                        cmd.Parameters.AddWithValue("@p_semestre", materia.Semestre);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        }
+        public static bool DesasignarMateriaCarrera(Materia materia, Carrera carrera)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("DesasignarMateriaCarrera", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_carrera_ID", carrera.Id);
+                        cmd.Parameters.AddWithValue("@p_materia_ID", materia.Id);
+                        cmd.Parameters.AddWithValue("@p_semestre", materia.Semestre);
 
                         conn.Open();
 

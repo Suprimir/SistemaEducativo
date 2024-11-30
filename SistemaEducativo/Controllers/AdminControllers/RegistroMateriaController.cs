@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.DAO;
+using SistemaEducativo.Models;
 using SistemaEducativo.Views.Admin;
 using System;
 using System.Collections.Generic;
@@ -11,52 +12,51 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class RegistroMateriaController
     {
         private FrmRegistroMateria _frmRegistroMateria;
+        private Materia materiaSeleccionado;
 
-        public RegistroMateriaController(FrmRegistroMateria frmRegistroMateria)
+        public RegistroMateriaController(FrmRegistroMateria frmRegistroMateria, Materia materia)
         {
             _frmRegistroMateria = frmRegistroMateria;
+            materiaSeleccionado = materia;
 
-            if (_frmRegistroMateria._materiaSeleccionada != null) // Si el formulario tiene una materia no nula
-            {
-                _frmRegistroMateria.textBoxNombreMateria.Text = _frmRegistroMateria._materiaSeleccionada.NombreMateria;
-                _frmRegistroMateria.richTextBoxDescripcion.Text = _frmRegistroMateria._materiaSeleccionada.Descripcion;
-            }
-
+            _frmRegistroMateria.Load += frmRegistroMateria_Load;
             _frmRegistroMateria.btnRegistrarMateria.Click += btnRegistrarMateria_Click;
+        }
+
+        private void frmRegistroMateria_Load(object sender, EventArgs e)
+        {
+            if (materiaSeleccionado != null) // Si el formulario tiene una materia a editar
+            {
+                _frmRegistroMateria.textBoxNombreMateria.Text = materiaSeleccionado.NombreMateria;
+                _frmRegistroMateria.richTextBoxDescripcion.Text = materiaSeleccionado.Descripcion;
+            }
         }
 
         private void btnRegistrarMateria_Click(object sender, EventArgs e)
         {
-            if(_frmRegistroMateria._materiaSeleccionada != null)
+            if(materiaSeleccionado != null)
             {
-                _frmRegistroMateria._materiaSeleccionada.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
-                _frmRegistroMateria._materiaSeleccionada.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
+                materiaSeleccionado.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
+                materiaSeleccionado.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
 
-                if(MateriaDAO.ActualizarMateria(_frmRegistroMateria._materiaSeleccionada))
+                if (MateriaDAO.CrearActualizarMateria(materiaSeleccionado)) 
                 {
-                    MessageBox.Show("Registro Exitoso.");
-
-                    GestionMateriasController.cambioEnMaterias?.Invoke();
-
-                    _frmRegistroMateria.Dispose();
-                }
-                else
-                {
-                    MessageBox.Show("Hubo un error.");
+                    MessageBox.Show("Registro exitoso.");
+                    GestionMateriasController.actualizarTabla?.Invoke();
+                    _frmRegistroMateria.Close();
                 }
             } else
             {
-                if (MateriaDAO.RegistrarMateria(_frmRegistroMateria.textBoxNombreMateria.Text, _frmRegistroMateria.richTextBoxDescripcion.Text))
-                {
-                    MessageBox.Show("Registro Exitoso.");
+                Materia materia = new Materia();
 
-                    GestionMateriasController.cambioEnMaterias?.Invoke();
+                materia.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
+                materia.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
 
-                    _frmRegistroMateria.Dispose();
-                }
-                else
+                if (MateriaDAO.CrearActualizarMateria(materia))
                 {
-                    MessageBox.Show("Hubo un error.");
+                    MessageBox.Show("Registro exitoso.");
+                    GestionMateriasController.actualizarTabla?.Invoke();
+                    _frmRegistroMateria.Close();
                 }
             }
         }

@@ -28,31 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBoxMaterias = new ComboBox();
-            lblMateriasStatic = new Label();
+            lblNombreMateriaStatic = new Label();
             lblCarrerasStatic = new Label();
             comboBoxCarreras = new ComboBox();
             btnAsignarMateria = new Button();
             lblSemestreStatic = new Label();
             comboBoxSemestres = new ComboBox();
+            lblNombreMateria = new Label();
             SuspendLayout();
             // 
-            // comboBoxMaterias
+            // lblNombreMateriaStatic
             // 
-            comboBoxMaterias.FormattingEnabled = true;
-            comboBoxMaterias.Location = new Point(12, 27);
-            comboBoxMaterias.Name = "comboBoxMaterias";
-            comboBoxMaterias.Size = new Size(121, 23);
-            comboBoxMaterias.TabIndex = 0;
-            // 
-            // lblMateriasStatic
-            // 
-            lblMateriasStatic.AutoSize = true;
-            lblMateriasStatic.Location = new Point(12, 9);
-            lblMateriasStatic.Name = "lblMateriasStatic";
-            lblMateriasStatic.Size = new Size(52, 15);
-            lblMateriasStatic.TabIndex = 1;
-            lblMateriasStatic.Text = "Materias";
+            lblNombreMateriaStatic.AutoSize = true;
+            lblNombreMateriaStatic.Location = new Point(12, 9);
+            lblNombreMateriaStatic.Name = "lblNombreMateriaStatic";
+            lblNombreMateriaStatic.Size = new Size(119, 15);
+            lblNombreMateriaStatic.TabIndex = 1;
+            lblNombreMateriaStatic.Text = "Materia Seleccionada";
             // 
             // lblCarrerasStatic
             // 
@@ -65,6 +57,7 @@
             // 
             // comboBoxCarreras
             // 
+            comboBoxCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCarreras.FormattingEnabled = true;
             comboBoxCarreras.Location = new Point(139, 27);
             comboBoxCarreras.Name = "comboBoxCarreras";
@@ -91,24 +84,34 @@
             // 
             // comboBoxSemestres
             // 
+            comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxSemestres.FormattingEnabled = true;
             comboBoxSemestres.Location = new Point(139, 81);
             comboBoxSemestres.Name = "comboBoxSemestres";
             comboBoxSemestres.Size = new Size(121, 23);
             comboBoxSemestres.TabIndex = 6;
             // 
+            // lblNombreMateria
+            // 
+            lblNombreMateria.AutoSize = true;
+            lblNombreMateria.Location = new Point(12, 27);
+            lblNombreMateria.Name = "lblNombreMateria";
+            lblNombreMateria.Size = new Size(89, 15);
+            lblNombreMateria.TabIndex = 7;
+            lblNombreMateria.Text = "nombreMateria";
+            // 
             // FrmAsignarMateria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(277, 153);
+            Controls.Add(lblNombreMateria);
             Controls.Add(comboBoxSemestres);
             Controls.Add(lblSemestreStatic);
             Controls.Add(btnAsignarMateria);
             Controls.Add(comboBoxCarreras);
             Controls.Add(lblCarrerasStatic);
-            Controls.Add(lblMateriasStatic);
-            Controls.Add(comboBoxMaterias);
+            Controls.Add(lblNombreMateriaStatic);
             Name = "FrmAsignarMateria";
             Text = "FrmAsignarMateria";
             ResumeLayout(false);
@@ -116,13 +119,12 @@
         }
 
         #endregion
-
-        private ComboBox comboBoxMaterias;
-        private Label lblMateriasStatic;
+        private Label lblNombreMateriaStatic;
         private Label lblCarrerasStatic;
-        private ComboBox comboBoxCarreras;
-        private Button btnAsignarMateria;
         private Label lblSemestreStatic;
-        private ComboBox comboBoxSemestres;
+        public Button btnAsignarMateria;
+        public ComboBox comboBoxCarreras;
+        public ComboBox comboBoxSemestres;
+        public Label lblNombreMateria;
     }
 }

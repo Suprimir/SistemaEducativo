@@ -1,4 +1,5 @@
-﻿using SistemaEducativo.Views.Maestro;
+﻿using SistemaEducativo.Models;
+using SistemaEducativo.Views.Maestro;
 
 namespace SistemaEducativo.Controllers.MaestroControllers
 {

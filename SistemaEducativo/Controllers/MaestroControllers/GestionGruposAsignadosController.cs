@@ -32,7 +32,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         // EL LOAD OBTIENE LA LISTA DE LOS GRUPOS Y LOS MUESTRA EN LA TABLA CONFIGURADA ANTERIORMENTE
         private void frmGestionGruposAsignados_Load(object sender, EventArgs e)
         {
-            lstGrupos = GrupoDAO.ObtenerGruposAsignados(_frmGestionGruposAsignados.maestroID);
+            lstGrupos = GrupoDAO.ObtenerGruposAsignados(Convert.ToInt32(_frmGestionGruposAsignados.maestro.Id));
 
             foreach (var grupo in lstGrupos)
             {
@@ -43,7 +43,14 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         // CUANDO SE DA CLICK EN EL BOTON DE VER TAREAS ACTUALIZA EL SUBMENU PARA MOSTRAR LAS TAREAS DEL GRUPO SELECCIONADO
         private void btnVerTareas_Click(object sender, EventArgs e)
         {
-            FrmGestionTareas frmGestionTareas = new FrmGestionTareas();
+            GrupoProfesor grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows[0].Cells[0].Value.ToString())); ;
+
+            if (_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows.Count > 0)
+            {
+                
+            }
+
+            FrmGestionTareas frmGestionTareas = new FrmGestionTareas(grupoSeleccionado);
             MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);
         }
     }

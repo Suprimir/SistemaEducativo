@@ -14,27 +14,28 @@ namespace SistemaEducativo.DAO
     {
         public static List<Carrera> ObtenerCarreras()
         {
-            List<Carrera> lstCarreras = new List<Carrera>();
-
-            using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            try
             {
-                string query = "SELECT * FROM carreras;";
+                List<Carrera> lstCarreras = new List<Carrera>();
 
-                using(MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    conn.Open();
+                    string query = "SELECT * FROM carreras;";
 
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        if(reader.HasRows)
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            while(reader.Read())
+                            while (reader.Read())
                             {
                                 Carrera carrera = new Carrera();
 
-                                carrera.CarreraID = reader.GetInt32(0);
+                                carrera.Id = reader.GetInt32(0);
                                 carrera.NombreCarrera = reader.GetString(1);
                                 carrera.Descripcion = reader.GetString(2);
+                                carrera.TotalSemestres = reader.GetInt32(3);
 
                                 lstCarreras.Add(carrera);
                             }
@@ -43,38 +44,10 @@ namespace SistemaEducativo.DAO
                         }
                     }
                 }
-            }
-
-            return null;
-        }
-
-        public static int ObtenerTotalSemestres(int carreraID)
-        {
-            using(MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+            } catch (Exception ex)
             {
-                string query = "SELECT total_Semestres FROM carreras WHERE carrera_ID = @carreraID";
-
-                using(MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@carreraID", carreraID);
-
-                    conn.Open();
-
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if(reader.HasRows)
-                        {
-                            while(reader.Read())
-                            {
-                                int total_Semestres = reader.GetInt32(0);
-
-                                return total_Semestres;
-                            }
-                        }
-                    }
-                }
-
-                return 0;
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return null;
             }
         }
     }

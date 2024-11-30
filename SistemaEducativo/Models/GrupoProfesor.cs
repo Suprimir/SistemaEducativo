@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaEducativo.Models
 {
-    internal class GrupoProfesor : Grupo
+    public class GrupoProfesor : Grupo
     {
         private string materia;
 

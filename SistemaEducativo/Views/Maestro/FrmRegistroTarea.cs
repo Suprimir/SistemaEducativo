@@ -12,15 +12,15 @@ using System.Windows.Forms;
 
 namespace SistemaEducativo.Views.Maestro
 {
-    public partial class FrmGestionTareas : Form
+    public partial class FrmRegistroTarea : Form
     {
-        private GestionTareasController controller;
+        public RegistroTareaController controller;
 
-        public FrmGestionTareas(GrupoProfesor grupo)
+        public FrmRegistroTarea(GrupoProfesor grupo, Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new GestionTareasController(this, grupo);
+            controller = new RegistroTareaController(this, grupo, tarea);
         }
     }
 }

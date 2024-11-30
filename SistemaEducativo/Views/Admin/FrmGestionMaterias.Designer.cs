@@ -35,6 +35,7 @@
             textBoxFiltroMateria = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
             btnAsignarCarrera = new Button();
+            btnDesasignarCarrera = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaterias).BeginInit();
             SuspendLayout();
             // 
@@ -91,7 +92,9 @@
             // 
             // comboBoxFiltroCarrera
             // 
+            comboBoxFiltroCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroCarrera.FormattingEnabled = true;
+            comboBoxFiltroCarrera.Items.AddRange(new object[] { "" });
             comboBoxFiltroCarrera.Location = new Point(330, 13);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
             comboBoxFiltroCarrera.Size = new Size(121, 23);
@@ -103,8 +106,17 @@
             btnAsignarCarrera.Name = "btnAsignarCarrera";
             btnAsignarCarrera.Size = new Size(127, 38);
             btnAsignarCarrera.TabIndex = 6;
-            btnAsignarCarrera.Text = "Asignar Carrera";
+            btnAsignarCarrera.Text = "Asignar Materia a Carrera\n\n";
             btnAsignarCarrera.UseVisualStyleBackColor = true;
+            // 
+            // btnDesasignarCarrera
+            // 
+            btnDesasignarCarrera.Location = new Point(457, 218);
+            btnDesasignarCarrera.Name = "btnDesasignarCarrera";
+            btnDesasignarCarrera.Size = new Size(127, 38);
+            btnDesasignarCarrera.TabIndex = 7;
+            btnDesasignarCarrera.Text = "Desasignar Materia de Carrera\n\n";
+            btnDesasignarCarrera.UseVisualStyleBackColor = true;
             // 
             // FrmGestionMaterias
             // 
@@ -112,6 +124,7 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.White;
             ClientSize = new Size(596, 275);
+            Controls.Add(btnDesasignarCarrera);
             Controls.Add(btnAsignarCarrera);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroMateria);
@@ -135,5 +148,6 @@
         public Button btnEditarMateria;
         public Button btnEliminarMateria;
         public Button btnAsignarCarrera;
+        public Button btnDesasignarCarrera;
     }
 }

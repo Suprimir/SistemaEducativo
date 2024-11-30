@@ -45,7 +45,7 @@ namespace SistemaEducativo.DAO
 
                                 if(!reader.IsDBNull(8))
                                 {
-                                    usuario.GeneracionId = reader.GetInt32(8);
+                                    usuario.GrupoId = reader.GetInt32(8);
                                 }
 
                                 return usuario;
@@ -58,13 +58,13 @@ namespace SistemaEducativo.DAO
             return null;
         }
 
-        public static List<UsuarioGeneral> ObtenerUsuarios()
+        public static List<Usuario> ObtenerUsuarios()
         {
-            List<UsuarioGeneral> lstUsuarios = new List<UsuarioGeneral>();
+            List<Usuario> lstUsuarios = new List<Usuario>();
 
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
             {
-                string query = "SELECT * FROM usuariosGeneral;";
+                string query = "SELECT * FROM usuarios;";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -76,14 +76,17 @@ namespace SistemaEducativo.DAO
                         {
                             while(reader.Read())
                             {
-                                UsuarioGeneral usuario = new UsuarioGeneral();
+                                Usuario usuario = new Usuario();
 
                                 usuario.Id = reader.GetInt32(0);
                                 usuario.Matricula = reader.GetString(1);
                                 usuario.Pass = reader.GetString(2);
-                                usuario.NombreCompleto = reader.GetString(3);
-                                usuario.Correo = reader.GetString(4);
-                                usuario.Rol = reader.GetString(5);
+                                usuario.Nombre = reader.GetString(3);
+                                usuario.ApellidoP = reader.GetString(4);
+                                usuario.ApellidoM = reader.GetString(5);
+                                usuario.Correo = reader.GetString(6);
+                                usuario.Rol = reader.GetString(7);
+                                usuario.GrupoId = reader.IsDBNull(8) ? null : reader.GetInt32(8);
 
                                 lstUsuarios.Add(usuario);
                             }
@@ -95,19 +98,64 @@ namespace SistemaEducativo.DAO
             return lstUsuarios;
         }
 
-        public static bool CrearUsuario(Usuario usuario)
+        public static bool CrearActualizarUsuario(Usuario usuario)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    string query = "INSERT INTO usuarios ";
-                    return true;
+                    using (MySqlCommand cmd = new MySqlCommand("CrearActualizarUsuario", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_usuario_ID", usuario.Id); // Pueden ser nulos
+                        cmd.Parameters.AddWithValue("@p_nombre", usuario.Nombre);
+                        cmd.Parameters.AddWithValue("@p_apellido_P", usuario.ApellidoP);
+                        cmd.Parameters.AddWithValue("@p_apellido_M", usuario.ApellidoM);
+                        cmd.Parameters.AddWithValue("@p_mat", usuario.Matricula);
+                        cmd.Parameters.AddWithValue("@p_contraseña", usuario.Pass);
+                        cmd.Parameters.AddWithValue("@p_correo", usuario.Correo);
+                        cmd.Parameters.AddWithValue("@p_rol", usuario.Rol);
+                        cmd.Parameters.AddWithValue("@p_grupo_ID", usuario.GrupoId); // Pueden ser nulos
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
                 }
             } catch (Exception ex)
             {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
                 return false;
             }
-        }
+        } // Funcion crear y actualizar usuario terminada 😎
+
+        public static bool EliminarUsuario(Usuario usuario)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("EliminarUsuario", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_usuario_ID", usuario.Id);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        } // Ocupa explicacion ?? bueno elimina un usuario 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.Controllers.MaestroControllers;
+using SistemaEducativo.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,11 @@ namespace SistemaEducativo.Views.Maestro
     public partial class FrmGestionGruposAsignados : Form
     {
         private GestionGruposAsignadosController controller;
-        public int maestroID;
+        public Usuario maestro;
 
-        public FrmGestionGruposAsignados(int maestroID)
+        public FrmGestionGruposAsignados(Usuario maestro)
         {
-            this.maestroID = maestroID;
+            this.maestro = maestro;
 
             InitializeComponent();
 

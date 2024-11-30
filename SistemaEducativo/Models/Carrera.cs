@@ -8,14 +8,17 @@ namespace SistemaEducativo.Models
 {
     internal class Carrera
     {
-        private int carreraID;
+        private int id;
         private string nombreCarrera;
         private string descripcion;
+        private int totalSemestres;
 
-        public int CarreraID { get { return carreraID; } set { carreraID = value; } }
+        public int Id { get { return id; } set { id = value; } }
 
         public string NombreCarrera { get { return nombreCarrera; } set { nombreCarrera = value; } }
 
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
+
+        public int TotalSemestres { get { return totalSemestres; } set { totalSemestres = value; } }
     }
 }

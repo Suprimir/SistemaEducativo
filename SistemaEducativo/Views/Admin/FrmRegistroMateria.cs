@@ -15,15 +15,12 @@ namespace SistemaEducativo.Views.Admin
     public partial class FrmRegistroMateria : Form
     {
         private RegistroMateriaController controller;
-        public Materia? _materiaSeleccionada;
 
-        public FrmRegistroMateria(Materia? materiaSeleccionada)
+        public FrmRegistroMateria(Materia materia)
         {
             InitializeComponent();
-
-            _materiaSeleccionada = materiaSeleccionada;
             
-            controller = new RegistroMateriaController(this);
+            controller = new RegistroMateriaController(this, materia);
         }
     }
 }

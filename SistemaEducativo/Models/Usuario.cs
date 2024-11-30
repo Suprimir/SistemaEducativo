@@ -8,7 +8,7 @@ namespace SistemaEducativo.Models
 {
     public class Usuario
     {
-        private int id;
+        private int? id;
         private string matricula;
         private string pass;
         private string nombreCompleto;
@@ -17,9 +17,9 @@ namespace SistemaEducativo.Models
         private string apellidoM;
         private string correo;
         private string rol;
-        private int? generacionId;
+        private int? grupoId;
 
-        public int Id { get { return id; } set { id = value; } }
+        public int? Id { get { return id; } set { id = value; } }
 
         public string Matricula { get { return matricula; } set { matricula = value; } }
 
@@ -37,6 +37,6 @@ namespace SistemaEducativo.Models
 
         public string Rol { get { return rol; } set { rol = value; } }
 
-        public int? GeneracionId { get { return generacionId; } set { generacionId = value; } }
+        public int? GrupoId { get { return grupoId; } set { grupoId = value; } }
     }
 }

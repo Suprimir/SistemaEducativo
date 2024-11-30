@@ -61,7 +61,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             }
             else
             {
-                int carreraID = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera.Contains(_frmRegistroGrupo.comboBoxCarreras.Text)).CarreraID;
+                int carreraID = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera.Contains(_frmRegistroGrupo.comboBoxCarreras.Text)).Id;
                 string nombreGeneracion = _frmRegistroGrupo.textBoxNombreG.Text;
                 DateTime fechaInicio = _frmRegistroGrupo.dateTimePickerFechaInicio.Value;
 
