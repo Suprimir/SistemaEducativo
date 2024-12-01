@@ -19,5 +19,9 @@ namespace SistemaEducativo.Models
         public int Semestre { get { return semestre; } set { semestre = value; } }
         public string NombreMateria { get { return nombreMateria; } set { nombreMateria = value; } }
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
+        public override string ToString()
+        {
+            return NombreMateria;
+        }
     }
 }

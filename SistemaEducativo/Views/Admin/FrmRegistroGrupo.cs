@@ -15,15 +15,12 @@ namespace SistemaEducativo.Views.Admin
     public partial class FrmRegistroGrupo : Form
     {
         private RegistroGrupoController controller;
-        public Grupo? _grupoSeleccionado;
 
-        public FrmRegistroGrupo(Grupo? grupoSeleccionado)
+        public FrmRegistroGrupo(Grupo grupo)
         {
             InitializeComponent();
 
-            _grupoSeleccionado = grupoSeleccionado;
-
-            controller = new RegistroGrupoController(this);
+            controller = new RegistroGrupoController(this, grupo);
         }
     }
 }

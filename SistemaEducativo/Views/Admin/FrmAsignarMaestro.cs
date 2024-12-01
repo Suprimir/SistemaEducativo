@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.Controllers.AdminControllers;
+using SistemaEducativo.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,11 +16,11 @@ namespace SistemaEducativo.Views.Admin
     {
         private AsignarMaestroController controller;
 
-        public FrmAsignarMaestro()
+        public FrmAsignarMaestro(Grupo grupo)
         {
             InitializeComponent();
 
-            controller = new AsignarMaestroController(this);
+            controller = new AsignarMaestroController(this, grupo);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace SistemaEducativo.Models
 
         public string Pass { get { return pass; } set { pass = value; } }
 
-        public string NombreCompleto { get { return nombreCompleto; } set {  nombreCompleto = value; } }
+        public string NombreCompleto { get { return nombreCompleto; } set { nombreCompleto = value; } }
 
         public string Nombre { get { return nombre; } set { nombre = value; } }
 
@@ -38,5 +38,10 @@ namespace SistemaEducativo.Models
         public string Rol { get { return rol; } set { rol = value; } }
 
         public int? GrupoId { get { return grupoId; } set { grupoId = value; } }
+
+        public override string ToString()
+        {
+            return $"{Nombre} {ApellidoP} {ApellidoM}";
+        }
     }
 }

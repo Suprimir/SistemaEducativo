@@ -35,6 +35,8 @@
             textBoxNombreG = new TextBox();
             dateTimePickerFechaInicio = new DateTimePicker();
             btnRegistrarGrupo = new Button();
+            lblSemestreStatic = new Label();
+            comboBoxSemestres = new ComboBox();
             SuspendLayout();
             // 
             // labelCarreraStatic
@@ -89,18 +91,37 @@
             // 
             // btnRegistrarGrupo
             // 
-            btnRegistrarGrupo.Location = new Point(137, 152);
+            btnRegistrarGrupo.Location = new Point(138, 172);
             btnRegistrarGrupo.Name = "btnRegistrarGrupo";
             btnRegistrarGrupo.Size = new Size(75, 23);
             btnRegistrarGrupo.TabIndex = 7;
             btnRegistrarGrupo.Text = "Registrar";
             btnRegistrarGrupo.UseVisualStyleBackColor = true;
             // 
+            // lblSemestreStatic
+            // 
+            lblSemestreStatic.AutoSize = true;
+            lblSemestreStatic.Location = new Point(27, 138);
+            lblSemestreStatic.Name = "lblSemestreStatic";
+            lblSemestreStatic.Size = new Size(55, 15);
+            lblSemestreStatic.TabIndex = 8;
+            lblSemestreStatic.Text = "Semestre";
+            // 
+            // comboBoxSemestres
+            // 
+            comboBoxSemestres.FormattingEnabled = true;
+            comboBoxSemestres.Location = new Point(164, 135);
+            comboBoxSemestres.Name = "comboBoxSemestres";
+            comboBoxSemestres.Size = new Size(121, 23);
+            comboBoxSemestres.TabIndex = 9;
+            // 
             // FrmRegistroGrupo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(381, 198);
+            ClientSize = new Size(381, 218);
+            Controls.Add(comboBoxSemestres);
+            Controls.Add(lblSemestreStatic);
             Controls.Add(btnRegistrarGrupo);
             Controls.Add(dateTimePickerFechaInicio);
             Controls.Add(textBoxNombreG);
@@ -124,5 +145,7 @@
         public DateTimePicker dateTimePickerFechaInicio;
         public Button btnRegistrarGrupo;
         private TextBox textBox1;
+        private Label lblSemestreStatic;
+        public ComboBox comboBoxSemestres;
     }
 }

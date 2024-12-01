@@ -34,8 +34,6 @@
             lblGestionStatic = new Label();
             panel6 = new Panel();
             btnCerrarSesion = new Button();
-            panel4 = new Panel();
-            btnTareas = new Button();
             panel3 = new Panel();
             btnGrupos = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -53,7 +51,6 @@
             pictureBox2 = new PictureBox();
             panel2.SuspendLayout();
             panel6.SuspendLayout();
-            panel4.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -85,7 +82,6 @@
             panel2.BackColor = Color.White;
             panel2.Controls.Add(lblGestionStatic);
             panel2.Controls.Add(panel6);
-            panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
             panel2.Location = new Point(2, 35);
             panel2.Margin = new Padding(0);
@@ -128,32 +124,6 @@
             btnCerrarSesion.TabIndex = 14;
             btnCerrarSesion.Text = "                                Cerrar Sesión";
             btnCerrarSesion.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(btnTareas);
-            panel4.Location = new Point(0, 136);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(204, 49);
-            panel4.TabIndex = 25;
-            // 
-            // btnTareas
-            // 
-            btnTareas.BackColor = SystemColors.ControlLightLight;
-            btnTareas.Cursor = Cursors.Hand;
-            btnTareas.FlatAppearance.BorderColor = Color.Black;
-            btnTareas.FlatAppearance.BorderSize = 0;
-            btnTareas.FlatStyle = FlatStyle.Flat;
-            btnTareas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTareas.ForeColor = SystemColors.ControlText;
-            btnTareas.Image = Properties.Resources.UsuarioIcon;
-            btnTareas.Location = new Point(-69, 0);
-            btnTareas.Name = "btnTareas";
-            btnTareas.Size = new Size(273, 46);
-            btnTareas.TabIndex = 14;
-            btnTareas.Text = "                      Tareas";
-            btnTareas.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -356,7 +326,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel6.ResumeLayout(false);
-            panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
@@ -378,8 +347,6 @@
         private Label lblGestionStatic;
         private Panel panel6;
         public Button btnCerrarSesion;
-        private Panel panel4;
-        public Button btnTareas;
         private Panel panel3;
         public Button btnGrupos;
         private TableLayoutPanel tableLayoutPanel2;

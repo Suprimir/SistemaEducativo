@@ -32,7 +32,6 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
             // ASIGNAMOS FUNCIONES A LOS BOTONES DEL MENU
             _frmMenuMaestro.btnGrupos.Click += btnGrupos_Click;
-            _frmMenuMaestro.btnTareas.Click += btnTareas_Click;
         }
 
         private void frmMenuMaestro_Load(object sender, EventArgs e)
@@ -47,12 +46,6 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         {
             FrmGestionGruposAsignados frmGestionGruposAsignados = new FrmGestionGruposAsignados(_frmMenuMaestro._usuarioLogueado);
             AbrirFormEnPanelSubmenu(frmGestionGruposAsignados);
-        }
-
-        private void btnTareas_Click(object sender, EventArgs e)
-        {
-            FrmGestionTareas frmGestionTareas = new FrmGestionTareas(null);
-            AbrirFormEnPanelSubmenu(frmGestionTareas);
         }
 
         private void AbrirFormEnPanelSubmenu(Form subMenu)

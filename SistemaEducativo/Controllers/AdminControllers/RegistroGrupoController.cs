@@ -16,23 +16,28 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         // LISTA DE CARRERAS
         private List<Carrera> lstCarreras;
+        private Grupo grupoSeleccionado;
 
-        public RegistroGrupoController(FrmRegistroGrupo frmRegistroGrupo)
+        public RegistroGrupoController(FrmRegistroGrupo frmRegistroGrupo, Grupo grupo)
         {
             _frmRegistroGrupo = frmRegistroGrupo;
+            grupoSeleccionado = grupo;
 
             lstCarreras = CarreraDAO.ObtenerCarreras(); // LLAMA A LA BASE DE DATOS PARA OBTENER LAS CARRERAS
 
-            if(_frmRegistroGrupo._grupoSeleccionado != null)
+            if(grupoSeleccionado != null)
             {
-                _frmRegistroGrupo.comboBoxCarreras.Text = _frmRegistroGrupo._grupoSeleccionado.Carrera;
+                _frmRegistroGrupo.comboBoxCarreras.Text = grupoSeleccionado.Carrera;
                 _frmRegistroGrupo.comboBoxCarreras.Enabled = false;
-                _frmRegistroGrupo.textBoxNombreG.Text = _frmRegistroGrupo._grupoSeleccionado.NombreGrupo;
-                _frmRegistroGrupo.dateTimePickerFechaInicio.Value = _frmRegistroGrupo._grupoSeleccionado.FechaInicio;
+                _frmRegistroGrupo.textBoxNombreG.Text = grupoSeleccionado.NombreGrupo;
+                _frmRegistroGrupo.dateTimePickerFechaInicio.Value = grupoSeleccionado.FechaInicio;
                 _frmRegistroGrupo.dateTimePickerFechaInicio.Enabled = false;
+                _frmRegistroGrupo.comboBoxSemestres.Text = grupoSeleccionado.SemestreActual.ToString();
+                _frmRegistroGrupo.comboBoxSemestres.Enabled = false;
             }
 
             _frmRegistroGrupo.Load += frmRegistroGrupo_Load;
+            _frmRegistroGrupo.comboBoxCarreras.TextChanged += comboBoxCarreras_TextChanged;
             _frmRegistroGrupo.btnRegistrarGrupo.Click += btnRegistrarGrupo_Click;
         }
 
@@ -44,15 +49,29 @@ namespace SistemaEducativo.Controllers.AdminControllers
             }
         }
 
+        private void comboBoxCarreras_TextChanged(object sender, EventArgs e)
+        {
+            _frmRegistroGrupo.comboBoxSemestres.Items.Clear();
+
+            Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmRegistroGrupo.comboBoxCarreras.Text);
+
+            for (int i = 1; i <= carrera.TotalSemestres; i++)
+            {
+                _frmRegistroGrupo.comboBoxSemestres.Items.Add(i);
+            }
+        }
+
         private void btnRegistrarGrupo_Click(object sender, EventArgs e)
         {
-            if (_frmRegistroGrupo._grupoSeleccionado != null)
-            {
-                string nombreGeneracion = _frmRegistroGrupo.textBoxNombreG.Text;
+            Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmRegistroGrupo.comboBoxCarreras.Text);
 
-                if (!string.IsNullOrEmpty(nombreGeneracion))
+            if (grupoSeleccionado != null)
+            {
+                if (!string.IsNullOrEmpty(_frmRegistroGrupo.textBoxNombreG.Text))
                 {
-                    if(GrupoDAO.EditarGrupo(nombreGeneracion, _frmRegistroGrupo._grupoSeleccionado.GrupoID))
+                    grupoSeleccionado.NombreGrupo = _frmRegistroGrupo.textBoxNombreG.Text;
+
+                    if (GrupoDAO.CrearActualizarGrupo(grupoSeleccionado, carrera))
                     {
                         GestionGruposController.cambioEnGrupos?.Invoke();
                         _frmRegistroGrupo.Dispose();
@@ -61,13 +80,14 @@ namespace SistemaEducativo.Controllers.AdminControllers
             }
             else
             {
-                int carreraID = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera.Contains(_frmRegistroGrupo.comboBoxCarreras.Text)).Id;
-                string nombreGeneracion = _frmRegistroGrupo.textBoxNombreG.Text;
-                DateTime fechaInicio = _frmRegistroGrupo.dateTimePickerFechaInicio.Value;
+                Grupo grupo = new Grupo();
+                grupo.NombreGrupo = _frmRegistroGrupo.textBoxNombreG.Text;
+                grupo.FechaInicio = _frmRegistroGrupo.dateTimePickerFechaInicio.Value;
+                grupo.SemestreActual = Convert.ToInt32(_frmRegistroGrupo.comboBoxSemestres.Text);
 
-                if (!string.IsNullOrEmpty(_frmRegistroGrupo.comboBoxCarreras.Text) || !string.IsNullOrEmpty(nombreGeneracion))
+                if (!string.IsNullOrEmpty(_frmRegistroGrupo.comboBoxCarreras.Text) || !string.IsNullOrEmpty(_frmRegistroGrupo.comboBoxSemestres.Text))
                 {
-                    if (GrupoDAO.CrearGeneracion(carreraID, nombreGeneracion, fechaInicio))
+                    if (GrupoDAO.CrearActualizarGrupo(grupo, carrera))
                     {
                         GestionGruposController.cambioEnGrupos?.Invoke();
                         _frmRegistroGrupo.Dispose();

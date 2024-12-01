@@ -65,7 +65,7 @@ namespace SistemaEducativo.DAO
                 return false;
             }
         }
-        public static List<Materia> ObtenerMaterias(string nombreCarrera)
+        public static List<Materia> ObtenerMaterias(string nombreCarrera, int? semestre)
         {
             try
             {
@@ -78,6 +78,7 @@ namespace SistemaEducativo.DAO
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@p_nombre_Carrera", nombreCarrera);
+                        cmd.Parameters.AddWithValue("@p_semestre", semestre);
 
                         conn.Open();
 

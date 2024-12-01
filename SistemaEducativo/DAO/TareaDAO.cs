@@ -45,6 +45,32 @@ namespace SistemaEducativo.DAO
             }
         }
 
+        public static bool EliminarTarea(Tarea tarea)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("EliminarTarea", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_tarea_ID", tarea.ID);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex.Message}");
+                return false;
+            }
+        }
+
         public static List<Tarea> ObtenerTareas(GrupoProfesor grupo)
         {
             try

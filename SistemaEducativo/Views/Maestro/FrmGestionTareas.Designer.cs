@@ -133,13 +133,13 @@
         }
 
         #endregion
-        private Button btnEliminarTarea;
         private ComboBox comboBoxFiltroParciales;
-        private Button btnRevisarTareas;
         public DataGridView dataGridViewTareas;
         private Label lblTareas;
         private TextBox textBox1;
         public Button btnCrearTarea;
         public Button btnEditarTarea;
+        public Button btnEliminarTarea;
+        public Button btnRevisarTareas;
     }
 }

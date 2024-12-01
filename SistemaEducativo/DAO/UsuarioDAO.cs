@@ -58,16 +58,18 @@ namespace SistemaEducativo.DAO
             return null;
         }
 
-        public static List<Usuario> ObtenerUsuarios()
+        public static List<Usuario> ObtenerUsuarios(string? filtro)
         {
             List<Usuario> lstUsuarios = new List<Usuario>();
 
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
             {
-                string query = "SELECT * FROM usuarios;";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand("ObtenerUsuarios", conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@p_filtro_Rol", filtro);
+
                     conn.Open();
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())

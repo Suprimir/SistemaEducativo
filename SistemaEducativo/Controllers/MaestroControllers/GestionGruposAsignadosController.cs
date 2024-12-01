@@ -43,15 +43,15 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         // CUANDO SE DA CLICK EN EL BOTON DE VER TAREAS ACTUALIZA EL SUBMENU PARA MOSTRAR LAS TAREAS DEL GRUPO SELECCIONADO
         private void btnVerTareas_Click(object sender, EventArgs e)
         {
-            GrupoProfesor grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows[0].Cells[0].Value.ToString())); ;
+            GrupoProfesor grupoSeleccionado = new GrupoProfesor();
 
             if (_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows.Count > 0)
             {
+                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows[0].Cells[0].Value.ToString()));
                 
+                FrmGestionTareas frmGestionTareas = new FrmGestionTareas(grupoSeleccionado);
+                MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);
             }
-
-            FrmGestionTareas frmGestionTareas = new FrmGestionTareas(grupoSeleccionado);
-            MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);
         }
     }
 }

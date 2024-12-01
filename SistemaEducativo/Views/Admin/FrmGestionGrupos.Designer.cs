@@ -32,7 +32,6 @@
             btnCrearGrupo = new Button();
             btnEditarGrupo = new Button();
             btnEliminarGrupo = new Button();
-            btnAsignarAlumno = new Button();
             btnAsignarMaestro = new Button();
             textBoxFiltroNombre = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
@@ -82,18 +81,9 @@
             btnEliminarGrupo.Text = "Eliminar Grupo";
             btnEliminarGrupo.UseVisualStyleBackColor = true;
             // 
-            // btnAsignarAlumno
-            // 
-            btnAsignarAlumno.Location = new Point(457, 174);
-            btnAsignarAlumno.Name = "btnAsignarAlumno";
-            btnAsignarAlumno.Size = new Size(127, 38);
-            btnAsignarAlumno.TabIndex = 4;
-            btnAsignarAlumno.Text = "Asignar Alumnos";
-            btnAsignarAlumno.UseVisualStyleBackColor = true;
-            // 
             // btnAsignarMaestro
             // 
-            btnAsignarMaestro.Location = new Point(457, 218);
+            btnAsignarMaestro.Location = new Point(457, 174);
             btnAsignarMaestro.Name = "btnAsignarMaestro";
             btnAsignarMaestro.Size = new Size(127, 38);
             btnAsignarMaestro.TabIndex = 5;
@@ -124,7 +114,6 @@
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroNombre);
             Controls.Add(btnAsignarMaestro);
-            Controls.Add(btnAsignarAlumno);
             Controls.Add(btnEliminarGrupo);
             Controls.Add(btnEditarGrupo);
             Controls.Add(btnCrearGrupo);
@@ -144,7 +133,6 @@
         public Button btnCrearGrupo;
         public Button btnEditarGrupo;
         public Button btnEliminarGrupo;
-        public Button btnAsignarAlumno;
         public Button btnAsignarMaestro;
     }
 }

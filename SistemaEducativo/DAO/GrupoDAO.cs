@@ -8,20 +8,21 @@ namespace SistemaEducativo.DAO
 {
     internal class GrupoDAO
     {
-        public static bool CrearGeneracion(int carreraId, string nombreGrupo, DateTime fechaInicio)
+        public static bool CrearActualizarGrupo(Grupo grupo, Carrera carrera)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("CrearGruposConSemestresYParciales", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("CrearActualizarGrupo", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@carreraID", carreraId);
-                        cmd.Parameters.AddWithValue("@nombreGrupo", nombreGrupo);
-                        cmd.Parameters.AddWithValue("@semestreActual", 1);
-                        cmd.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                        cmd.Parameters.AddWithValue("@p_grupo_ID", grupo.Id);
+                        cmd.Parameters.AddWithValue("@p_carrera_ID", carrera.Id);
+                        cmd.Parameters.AddWithValue("@p_nombre_Grupo", grupo.NombreGrupo);
+                        cmd.Parameters.AddWithValue("@p_semestre_Actual", grupo.SemestreActual);
+                        cmd.Parameters.AddWithValue("@p_fechaInicio", grupo.FechaInicio);
 
                         conn.Open();
 
@@ -34,7 +35,7 @@ namespace SistemaEducativo.DAO
             }
             catch (Exception ex) 
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex.ToString()}");
                 return false;
             }
         }
@@ -59,7 +60,7 @@ namespace SistemaEducativo.DAO
                             {
                                 Grupo grupo = new Grupo();
 
-                                grupo.GrupoID = reader.GetInt32(0);
+                                grupo.Id = reader.GetInt32(0);
                                 grupo.Carrera = reader.GetString(1);
                                 grupo.NombreGrupo = reader.GetString(2);
                                 grupo.SemestreActual = reader.GetInt32(3);
@@ -111,22 +112,22 @@ namespace SistemaEducativo.DAO
 
             } catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex.ToString()}");
                 return null;
             }
         }
 
-        public static bool EliminarGrupo(int grupoID)
+        public static bool EliminarGrupo(Grupo grupo)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    string query = "DELETE FROM grupos WHERE grupo_ID = @grupoID";
-
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand("EliminarGrupo", conn))
                     {
-                        cmd.Parameters.AddWithValue("@grupoID", grupoID);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_grupo_ID", grupo.Id);
 
                         conn.Open();
 
@@ -138,35 +139,36 @@ namespace SistemaEducativo.DAO
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex.ToString()}");
                 return false;
             }
         }
 
-        public static bool EditarGrupo(string nombreGrupo, int grupoID)
+        public static bool AsignarMaestroGrupo(Usuario maestro, Grupo grupo, Materia materia)
         {
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    string query = "UPDATE grupos SET nombre_Grupo = @nombreGrupo WHERE grupo_ID = @grupoID;";
-
-                    using (MySqlCommand cmd = new MySqlCommand (query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand("AsignarMaestroGrupo", conn))
                     {
-                        cmd.Parameters.AddWithValue("@nombreGrupo", nombreGrupo);
-                        cmd.Parameters.AddWithValue("@grupoID", grupoID);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_grupo_ID", grupo.Id);
+                        cmd.Parameters.AddWithValue("@p_maestro_ID", maestro.Id);
+                        cmd.Parameters.AddWithValue("@p_materia_ID", materia.Id);
+                        cmd.Parameters.AddWithValue("@p_semestre", materia.Semestre);
 
                         conn.Open();
 
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Edicion exitosa");
                         return true;
                     }
                 }
             } catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex.Message}");
                 return false;
             }
         }

@@ -8,13 +8,13 @@ namespace SistemaEducativo.Models
 {
     public class Grupo
     {
-        private int grupoID;
+        private int? id;
         private string carrera;
         private string nombreGrupo;
         private int semestreActual;
         private DateTime fechaInicio;
 
-        public int GrupoID { get { return grupoID; } set { grupoID = value; } }
+        public int? Id { get { return id; } set { id = value; } }
 
         public string Carrera { get { return carrera; } set { carrera = value; } }
 
@@ -23,5 +23,10 @@ namespace SistemaEducativo.Models
         public int SemestreActual { get { return semestreActual; } set { semestreActual = value; } }
 
         public DateTime FechaInicio { get { return fechaInicio; } set { fechaInicio = value; } }
+
+        public override string ToString()
+        {
+            return NombreGrupo;
+        }
     }
 }

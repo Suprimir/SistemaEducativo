@@ -26,12 +26,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionMaterias = frmGestionMaterias;
 
             // AL INICIAR OBTIENE UN LISTADO DE LAS MATERIAS PARA CARGARLAS EN LA TABLA
-            lstMaterias = MateriaDAO.ObtenerMaterias(null);
+            lstMaterias = MateriaDAO.ObtenerMaterias(null, null);
             lstCarreras = CarreraDAO.ObtenerCarreras();
 
             // ACCION QUE SE EJECUTA CADA QUE SE REALIZA UN CAMBIO, OBTIENE LA LISTA DE MATERIAS Y RECARGA LA TABLA
             actualizarTabla = () => {
-                lstMaterias = MateriaDAO.ObtenerMaterias(null); 
+                lstMaterias = MateriaDAO.ObtenerMaterias(null, null); 
                 frmGestionMaterias_Load(null, null); 
                 _frmGestionMaterias.comboBoxFiltroCarrera.Text = ""; 
             };
@@ -104,7 +104,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = false;
             }
 
-            lstMaterias = MateriaDAO.ObtenerMaterias(nombreCarrera);
+            lstMaterias = MateriaDAO.ObtenerMaterias(nombreCarrera, null);
             frmGestionMaterias_Load(sender, e);
         }
 

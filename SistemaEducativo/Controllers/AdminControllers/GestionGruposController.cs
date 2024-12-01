@@ -37,7 +37,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionGrupos.btnCrearGrupo.Click += btnCrearGrupo_Click;
             _frmGestionGrupos.btnEditarGrupo.Click += btnEditarGrupo_Click;
             _frmGestionGrupos.btnEliminarGrupo.Click += btnEliminarGrupo_Click;
-            _frmGestionGrupos.btnAsignarAlumno.Click += btnAsignarAlumno_Click;
             _frmGestionGrupos.btnAsignarMaestro.Click += btnAsignarMaestro_Click;
         }
 
@@ -66,7 +65,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         // Abre igualmente el formulario de registro de grupo pero esta vez le pasa el grupo que se selecciono para editarlo
         private void btnEditarGrupo_Click(object sender, EventArgs e)
         {
-            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.GrupoID == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
+            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
 
             FrmRegistroGrupo frmRegistroGrupo = new FrmRegistroGrupo(grupoSeleccionado);
             frmRegistroGrupo.Show();
@@ -75,29 +74,24 @@ namespace SistemaEducativo.Controllers.AdminControllers
         // Pregunta si en verdad desea eliminar un grupo y si dice que si le pide a la base de datos eliminar ese registro.
         private void btnEliminarGrupo_Click(object sender, EventArgs e)
         {
-            int generacionID = Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value);
+            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
 
             DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el grupo seleccionado.", "Eliminar Grupo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if(GrupoDAO.EliminarGrupo(generacionID))
+                if(GrupoDAO.EliminarGrupo(grupoSeleccionado))
                 {
                     cambioEnGrupos?.Invoke();
                 }
             }
         }
 
-        // Abre el formulario para asignar alumnos a los grupos
-        private void btnAsignarAlumno_Click(object sender, EventArgs e)
-        {
-            FrmAsignarAlumno frmAsignarAlumno = new FrmAsignarAlumno();
-            frmAsignarAlumno.Show();
-        }
-
         // Abre el formulario para asignar maestros a los grupos y que materia impartira
         private void btnAsignarMaestro_Click(object sender, EventArgs e)
         {
-            FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro();
+            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
+
+            FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro(grupoSeleccionado);
             frmAsignarMaestro.Show();
         }
     }

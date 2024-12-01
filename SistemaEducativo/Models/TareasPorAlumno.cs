@@ -19,5 +19,10 @@ namespace SistemaEducativo.Models
         public string PathArchivoTarea { get { return pathArchivoTarea; } set { pathArchivoTarea = value; } }
         public DateTime FechaEntregada { get { return fechaEntregada; } set { fechaEntregada = value; } }
         public string Estado { get { return estado; } set { estado = value; } }
+
+        public override string ToString()
+        {
+            return NombreAlumno;
+        }
     }
 }

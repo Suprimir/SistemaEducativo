@@ -32,8 +32,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("rol", "Rol");
             _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("grupoID", "Grupo ID");
 
-            lstUsuarios = UsuarioDAO.ObtenerUsuarios(); // Llama a la base de datos para obtener la lista de usuarios
-            actualizarTabla = () => { lstUsuarios = UsuarioDAO.ObtenerUsuarios(); frmGestionUsuarios_Load(null, null); };
+            lstUsuarios = UsuarioDAO.ObtenerUsuarios(null); // Llama a la base de datos para obtener la lista de usuarios
+            actualizarTabla = () => { lstUsuarios = UsuarioDAO.ObtenerUsuarios(null); frmGestionUsuarios_Load(null, null); };
 
             _frmGestionUsuarios.Load += frmGestionUsuarios_Load; // Cuando inicia el formulario carga una funcion la cual es cargar datos en tabla
             _frmGestionUsuarios.textBoxFiltroUsuarios.TextChanged += textBoxFiltroUsuario_TextChanged;

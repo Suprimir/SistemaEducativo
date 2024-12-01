@@ -19,5 +19,10 @@ namespace SistemaEducativo.Models
         public string Titulo { get { return titulo; } set { titulo = value; } }
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
         public DateTime Fecha_Limite { get { return fecha_Limite; } set { fecha_Limite = value; } }
+
+        public override string ToString()
+        {
+            return Titulo;
+        }
     }
 }

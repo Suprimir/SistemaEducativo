@@ -20,5 +20,10 @@ namespace SistemaEducativo.Models
         public string Descripcion { get { return descripcion; } set { descripcion = value; } }
 
         public int TotalSemestres { get { return totalSemestres; } set { totalSemestres = value; } }
+
+        public override string ToString()
+        {
+            return NombreCarrera;
+        }
     }
 }
