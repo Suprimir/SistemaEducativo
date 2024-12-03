@@ -36,6 +36,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             _frmGestionTareas.btnCrearTarea.Click += btnCrearTarea_Click; // Crear Tarea Asignado a Boton
             _frmGestionTareas.btnEditarTarea.Click += btnEditarTarea_Clck; // Crear Tarea Asignado a Boton
             _frmGestionTareas.btnEliminarTarea.Click += btnEliminarTarea_Click;
+            _frmGestionTareas.btnRevisarTareas.Click += 
         }
 
         private void frmGestionTareas_Load(object sender, EventArgs e)
@@ -80,6 +81,19 @@ namespace SistemaEducativo.Controllers.MaestroControllers
                     MessageBox.Show("Registro exitoso.");
                     actualizarTabla?.Invoke();
                 }
+            }
+        }
+
+        private void btnRevisarTareas_Click(object sender, EventArgs e)
+        {
+            Tarea tareaSeleccionada = new Tarea();
+
+            if (_frmGestionTareas.dataGridViewTareas.SelectedRows.Count > 0)
+            {
+                tareaSeleccionada = lstTareas.FirstOrDefault(tarea => tarea.ID == Convert.ToInt32(_frmGestionTareas.dataGridViewTareas.SelectedRows[0].Cells[0].Value));
+
+                FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(tareaSeleccionada);
+                MenuMaestroController.actualizarSubmenu(frmRevisionTareas);
             }
         }
     }

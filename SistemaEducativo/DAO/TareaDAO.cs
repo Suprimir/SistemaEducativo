@@ -83,7 +83,7 @@ namespace SistemaEducativo.DAO
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@p_MatriculaMaestro", SesionUsuario.Instancia.Matricula);
+                        cmd.Parameters.AddWithValue("@p_MatriculaUsuario", SesionUsuario.Instancia.Matricula);
                         cmd.Parameters.AddWithValue("@p_nombreGrupo", grupo.NombreGrupo);
                         cmd.Parameters.AddWithValue("@p_nombreMateria", grupo.Materia);
 
@@ -111,6 +111,104 @@ namespace SistemaEducativo.DAO
             } catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return null;
+            }
+        }
+
+        public static bool EntregarTarea(TareaPorAlumno tarea)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("EntregarTarea", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_matricula_Alumno", SesionUsuario.Instancia.Matricula);
+                        cmd.Parameters.AddWithValue("@p_tarea_ID", tarea.ID);
+                        cmd.Parameters.AddWithValue("@p_tarea_Path", tarea.PathArchivoTarea);
+                        cmd.Parameters.AddWithValue("@p_fecha_Entrega", tarea.FechaEntregada);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        }
+
+        public static bool CancelarEntregaTarea(TareaPorAlumno tarea)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("CancelarEntregaTarea", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_tarea_alumno_ID", tarea.ID);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
+            }
+        }
+
+        public static TareaPorAlumno ObtenerTareasAlumnos(Tarea tarea)
+        {
+            try
+            {
+                TareaPorAlumno tareaObtenida = new TareaPorAlumno();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerTareasAlumnos", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_matricula_Alumno", SesionUsuario.Instancia.Matricula);
+                        cmd.Parameters.AddWithValue("@p_tareaID", tarea.ID);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    tareaObtenida.ID = reader.GetInt32(0);
+                                    tareaObtenida.PathArchivoTarea = reader.GetString(3);
+                                    tareaObtenida.FechaEntregada = reader.GetDateTime(4);
+                                    tareaObtenida.Estado = reader.GetString(5);
+                                }
+
+                                return tareaObtenida;
+                            }
+
+                            return null;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
                 return null;
             }
         }

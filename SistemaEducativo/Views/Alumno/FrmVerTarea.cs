@@ -1,4 +1,4 @@
-﻿using SistemaEducativo.Controllers.MaestroControllers;
+﻿using SistemaEducativo.Controllers.AlumnoControllers;
 using SistemaEducativo.Models;
 using System;
 using System.Collections.Generic;
@@ -10,16 +10,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaEducativo.Views.Maestro
+namespace SistemaEducativo.Views.Alumno
 {
-    public partial class FrmRevisionTareas : Form
+    public partial class FrmVerTarea : Form
     {
-        private RevisionTareasController controller;
-        public FrmRevisionTareas(Tarea tarea)
+        private VerTareaController controller;
+
+        public FrmVerTarea(Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new RevisionTareasController(this, tarea);
+            controller = new VerTareaController(this, tarea);
         }
     }
 }
