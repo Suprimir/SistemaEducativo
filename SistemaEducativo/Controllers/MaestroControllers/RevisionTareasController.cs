@@ -8,6 +8,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     {
         private FrmRevisionTareas _frmRevisionTareas;
         private List<TareaPorAlumno> lstTareas;
+        public Action actualizarView;
 
         public RevisionTareasController(FrmRevisionTareas frmRevisionTareas, Tarea tarea)
         {
@@ -23,6 +24,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             _frmRevisionTareas.dataGridViewTareas.Columns.Add("calificacion", "Calificacion");
 
             _frmRevisionTareas.Load += frmRevisionTareas_Load;
+            _frmRevisionTareas.btnCalificarTarea.Click += btnCalificarTarea_Click;
         }
 
         private void frmRevisionTareas_Load(object sender, EventArgs e)
@@ -30,6 +32,18 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             foreach (var tarea in lstTareas)
             {
                 _frmRevisionTareas.dataGridViewTareas.Rows.Add(tarea.ID, tarea.NombreAlumno, tarea.FechaEntregada, tarea.Calificacion);
+            }
+        }
+
+        private void btnCalificarTarea_Click(object sender, EventArgs e)
+        {
+            TareaPorAlumno tarea = new TareaPorAlumno();
+
+            tarea.Calificacion = Convert.ToInt32(_frmRevisionTareas.textBoxCalificacion.Text);
+            
+            if (TareaDAO.CalificarTarea(tarea))
+            {
+                MessageBox.Show("Registro exitoso.");
             }
         }
     }

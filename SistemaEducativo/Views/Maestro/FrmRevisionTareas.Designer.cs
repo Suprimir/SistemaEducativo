@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             dataGridViewTareas = new DataGridView();
-            button1 = new Button();
+            btnCalificarTarea = new Button();
             lblCalificacionStatic = new Label();
-            textBox1 = new TextBox();
-            button2 = new Button();
+            textBoxCalificacion = new TextBox();
+            btnVisualizarTarea = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
             SuspendLayout();
             // 
@@ -44,58 +44,65 @@
             dataGridViewTareas.AllowUserToResizeRows = false;
             dataGridViewTareas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTareas.Location = new Point(16, 12);
+            dataGridViewTareas.Location = new Point(20, 15);
+            dataGridViewTareas.Margin = new Padding(4, 4, 4, 4);
             dataGridViewTareas.Name = "dataGridViewTareas";
             dataGridViewTareas.ReadOnly = true;
             dataGridViewTareas.RowHeadersVisible = false;
-            dataGridViewTareas.Size = new Size(435, 249);
+            dataGridViewTareas.RowHeadersWidth = 51;
+            dataGridViewTareas.Size = new Size(544, 311);
             dataGridViewTareas.TabIndex = 0;
             // 
-            // button1
+            // btnCalificarTarea
             // 
-            button1.Location = new Point(457, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 38);
-            button1.TabIndex = 1;
-            button1.Text = "Calificar";
-            button1.UseVisualStyleBackColor = true;
+            btnCalificarTarea.Location = new Point(571, 279);
+            btnCalificarTarea.Margin = new Padding(4, 4, 4, 4);
+            btnCalificarTarea.Name = "btnCalificarTarea";
+            btnCalificarTarea.Size = new Size(159, 48);
+            btnCalificarTarea.TabIndex = 1;
+            btnCalificarTarea.Text = "Calificar";
+            btnCalificarTarea.UseVisualStyleBackColor = true;
             // 
             // lblCalificacionStatic
             // 
             lblCalificacionStatic.AutoSize = true;
-            lblCalificacionStatic.Location = new Point(457, 12);
+            lblCalificacionStatic.Location = new Point(571, 15);
+            lblCalificacionStatic.Margin = new Padding(4, 0, 4, 0);
             lblCalificacionStatic.Name = "lblCalificacionStatic";
-            lblCalificacionStatic.Size = new Size(69, 15);
+            lblCalificacionStatic.Size = new Size(86, 20);
             lblCalificacionStatic.TabIndex = 2;
             lblCalificacionStatic.Text = "Calificacion";
             // 
-            // textBox1
+            // textBoxCalificacion
             // 
-            textBox1.Location = new Point(457, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(127, 23);
-            textBox1.TabIndex = 5;
+            textBoxCalificacion.Location = new Point(571, 38);
+            textBoxCalificacion.Margin = new Padding(4, 4, 4, 4);
+            textBoxCalificacion.Name = "textBoxCalificacion";
+            textBoxCalificacion.Size = new Size(158, 27);
+            textBoxCalificacion.TabIndex = 5;
             // 
-            // button2
+            // btnVisualizarTarea
             // 
-            button2.Location = new Point(457, 59);
-            button2.Name = "button2";
-            button2.Size = new Size(127, 38);
-            button2.TabIndex = 6;
-            button2.Text = "Visualizar Tarea";
-            button2.UseVisualStyleBackColor = true;
+            btnVisualizarTarea.Location = new Point(571, 74);
+            btnVisualizarTarea.Margin = new Padding(4, 4, 4, 4);
+            btnVisualizarTarea.Name = "btnVisualizarTarea";
+            btnVisualizarTarea.Size = new Size(159, 48);
+            btnVisualizarTarea.TabIndex = 6;
+            btnVisualizarTarea.Text = "Visualizar Tarea";
+            btnVisualizarTarea.UseVisualStyleBackColor = true;
             // 
             // FrmRevisionTareas
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(596, 275);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
+            ClientSize = new Size(745, 344);
+            Controls.Add(btnVisualizarTarea);
+            Controls.Add(textBoxCalificacion);
             Controls.Add(lblCalificacionStatic);
-            Controls.Add(button1);
+            Controls.Add(btnCalificarTarea);
             Controls.Add(dataGridViewTareas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmRevisionTareas";
             Text = "Revision Tareas";
             ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
@@ -104,10 +111,11 @@
         }
 
         #endregion
-        private Button button1;
         private Label lblCalificacionStatic;
-        private TextBox textBox1;
         private Button button2;
         public DataGridView dataGridViewTareas;
+        public Button btnCalificarTarea;
+        public Button btnVisualizarTarea;
+        public TextBox textBoxCalificacion;
     }
 }
