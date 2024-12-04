@@ -171,7 +171,7 @@ namespace SistemaEducativo.DAO
             }
         }
 
-        public static TareaPorAlumno ObtenerTareasAlumnos(Tarea tarea)
+        public static TareaPorAlumno ValidarTareaAlumno(Tarea tarea)
         {
             try
             {
@@ -179,7 +179,7 @@ namespace SistemaEducativo.DAO
 
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("ObtenerTareasAlumnos", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("ValidarTareaAlumno", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -210,6 +210,77 @@ namespace SistemaEducativo.DAO
             } catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public static List<TareaPorAlumno> ObtenerTareasAlumno(Tarea tareaSeleccionada)
+        {
+            try
+            {
+                List<TareaPorAlumno> lstTareas = new List<TareaPorAlumno>();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerTareasAlumno", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_Matricula_Usuario", SesionUsuario.Instancia.Matricula);
+                        cmd.Parameters.AddWithValue("@p_tarea_ID", tareaSeleccionada.ID);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                TareaPorAlumno tarea = new TareaPorAlumno();
+
+                                tarea.ID = reader.GetInt32(0);
+                                tarea.NombreAlumno = reader.GetString(1);
+                                tarea.PathArchivoTarea = reader.GetString(2);
+                                tarea.FechaEntregada = reader.GetDateTime(3);
+                                tarea.Estado = reader.GetString(4);
+                                tarea.Calificacion = reader.IsDBNull(5) ? null : reader.GetDouble(5);
+                                
+                                lstTareas.Add(tarea);
+                            }
+
+                            return lstTareas;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"error: {ex}");
+                return null;
+            }
+        }
+
+        public static bool CalificarTarea(TareaPorAlumno tarea)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("CalificarTarea", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_tarea_ID", tarea.ID);
+                        cmd.Parameters.AddWithValue("@p_calificacion", tarea.Calificacion);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"error: {ex.Message}");
+                return false;
             }
         }
     }

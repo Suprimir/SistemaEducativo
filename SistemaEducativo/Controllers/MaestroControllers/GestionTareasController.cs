@@ -36,7 +36,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             _frmGestionTareas.btnCrearTarea.Click += btnCrearTarea_Click; // Crear Tarea Asignado a Boton
             _frmGestionTareas.btnEditarTarea.Click += btnEditarTarea_Clck; // Crear Tarea Asignado a Boton
             _frmGestionTareas.btnEliminarTarea.Click += btnEliminarTarea_Click;
-            _frmGestionTareas.btnRevisarTareas.Click += 
+            _frmGestionTareas.btnRevisarTareas.Click += btnRevisarTareas_Click;  
         }
 
         private void frmGestionTareas_Load(object sender, EventArgs e)

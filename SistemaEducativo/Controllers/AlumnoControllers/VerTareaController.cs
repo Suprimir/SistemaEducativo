@@ -22,9 +22,9 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmVerTarea = frmVerTarea;
             tareaSeleccionada = tarea;
 
-            tareaEntregada = TareaDAO.ObtenerTareasAlumnos(tarea);
+            tareaEntregada = TareaDAO.ValidarTareaAlumno(tarea);
 
-            actualizarEstado = () => { tareaEntregada = TareaDAO.ObtenerTareasAlumnos(tarea); frmVerTarea_Load(null, null); };
+            actualizarEstado = () => { tareaEntregada = TareaDAO.ValidarTareaAlumno(tarea); frmVerTarea_Load(null, null); };
 
             MessageBox.Show(tareaEntregada != null ? "Existe" : "No existe");
 
