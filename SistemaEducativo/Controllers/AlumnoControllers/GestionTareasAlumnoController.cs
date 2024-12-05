@@ -1,6 +1,7 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Views.Alumno;
+using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,37 +21,28 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
             lstTareas = TareaDAO.ObtenerTareas(new GrupoProfesor());
 
-            // CONFIGURACION DATA GRID VIEW
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns.Add("id", "id");
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns["id"].Visible = false;
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns.Add("parcial", "Parcial");
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns.Add("titulo", "Titulo");
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns.Add("descripcion", "Descripcion");
-            _frmGestionTareasAlumno.dataGridViewTareas.Columns.Add("fechaLimite", "Fecha Limite");
-
             _frmGestionTareasAlumno.Load += frmGestionTareasAlumno_Load;
-            _frmGestionTareasAlumno.btnVerTarea.Click += btnVerTarea_Click;
         }
 
         private void frmGestionTareasAlumno_Load(object sender, EventArgs e)
         {
+            if (_frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Count > 0)
+            {
+                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.RemoveAt(0);
+            }
+
             foreach (var tarea in lstTareas)
             {
-                _frmGestionTareasAlumno.dataGridViewTareas.Rows.Add(tarea.ID, tarea.Parcial, tarea.Titulo, tarea.Descripcion, tarea.Fecha_Limite);
+                FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
+                frmTareaAlumno.TopLevel = false;
+                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
+                frmTareaAlumno.Show();
             }
         }
 
         private void btnVerTarea_Click(object sender, EventArgs e)
         {
-            Tarea tarea = new Tarea();
 
-            if (_frmGestionTareasAlumno.dataGridViewTareas.SelectedRows.Count > 0)
-            {
-                tarea = lstTareas.FirstOrDefault(tarea => tarea.ID == Convert.ToInt32(_frmGestionTareasAlumno.dataGridViewTareas.SelectedRows[0].Cells[0].Value));
-            }
-
-            FrmVerTarea frmVerTarea = new FrmVerTarea(tarea);
-            MenuAlumnoController.actualizarSubmenu(frmVerTarea);
         }
     }
 }

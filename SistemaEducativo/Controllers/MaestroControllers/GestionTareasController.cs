@@ -1,5 +1,6 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
@@ -24,29 +25,24 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             lstTareas = TareaDAO.ObtenerTareas(grupoSeleccionado);
             actualizarTabla = () => { lstTareas = TareaDAO.ObtenerTareas(grupoSeleccionado); frmGestionTareas_Load(null, null); };
 
-            // CONFIGURACION TABLA
-            _frmGestionTareas.dataGridViewTareas.Columns.Add("id", "ID");
-            _frmGestionTareas.dataGridViewTareas.Columns[0].Visible = false; // Ocultamos la tabla id al usuarios normal
-            _frmGestionTareas.dataGridViewTareas.Columns.Add("nivelParcial", "Parcial");
-            _frmGestionTareas.dataGridViewTareas.Columns.Add("titulo", "Titulo");
-            _frmGestionTareas.dataGridViewTareas.Columns.Add("descripcion", "Descripcion");
-            _frmGestionTareas.dataGridViewTareas.Columns.Add("fechaLimite", "Fecha Limite");
-
             _frmGestionTareas.Load += frmGestionTareas_Load;
-            _frmGestionTareas.btnCrearTarea.Click += btnCrearTarea_Click; // Crear Tarea Asignado a Boton
-            _frmGestionTareas.btnEditarTarea.Click += btnEditarTarea_Clck; // Crear Tarea Asignado a Boton
-            _frmGestionTareas.btnEliminarTarea.Click += btnEliminarTarea_Click;
-            _frmGestionTareas.btnRevisarTareas.Click += btnRevisarTareas_Click;  
+            _frmGestionTareas.crearTareaToolStripMenuItem.Click += btnCrearTarea_Click; // Crear Tarea Asignado a Boton
+            _frmGestionTareas.editarTareaToolStripMenuItem.Click += btnEditarTarea_Clck; // Crear Tarea Asignado a Boton
+            _frmGestionTareas.eliminarTareaToolStripMenuItem.Click += btnEliminarTarea_Click;
         }
 
         private void frmGestionTareas_Load(object sender, EventArgs e)
         {
-            _frmGestionTareas.dataGridViewTareas.Rows.Clear();
 
             foreach (var tarea in lstTareas)
             {
-                _frmGestionTareas.dataGridViewTareas.Rows.Add(tarea.ID, tarea.Parcial, tarea.Titulo, tarea.Descripcion, tarea.Fecha_Limite);
+                FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
+                frmTareaAlumno.TopLevel = false;
+                _frmGestionTareas.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
+                frmTareaAlumno.Show();
             }
+
+            MessageBox.Show(_frmGestionTareas.flowLayoutPanelTareas.Controls.Count.ToString());
         }
 
         private void btnCrearTarea_Click(object sender, EventArgs e) // Funcion Crear Tarea
@@ -57,44 +53,20 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnEditarTarea_Clck(object sender, EventArgs e)
         {
-            Tarea tareaSeleccionada = new Tarea();
-
-            if (_frmGestionTareas.dataGridViewTareas.SelectedRows.Count > 0)
-            {
-                tareaSeleccionada = lstTareas.FirstOrDefault(tarea => tarea.ID == Convert.ToInt32(_frmGestionTareas.dataGridViewTareas.SelectedRows[0].Cells[0].Value));
-            }
-
-            FrmRegistroTarea frmRegistroTarea = new FrmRegistroTarea(grupoSeleccionado, tareaSeleccionada);
-            frmRegistroTarea.Show();
         }
 
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
-            Tarea tareaSeleccionada = new Tarea();
-
-            if (_frmGestionTareas.dataGridViewTareas.SelectedRows.Count > 0)
+            if (TareaDAO.EliminarTarea(null))
             {
-                tareaSeleccionada = lstTareas.FirstOrDefault(tarea => tarea.ID == Convert.ToInt32(_frmGestionTareas.dataGridViewTareas.SelectedRows[0].Cells[0].Value));
-                
-                if (TareaDAO.EliminarTarea(tareaSeleccionada))
-                {
-                    MessageBox.Show("Registro exitoso.");
-                    actualizarTabla?.Invoke();
-                }
+                MessageBox.Show("Registro exitoso.");
+                actualizarTabla?.Invoke();
             }
         }
 
         private void btnRevisarTareas_Click(object sender, EventArgs e)
         {
-            Tarea tareaSeleccionada = new Tarea();
 
-            if (_frmGestionTareas.dataGridViewTareas.SelectedRows.Count > 0)
-            {
-                tareaSeleccionada = lstTareas.FirstOrDefault(tarea => tarea.ID == Convert.ToInt32(_frmGestionTareas.dataGridViewTareas.SelectedRows[0].Cells[0].Value));
-
-                FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(tareaSeleccionada);
-                MenuMaestroController.actualizarSubmenu(frmRevisionTareas);
-            }
         }
     }
 }

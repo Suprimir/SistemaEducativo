@@ -28,48 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewTareas = new DataGridView();
-            btnVerTarea = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
+            flowLayoutPanelTareas = new FlowLayoutPanel();
             SuspendLayout();
             // 
-            // dataGridViewTareas
+            // flowLayoutPanelTareas
             // 
-            dataGridViewTareas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTareas.Location = new Point(16, 12);
-            dataGridViewTareas.Name = "dataGridViewTareas";
-            dataGridViewTareas.RowHeadersVisible = false;
-            dataGridViewTareas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewTareas.Size = new Size(435, 249);
-            dataGridViewTareas.TabIndex = 2;
-            // 
-            // btnVerTarea
-            // 
-            btnVerTarea.Location = new Point(457, 12);
-            btnVerTarea.Name = "btnVerTarea";
-            btnVerTarea.Size = new Size(127, 38);
-            btnVerTarea.TabIndex = 3;
-            btnVerTarea.Text = "Ver Tarea";
-            btnVerTarea.UseVisualStyleBackColor = true;
+            flowLayoutPanelTareas.AutoScroll = true;
+            flowLayoutPanelTareas.Location = new Point(66, 56);
+            flowLayoutPanelTareas.Margin = new Padding(0);
+            flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
+            flowLayoutPanelTareas.Size = new Size(543, 250);
+            flowLayoutPanelTareas.TabIndex = 10;
             // 
             // FrmGestionTareasAlumno
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(596, 275);
-            Controls.Add(btnVerTarea);
-            Controls.Add(dataGridViewTareas);
+            ClientSize = new Size(681, 367);
+            Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmGestionTareasAlumno";
             Text = "FrmGestionTareasAlumno";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        public DataGridView dataGridViewTareas;
-        public Button btnVerTarea;
+        public FlowLayoutPanel flowLayoutPanelTareas;
     }
 }

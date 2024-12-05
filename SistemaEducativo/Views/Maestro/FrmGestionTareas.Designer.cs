@@ -28,123 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewTareas = new DataGridView();
-            btnCrearTarea = new Button();
-            btnEditarTarea = new Button();
-            btnEliminarTarea = new Button();
-            comboBoxFiltroParciales = new ComboBox();
-            btnRevisarTareas = new Button();
-            lblTareas = new Label();
+            flowLayoutPanelTareas = new FlowLayoutPanel();
+            panel1 = new Panel();
+            menuStripTareasMaestro = new MenuStrip();
+            crearTareaToolStripMenuItem = new ToolStripMenuItem();
+            editarTareaToolStripMenuItem = new ToolStripMenuItem();
+            eliminarTareaToolStripMenuItem = new ToolStripMenuItem();
             textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
+            comboBoxParciales = new ComboBox();
+            lblParcialStatic = new Label();
+            panel1.SuspendLayout();
+            menuStripTareasMaestro.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridViewTareas
+            // flowLayoutPanelTareas
             // 
-            dataGridViewTareas.AllowUserToAddRows = false;
-            dataGridViewTareas.AllowUserToDeleteRows = false;
-            dataGridViewTareas.AllowUserToResizeColumns = false;
-            dataGridViewTareas.AllowUserToResizeRows = false;
-            dataGridViewTareas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTareas.Location = new Point(16, 42);
-            dataGridViewTareas.Name = "dataGridViewTareas";
-            dataGridViewTareas.ReadOnly = true;
-            dataGridViewTareas.RowHeadersVisible = false;
-            dataGridViewTareas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewTareas.Size = new Size(435, 219);
-            dataGridViewTareas.TabIndex = 0;
+            flowLayoutPanelTareas.AutoScroll = true;
+            flowLayoutPanelTareas.Location = new Point(20, 80);
+            flowLayoutPanelTareas.Margin = new Padding(0);
+            flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
+            flowLayoutPanelTareas.Size = new Size(697, 239);
+            flowLayoutPanelTareas.TabIndex = 9;
             // 
-            // btnCrearTarea
+            // panel1
             // 
-            btnCrearTarea.Location = new Point(457, 42);
-            btnCrearTarea.Name = "btnCrearTarea";
-            btnCrearTarea.Size = new Size(127, 38);
-            btnCrearTarea.TabIndex = 1;
-            btnCrearTarea.Text = "Crear Tarea";
-            btnCrearTarea.UseVisualStyleBackColor = true;
+            panel1.Controls.Add(menuStripTareasMaestro);
+            panel1.Location = new Point(20, 43);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(697, 37);
+            panel1.TabIndex = 10;
             // 
-            // btnEditarTarea
+            // menuStripTareasMaestro
             // 
-            btnEditarTarea.Location = new Point(457, 86);
-            btnEditarTarea.Name = "btnEditarTarea";
-            btnEditarTarea.Size = new Size(127, 38);
-            btnEditarTarea.TabIndex = 2;
-            btnEditarTarea.Text = "Editar Tarea";
-            btnEditarTarea.UseVisualStyleBackColor = true;
+            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.Dock = DockStyle.Fill;
+            menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearTareaToolStripMenuItem, editarTareaToolStripMenuItem, eliminarTareaToolStripMenuItem });
+            menuStripTareasMaestro.Location = new Point(0, 0);
+            menuStripTareasMaestro.Name = "menuStripTareasMaestro";
+            menuStripTareasMaestro.Size = new Size(697, 37);
+            menuStripTareasMaestro.TabIndex = 2;
+            menuStripTareasMaestro.Text = "menuStrip1";
             // 
-            // btnEliminarTarea
+            // crearTareaToolStripMenuItem
             // 
-            btnEliminarTarea.Location = new Point(457, 130);
-            btnEliminarTarea.Name = "btnEliminarTarea";
-            btnEliminarTarea.Size = new Size(127, 38);
-            btnEliminarTarea.TabIndex = 3;
-            btnEliminarTarea.Text = "Eliminar Tarea";
-            btnEliminarTarea.UseVisualStyleBackColor = true;
+            crearTareaToolStripMenuItem.AutoSize = false;
+            crearTareaToolStripMenuItem.Name = "crearTareaToolStripMenuItem";
+            crearTareaToolStripMenuItem.Size = new Size(230, 33);
+            crearTareaToolStripMenuItem.Text = "Crear Tarea";
             // 
-            // comboBoxFiltroParciales
+            // editarTareaToolStripMenuItem
             // 
-            comboBoxFiltroParciales.FormattingEnabled = true;
-            comboBoxFiltroParciales.Location = new Point(64, 12);
-            comboBoxFiltroParciales.Name = "comboBoxFiltroParciales";
-            comboBoxFiltroParciales.Size = new Size(121, 23);
-            comboBoxFiltroParciales.TabIndex = 4;
+            editarTareaToolStripMenuItem.AutoSize = false;
+            editarTareaToolStripMenuItem.Name = "editarTareaToolStripMenuItem";
+            editarTareaToolStripMenuItem.Size = new Size(230, 33);
+            editarTareaToolStripMenuItem.Text = "Editar Tarea";
             // 
-            // btnRevisarTareas
+            // eliminarTareaToolStripMenuItem
             // 
-            btnRevisarTareas.Location = new Point(457, 174);
-            btnRevisarTareas.Name = "btnRevisarTareas";
-            btnRevisarTareas.Size = new Size(127, 38);
-            btnRevisarTareas.TabIndex = 6;
-            btnRevisarTareas.Text = "Revisar Tareas";
-            btnRevisarTareas.UseVisualStyleBackColor = true;
-            // 
-            // lblTareas
-            // 
-            lblTareas.AutoSize = true;
-            lblTareas.Location = new Point(16, 15);
-            lblTareas.Name = "lblTareas";
-            lblTareas.Size = new Size(42, 15);
-            lblTareas.TabIndex = 7;
-            lblTareas.Text = "Parcial";
+            eliminarTareaToolStripMenuItem.AutoSize = false;
+            eliminarTareaToolStripMenuItem.Name = "eliminarTareaToolStripMenuItem";
+            eliminarTareaToolStripMenuItem.Size = new Size(231, 33);
+            eliminarTareaToolStripMenuItem.Text = "Eliminar Tarea";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(191, 12);
+            textBox1.Location = new Point(177, 12);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(260, 23);
-            textBox1.TabIndex = 8;
+            textBox1.Size = new Size(540, 27);
+            textBox1.TabIndex = 11;
+            // 
+            // comboBoxParciales
+            // 
+            comboBoxParciales.FormattingEnabled = true;
+            comboBoxParciales.Items.AddRange(new object[] { "1", "2", "3" });
+            comboBoxParciales.Location = new Point(78, 12);
+            comboBoxParciales.Name = "comboBoxParciales";
+            comboBoxParciales.Size = new Size(93, 28);
+            comboBoxParciales.TabIndex = 12;
+            // 
+            // lblParcialStatic
+            // 
+            lblParcialStatic.AutoSize = true;
+            lblParcialStatic.Location = new Point(20, 15);
+            lblParcialStatic.Name = "lblParcialStatic";
+            lblParcialStatic.Size = new Size(52, 20);
+            lblParcialStatic.TabIndex = 13;
+            lblParcialStatic.Text = "Parcial";
             // 
             // FrmGestionTareas
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.White;
-            ClientSize = new Size(596, 275);
+            BackColor = Color.FromArgb(251, 225, 141);
+            ClientSize = new Size(745, 344);
+            Controls.Add(lblParcialStatic);
+            Controls.Add(comboBoxParciales);
             Controls.Add(textBox1);
-            Controls.Add(lblTareas);
-            Controls.Add(btnRevisarTareas);
-            Controls.Add(comboBoxFiltroParciales);
-            Controls.Add(btnEliminarTarea);
-            Controls.Add(btnEditarTarea);
-            Controls.Add(btnCrearTarea);
-            Controls.Add(dataGridViewTareas);
+            Controls.Add(panel1);
+            Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "FrmGestionTareas";
             Text = "FrmGestionTareas";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            menuStripTareasMaestro.ResumeLayout(false);
+            menuStripTareasMaestro.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private ComboBox comboBoxFiltroParciales;
-        public DataGridView dataGridViewTareas;
-        private Label lblTareas;
+        public FlowLayoutPanel flowLayoutPanelTareas;
+        private Panel panel1;
+        public MenuStrip menuStripTareasMaestro;
+        public ToolStripMenuItem crearTareaToolStripMenuItem;
+        public ToolStripMenuItem editarTareaToolStripMenuItem;
+        public ToolStripMenuItem eliminarTareaToolStripMenuItem;
         private TextBox textBox1;
-        public Button btnCrearTarea;
-        public Button btnEditarTarea;
-        public Button btnEliminarTarea;
-        public Button btnRevisarTareas;
+        private ComboBox comboBoxParciales;
+        private Label lblParcialStatic;
     }
 }

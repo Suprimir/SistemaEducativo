@@ -37,6 +37,10 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnCalificarTarea_Click(object sender, EventArgs e)
         {
+            if (_frmRevisionTareas.dataGridViewTareas.SelectedRows.Count > 0)
+            {
+                
+            }
             TareaPorAlumno tarea = new TareaPorAlumno();
 
             tarea.Calificacion = Convert.ToInt32(_frmRevisionTareas.textBoxCalificacion.Text);
