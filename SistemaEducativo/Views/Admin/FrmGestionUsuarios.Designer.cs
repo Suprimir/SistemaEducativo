@@ -31,10 +31,14 @@
             dataGridViewUsuarios = new DataGridView();
             textBoxFiltroUsuarios = new TextBox();
             comboBoxFiltroRol = new ComboBox();
-            btnCrearUsuario = new Button();
-            btnEditarUsuario = new Button();
-            btnEliminarUsuario = new Button();
+            panelMenuStrip = new Panel();
+            menuStripTareasMaestro = new MenuStrip();
+            crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            editarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            eliminarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
+            panelMenuStrip.SuspendLayout();
+            menuStripTareasMaestro.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridViewUsuarios
@@ -45,19 +49,19 @@
             dataGridViewUsuarios.AllowUserToResizeRows = false;
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUsuarios.Location = new Point(16, 42);
+            dataGridViewUsuarios.Location = new Point(16, 78);
             dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             dataGridViewUsuarios.ReadOnly = true;
             dataGridViewUsuarios.RowHeadersVisible = false;
             dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUsuarios.Size = new Size(435, 219);
+            dataGridViewUsuarios.Size = new Size(561, 183);
             dataGridViewUsuarios.TabIndex = 0;
             // 
             // textBoxFiltroUsuarios
             // 
             textBoxFiltroUsuarios.Location = new Point(16, 15);
             textBoxFiltroUsuarios.Name = "textBoxFiltroUsuarios";
-            textBoxFiltroUsuarios.Size = new Size(308, 23);
+            textBoxFiltroUsuarios.Size = new Size(434, 23);
             textBoxFiltroUsuarios.TabIndex = 1;
             // 
             // comboBoxFiltroRol
@@ -65,47 +69,59 @@
             comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroRol.FormattingEnabled = true;
             comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
-            comboBoxFiltroRol.Location = new Point(330, 15);
+            comboBoxFiltroRol.Location = new Point(456, 15);
             comboBoxFiltroRol.Name = "comboBoxFiltroRol";
             comboBoxFiltroRol.Size = new Size(121, 23);
             comboBoxFiltroRol.TabIndex = 2;
             // 
-            // btnCrearUsuario
+            // panelMenuStrip
             // 
-            btnCrearUsuario.Location = new Point(457, 42);
-            btnCrearUsuario.Name = "btnCrearUsuario";
-            btnCrearUsuario.Size = new Size(127, 38);
-            btnCrearUsuario.TabIndex = 3;
-            btnCrearUsuario.Text = "Crear Usuario";
-            btnCrearUsuario.UseVisualStyleBackColor = true;
+            panelMenuStrip.AutoSize = true;
+            panelMenuStrip.Controls.Add(menuStripTareasMaestro);
+            panelMenuStrip.Location = new Point(16, 42);
+            panelMenuStrip.Name = "panelMenuStrip";
+            panelMenuStrip.Size = new Size(561, 30);
+            panelMenuStrip.TabIndex = 11;
             // 
-            // btnEditarUsuario
+            // menuStripTareasMaestro
             // 
-            btnEditarUsuario.Location = new Point(457, 86);
-            btnEditarUsuario.Name = "btnEditarUsuario";
-            btnEditarUsuario.Size = new Size(127, 38);
-            btnEditarUsuario.TabIndex = 4;
-            btnEditarUsuario.Text = "Editar Usuario";
-            btnEditarUsuario.UseVisualStyleBackColor = true;
+            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
+            menuStripTareasMaestro.Dock = DockStyle.Fill;
+            menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, editarUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem });
+            menuStripTareasMaestro.Location = new Point(0, 0);
+            menuStripTareasMaestro.Name = "menuStripTareasMaestro";
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(561, 30);
+            menuStripTareasMaestro.TabIndex = 2;
+            menuStripTareasMaestro.Text = "menuStrip1";
             // 
-            // btnEliminarUsuario
+            // crearUsuarioToolStripMenuItem
             // 
-            btnEliminarUsuario.Location = new Point(457, 130);
-            btnEliminarUsuario.Name = "btnEliminarUsuario";
-            btnEliminarUsuario.Size = new Size(127, 38);
-            btnEliminarUsuario.TabIndex = 5;
-            btnEliminarUsuario.Text = "Eliminar Usuario";
-            btnEliminarUsuario.UseVisualStyleBackColor = true;
+            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            crearUsuarioToolStripMenuItem.Size = new Size(90, 26);
+            crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
+            // 
+            // editarUsuarioToolStripMenuItem
+            // 
+            editarUsuarioToolStripMenuItem.Name = "editarUsuarioToolStripMenuItem";
+            editarUsuarioToolStripMenuItem.Size = new Size(92, 26);
+            editarUsuarioToolStripMenuItem.Text = "Editar Usuario";
+            // 
+            // eliminarUsuarioToolStripMenuItem
+            // 
+            eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
+            eliminarUsuarioToolStripMenuItem.Size = new Size(105, 26);
+            eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             // 
             // FrmGestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(251, 225, 141);
             ClientSize = new Size(596, 275);
-            Controls.Add(btnEliminarUsuario);
-            Controls.Add(btnEditarUsuario);
-            Controls.Add(btnCrearUsuario);
+            Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroRol);
             Controls.Add(textBoxFiltroUsuarios);
             Controls.Add(dataGridViewUsuarios);
@@ -113,6 +129,10 @@
             Name = "FrmGestionUsuarios";
             Text = "Gestionar Usuarios";
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).EndInit();
+            panelMenuStrip.ResumeLayout(false);
+            panelMenuStrip.PerformLayout();
+            menuStripTareasMaestro.ResumeLayout(false);
+            menuStripTareasMaestro.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,9 +140,11 @@
         #endregion
         public DataGridView dataGridViewUsuarios;
         public TextBox textBoxFiltroUsuarios;
-        public Button btnCrearUsuario;
-        public Button btnEditarUsuario;
-        public Button btnEliminarUsuario;
         public ComboBox comboBoxFiltroRol;
+        private Panel panelMenuStrip;
+        public MenuStrip menuStripTareasMaestro;
+        public ToolStripMenuItem crearUsuarioToolStripMenuItem;
+        public ToolStripMenuItem editarUsuarioToolStripMenuItem;
+        public ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
     }
 }

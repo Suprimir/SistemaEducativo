@@ -34,10 +34,10 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionGrupos.textBoxFiltroNombre.TextChanged += textBoxFiltroNombre_TextChanged;
 
             // Funciones para los botones del gestion de grupos
-            _frmGestionGrupos.btnCrearGrupo.Click += btnCrearGrupo_Click;
-            _frmGestionGrupos.btnEditarGrupo.Click += btnEditarGrupo_Click;
-            _frmGestionGrupos.btnEliminarGrupo.Click += btnEliminarGrupo_Click;
-            _frmGestionGrupos.btnAsignarMaestro.Click += btnAsignarMaestro_Click;
+            _frmGestionGrupos.crearGrupoToolStripMenuItem.Click += btnCrearGrupo_Click;
+            _frmGestionGrupos.editarGrupoToolStripMenuItem.Click += btnEditarGrupo_Click;
+            _frmGestionGrupos.eliminarGrupoToolStripMenuItem.Click += btnEliminarGrupo_Click;
+            _frmGestionGrupos.asignarMaestrosToolStripMenuItem.Click += btnAsignarMaestro_Click;
         }
 
         private void CargarDatosEnTabla(object sender, EventArgs e)

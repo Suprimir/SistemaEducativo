@@ -62,6 +62,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(251, 225, 141);
             ClientSize = new Size(596, 275);
             Controls.Add(btnVerTareas);
             Controls.Add(dataGridViewTareas);

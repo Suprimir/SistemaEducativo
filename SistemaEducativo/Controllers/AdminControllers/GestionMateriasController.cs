@@ -54,18 +54,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionMaterias.comboBoxFiltroCarrera.TextChanged += comboBoxFiltroCarrera_TextChanged;
 
             // EJECUTAN LAS FUNCIONES DE CREAR Y EDITAR MATERIA
-            _frmGestionMaterias.btnCrearMateria.Click += btnCrearMateria_Click;
-            _frmGestionMaterias.btnEditarMateria.Click += btnEditarMateria_Click;
-            _frmGestionMaterias.btnEliminarMateria.Click += btnEliminarMateria_Click;
-            _frmGestionMaterias.btnAsignarCarrera.Click += btnAsignarCarrera_Click;
-            _frmGestionMaterias.btnDesasignarCarrera.Click += btnDesasignarCarrera_Click; 
+            _frmGestionMaterias.crearMateriaToolStripMenuItem.Click += btnCrearMateria_Click;
+            _frmGestionMaterias.editarMateriaToolStripMenuItem.Click += btnEditarMateria_Click;
+            _frmGestionMaterias.eliminarMateriaToolStripMenuItem.Click += btnEliminarMateria_Click;
+            _frmGestionMaterias.asignarMateriaToolStripMenuItem.Click += btnAsignarCarrera_Click;
+            _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Click += btnDesasignarCarrera_Click; 
         }
 
         private void frmGestionMaterias_Load(object sender, EventArgs e)
         {
             if (nombreCarrera == null)
             {
-                _frmGestionMaterias.btnDesasignarCarrera.Enabled = false;
+                _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Enabled = false;
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = false;
             }
             // Limpia los datos de la tabla
@@ -95,12 +95,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             if (nombreCarrera != null)
             {
-                _frmGestionMaterias.btnDesasignarCarrera.Enabled = true;
-                _frmGestionMaterias.btnEliminarMateria.Enabled = false;
+                _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Enabled = true;
+                _frmGestionMaterias.eliminarMateriaToolStripMenuItem.Enabled = false;
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = true;
             } else
             {
-                _frmGestionMaterias.btnEliminarMateria.Enabled = true;
+                _frmGestionMaterias.eliminarMateriaToolStripMenuItem.Enabled = true;
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = false;
             }
 

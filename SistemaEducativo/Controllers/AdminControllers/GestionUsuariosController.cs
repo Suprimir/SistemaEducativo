@@ -39,9 +39,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionUsuarios.textBoxFiltroUsuarios.TextChanged += textBoxFiltroUsuario_TextChanged;
             _frmGestionUsuarios.comboBoxFiltroRol.TextChanged += comboBoxFiltroRol_TextChanged;
 
-            _frmGestionUsuarios.btnCrearUsuario.Click += btnCrearUsuario_Click;
-            _frmGestionUsuarios.btnEditarUsuario.Click += btnEditarUsuario_Click;
-            _frmGestionUsuarios.btnEliminarUsuario.Click += btnEliminarUsuario_Click;
+            _frmGestionUsuarios.crearUsuarioToolStripMenuItem.Click += btnCrearUsuario_Click;
+            _frmGestionUsuarios.editarUsuarioToolStripMenuItem.Click += btnEditarUsuario_Click;
+            _frmGestionUsuarios.eliminarUsuarioToolStripMenuItem.Click += btnEliminarUsuario_Click;
         }
 
         // funcion que carga los datos en la tabla de gestion de usuarios

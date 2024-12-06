@@ -56,7 +56,8 @@
             btnCerrarVentana = new Button();
             lblMenuTitulo = new Label();
             btnMinimizarVentana = new Button();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanelCustom = new TableLayoutPanel();
+            lblBienvenidaSub = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
             panelPerfil.SuspendLayout();
             contextMenuStripPerfil.SuspendLayout();
@@ -68,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanelCustom.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBoxMPfp
@@ -84,7 +85,7 @@
             // 
             // btnGrupos
             // 
-            btnGrupos.BackColor = SystemColors.ControlLightLight;
+            btnGrupos.BackColor = Color.FromArgb(251, 225, 141);
             btnGrupos.Cursor = Cursors.Hand;
             btnGrupos.FlatAppearance.BorderColor = Color.Black;
             btnGrupos.FlatAppearance.BorderSize = 0;
@@ -101,7 +102,7 @@
             // 
             // panelPerfil
             // 
-            panelPerfil.BackColor = Color.White;
+            panelPerfil.BackColor = Color.FromArgb(251, 225, 141);
             panelPerfil.ContextMenuStrip = contextMenuStripPerfil;
             panelPerfil.Controls.Add(btnPerfil);
             panelPerfil.Controls.Add(lblRol);
@@ -135,7 +136,7 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.BackColor = Color.White;
+            btnPerfil.BackColor = Color.FromArgb(251, 225, 141);
             btnPerfil.ContextMenuStrip = contextMenuStripPerfil;
             btnPerfil.Cursor = Cursors.Hand;
             btnPerfil.FlatAppearance.BorderSize = 0;
@@ -191,7 +192,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.White;
+            panel2.BackColor = Color.FromArgb(251, 225, 141);
             panel2.Controls.Add(lblGestionStatic);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
@@ -223,7 +224,7 @@
             // 
             // btnMaterias
             // 
-            btnMaterias.BackColor = SystemColors.ControlLightLight;
+            btnMaterias.BackColor = Color.FromArgb(251, 225, 141);
             btnMaterias.Cursor = Cursors.Hand;
             btnMaterias.FlatAppearance.BorderColor = Color.Black;
             btnMaterias.FlatAppearance.BorderSize = 0;
@@ -249,7 +250,7 @@
             // 
             // btnUsuarios
             // 
-            btnUsuarios.BackColor = SystemColors.ControlLightLight;
+            btnUsuarios.BackColor = Color.FromArgb(251, 225, 141);
             btnUsuarios.Cursor = Cursors.Hand;
             btnUsuarios.FlatAppearance.BorderColor = Color.Black;
             btnUsuarios.FlatAppearance.BorderSize = 0;
@@ -292,7 +293,7 @@
             btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
             btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
-            btnCerrarSesion.Location = new Point(-112, 0);
+            btnCerrarSesion.Location = new Point(-108, 0);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(301, 46);
             btnCerrarSesion.TabIndex = 14;
@@ -301,7 +302,7 @@
             // 
             // panelSubMenu
             // 
-            panelSubMenu.BackColor = Color.White;
+            panelSubMenu.BackColor = Color.FromArgb(251, 225, 141);
             panelSubMenu.Location = new Point(239, 163);
             panelSubMenu.Name = "panelSubMenu";
             panelSubMenu.Size = new Size(596, 275);
@@ -319,7 +320,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.PanelWhiteRounded;
+            pictureBox1.Image = Properties.Resources.PanelRounded;
             pictureBox1.Location = new Point(221, 141);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(630, 316);
@@ -329,7 +330,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.PanelWhiteRounded;
+            pictureBox2.Image = Properties.Resources.PanelRounded;
             pictureBox2.Location = new Point(599, 46);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(252, 87);
@@ -339,7 +340,7 @@
             // 
             // panel1
             // 
-            panel1.BackgroundImage = Properties.Resources.PanelWhiteRounded;
+            panel1.BackgroundImage = Properties.Resources.PanelRounded;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(9, 141);
@@ -386,36 +387,47 @@
             btnMinimizarVentana.Text = "-";
             btnMinimizarVentana.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanelCustom
             // 
-            tableLayoutPanel2.BackColor = Color.RosyBrown;
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
-            tableLayoutPanel2.Controls.Add(btnMinimizarVentana, 1, 0);
-            tableLayoutPanel2.Controls.Add(lblMenuTitulo, 0, 0);
-            tableLayoutPanel2.Controls.Add(btnCerrarVentana, 2, 0);
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(864, 36);
-            tableLayoutPanel2.TabIndex = 11;
+            tableLayoutPanelCustom.BackColor = Color.FromArgb(251, 225, 141);
+            tableLayoutPanelCustom.ColumnCount = 3;
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanelCustom.Controls.Add(btnMinimizarVentana, 1, 0);
+            tableLayoutPanelCustom.Controls.Add(lblMenuTitulo, 0, 0);
+            tableLayoutPanelCustom.Controls.Add(btnCerrarVentana, 2, 0);
+            tableLayoutPanelCustom.Location = new Point(0, 0);
+            tableLayoutPanelCustom.Margin = new Padding(0);
+            tableLayoutPanelCustom.Name = "tableLayoutPanelCustom";
+            tableLayoutPanelCustom.RowCount = 1;
+            tableLayoutPanelCustom.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelCustom.Size = new Size(864, 36);
+            tableLayoutPanelCustom.TabIndex = 11;
+            // 
+            // lblBienvenidaSub
+            // 
+            lblBienvenidaSub.AutoSize = true;
+            lblBienvenidaSub.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblBienvenidaSub.Location = new Point(23, 92);
+            lblBienvenidaSub.Name = "lblBienvenidaSub";
+            lblBienvenidaSub.Size = new Size(87, 21);
+            lblBienvenidaSub.TabIndex = 29;
+            lblBienvenidaSub.Text = "Bienvenido";
             // 
             // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.WhiteSmoke;
+            BackColor = Color.FromArgb(228, 220, 201);
             ClientSize = new Size(863, 469);
+            Controls.Add(lblBienvenidaSub);
             Controls.Add(panel6);
             Controls.Add(panel1);
             Controls.Add(panelPerfil);
             Controls.Add(lblBienvenida);
             Controls.Add(panelSubMenu);
-            Controls.Add(tableLayoutPanel2);
+            Controls.Add(tableLayoutPanelCustom);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Name = "FrmMenuAdmin";
@@ -433,8 +445,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
+            tableLayoutPanelCustom.ResumeLayout(false);
+            tableLayoutPanelCustom.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -470,6 +482,7 @@
         public Button btnCerrarVentana;
         public Label lblMenuTitulo;
         public Button btnMinimizarVentana;
-        private TableLayoutPanel tableLayoutPanel2;
+        public Label lblBienvenidaSub;
+        public TableLayoutPanel tableLayoutPanelCustom;
     }
 }

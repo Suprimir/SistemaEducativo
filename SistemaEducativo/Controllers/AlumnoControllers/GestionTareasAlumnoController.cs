@@ -2,11 +2,6 @@
 using SistemaEducativo.Models;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SistemaEducativo.Controllers.AlumnoControllers
 {
@@ -28,15 +23,31 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
         {
             if (_frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Count > 0)
             {
-                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.RemoveAt(0);
+                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Clear();
             }
 
-            foreach (var tarea in lstTareas)
+            for (int i = 1; i <= 3; i++)
             {
-                FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
-                frmTareaAlumno.TopLevel = false;
-                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
-                frmTareaAlumno.Show();
+                Label lblParcialSeparador = new Label();
+                lblParcialSeparador.Text = $"Parcial {i}";
+
+                Panel panelParcialSeparador = new Panel();
+                panelParcialSeparador.Width = _frmGestionTareasAlumno.flowLayoutPanelTareas.ClientSize.Width - 25;
+                panelParcialSeparador.Height = lblParcialSeparador.ClientSize.Height;
+                panelParcialSeparador.BackColor = ColorTranslator.FromHtml("#e4dcc9");
+                lblParcialSeparador.Location = new Point((panelParcialSeparador.Width - lblParcialSeparador.Width) / 2, (panelParcialSeparador.Height - lblParcialSeparador.Height) / 2);
+
+                panelParcialSeparador.Controls.Add(lblParcialSeparador);
+
+                _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(panelParcialSeparador);
+
+                foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == i))
+                {
+                    FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
+                    frmTareaAlumno.TopLevel = false;
+                    _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
+                    frmTareaAlumno.Show();
+                }
             }
         }
 

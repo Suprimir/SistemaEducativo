@@ -34,26 +34,27 @@
             // flowLayoutPanelTareas
             // 
             flowLayoutPanelTareas.AutoScroll = true;
-            flowLayoutPanelTareas.Location = new Point(66, 56);
+            flowLayoutPanelTareas.Location = new Point(9, 9);
             flowLayoutPanelTareas.Margin = new Padding(0);
             flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
-            flowLayoutPanelTareas.Size = new Size(543, 250);
+            flowLayoutPanelTareas.Size = new Size(578, 257);
             flowLayoutPanelTareas.TabIndex = 10;
             // 
             // FrmGestionTareasAlumno
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(681, 367);
+            BackColor = Color.FromArgb(251, 225, 141);
+            ClientSize = new Size(596, 275);
             Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmGestionTareasAlumno";
             Text = "FrmGestionTareasAlumno";
             ResumeLayout(false);
         }
 
         #endregion
+
         public FlowLayoutPanel flowLayoutPanelTareas;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace SistemaEducativo.Views.Alumno
+﻿namespace SistemaEducativo.Views.Maestro
 {
-    partial class FrmTareaAlumno
+    partial class FrmTareaMaestro
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,8 @@
         {
             lblTitulo = new Label();
             lblParcial = new Label();
-            btnVerTarea = new Button();
+            btnRevisarTarea = new Button();
+            checkBoxSeleccionado = new CheckBox();
             SuspendLayout();
             // 
             // lblTitulo
@@ -53,28 +54,38 @@
             lblParcial.TabIndex = 1;
             lblParcial.Text = "Parcial";
             // 
-            // btnVerTarea
+            // btnRevisarTarea
             // 
-            btnVerTarea.Location = new Point(159, 78);
-            btnVerTarea.Margin = new Padding(2);
-            btnVerTarea.Name = "btnVerTarea";
-            btnVerTarea.Size = new Size(95, 23);
-            btnVerTarea.TabIndex = 2;
-            btnVerTarea.Text = "Ver Detalles";
-            btnVerTarea.UseVisualStyleBackColor = true;
+            btnRevisarTarea.Location = new Point(159, 78);
+            btnRevisarTarea.Margin = new Padding(2);
+            btnRevisarTarea.Name = "btnRevisarTarea";
+            btnRevisarTarea.Size = new Size(95, 23);
+            btnRevisarTarea.TabIndex = 2;
+            btnRevisarTarea.Text = "Revisar Tareas";
+            btnRevisarTarea.UseVisualStyleBackColor = true;
             // 
-            // FrmTareaAlumno
+            // checkBoxSeleccionado
+            // 
+            checkBoxSeleccionado.AutoSize = true;
+            checkBoxSeleccionado.Location = new Point(239, 12);
+            checkBoxSeleccionado.Name = "checkBoxSeleccionado";
+            checkBoxSeleccionado.Size = new Size(15, 14);
+            checkBoxSeleccionado.TabIndex = 3;
+            checkBoxSeleccionado.UseVisualStyleBackColor = true;
+            // 
+            // FrmTareaMaestro
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(228, 220, 201);
             ClientSize = new Size(266, 110);
-            Controls.Add(btnVerTarea);
+            Controls.Add(checkBoxSeleccionado);
+            Controls.Add(btnRevisarTarea);
             Controls.Add(lblParcial);
             Controls.Add(lblTitulo);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
-            Name = "FrmTareaAlumno";
+            Name = "FrmTareaMaestro";
             Text = "FrmTareaAlumno";
             ResumeLayout(false);
             PerformLayout();
@@ -84,6 +95,7 @@
 
         public Label lblTitulo;
         public Label lblParcial;
-        public Button btnVerTarea;
+        public Button btnRevisarTarea;
+        public CheckBox checkBoxSeleccionado;
     }
 }

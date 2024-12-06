@@ -1,4 +1,6 @@
-﻿using SistemaEducativo.Views.Admin;
+﻿using Microsoft.VisualBasic.Devices;
+using SistemaEducativo.Sesion;
+using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Maestro;
 
 namespace SistemaEducativo.Controllers.AdminControllers
@@ -37,7 +39,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void frmMenuAdmin_Load(object sender, EventArgs e)
         {
-            _frmMenuAdmin.lblBienvenida.Text = $"~ Hola {_frmMenuAdmin._usuarioLogueado.Nombre} como va tu dia? Espero que muy bien!";
+            _frmMenuAdmin.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
+            _frmMenuAdmin.lblBienvenidaSub.Text = "  Espero que muy bien!";
             _frmMenuAdmin.lblUsuario.Text = _frmMenuAdmin._usuarioLogueado.Matricula;
             _frmMenuAdmin.lblRol.Text = _frmMenuAdmin._usuarioLogueado.Rol;
 

@@ -21,6 +21,9 @@
     <Compile Update="Views\Admin\FrmMenuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\Maestro\FrmTareaMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using Org.BouncyCastle.Tls;
 using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
@@ -10,6 +11,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     internal class MenuMaestroController
     {
         private FrmMenuMaestro _frmMenuMaestro;
+        FrmSubmenuMaestro frmSubmenuMaestro = new FrmSubmenuMaestro();
         public static Action<Form> actualizarSubmenu;
 
         public MenuMaestroController(FrmMenuMaestro frmMenuMaestro)
@@ -27,6 +29,8 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             _frmMenuMaestro.btnMinimizarVentana.Click += (sender, e) => _frmMenuMaestro.WindowState = FormWindowState.Minimized;
             _frmMenuMaestro.FormClosing += (sender, e) => _frmMenuMaestro._frmLogin.Dispose();
 
+            _frmMenuMaestro.lblMenuTitulo.Click += lblTitulo_Click;
+
             // ASIGNAMOS FUNCION QUE CARGA TODO LO NECESARIO AL INICIO DEL MENU
             _frmMenuMaestro.Load += frmMenuMaestro_Load;
 
@@ -36,16 +40,23 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void frmMenuMaestro_Load(object sender, EventArgs e)
         {
-
-            _frmMenuMaestro.lblBienvenida.Text = $"~ Bienvenido {_frmMenuMaestro._usuarioLogueado.Nombre}!";
+            _frmMenuMaestro.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
+            _frmMenuMaestro.lblBienvenidaSub.Text = "  Espero que muy bien!";
             _frmMenuMaestro.lblUsuario.Text = _frmMenuMaestro._usuarioLogueado.Matricula;
             _frmMenuMaestro.lblRol.Text = _frmMenuMaestro._usuarioLogueado.Rol;
+
+            AbrirFormEnPanelSubmenu(frmSubmenuMaestro);
         }
 
         private void btnGrupos_Click(object sender, EventArgs e)
         {
             FrmGestionGruposAsignados frmGestionGruposAsignados = new FrmGestionGruposAsignados(_frmMenuMaestro._usuarioLogueado);
             AbrirFormEnPanelSubmenu(frmGestionGruposAsignados);
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanelSubmenu(frmSubmenuMaestro);
         }
 
         private void AbrirFormEnPanelSubmenu(Form subMenu)

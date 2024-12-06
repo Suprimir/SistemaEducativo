@@ -29,111 +29,78 @@
         private void InitializeComponent()
         {
             flowLayoutPanelTareas = new FlowLayoutPanel();
-            panel1 = new Panel();
+            panelMenuStrip = new Panel();
             menuStripTareasMaestro = new MenuStrip();
             crearTareaToolStripMenuItem = new ToolStripMenuItem();
             editarTareaToolStripMenuItem = new ToolStripMenuItem();
             eliminarTareaToolStripMenuItem = new ToolStripMenuItem();
-            textBox1 = new TextBox();
-            comboBoxParciales = new ComboBox();
-            lblParcialStatic = new Label();
-            panel1.SuspendLayout();
+            panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
             SuspendLayout();
             // 
             // flowLayoutPanelTareas
             // 
             flowLayoutPanelTareas.AutoScroll = true;
-            flowLayoutPanelTareas.Location = new Point(20, 80);
+            flowLayoutPanelTareas.Location = new Point(17, 45);
             flowLayoutPanelTareas.Margin = new Padding(0);
             flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
-            flowLayoutPanelTareas.Size = new Size(697, 239);
+            flowLayoutPanelTareas.Size = new Size(557, 221);
             flowLayoutPanelTareas.TabIndex = 9;
             // 
-            // panel1
+            // panelMenuStrip
             // 
-            panel1.Controls.Add(menuStripTareasMaestro);
-            panel1.Location = new Point(20, 43);
-            panel1.Margin = new Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(697, 37);
-            panel1.TabIndex = 10;
+            panelMenuStrip.AutoSize = true;
+            panelMenuStrip.Controls.Add(menuStripTareasMaestro);
+            panelMenuStrip.Location = new Point(17, 12);
+            panelMenuStrip.Name = "panelMenuStrip";
+            panelMenuStrip.Size = new Size(540, 30);
+            panelMenuStrip.TabIndex = 10;
             // 
             // menuStripTareasMaestro
             // 
             menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearTareaToolStripMenuItem, editarTareaToolStripMenuItem, eliminarTareaToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Size = new Size(697, 37);
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(540, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearTareaToolStripMenuItem
             // 
-            crearTareaToolStripMenuItem.AutoSize = false;
             crearTareaToolStripMenuItem.Name = "crearTareaToolStripMenuItem";
-            crearTareaToolStripMenuItem.Size = new Size(230, 33);
+            crearTareaToolStripMenuItem.Size = new Size(78, 26);
             crearTareaToolStripMenuItem.Text = "Crear Tarea";
             // 
             // editarTareaToolStripMenuItem
             // 
-            editarTareaToolStripMenuItem.AutoSize = false;
             editarTareaToolStripMenuItem.Name = "editarTareaToolStripMenuItem";
-            editarTareaToolStripMenuItem.Size = new Size(230, 33);
+            editarTareaToolStripMenuItem.Size = new Size(80, 26);
             editarTareaToolStripMenuItem.Text = "Editar Tarea";
             // 
             // eliminarTareaToolStripMenuItem
             // 
-            eliminarTareaToolStripMenuItem.AutoSize = false;
             eliminarTareaToolStripMenuItem.Name = "eliminarTareaToolStripMenuItem";
-            eliminarTareaToolStripMenuItem.Size = new Size(231, 33);
+            eliminarTareaToolStripMenuItem.Size = new Size(93, 26);
             eliminarTareaToolStripMenuItem.Text = "Eliminar Tarea";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(177, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(540, 27);
-            textBox1.TabIndex = 11;
-            // 
-            // comboBoxParciales
-            // 
-            comboBoxParciales.FormattingEnabled = true;
-            comboBoxParciales.Items.AddRange(new object[] { "1", "2", "3" });
-            comboBoxParciales.Location = new Point(78, 12);
-            comboBoxParciales.Name = "comboBoxParciales";
-            comboBoxParciales.Size = new Size(93, 28);
-            comboBoxParciales.TabIndex = 12;
-            // 
-            // lblParcialStatic
-            // 
-            lblParcialStatic.AutoSize = true;
-            lblParcialStatic.Location = new Point(20, 15);
-            lblParcialStatic.Name = "lblParcialStatic";
-            lblParcialStatic.Size = new Size(52, 20);
-            lblParcialStatic.TabIndex = 13;
-            lblParcialStatic.Text = "Parcial";
             // 
             // FrmGestionTareas
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(745, 344);
-            Controls.Add(lblParcialStatic);
-            Controls.Add(comboBoxParciales);
-            Controls.Add(textBox1);
-            Controls.Add(panel1);
+            ClientSize = new Size(596, 275);
+            Controls.Add(panelMenuStrip);
             Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmGestionTareas";
             Text = "FrmGestionTareas";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelMenuStrip.ResumeLayout(false);
+            panelMenuStrip.PerformLayout();
             menuStripTareasMaestro.ResumeLayout(false);
             menuStripTareasMaestro.PerformLayout();
             ResumeLayout(false);
@@ -142,13 +109,10 @@
 
         #endregion
         public FlowLayoutPanel flowLayoutPanelTareas;
-        private Panel panel1;
+        private Panel panelMenuStrip;
         public MenuStrip menuStripTareasMaestro;
         public ToolStripMenuItem crearTareaToolStripMenuItem;
         public ToolStripMenuItem editarTareaToolStripMenuItem;
         public ToolStripMenuItem eliminarTareaToolStripMenuItem;
-        private TextBox textBox1;
-        private ComboBox comboBoxParciales;
-        private Label lblParcialStatic;
     }
 }
