@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dataGridViewGrupos = new DataGridView();
             textBoxFiltroNombre = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
@@ -48,38 +53,72 @@
             dataGridViewGrupos.AllowUserToDeleteRows = false;
             dataGridViewGrupos.AllowUserToResizeColumns = false;
             dataGridViewGrupos.AllowUserToResizeRows = false;
-            dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewGrupos.BackgroundColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewGrupos.Location = new Point(16, 78);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewGrupos.Location = new Point(20, 98);
+            dataGridViewGrupos.Margin = new Padding(4);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewGrupos.RowHeadersVisible = false;
+            dataGridViewGrupos.RowHeadersWidth = 51;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGrupos.Size = new Size(559, 183);
+            dataGridViewGrupos.Size = new Size(699, 229);
             dataGridViewGrupos.TabIndex = 0;
             // 
             // textBoxFiltroNombre
             // 
-            textBoxFiltroNombre.Location = new Point(16, 13);
+            textBoxFiltroNombre.Location = new Point(20, 16);
+            textBoxFiltroNombre.Margin = new Padding(4);
             textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            textBoxFiltroNombre.Size = new Size(266, 23);
+            textBoxFiltroNombre.Size = new Size(332, 27);
             textBoxFiltroNombre.TabIndex = 6;
             // 
             // comboBoxFiltroCarrera
             // 
             comboBoxFiltroCarrera.FormattingEnabled = true;
-            comboBoxFiltroCarrera.Location = new Point(288, 13);
+            comboBoxFiltroCarrera.Location = new Point(360, 16);
+            comboBoxFiltroCarrera.Margin = new Padding(4);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
-            comboBoxFiltroCarrera.Size = new Size(163, 23);
+            comboBoxFiltroCarrera.Size = new Size(203, 28);
             comboBoxFiltroCarrera.TabIndex = 7;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(16, 42);
+            panelMenuStrip.Location = new Point(20, 52);
+            panelMenuStrip.Margin = new Padding(4);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(559, 30);
+            panelMenuStrip.Size = new Size(699, 38);
             panelMenuStrip.TabIndex = 13;
             // 
             // menuStripTareasMaestro
@@ -91,46 +130,46 @@
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, editarGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(559, 30);
+            menuStripTareasMaestro.Size = new Size(699, 38);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearGrupoToolStripMenuItem
             // 
             crearGrupoToolStripMenuItem.Name = "crearGrupoToolStripMenuItem";
-            crearGrupoToolStripMenuItem.Size = new Size(83, 26);
+            crearGrupoToolStripMenuItem.Size = new Size(103, 34);
             crearGrupoToolStripMenuItem.Text = "Crear Grupo";
             // 
             // editarGrupoToolStripMenuItem
             // 
             editarGrupoToolStripMenuItem.Name = "editarGrupoToolStripMenuItem";
-            editarGrupoToolStripMenuItem.Size = new Size(85, 26);
+            editarGrupoToolStripMenuItem.Size = new Size(107, 34);
             editarGrupoToolStripMenuItem.Text = "Editar Grupo";
             // 
             // eliminarGrupoToolStripMenuItem
             // 
             eliminarGrupoToolStripMenuItem.Name = "eliminarGrupoToolStripMenuItem";
-            eliminarGrupoToolStripMenuItem.Size = new Size(98, 26);
+            eliminarGrupoToolStripMenuItem.Size = new Size(122, 34);
             eliminarGrupoToolStripMenuItem.Text = "Eliminar Grupo";
             // 
             // asignarMaestrosToolStripMenuItem
             // 
             asignarMaestrosToolStripMenuItem.Name = "asignarMaestrosToolStripMenuItem";
-            asignarMaestrosToolStripMenuItem.Size = new Size(110, 26);
+            asignarMaestrosToolStripMenuItem.Size = new Size(137, 34);
             asignarMaestrosToolStripMenuItem.Text = "Asignar Maestros";
             // 
             // FrmGestionGrupos
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(596, 275);
+            ClientSize = new Size(745, 344);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroNombre);
             Controls.Add(dataGridViewGrupos);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "FrmGestionGrupos";
             Text = "Gestionar Grupos";
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();
