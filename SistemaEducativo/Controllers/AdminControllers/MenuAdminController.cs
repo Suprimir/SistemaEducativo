@@ -8,12 +8,15 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class MenuAdminController
     {
         private FrmMenuAdmin _frmMenuAdmin;
+        public static Action<Form> actualizarSubmenu;
 
         public MenuAdminController(FrmMenuAdmin frmMenuAdmin)
         {
             // ASIGNA FORMULARIO AL CONTROLADOR Y ESCONDE EL LOGIN
             _frmMenuAdmin = frmMenuAdmin;
             _frmMenuAdmin._frmLogin.Hide();
+
+            actualizarSubmenu = AbrirFormEnPanelSubmenu;
 
             // ASIGNA FUNCIONES DE CERRAR VENTANA, MINIMIZAR VENTANA Y CERRAR PROGRAMA
             _frmMenuAdmin.btnCerrarSesion.Click += (sender, e) => { _frmMenuAdmin._frmLogin.Show(); _frmMenuAdmin.Dispose(); } ;
@@ -41,8 +44,10 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             _frmMenuAdmin.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
             _frmMenuAdmin.lblBienvenidaSub.Text = "  Espero que muy bien!";
-            _frmMenuAdmin.lblUsuario.Text = _frmMenuAdmin._usuarioLogueado.Matricula;
-            _frmMenuAdmin.lblRol.Text = _frmMenuAdmin._usuarioLogueado.Rol;
+            _frmMenuAdmin.lblMatricula.Text = SesionUsuario.Instancia.Matricula;
+            _frmMenuAdmin.lblRol.Text = SesionUsuario.Instancia.Rol;
+
+            _frmMenuAdmin.pictureBoxMPfp.ImageLocation = SesionUsuario.Instancia.PathImagen;
 
             CargarSubMenuDefault(sender, e);
         }

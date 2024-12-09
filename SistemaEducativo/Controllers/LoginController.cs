@@ -38,7 +38,7 @@ namespace SistemaEducativo.Controllers
 
             if (!string.IsNullOrEmpty(matricula) || !string.IsNullOrEmpty(contraseña))
             {
-                Usuario usuario = UsuarioDAO.ValidarUsuario(matricula, contraseña);
+                Usuario usuario = UsuarioDAO.IniciarSesion(matricula, contraseña);
 
                 if (usuario != null)
                 {

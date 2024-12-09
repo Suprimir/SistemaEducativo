@@ -1,5 +1,6 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
@@ -18,25 +19,34 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         {
             _frmGestionGruposAsignados = frmGestionGruposAsignados;
 
-            // CONFIURO LA TABLA DE GRUPOS ASIGNADOS AL MAESTRO
-            _frmGestionGruposAsignados.dataGridViewTareas.Columns.Add("grupo", "Grupo");
-            _frmGestionGruposAsignados.dataGridViewTareas.Columns.Add("materia", "Materia");
-            _frmGestionGruposAsignados.dataGridViewTareas.Columns.Add("semestre", "Semestre");
-            
             // CARGO TODO LO NECESARIO EN EL LOAD DEL FORMULARIO
             _frmGestionGruposAsignados.Load += frmGestionGruposAsignados_Load;
 
-            _frmGestionGruposAsignados.btnVerTareas.Click += btnVerTareas_Click;
+            _frmGestionGruposAsignados.verAlumnosToolStripMenuItem.Click += btnVerAlumnos_Click;
+            _frmGestionGruposAsignados.verTareasToolStripMenuItem.Click += btnVerTareas_Click;
         }
 
         // EL LOAD OBTIENE LA LISTA DE LOS GRUPOS Y LOS MUESTRA EN LA TABLA CONFIGURADA ANTERIORMENTE
         private void frmGestionGruposAsignados_Load(object sender, EventArgs e)
         {
-            lstGrupos = GrupoDAO.ObtenerGruposAsignados(Convert.ToInt32(_frmGestionGruposAsignados.maestro.Id));
+            lstGrupos = GrupoDAO.ObtenerGruposAsignados(Convert.ToInt32(SesionUsuario.Instancia.Id));
 
             foreach (var grupo in lstGrupos)
             {
-                _frmGestionGruposAsignados.dataGridViewTareas.Rows.Add(grupo.NombreGrupo, grupo.Materia, grupo.SemestreActual);
+                _frmGestionGruposAsignados.dataGridViewGrupos.Rows.Add(grupo.Id, grupo.NombreGrupo, grupo.Materia, grupo.SemestreActual);
+            }
+        }
+
+        private void btnVerAlumnos_Click(object sender, EventArgs e)
+        {
+            GrupoProfesor grupoSeleccionado = new GrupoProfesor();
+
+            if (_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows.Count > 0)
+            {
+                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()));
+
+                FrmVistaAlumnos frmVistaAlumnos = new FrmVistaAlumnos(grupoSeleccionado);
+                MenuMaestroController.actualizarSubmenu?.Invoke(frmVistaAlumnos);
             }
         }
 
@@ -45,9 +55,9 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         {
             GrupoProfesor grupoSeleccionado = new GrupoProfesor();
 
-            if (_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows.Count > 0)
+            if (_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows.Count > 0)
             {
-                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewTareas.SelectedRows[0].Cells[0].Value.ToString()));
+                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()));
                 
                 FrmGestionTareas frmGestionTareas = new FrmGestionTareas(grupoSeleccionado);
                 MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);

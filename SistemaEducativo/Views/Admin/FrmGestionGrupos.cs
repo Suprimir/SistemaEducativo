@@ -1,6 +1,6 @@
 ﻿using SistemaEducativo.Controllers.AdminControllers;
 
-namespace SistemaEducativo.Views.Maestro
+namespace SistemaEducativo.Views.Admin
 {
     public partial class FrmGestionGrupos : Form
     {

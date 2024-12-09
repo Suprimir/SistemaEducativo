@@ -98,9 +98,10 @@ namespace SistemaEducativo.DAO
                             {
                                 GrupoProfesor grupo = new GrupoProfesor();
 
-                                grupo.NombreGrupo = reader.GetString(0);
-                                grupo.Materia = reader.GetString(1);
-                                grupo.SemestreActual = reader.GetInt32(2);
+                                grupo.Id = reader.GetInt32(0);
+                                grupo.NombreGrupo = reader.GetString(1);
+                                grupo.Materia = reader.GetString(2);
+                                grupo.SemestreActual = reader.GetInt32(3);
 
                                 lstGrupos.Add(grupo);
                             }

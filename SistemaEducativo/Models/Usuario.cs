@@ -10,6 +10,7 @@ namespace SistemaEducativo.Models
     {
         private int? id;
         private string matricula;
+        private string? carrera;
         private string pass;
         private string nombreCompleto;
         private string nombre;
@@ -18,10 +19,13 @@ namespace SistemaEducativo.Models
         private string correo;
         private string rol;
         private int? grupoId;
+        private string? pathFotoPerfil;
 
         public int? Id { get { return id; } set { id = value; } }
 
         public string Matricula { get { return matricula; } set { matricula = value; } }
+
+        public string? Carrera { get { return carrera; } set { carrera = value; } }
 
         public string Pass { get { return pass; } set { pass = value; } }
 
@@ -38,6 +42,8 @@ namespace SistemaEducativo.Models
         public string Rol { get { return rol; } set { rol = value; } }
 
         public int? GrupoId { get { return grupoId; } set { grupoId = value; } }
+
+        public string? PathFotoPerfil { get { return pathFotoPerfil; } set {  pathFotoPerfil = value; } }
 
         public override string ToString()
         {

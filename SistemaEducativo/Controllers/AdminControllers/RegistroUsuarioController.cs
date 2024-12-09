@@ -1,6 +1,7 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Views.Admin;
+using SistemaEducativo.Views.Alumno;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
 
             _frmRegistroUsuario.btnRegistrarUsuario.Click += btnRegistrarUsuario_Click;
+            _frmRegistroUsuario.btnSubirFoto.Click += btnSubirFoto_Click;
+            _frmRegistroUsuario.openFileDialogPfp.FileOk += openFileDialogPfp_FileOk;
             _frmRegistroUsuario.comboBoxRol.TextChanged += comboBoxRol_TextChanged;
         }
 
@@ -49,6 +52,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
+            string path = Path.Combine(Application.StartupPath, "fotosPerfil");
+
+            if(!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
+            string pathFinal = Path.Combine(path, usuarioSeleccionado.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
+
+            File.Copy(pathArchivoInicial, pathFinal, true);
+
             if (usuarioSeleccionado != null)
             {
                 usuarioSeleccionado.Nombre = _frmRegistroUsuario.textBoxNombre.Text;
@@ -56,6 +71,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 usuarioSeleccionado.ApellidoM = _frmRegistroUsuario.textBoxApellidoM.Text;
                 usuarioSeleccionado.Pass = _frmRegistroUsuario.textBoxContraseña.Text;
                 usuarioSeleccionado.Correo = _frmRegistroUsuario.textBoxCorreo.Text;
+                usuarioSeleccionado.PathFotoPerfil = pathFinal;
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuarioSeleccionado))
                 {
@@ -75,6 +91,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 usuario.Pass = _frmRegistroUsuario.textBoxContraseña.Text;
                 usuario.Correo = _frmRegistroUsuario.textBoxCorreo.Text;
                 usuario.Rol = _frmRegistroUsuario.comboBoxRol.Text;
+                usuario.PathFotoPerfil = pathFinal;
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuario))
                 {
@@ -83,6 +100,16 @@ namespace SistemaEducativo.Controllers.AdminControllers
                     _frmRegistroUsuario.Close();
                 }
             }
+        }
+
+        private void btnSubirFoto_Click(object sender, EventArgs e)
+        {
+            _frmRegistroUsuario.openFileDialogPfp.ShowDialog();
+        }
+
+        private void openFileDialogPfp_FileOk(object sender, EventArgs e)
+        {
+            _frmRegistroUsuario.pictureBoxPfp.ImageLocation = _frmRegistroUsuario.openFileDialogPfp.FileName;
         }
 
         private void comboBoxRol_TextChanged(object sender, EventArgs e)

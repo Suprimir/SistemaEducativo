@@ -35,6 +35,7 @@
             richTextBoxDescripcion = new RichTextBox();
             openFileDialogTarea = new OpenFileDialog();
             btnCancelarEntrega = new Button();
+            btnVerArchivo = new Button();
             SuspendLayout();
             // 
             // lblTitulo
@@ -76,9 +77,10 @@
             // 
             // richTextBoxDescripcion
             // 
-            richTextBoxDescripcion.Enabled = false;
+            richTextBoxDescripcion.BackColor = Color.FromArgb(228, 220, 201);
             richTextBoxDescripcion.Location = new Point(15, 46);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
+            richTextBoxDescripcion.ReadOnly = true;
             richTextBoxDescripcion.Size = new Size(399, 217);
             richTextBoxDescripcion.TabIndex = 4;
             richTextBoxDescripcion.Text = "";
@@ -96,11 +98,22 @@
             btnCancelarEntrega.Text = "Cancelar Entrega";
             btnCancelarEntrega.UseVisualStyleBackColor = true;
             // 
+            // btnVerArchivo
+            // 
+            btnVerArchivo.Location = new Point(433, 109);
+            btnVerArchivo.Name = "btnVerArchivo";
+            btnVerArchivo.Size = new Size(151, 25);
+            btnVerArchivo.TabIndex = 6;
+            btnVerArchivo.Text = "Ver Archivo";
+            btnVerArchivo.UseVisualStyleBackColor = true;
+            // 
             // FrmVerTarea
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(251, 225, 141);
             ClientSize = new Size(596, 275);
+            Controls.Add(btnVerArchivo);
             Controls.Add(btnCancelarEntrega);
             Controls.Add(richTextBoxDescripcion);
             Controls.Add(lblNombreArchivo);
@@ -123,5 +136,6 @@
         public Button btnAdjuntarArchivo;
         public Label lblNombreArchivo;
         public Button btnCancelarEntrega;
+        public Button btnVerArchivo;
     }
 }

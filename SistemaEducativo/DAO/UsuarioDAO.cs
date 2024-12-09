@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +15,16 @@ namespace SistemaEducativo.DAO
 {
     internal class UsuarioDAO
     {
-        public static Usuario ValidarUsuario(string matricula, string contraseña)
+        public static Usuario IniciarSesion(string matricula, string contraseña)
         {
             using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
             {
-                string query = $"SELECT * FROM usuarios WHERE matricula=@matricula AND contraseña=@contraseña;";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand("IniciarSesion", conn))
                 {
-                    cmd.Parameters.AddWithValue("@matricula", matricula);
-                    cmd.Parameters.AddWithValue("@contraseña", contraseña);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@p_matricula", matricula);
+                    cmd.Parameters.AddWithValue("@p_pass", contraseña);
 
                     conn.Open();
 
@@ -41,12 +42,10 @@ namespace SistemaEducativo.DAO
                                 usuario.ApellidoP = reader.GetString(4);
                                 usuario.ApellidoM = reader.GetString(5);
                                 usuario.Correo = reader.GetString(6);
-                                usuario.Rol = reader.GetString(7);
-
-                                if(!reader.IsDBNull(8))
-                                {
-                                    usuario.GrupoId = reader.GetInt32(8);
-                                }
+                                usuario.GrupoId = reader.IsDBNull(7) ? null : reader.GetInt32(7);
+                                usuario.Carrera = reader.IsDBNull(8) ? null : reader.GetString(8);
+                                usuario.Rol = reader.GetString(9);
+                                usuario.PathFotoPerfil = reader.IsDBNull(10) ? null : reader.GetString(10);
 
                                 return usuario;
                             }
@@ -119,6 +118,7 @@ namespace SistemaEducativo.DAO
                         cmd.Parameters.AddWithValue("@p_correo", usuario.Correo);
                         cmd.Parameters.AddWithValue("@p_rol", usuario.Rol);
                         cmd.Parameters.AddWithValue("@p_grupo_ID", usuario.GrupoId); // Pueden ser nulos
+                        cmd.Parameters.AddWithValue("@p_path_foto_Perfil", usuario.PathFotoPerfil);
 
                         conn.Open();
 
@@ -159,5 +159,44 @@ namespace SistemaEducativo.DAO
                 return false;
             }
         } // Ocupa explicacion ?? bueno elimina un usuario 
+
+        public static List<Usuario> ObtenerAlumnos(Grupo grupo)
+        {
+            try
+            {
+                List<Usuario> lstAlumnos = new List<Usuario>();
+                
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM alumnosPorGrupo WHERE grupo_ID = @grupoID", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@grupoID", grupo.Id);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Usuario usuario = new Usuario();
+
+                                usuario.Id = reader.GetInt32(0);
+                                usuario.Matricula = reader.GetString(1);
+                                usuario.NombreCompleto = reader.GetString(2);
+                                usuario.GrupoId = reader.GetInt32(3);
+
+                                lstAlumnos.Add(usuario);
+                            }
+
+                            return lstAlumnos;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
     }
 }

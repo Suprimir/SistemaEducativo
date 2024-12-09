@@ -36,6 +36,7 @@
             crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
             editarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             eliminarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            verCalificacionesToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
@@ -89,7 +90,7 @@
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
-            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, editarUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem });
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, editarUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem, verCalificacionesToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
@@ -114,6 +115,12 @@
             eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
             eliminarUsuarioToolStripMenuItem.Size = new Size(105, 26);
             eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
+            // 
+            // verCalificacionesToolStripMenuItem
+            // 
+            verCalificacionesToolStripMenuItem.Name = "verCalificacionesToolStripMenuItem";
+            verCalificacionesToolStripMenuItem.Size = new Size(111, 26);
+            verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
             // 
             // FrmGestionUsuarios
             // 
@@ -146,5 +153,6 @@
         public ToolStripMenuItem crearUsuarioToolStripMenuItem;
         public ToolStripMenuItem editarUsuarioToolStripMenuItem;
         public ToolStripMenuItem eliminarUsuarioToolStripMenuItem;
+        public ToolStripMenuItem verCalificacionesToolStripMenuItem;
     }
 }

@@ -193,6 +193,16 @@ namespace SistemaEducativo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap notasIcon {
+            get {
+                object obj = ResourceManager.GetObject("notasIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PanelRounded {
             get {
                 object obj = ResourceManager.GetObject("PanelRounded", resourceCulture);

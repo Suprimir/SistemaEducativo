@@ -1,4 +1,4 @@
-﻿namespace SistemaEducativo.Views.Maestro
+﻿namespace SistemaEducativo.Views.Admin
 {
     partial class FrmGestionGrupos
     {

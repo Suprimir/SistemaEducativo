@@ -4,6 +4,7 @@ using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Alumno;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmVerTarea.btnAdjuntarArchivo.Click += btnAdjuntarArchivo_Click;
             _frmVerTarea.btnSubirTarea.Click += btnSubirTarea_Click;
             _frmVerTarea.btnCancelarEntrega.Click += btnCancelarEntrega_Click;
+            _frmVerTarea.btnVerArchivo.Click += btnVerArchivo_Click;
             _frmVerTarea.openFileDialogTarea.FileOk += openFileDialogTarea_FileOk;
         }
 
@@ -42,12 +44,16 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
             if (tareaEntregada != null)
             {
+                _frmVerTarea.lblNombreArchivo.Visible = false;
+                _frmVerTarea.btnVerArchivo.Visible = true;
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnCancelarEntrega.Enabled = true;
             }
             else
             {
+                _frmVerTarea.lblNombreArchivo.Visible = true;
+                _frmVerTarea.btnVerArchivo.Visible = false;
                 _frmVerTarea.btnCancelarEntrega.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = true;
@@ -111,6 +117,15 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                     actualizarEstado?.Invoke();
                 }
             }
+        }
+
+        private void btnVerArchivo_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                FileName = tareaEntregada.PathArchivoTarea
+            });
         }
 
         private void openFileDialogTarea_FileOk(object sender, EventArgs e)

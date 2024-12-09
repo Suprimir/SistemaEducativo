@@ -38,7 +38,7 @@
             lblRol = new Label();
             lblRolStatic = new Label();
             lblUsuarioStatic = new Label();
-            lblUsuario = new Label();
+            lblMatricula = new Label();
             panel2 = new Panel();
             lblGestionStatic = new Label();
             panel5 = new Panel();
@@ -109,7 +109,7 @@
             panelPerfil.Controls.Add(pictureBoxMPfp);
             panelPerfil.Controls.Add(lblRolStatic);
             panelPerfil.Controls.Add(lblUsuarioStatic);
-            panelPerfil.Controls.Add(lblUsuario);
+            panelPerfil.Controls.Add(lblMatricula);
             panelPerfil.Location = new Point(611, 57);
             panelPerfil.Name = "panelPerfil";
             panelPerfil.Size = new Size(229, 65);
@@ -180,15 +180,15 @@
             lblUsuarioStatic.Text = "Matricula:";
             lblUsuarioStatic.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblUsuario
+            // lblMatricula
             // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(134, 10);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(46, 15);
-            lblUsuario.TabIndex = 11;
-            lblUsuario.Text = "usuario";
-            lblUsuario.TextAlign = ContentAlignment.MiddleCenter;
+            lblMatricula.AutoSize = true;
+            lblMatricula.Location = new Point(134, 10);
+            lblMatricula.Name = "lblMatricula";
+            lblMatricula.Size = new Size(46, 15);
+            lblMatricula.TabIndex = 11;
+            lblMatricula.Text = "usuario";
+            lblMatricula.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -453,7 +453,6 @@
 
         #endregion
         private TableLayoutPanel tableLayoutPanel1;
-        private PictureBox pictureBoxMPfp;
         public Button btnRegistrarGeneracion;
         public Button btnGrupos;
         public Button btnPerfil;
@@ -470,7 +469,7 @@
         public Button btnCerrarSesion;
         private Label lblGestionStatic;
         public Label lblRol;
-        public Label lblUsuario;
+        public Label lblMatricula;
         public ContextMenuStrip contextMenuStripPerfil;
         public Panel panelPerfil;
         public ToolStripMenuItem configurarPerfilToolStripMenuItem;
@@ -484,5 +483,6 @@
         public Button btnMinimizarVentana;
         public Label lblBienvenidaSub;
         public TableLayoutPanel tableLayoutPanelCustom;
+        public PictureBox pictureBoxMPfp;
     }
 }

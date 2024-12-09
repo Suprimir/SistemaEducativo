@@ -267,7 +267,7 @@ namespace SistemaEducativo.DAO
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@p_tarea_ID", tarea.ID);
+                        cmd.Parameters.AddWithValue("@p_tarea_por_alumno_ID", tarea.ID);
                         cmd.Parameters.AddWithValue("@p_calificacion", tarea.Calificacion);
 
                         conn.Open();

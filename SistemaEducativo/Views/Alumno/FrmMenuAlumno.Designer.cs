@@ -45,6 +45,8 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            panel3 = new Panel();
+            btnCalificaciones = new Button();
             label1 = new Label();
             panel8 = new Panel();
             panel6 = new Panel();
@@ -58,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             panel8.SuspendLayout();
             panel6.SuspendLayout();
             SuspendLayout();
@@ -257,6 +260,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(251, 225, 141);
+            panel2.Controls.Add(panel3);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(panel8);
             panel2.Location = new Point(7, 7);
@@ -264,6 +268,31 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(187, 237);
             panel2.TabIndex = 23;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(btnCalificaciones);
+            panel3.Location = new Point(0, 133);
+            panel3.Margin = new Padding(0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(204, 49);
+            panel3.TabIndex = 42;
+            // 
+            // btnCalificaciones
+            // 
+            btnCalificaciones.Cursor = Cursors.Hand;
+            btnCalificaciones.FlatAppearance.BorderColor = Color.Black;
+            btnCalificaciones.FlatAppearance.BorderSize = 0;
+            btnCalificaciones.FlatStyle = FlatStyle.Flat;
+            btnCalificaciones.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCalificaciones.ForeColor = SystemColors.ControlText;
+            btnCalificaciones.Image = Properties.Resources.notasIcon;
+            btnCalificaciones.Location = new Point(-108, 0);
+            btnCalificaciones.Name = "btnCalificaciones";
+            btnCalificaciones.Size = new Size(295, 46);
+            btnCalificaciones.TabIndex = 14;
+            btnCalificaciones.Text = "                                  Calificaciones";
+            btnCalificaciones.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -357,6 +386,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel3.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel6.ResumeLayout(false);
             ResumeLayout(false);
@@ -368,7 +398,6 @@
         public Panel panelPerfil;
         public Button btnPerfil;
         public Label lblCarrera;
-        private PictureBox pictureBoxMPfp;
         private Label lblCarreraStatic;
         private Label lblUsuarioStatic;
         public Label lblUsuario;
@@ -388,5 +417,8 @@
         public Button btnCerrarSesion;
         public Label lblBienvenidaSub;
         public Label lblBienvenida;
+        private Panel panel3;
+        public Button btnCalificaciones;
+        public PictureBox pictureBoxMPfp;
     }
 }

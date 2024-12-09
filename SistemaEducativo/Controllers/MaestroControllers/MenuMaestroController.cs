@@ -42,8 +42,10 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         {
             _frmMenuMaestro.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
             _frmMenuMaestro.lblBienvenidaSub.Text = "  Espero que muy bien!";
-            _frmMenuMaestro.lblUsuario.Text = _frmMenuMaestro._usuarioLogueado.Matricula;
-            _frmMenuMaestro.lblRol.Text = _frmMenuMaestro._usuarioLogueado.Rol;
+            _frmMenuMaestro.lblMatricula.Text = SesionUsuario.Instancia.Matricula;
+            _frmMenuMaestro.lblRol.Text = SesionUsuario.Instancia.Rol;
+
+            _frmMenuMaestro.pictureBoxMPfp.ImageLocation = SesionUsuario.Instancia.PathImagen;
 
             AbrirFormEnPanelSubmenu(frmSubmenuMaestro);
         }

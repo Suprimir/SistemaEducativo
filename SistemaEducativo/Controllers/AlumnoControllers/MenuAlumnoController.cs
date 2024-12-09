@@ -1,4 +1,5 @@
-﻿using SistemaEducativo.Sesion;
+﻿using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
@@ -26,18 +27,33 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
             _frmMenuAlumno.Load += frmMenuAlumno_Load;
             _frmMenuAlumno.btnTareas.Click += btnTareas_Click;
+            _frmMenuAlumno.btnCalificaciones.Click += btnCalificaciones_Click;
         }
 
         private void frmMenuAlumno_Load(object sender, EventArgs e)
         {
             _frmMenuAlumno.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
             _frmMenuAlumno.lblBienvenidaSub.Text = "  Espero que muy bien!";
+
+            _frmMenuAlumno.pictureBoxMPfp.ImageLocation = SesionUsuario.Instancia.PathImagen;
         }
 
         private void btnTareas_Click(object sender, EventArgs e)
         {
             FrmGestionTareasAlumno frmGestionTareasAlumno = new FrmGestionTareasAlumno();
             AbrirFormEnPanelSubmenu(frmGestionTareasAlumno);
+        }
+
+        private void btnCalificaciones_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario();
+
+            usuario.Matricula = SesionUsuario.Instancia.Matricula;
+            usuario.Carrera = SesionUsuario.Instancia.Carrera;
+            usuario.GrupoId = SesionUsuario.Instancia.GrupoID;
+
+            FrmVistaCalificaciones frmVistaCalificacionesAlumno = new FrmVistaCalificaciones(usuario, null);
+            AbrirFormEnPanelSubmenu(frmVistaCalificacionesAlumno);
         }
 
         private void AbrirFormEnPanelSubmenu(Form subMenu)

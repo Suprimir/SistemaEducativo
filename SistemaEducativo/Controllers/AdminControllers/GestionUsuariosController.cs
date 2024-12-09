@@ -1,6 +1,7 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Views.Admin;
+using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionUsuarios.crearUsuarioToolStripMenuItem.Click += btnCrearUsuario_Click;
             _frmGestionUsuarios.editarUsuarioToolStripMenuItem.Click += btnEditarUsuario_Click;
             _frmGestionUsuarios.eliminarUsuarioToolStripMenuItem.Click += btnEliminarUsuario_Click;
+            _frmGestionUsuarios.verCalificacionesToolStripMenuItem.Click += btnVerCalificaciones_Click;
         }
 
         // funcion que carga los datos en la tabla de gestion de usuarios
@@ -102,6 +104,23 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 if (UsuarioDAO.EliminarUsuario(usuarioSeleccionado))
                 {
                     actualizarTabla?.Invoke();
+                }
+            }
+        }
+
+        private void btnVerCalificaciones_Click(object sender, EventArgs e)
+        {
+            if (_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows.Count > 0)
+            {
+                Usuario usuario = lstUsuarios.FirstOrDefault(u => u.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows[0].Cells[0].Value));
+
+                if (usuario.Rol == "alumno")
+                {
+                    FrmVistaCalificaciones frmVistaCalificaciones = new FrmVistaCalificaciones(usuario, null);
+                    MenuAdminController.actualizarSubmenu(frmVistaCalificaciones);
+                } else
+                {
+                    MessageBox.Show("El usuario seleccionado no es un alumno.");
                 }
             }
         }

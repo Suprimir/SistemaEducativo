@@ -28,35 +28,92 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridViewTareas = new DataGridView();
-            btnVerTareas = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
+            dataGridViewGrupos = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            grupoNombre = new DataGridViewTextBoxColumn();
+            materia = new DataGridViewTextBoxColumn();
+            semestre = new DataGridViewTextBoxColumn();
+            panelMenuStrip = new Panel();
+            menuStripTareasMaestro = new MenuStrip();
+            verAlumnosToolStripMenuItem = new ToolStripMenuItem();
+            verTareasToolStripMenuItem = new ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).BeginInit();
+            panelMenuStrip.SuspendLayout();
+            menuStripTareasMaestro.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridViewTareas
+            // dataGridViewGrupos
             // 
-            dataGridViewTareas.AllowUserToAddRows = false;
-            dataGridViewTareas.AllowUserToDeleteRows = false;
-            dataGridViewTareas.AllowUserToResizeColumns = false;
-            dataGridViewTareas.AllowUserToResizeRows = false;
-            dataGridViewTareas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTareas.Location = new Point(16, 12);
-            dataGridViewTareas.Name = "dataGridViewTareas";
-            dataGridViewTareas.ReadOnly = true;
-            dataGridViewTareas.RowHeadersVisible = false;
-            dataGridViewTareas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewTareas.Size = new Size(435, 249);
-            dataGridViewTareas.TabIndex = 1;
+            dataGridViewGrupos.AllowUserToAddRows = false;
+            dataGridViewGrupos.AllowUserToDeleteRows = false;
+            dataGridViewGrupos.AllowUserToResizeColumns = false;
+            dataGridViewGrupos.AllowUserToResizeRows = false;
+            dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, grupoNombre, materia, semestre });
+            dataGridViewGrupos.Location = new Point(16, 48);
+            dataGridViewGrupos.MultiSelect = false;
+            dataGridViewGrupos.Name = "dataGridViewGrupos";
+            dataGridViewGrupos.RowHeadersVisible = false;
+            dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewGrupos.Size = new Size(559, 213);
+            dataGridViewGrupos.TabIndex = 3;
             // 
-            // btnVerTareas
+            // id
             // 
-            btnVerTareas.Location = new Point(457, 12);
-            btnVerTareas.Name = "btnVerTareas";
-            btnVerTareas.Size = new Size(127, 38);
-            btnVerTareas.TabIndex = 2;
-            btnVerTareas.Text = "Ver Tareas";
-            btnVerTareas.UseVisualStyleBackColor = true;
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // grupoNombre
+            // 
+            grupoNombre.HeaderText = "Nombre Grupo";
+            grupoNombre.Name = "grupoNombre";
+            // 
+            // materia
+            // 
+            materia.HeaderText = "Materia";
+            materia.Name = "materia";
+            // 
+            // semestre
+            // 
+            semestre.HeaderText = "Semestre";
+            semestre.Name = "semestre";
+            // 
+            // panelMenuStrip
+            // 
+            panelMenuStrip.AutoSize = true;
+            panelMenuStrip.Controls.Add(menuStripTareasMaestro);
+            panelMenuStrip.Location = new Point(16, 12);
+            panelMenuStrip.Name = "panelMenuStrip";
+            panelMenuStrip.Size = new Size(559, 30);
+            panelMenuStrip.TabIndex = 14;
+            // 
+            // menuStripTareasMaestro
+            // 
+            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
+            menuStripTareasMaestro.Dock = DockStyle.Fill;
+            menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { verAlumnosToolStripMenuItem, verTareasToolStripMenuItem });
+            menuStripTareasMaestro.Location = new Point(0, 0);
+            menuStripTareasMaestro.Name = "menuStripTareasMaestro";
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(559, 30);
+            menuStripTareasMaestro.TabIndex = 2;
+            menuStripTareasMaestro.Text = "menuStrip1";
+            // 
+            // verAlumnosToolStripMenuItem
+            // 
+            verAlumnosToolStripMenuItem.Name = "verAlumnosToolStripMenuItem";
+            verAlumnosToolStripMenuItem.Size = new Size(86, 26);
+            verAlumnosToolStripMenuItem.Text = "Ver Alumnos";
+            // 
+            // verTareasToolStripMenuItem
+            // 
+            verTareasToolStripMenuItem.Name = "verTareasToolStripMenuItem";
+            verTareasToolStripMenuItem.Size = new Size(71, 26);
+            verTareasToolStripMenuItem.Text = "Ver Tareas";
             // 
             // FrmGestionGruposAsignados
             // 
@@ -64,18 +121,29 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(251, 225, 141);
             ClientSize = new Size(596, 275);
-            Controls.Add(btnVerTareas);
-            Controls.Add(dataGridViewTareas);
+            Controls.Add(panelMenuStrip);
+            Controls.Add(dataGridViewGrupos);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmGestionGruposAsignados";
             Text = "FrmGestionGruposAsignados";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();
+            panelMenuStrip.ResumeLayout(false);
+            panelMenuStrip.PerformLayout();
+            menuStripTareasMaestro.ResumeLayout(false);
+            menuStripTareasMaestro.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        public DataGridView dataGridViewTareas;
-        public Button btnVerTareas;
+        public DataGridView dataGridViewGrupos;
+        private Panel panelMenuStrip;
+        public MenuStrip menuStripTareasMaestro;
+        public ToolStripMenuItem verAlumnosToolStripMenuItem;
+        public ToolStripMenuItem verTareasToolStripMenuItem;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn grupoNombre;
+        private DataGridViewTextBoxColumn materia;
+        private DataGridViewTextBoxColumn semestre;
     }
 }
