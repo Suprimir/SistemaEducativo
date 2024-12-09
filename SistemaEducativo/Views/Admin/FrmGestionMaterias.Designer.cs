@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewMaterias = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nombreMateria = new DataGridViewTextBoxColumn();
+            descripcion = new DataGridViewTextBoxColumn();
+            semestre = new DataGridViewTextBoxColumn();
+            editar = new DataGridViewImageColumn();
+            eliminar = new DataGridViewCheckBoxColumn();
             textBoxFiltroMateria = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
             panelMenuStrip = new Panel();
             menuStripTareasMaestro = new MenuStrip();
             crearMateriaToolStripMenuItem = new ToolStripMenuItem();
-            editarMateriaToolStripMenuItem = new ToolStripMenuItem();
             eliminarMateriaToolStripMenuItem = new ToolStripMenuItem();
             asignarMateriaToolStripMenuItem = new ToolStripMenuItem();
             desasignarMateriaToolStripMenuItem = new ToolStripMenuItem();
@@ -50,21 +56,77 @@
             dataGridViewMaterias.AllowUserToResizeColumns = false;
             dataGridViewMaterias.AllowUserToResizeRows = false;
             dataGridViewMaterias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewMaterias.BackgroundColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMaterias.Location = new Point(16, 78);
+            dataGridViewMaterias.Columns.AddRange(new DataGridViewColumn[] { id, nombreMateria, descripcion, semestre, editar, eliminar });
+            dataGridViewMaterias.EnableHeadersVisualStyles = false;
+            dataGridViewMaterias.GridColor = Color.FromArgb(251, 225, 141);
+            dataGridViewMaterias.Location = new Point(0, 69);
             dataGridViewMaterias.MultiSelect = false;
             dataGridViewMaterias.Name = "dataGridViewMaterias";
-            dataGridViewMaterias.ReadOnly = true;
             dataGridViewMaterias.RowHeadersVisible = false;
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewMaterias.Size = new Size(559, 183);
+            dataGridViewMaterias.Size = new Size(597, 206);
             dataGridViewMaterias.TabIndex = 0;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // nombreMateria
+            // 
+            nombreMateria.FillWeight = 50F;
+            nombreMateria.HeaderText = "Materia";
+            nombreMateria.Name = "nombreMateria";
+            nombreMateria.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            descripcion.HeaderText = "Descripcion";
+            descripcion.Name = "descripcion";
+            descripcion.ReadOnly = true;
+            // 
+            // semestre
+            // 
+            semestre.FillWeight = 25F;
+            semestre.HeaderText = "Semestre";
+            semestre.Name = "semestre";
+            semestre.ReadOnly = true;
+            semestre.Visible = false;
+            // 
+            // editar
+            // 
+            editar.FillWeight = 15F;
+            editar.HeaderText = "";
+            editar.Image = Properties.Resources.editarIcon;
+            editar.Name = "editar";
+            // 
+            // eliminar
+            // 
+            eliminar.FillWeight = 15F;
+            eliminar.HeaderText = "";
+            eliminar.Name = "eliminar";
             // 
             // textBoxFiltroMateria
             // 
-            textBoxFiltroMateria.Location = new Point(16, 13);
+            textBoxFiltroMateria.Location = new Point(0, 4);
             textBoxFiltroMateria.Name = "textBoxFiltroMateria";
-            textBoxFiltroMateria.Size = new Size(432, 23);
+            textBoxFiltroMateria.Size = new Size(470, 23);
             textBoxFiltroMateria.TabIndex = 4;
             // 
             // comboBoxFiltroCarrera
@@ -72,7 +134,7 @@
             comboBoxFiltroCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroCarrera.FormattingEnabled = true;
             comboBoxFiltroCarrera.Items.AddRange(new object[] { "" });
-            comboBoxFiltroCarrera.Location = new Point(454, 13);
+            comboBoxFiltroCarrera.Location = new Point(475, 4);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
             comboBoxFiltroCarrera.Size = new Size(121, 23);
             comboBoxFiltroCarrera.TabIndex = 5;
@@ -81,9 +143,9 @@
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(16, 42);
+            panelMenuStrip.Location = new Point(-1, 33);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(559, 30);
+            panelMenuStrip.Size = new Size(597, 30);
             panelMenuStrip.TabIndex = 12;
             // 
             // menuStripTareasMaestro
@@ -92,11 +154,11 @@
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
-            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearMateriaToolStripMenuItem, editarMateriaToolStripMenuItem, eliminarMateriaToolStripMenuItem, asignarMateriaToolStripMenuItem, desasignarMateriaToolStripMenuItem });
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearMateriaToolStripMenuItem, eliminarMateriaToolStripMenuItem, asignarMateriaToolStripMenuItem, desasignarMateriaToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(559, 30);
+            menuStripTareasMaestro.Size = new Size(597, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
@@ -105,12 +167,6 @@
             crearMateriaToolStripMenuItem.Name = "crearMateriaToolStripMenuItem";
             crearMateriaToolStripMenuItem.Size = new Size(90, 26);
             crearMateriaToolStripMenuItem.Text = "Crear Materia";
-            // 
-            // editarMateriaToolStripMenuItem
-            // 
-            editarMateriaToolStripMenuItem.Name = "editarMateriaToolStripMenuItem";
-            editarMateriaToolStripMenuItem.Size = new Size(92, 26);
-            editarMateriaToolStripMenuItem.Text = "Editar Materia";
             // 
             // eliminarMateriaToolStripMenuItem
             // 
@@ -159,9 +215,14 @@
         private Panel panelMenuStrip;
         public MenuStrip menuStripTareasMaestro;
         public ToolStripMenuItem crearMateriaToolStripMenuItem;
-        public ToolStripMenuItem editarMateriaToolStripMenuItem;
         public ToolStripMenuItem eliminarMateriaToolStripMenuItem;
         public ToolStripMenuItem asignarMateriaToolStripMenuItem;
         public ToolStripMenuItem desasignarMateriaToolStripMenuItem;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn nombreMateria;
+        private DataGridViewTextBoxColumn descripcion;
+        private DataGridViewTextBoxColumn semestre;
+        private DataGridViewImageColumn editar;
+        private DataGridViewCheckBoxColumn eliminar;
     }
 }

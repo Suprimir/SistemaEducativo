@@ -14,6 +14,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         private FrmGestionMaterias _frmGestionMaterias;
 
         private List<Materia> lstMaterias;
+        private List<Materia> lstMateriasSeleccionadas = new List<Materia>();
         private List<Carrera> lstCarreras;
         public static Action actualizarTabla; // ACCION A EJECUTAR EN LOS CAMBIOS DE MATERIAS
 
@@ -42,12 +43,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 _frmGestionMaterias.comboBoxFiltroCarrera.Items.Add(carrera.NombreCarrera);
             }
 
-            // CONFIGURACION DE LA TABLA MOSTRADA
-            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("id", "ID");
-            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("nombreMateria", "Materia");
-            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("descripcion", "Descripcion");
-            _frmGestionMaterias.dataGridViewMaterias.Columns.Add("semestre", "Semestre");
-
             // CARGA LA TABLA Y SE ACTUALIZA CADA QUE CAMBIA EL TEXTO DE CUALQUIERA DE LOS FILTROS
             _frmGestionMaterias.Load += frmGestionMaterias_Load;
             _frmGestionMaterias.textBoxFiltroMateria.TextChanged += textBoxFiltroMateria_TextChanged;
@@ -55,16 +50,22 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             // EJECUTAN LAS FUNCIONES DE CREAR Y EDITAR MATERIA
             _frmGestionMaterias.crearMateriaToolStripMenuItem.Click += btnCrearMateria_Click;
-            _frmGestionMaterias.editarMateriaToolStripMenuItem.Click += btnEditarMateria_Click;
             _frmGestionMaterias.eliminarMateriaToolStripMenuItem.Click += btnEliminarMateria_Click;
             _frmGestionMaterias.asignarMateriaToolStripMenuItem.Click += btnAsignarCarrera_Click;
-            _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Click += btnDesasignarCarrera_Click; 
+            _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Click += btnDesasignarCarrera_Click;
+
+            _frmGestionMaterias.dataGridViewMaterias.CellClick += dataGridViewMaterias_CellClick;
+            _frmGestionMaterias.dataGridViewMaterias.CellContentClick += dataGridViewMaterias_CellContentClick;
         }
 
         private void frmGestionMaterias_Load(object sender, EventArgs e)
         {
+            lstMateriasSeleccionadas.Clear();
+
             if (nombreCarrera == null)
             {
+                _frmGestionMaterias.dataGridViewMaterias.Columns["editar"].Visible = true;
+                _frmGestionMaterias.asignarMateriaToolStripMenuItem.Enabled = true;
                 _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Enabled = false;
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = false;
             }
@@ -95,8 +96,10 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             if (nombreCarrera != null)
             {
+                _frmGestionMaterias.asignarMateriaToolStripMenuItem.Enabled = false;
                 _frmGestionMaterias.desasignarMateriaToolStripMenuItem.Enabled = true;
                 _frmGestionMaterias.eliminarMateriaToolStripMenuItem.Enabled = false;
+                _frmGestionMaterias.dataGridViewMaterias.Columns["editar"].Visible = false;
                 _frmGestionMaterias.dataGridViewMaterias.Columns["semestre"].Visible = true;
             } else
             {
@@ -115,54 +118,81 @@ namespace SistemaEducativo.Controllers.AdminControllers
             frmRegistroMateria.Show();
         }
 
-        // abre el formulario de registro de materia con los datos de la materia a editar para actualizarla
-        private void btnEditarMateria_Click(object sender, EventArgs e)
-        {
-            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0) // Esto checa que hayas seleccionado un registro
-            {
-                Materia materiaSeleccionada = lstMaterias.FirstOrDefault(materia => materia.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value));
-
-                FrmRegistroMateria frmGestionMaterias = new FrmRegistroMateria(materiaSeleccionada);
-                frmGestionMaterias.Show();
-            }
-        }
-
         // Funcion de eliminar materia
         private void btnEliminarMateria_Click(object sender, EventArgs e)
         {
-            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0) // checa que tengas un registro seleccionado
+            if (lstMateriasSeleccionadas.Count > 0) // checa que tengas un registro seleccionado
             {
-                int materiaID = Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value); // obtiene el id del registro
-
-                if (MateriaDAO.EliminarMateria(materiaID)) // le dice a la base de datos que elimine el registro con el id que se le dio
+                foreach (var materia in lstMateriasSeleccionadas)
                 {
-                    actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
+                    if (MateriaDAO.EliminarMateria(Convert.ToInt32(materia.Id)))
+                    {
+                        actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
+                    }
                 }
+            } else
+            {
+                MessageBox.Show("Selecciona 1 o más materias.");
             }
         }
 
         // abre el formulario para asignar una materia a una carrera
         private void btnAsignarCarrera_Click(object sender, EventArgs e)
         {
-            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0)
+            if (lstMateriasSeleccionadas.Count > 0)
             {
-                Materia materiaSeleccionada = lstMaterias.FirstOrDefault(materia => materia.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value));
-
-                FrmAsignarMateria frmAsignarMateria = new FrmAsignarMateria(materiaSeleccionada);
+                FrmAsignarMateria frmAsignarMateria = new FrmAsignarMateria(lstMateriasSeleccionadas);
                 frmAsignarMateria.Show();
             }
         }
 
         private void btnDesasignarCarrera_Click(object sender, EventArgs e)
         {
-            if (_frmGestionMaterias.dataGridViewMaterias.SelectedRows.Count > 0)
+            if (lstMateriasSeleccionadas.Count > 0)
             {
-                Materia materiaSeleccionada = lstMaterias.FirstOrDefault(materia => materia.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.SelectedRows[0].Cells[0].Value));
-                Carrera carreraSeleccionada = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmGestionMaterias.comboBoxFiltroCarrera.Text);
+                MessageBox.Show($"{lstMateriasSeleccionadas.Count}");
+                Carrera carreraSeleccionada = lstCarreras.First(carrera => carrera.NombreCarrera == _frmGestionMaterias.comboBoxFiltroCarrera.Text);
 
-                if (MateriaDAO.DesasignarMateriaCarrera(materiaSeleccionada, carreraSeleccionada))
+                foreach (var materia in lstMateriasSeleccionadas)
                 {
-                    actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
+                    MateriaDAO.DesasignarMateriaCarrera(materia, carreraSeleccionada);
+                }
+
+                actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
+            }
+        }
+
+        private void dataGridViewMaterias_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && _frmGestionMaterias.dataGridViewMaterias.Columns[e.ColumnIndex].Name == "editar")
+            {
+                Materia materiaSeleccionada = lstMaterias.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.Rows[e.RowIndex].Cells[0].Value));
+
+                FrmRegistroMateria frmRegistroMateria = new FrmRegistroMateria(materiaSeleccionada);
+                frmRegistroMateria.Show();
+            }
+        }
+
+        private void dataGridViewMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && _frmGestionMaterias.dataGridViewMaterias.Columns[e.ColumnIndex].Name == "eliminar")
+            {
+                _frmGestionMaterias.dataGridViewMaterias.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                bool seleccion = Convert.ToBoolean(_frmGestionMaterias.dataGridViewMaterias.Rows[e.RowIndex].Cells["eliminar"].Value);
+
+                Materia materiaSeleccionada = lstMaterias.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.Rows[e.RowIndex].Cells[0].Value));
+
+                if (materiaSeleccionada != null)
+                {
+                    if (seleccion == true)
+                    {
+                        lstMateriasSeleccionadas.Add(materiaSeleccionada);
+                    }
+                    else
+                    {
+                        lstMateriasSeleccionadas.Remove(materiaSeleccionada);
+                    }
                 }
             }
         }

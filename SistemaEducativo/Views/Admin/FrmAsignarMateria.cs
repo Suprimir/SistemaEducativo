@@ -16,11 +16,11 @@ namespace SistemaEducativo.Views.Admin
     {
         private AsignarMateriaController controller;
 
-        public FrmAsignarMateria(Materia materia)
+        public FrmAsignarMateria(List<Materia> lstMaterias)
         {
             InitializeComponent();
 
-            controller = new AsignarMateriaController(this, materia);
+            controller = new AsignarMateriaController(this, lstMaterias);
         }
     }
 }

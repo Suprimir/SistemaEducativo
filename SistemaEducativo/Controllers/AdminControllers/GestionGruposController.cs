@@ -16,8 +16,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         // LISTA DE LOS GRUPOS
         private List<Grupo> lstGrupos;
-        private List<Grupo> lstGruposSeleccionados;
-        public static Action cambioEnGrupos;
+        private List<Grupo> lstGruposSeleccionados = new List<Grupo>();
+        public static Action actualizarTabla;
 
         private string filtroNombre = "";
 
@@ -28,7 +28,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             lstGrupos = GrupoDAO.ObtenerGrupos(); // Obtiene la lista de grupos de la base de datos.
 
             // Accion que ejecuta la actualizacion de la tabla de grupos
-            cambioEnGrupos = () => { lstGrupos = GrupoDAO.ObtenerGrupos(); CargarDatosEnTabla(null, null); };
+            actualizarTabla = () => { lstGrupos = GrupoDAO.ObtenerGrupos(); CargarDatosEnTabla(null, null); };
 
             _frmGestionGrupos.Load += CargarDatosEnTabla; 
 
@@ -39,7 +39,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionGrupos.eliminarGrupoToolStripMenuItem.Click += btnEliminarGrupo_Click;
             _frmGestionGrupos.asignarMaestrosToolStripMenuItem.Click += btnAsignarMaestro_Click;
             _frmGestionGrupos.dataGridViewGrupos.CellClick += dataGridViewGrupos_CellClick;
-            _frmGestionGrupos.dataGridViewGrupos.CellValueChanged += dataGridViewGrupos_CellValueChanged;
+            _frmGestionGrupos.dataGridViewGrupos.CellContentClick += dataGridViewGrupos_CellContentClick;
         }
 
         private void CargarDatosEnTabla(object sender, EventArgs e)
@@ -79,6 +79,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 {
                     GrupoDAO.EliminarGrupo(grupo);
                 }
+
+                actualizarTabla?.Invoke();
             }
         }
 
@@ -93,7 +95,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void dataGridViewGrupos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0 && _frmGestionGrupos.dataGridViewGrupos.Columns[e.ColumnIndex].Name == "editar")
+            if (e.RowIndex >= 0 && _frmGestionGrupos.dataGridViewGrupos.Columns[e.ColumnIndex].Name == "editar")
             {
                 Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
 
@@ -102,26 +104,27 @@ namespace SistemaEducativo.Controllers.AdminControllers
             }
         }
 
-        private void dataGridViewGrupos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewGrupos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0 && _frmGestionGrupos.dataGridViewGrupos.Columns[e.ColumnIndex].Name == "eliminar")
+            if (e.RowIndex >= 0 && _frmGestionGrupos.dataGridViewGrupos.Columns[e.ColumnIndex].Name == "eliminar")
             {
+                _frmGestionGrupos.dataGridViewGrupos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
                 bool seleccion = Convert.ToBoolean(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells["eliminar"].Value);
 
                 Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
-                MessageBox.Show(grupoSeleccionado.NombreGrupo);
-                if (seleccion == true)
-                {
-                    lstGruposSeleccionados.Add(grupoSeleccionado);
-                    MessageBox.Show(lstGruposSeleccionados.Count.ToString());
-                }
-                else
-                {
-                    lstGruposSeleccionados.Remove(grupoSeleccionado);
-                    MessageBox.Show(lstGruposSeleccionados.Count.ToString());
-                }
 
-                MessageBox.Show(lstGruposSeleccionados.Count.ToString());
+                if (grupoSeleccionado != null)
+                {
+                    if (seleccion == true)
+                    {
+                        lstGruposSeleccionados.Add(grupoSeleccionado);
+                    }
+                    else
+                    {
+                        lstGruposSeleccionados.Remove(grupoSeleccionado);
+                    }
+                }
             }
         }
     }

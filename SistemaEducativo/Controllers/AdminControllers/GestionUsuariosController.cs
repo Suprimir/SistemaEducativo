@@ -15,6 +15,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
     {
         private FrmGestionUsuarios _frmGestionUsuarios;
         private List<Usuario> lstUsuarios; // Lista de usuarios
+        private List<Usuario> lstUsuariosSeleccionados = new List<Usuario>();
         public static Action actualizarTabla;
         private string nombreFiltro = "";
         private string rolFiltro = "";
@@ -22,16 +23,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
         public GestionUsuariosController(FrmGestionUsuarios frmGestionUsuarios)
         {
             _frmGestionUsuarios = frmGestionUsuarios;
-
-            // Configuracion tabla
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("id", "ID");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("matricula", "Matricula");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("nombre", "Nombre");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("apellidoP", "Ap. Paterno");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("apellidoM", "Ap. Materno");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("correo", "Correo");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("rol", "Rol");
-            _frmGestionUsuarios.dataGridViewUsuarios.Columns.Add("grupoID", "Grupo ID");
 
             lstUsuarios = UsuarioDAO.ObtenerUsuarios(null); // Llama a la base de datos para obtener la lista de usuarios
             actualizarTabla = () => { lstUsuarios = UsuarioDAO.ObtenerUsuarios(null); frmGestionUsuarios_Load(null, null); };
@@ -41,14 +32,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionUsuarios.comboBoxFiltroRol.TextChanged += comboBoxFiltroRol_TextChanged;
 
             _frmGestionUsuarios.crearUsuarioToolStripMenuItem.Click += btnCrearUsuario_Click;
-            _frmGestionUsuarios.editarUsuarioToolStripMenuItem.Click += btnEditarUsuario_Click;
             _frmGestionUsuarios.eliminarUsuarioToolStripMenuItem.Click += btnEliminarUsuario_Click;
             _frmGestionUsuarios.verCalificacionesToolStripMenuItem.Click += btnVerCalificaciones_Click;
+        
+            _frmGestionUsuarios.dataGridViewUsuarios.CellClick += dataGridViewUsuarios_CellClick;
+            _frmGestionUsuarios.dataGridViewUsuarios.CellContentClick += dataGridViewUsuarios_CellContentClick;
         }
 
         // funcion que carga los datos en la tabla de gestion de usuarios
         private void frmGestionUsuarios_Load(object sender, EventArgs e)
         {
+            lstUsuariosSeleccionados.Clear();
+
             _frmGestionUsuarios.dataGridViewUsuarios.Rows.Clear();
 
             List<Usuario> lstUsuariosFiltroNombre = lstUsuarios.Where(usuario => usuario.Nombre.Contains(nombreFiltro, StringComparison.OrdinalIgnoreCase)).ToList();
@@ -81,46 +76,77 @@ namespace SistemaEducativo.Controllers.AdminControllers
             frmRegistroUsuario.Show();
         }
 
-        // abre formulario registro de usuarios pero con la informacion a editar
-        private void btnEditarUsuario_Click(object sender, EventArgs e)
-        {
-            if (_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows.Count > 0)
-            {
-                Usuario usuarioSeleccionado = lstUsuarios.FirstOrDefault(usuario => usuario.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows[0].Cells[0].Value));
-
-                FrmRegistroUsuario frmRegistroUsuario = new FrmRegistroUsuario(usuarioSeleccionado);
-                frmRegistroUsuario.Show();
-            }
-        }
-
         // elimina el usuario obteniendo el id de la fila seleccionada
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
-            Usuario usuarioSeleccionado = lstUsuarios.FirstOrDefault(usuario => usuario.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows[0].Cells[0].Value));
-            DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el usuario seleccionado.", "Eliminar Usuario", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
+            if (lstUsuariosSeleccionados.Count > 0)
             {
-                if (UsuarioDAO.EliminarUsuario(usuarioSeleccionado))
+                DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el usuario seleccionado.", "Eliminar Usuario", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
                 {
+                    foreach (var usuario in lstUsuariosSeleccionados)
+                    {
+                        UsuarioDAO.EliminarUsuario(usuario);
+                    }
+
                     actualizarTabla?.Invoke();
                 }
+            } else
+            {
+                MessageBox.Show("Selecciona 1 o más usuarios.");
             }
         }
 
         private void btnVerCalificaciones_Click(object sender, EventArgs e)
         {
-            if (_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows.Count > 0)
+            if (lstUsuariosSeleccionados.Count == 1)
             {
-                Usuario usuario = lstUsuarios.FirstOrDefault(u => u.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.SelectedRows[0].Cells[0].Value));
-
-                if (usuario.Rol == "alumno")
+                if (lstUsuariosSeleccionados[0].Rol == "alumno")
                 {
-                    FrmVistaCalificaciones frmVistaCalificaciones = new FrmVistaCalificaciones(usuario, null);
+                    FrmVistaCalificaciones frmVistaCalificaciones = new FrmVistaCalificaciones(lstUsuariosSeleccionados[0], null);
                     MenuAdminController.actualizarSubmenu(frmVistaCalificaciones);
                 } else
                 {
                     MessageBox.Show("El usuario seleccionado no es un alumno.");
+                }
+            } else
+            {
+                MessageBox.Show("Selecciona 1 solo alumno para ver sus calificaciones.");
+            }
+        }
+
+        private void dataGridViewUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && _frmGestionUsuarios.dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "editar")
+            {
+                Usuario usuarioSeleccionado = lstUsuarios.First(g => g.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.Rows[e.RowIndex].Cells[0].Value));
+                
+                FrmRegistroUsuario frmRegistroUsuario = new FrmRegistroUsuario(usuarioSeleccionado);
+                frmRegistroUsuario.Show();
+            }
+        }
+
+        private void dataGridViewUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && _frmGestionUsuarios.dataGridViewUsuarios.Columns[e.ColumnIndex].Name == "eliminar")
+            {
+                _frmGestionUsuarios.dataGridViewUsuarios.CommitEdit(DataGridViewDataErrorContexts.Commit);
+
+                bool seleccion = Convert.ToBoolean(_frmGestionUsuarios.dataGridViewUsuarios.Rows[e.RowIndex].Cells["eliminar"].Value);
+
+                Usuario usuarioSeleccionado = lstUsuarios.First(g => g.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.Rows[e.RowIndex].Cells[0].Value));
+
+                if (usuarioSeleccionado != null)
+                {
+                    if (seleccion == true)
+                    {
+                        lstUsuariosSeleccionados.Add(usuarioSeleccionado);
+                    }
+                    else
+                    {
+                        lstUsuariosSeleccionados.Remove(usuarioSeleccionado);
+                    }
                 }
             }
         }

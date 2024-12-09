@@ -52,18 +52,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            string path = Path.Combine(Application.StartupPath, "fotosPerfil");
-
-            if(!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
-            string pathFinal = Path.Combine(path, usuarioSeleccionado.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
-
-            File.Copy(pathArchivoInicial, pathFinal, true);
-
             if (usuarioSeleccionado != null)
             {
                 usuarioSeleccionado.Nombre = _frmRegistroUsuario.textBoxNombre.Text;
@@ -71,6 +59,19 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 usuarioSeleccionado.ApellidoM = _frmRegistroUsuario.textBoxApellidoM.Text;
                 usuarioSeleccionado.Pass = _frmRegistroUsuario.textBoxContraseña.Text;
                 usuarioSeleccionado.Correo = _frmRegistroUsuario.textBoxCorreo.Text;
+
+                string path = Path.Combine(Application.StartupPath, "fotosPerfil");
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
+                string pathFinal = Path.Combine(path, usuarioSeleccionado.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
+
+                File.Copy(pathArchivoInicial, pathFinal, true);
+
                 usuarioSeleccionado.PathFotoPerfil = pathFinal;
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuarioSeleccionado))
@@ -91,6 +92,19 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 usuario.Pass = _frmRegistroUsuario.textBoxContraseña.Text;
                 usuario.Correo = _frmRegistroUsuario.textBoxCorreo.Text;
                 usuario.Rol = _frmRegistroUsuario.comboBoxRol.Text;
+
+                string path = Path.Combine(Application.StartupPath, "fotosPerfil");
+
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
+                string pathFinal = Path.Combine(path, usuario.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
+
+                File.Copy(pathArchivoInicial, pathFinal, true);
+
                 usuario.PathFotoPerfil = pathFinal;
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuario))

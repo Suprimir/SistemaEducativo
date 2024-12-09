@@ -12,14 +12,14 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class AsignarMateriaController
     {
         private FrmAsignarMateria _frmAsignarMateria;
-        private Materia materiaSeleccionada;
+        private List<Materia> lstMateriasSeleccionadas;
         private List<Carrera> lstCarreras;
         private int semestres;
 
-        public AsignarMateriaController(FrmAsignarMateria frmAsignarMateria, Materia materia)
+        public AsignarMateriaController(FrmAsignarMateria frmAsignarMateria, List<Materia> lstMaterias)
         {
             _frmAsignarMateria = frmAsignarMateria;
-            materiaSeleccionada = materia;
+            lstMateriasSeleccionadas = lstMaterias;
 
             lstCarreras = CarreraDAO.ObtenerCarreras();
 
@@ -30,7 +30,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void frmAsignarMateria_Load(object sender, EventArgs e)
         {
-            _frmAsignarMateria.lblNombreMateria.Text = materiaSeleccionada.NombreMateria;
+            _frmAsignarMateria.lblNombreMateria.Text = lstMateriasSeleccionadas.Count.ToString();
 
             foreach (var carrera in lstCarreras)
             {
@@ -50,14 +50,18 @@ namespace SistemaEducativo.Controllers.AdminControllers
         
         private void btnAsignarMateria_Click(object sender, EventArgs e)
         {
-            materiaSeleccionada.NombreCarrera = _frmAsignarMateria.comboBoxCarreras.Text;
-            materiaSeleccionada.Semestre = Convert.ToInt32(_frmAsignarMateria.comboBoxSemestres.Text);
-
-            if (MateriaDAO.AsignarMateriaCarrera(materiaSeleccionada))
+            foreach (var materia in lstMateriasSeleccionadas)
             {
-                MessageBox.Show("Registro exitoso.");
-                _frmAsignarMateria.Close();
-            }
+                materia.NombreCarrera = _frmAsignarMateria.comboBoxCarreras.Text;
+                materia.Semestre = Convert.ToInt32(_frmAsignarMateria.comboBoxSemestres.Text);
+
+                if (MateriaDAO.AsignarMateriaCarrera(materia))
+                {
+                    MessageBox.Show("Registro exitoso.");
+                }
+            } 
+
+            _frmAsignarMateria.Close();
         }
     }
 }

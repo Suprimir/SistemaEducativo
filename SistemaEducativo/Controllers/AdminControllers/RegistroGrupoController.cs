@@ -73,7 +73,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
                     if (GrupoDAO.CrearActualizarGrupo(grupoSeleccionado, carrera))
                     {
-                        GestionGruposController.cambioEnGrupos?.Invoke();
+                        GestionGruposController.actualizarTabla?.Invoke();
                         _frmRegistroGrupo.Dispose();
                     }
                 }
@@ -89,7 +89,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 {
                     if (GrupoDAO.CrearActualizarGrupo(grupo, carrera))
                     {
-                        GestionGruposController.cambioEnGrupos?.Invoke();
+                        GestionGruposController.actualizarTabla?.Invoke();
                         _frmRegistroGrupo.Dispose();
                     }
                 }

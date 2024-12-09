@@ -39,7 +39,7 @@
             nombreGrupo = new DataGridViewTextBoxColumn();
             semestreActual = new DataGridViewTextBoxColumn();
             fechaInicio = new DataGridViewTextBoxColumn();
-            editar = new DataGridViewButtonColumn();
+            editar = new DataGridViewImageColumn();
             eliminar = new DataGridViewCheckBoxColumn();
             textBoxFiltroNombre = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
@@ -64,25 +64,26 @@
             dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewGrupos.BackgroundColor = Color.FromArgb(251, 225, 141);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(228, 220, 201);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(228, 220, 201);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, carrera, nombreGrupo, semestreActual, fechaInicio, editar, eliminar });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(251, 225, 141);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewGrupos.Location = new Point(20, 98);
-            dataGridViewGrupos.Margin = new Padding(4);
+            dataGridViewGrupos.EnableHeadersVisualStyles = false;
+            dataGridViewGrupos.GridColor = Color.FromArgb(251, 225, 141);
+            dataGridViewGrupos.Location = new Point(0, 69);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -95,10 +96,11 @@
             dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewGrupos.RowHeadersVisible = false;
             dataGridViewGrupos.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(251, 225, 141);
             dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGrupos.Size = new Size(699, 229);
+            dataGridViewGrupos.Size = new Size(597, 206);
             dataGridViewGrupos.TabIndex = 0;
             // 
             // id
@@ -110,65 +112,74 @@
             // 
             // carrera
             // 
+            carrera.FillWeight = 120.815475F;
             carrera.HeaderText = "Carrera";
             carrera.MinimumWidth = 6;
             carrera.Name = "carrera";
+            carrera.ReadOnly = true;
             // 
             // nombreGrupo
             // 
+            nombreGrupo.FillWeight = 120.815475F;
             nombreGrupo.HeaderText = "Nombre Grupo";
             nombreGrupo.MinimumWidth = 6;
             nombreGrupo.Name = "nombreGrupo";
+            nombreGrupo.ReadOnly = true;
             // 
             // semestreActual
             // 
-            semestreActual.HeaderText = "Semestre Cursando";
+            semestreActual.FillWeight = 55F;
+            semestreActual.HeaderText = "Semestre";
             semestreActual.MinimumWidth = 6;
             semestreActual.Name = "semestreActual";
+            semestreActual.ReadOnly = true;
             // 
             // fechaInicio
             // 
+            fechaInicio.FillWeight = 120.815475F;
             fechaInicio.HeaderText = "Fecha Inicio";
             fechaInicio.MinimumWidth = 6;
             fechaInicio.Name = "fechaInicio";
+            fechaInicio.ReadOnly = true;
             // 
             // editar
             // 
-            editar.HeaderText = "Editar";
+            editar.FillWeight = 40F;
+            editar.HeaderText = "";
+            editar.Image = Properties.Resources.editarIcon;
             editar.MinimumWidth = 6;
             editar.Name = "editar";
+            editar.Resizable = DataGridViewTriState.True;
             // 
             // eliminar
             // 
-            eliminar.HeaderText = "Seleccion";
+            eliminar.FillWeight = 40F;
+            eliminar.HeaderText = "";
             eliminar.MinimumWidth = 6;
             eliminar.Name = "eliminar";
             // 
             // textBoxFiltroNombre
             // 
-            textBoxFiltroNombre.Location = new Point(20, 16);
-            textBoxFiltroNombre.Margin = new Padding(4);
+            textBoxFiltroNombre.Location = new Point(0, 4);
             textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            textBoxFiltroNombre.Size = new Size(332, 27);
+            textBoxFiltroNombre.Size = new Size(444, 23);
             textBoxFiltroNombre.TabIndex = 6;
             // 
             // comboBoxFiltroCarrera
             // 
             comboBoxFiltroCarrera.FormattingEnabled = true;
-            comboBoxFiltroCarrera.Location = new Point(360, 16);
-            comboBoxFiltroCarrera.Margin = new Padding(4);
+            comboBoxFiltroCarrera.Location = new Point(450, 4);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
-            comboBoxFiltroCarrera.Size = new Size(203, 28);
+            comboBoxFiltroCarrera.Size = new Size(147, 23);
             comboBoxFiltroCarrera.TabIndex = 7;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(20, 52);
-            panelMenuStrip.Margin = new Padding(4);
+            panelMenuStrip.Location = new Point(0, 33);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(699, 38);
+            panelMenuStrip.Size = new Size(597, 30);
             panelMenuStrip.TabIndex = 13;
             // 
             // menuStripTareasMaestro
@@ -180,40 +191,40 @@
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Size = new Size(699, 38);
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(597, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearGrupoToolStripMenuItem
             // 
             crearGrupoToolStripMenuItem.Name = "crearGrupoToolStripMenuItem";
-            crearGrupoToolStripMenuItem.Size = new Size(103, 34);
+            crearGrupoToolStripMenuItem.Size = new Size(83, 26);
             crearGrupoToolStripMenuItem.Text = "Crear Grupo";
             // 
             // eliminarGrupoToolStripMenuItem
             // 
             eliminarGrupoToolStripMenuItem.Name = "eliminarGrupoToolStripMenuItem";
-            eliminarGrupoToolStripMenuItem.Size = new Size(122, 34);
+            eliminarGrupoToolStripMenuItem.Size = new Size(98, 26);
             eliminarGrupoToolStripMenuItem.Text = "Eliminar Grupo";
             // 
             // asignarMaestrosToolStripMenuItem
             // 
             asignarMaestrosToolStripMenuItem.Name = "asignarMaestrosToolStripMenuItem";
-            asignarMaestrosToolStripMenuItem.Size = new Size(137, 34);
+            asignarMaestrosToolStripMenuItem.Size = new Size(110, 26);
             asignarMaestrosToolStripMenuItem.Text = "Asignar Maestros";
             // 
             // FrmGestionGrupos
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(745, 344);
+            ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroNombre);
             Controls.Add(dataGridViewGrupos);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmGestionGrupos";
             Text = "Gestionar Grupos";
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();
@@ -239,7 +250,7 @@
         private DataGridViewTextBoxColumn nombreGrupo;
         private DataGridViewTextBoxColumn semestreActual;
         private DataGridViewTextBoxColumn fechaInicio;
-        private DataGridViewButtonColumn editar;
+        private DataGridViewImageColumn editar;
         private DataGridViewCheckBoxColumn eliminar;
     }
 }
