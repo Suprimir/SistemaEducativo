@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelSubMenu = new Panel();
             tableLayoutPanel = new TableLayoutPanel();
             btnMinimizarVentana = new Button();
@@ -51,6 +52,8 @@
             btnCerrarSesion = new Button();
             lblBienvenidaSub = new Label();
             lblBienvenida = new Label();
+            contextMenuStripPerfil = new ContextMenuStrip(components);
+            configurarPerfilToolStripMenuItem = new ToolStripMenuItem();
             tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelPerfil.SuspendLayout();
@@ -60,6 +63,7 @@
             panel4.SuspendLayout();
             panel8.SuspendLayout();
             panel6.SuspendLayout();
+            contextMenuStripPerfil.SuspendLayout();
             SuspendLayout();
             // 
             // panelSubMenu
@@ -331,6 +335,25 @@
             lblBienvenida.TabIndex = 36;
             lblBienvenida.Text = "Bienvenido";
             // 
+            // contextMenuStripPerfil
+            // 
+            contextMenuStripPerfil.AutoSize = false;
+            contextMenuStripPerfil.Items.AddRange(new ToolStripItem[] { configurarPerfilToolStripMenuItem });
+            contextMenuStripPerfil.Name = "contextMenuStripPerfil";
+            contextMenuStripPerfil.RenderMode = ToolStripRenderMode.System;
+            contextMenuStripPerfil.ShowCheckMargin = true;
+            contextMenuStripPerfil.Size = new Size(229, 52);
+            // 
+            // configurarPerfilToolStripMenuItem
+            // 
+            configurarPerfilToolStripMenuItem.AutoSize = false;
+            configurarPerfilToolStripMenuItem.BackgroundImageLayout = ImageLayout.None;
+            configurarPerfilToolStripMenuItem.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            configurarPerfilToolStripMenuItem.Image = Properties.Resources.EditarPerfilIcon;
+            configurarPerfilToolStripMenuItem.Name = "configurarPerfilToolStripMenuItem";
+            configurarPerfilToolStripMenuItem.Size = new Size(229, 26);
+            configurarPerfilToolStripMenuItem.Text = "Configurar Perfil";
+            // 
             // FrmMenuMaestro
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -360,6 +383,7 @@
             panel4.PerformLayout();
             panel8.ResumeLayout(false);
             panel6.ResumeLayout(false);
+            contextMenuStripPerfil.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -390,5 +414,7 @@
         public Label lblBienvenidaSub;
         public Label lblBienvenida;
         public PictureBox pictureBoxMPfp;
+        public ContextMenuStrip contextMenuStripPerfil;
+        public ToolStripMenuItem configurarPerfilToolStripMenuItem;
     }
 }

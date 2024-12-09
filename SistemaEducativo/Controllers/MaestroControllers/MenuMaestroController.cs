@@ -2,6 +2,7 @@
 using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Sesion;
+using SistemaEducativo.Views;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
@@ -35,7 +36,9 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             _frmMenuMaestro.Load += frmMenuMaestro_Load;
 
             // ASIGNAMOS FUNCIONES A LOS BOTONES DEL MENU
+            _frmMenuMaestro.btnPerfil.Click += btnPerfil_Click;
             _frmMenuMaestro.btnGrupos.Click += btnGrupos_Click;
+            _frmMenuMaestro.configurarPerfilToolStripMenuItem.Click += btnConfigurarPerfil_Click;
         }
 
         private void frmMenuMaestro_Load(object sender, EventArgs e)
@@ -50,6 +53,12 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             AbrirFormEnPanelSubmenu(frmSubmenuMaestro);
         }
 
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            // ABRE EL CONTEXTMENUSTRIP (BASICAMENTE UN DROPDOWN LIST CON BOTONES EN ESTE CASO EL DE CONFIGURAR PERFIL)
+            _frmMenuMaestro.contextMenuStripPerfil.Show(_frmMenuMaestro.panelPerfil, new Point(0, _frmMenuMaestro.panelPerfil.Height));
+        }
+
         private void btnGrupos_Click(object sender, EventArgs e)
         {
             FrmGestionGruposAsignados frmGestionGruposAsignados = new FrmGestionGruposAsignados(_frmMenuMaestro._usuarioLogueado);
@@ -59,6 +68,12 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         private void lblTitulo_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanelSubmenu(frmSubmenuMaestro);
+        }
+
+        private void btnConfigurarPerfil_Click(object sender, EventArgs e)
+        {
+            FrmConfiguracionPerfil frmConfiguracionPerfil = new FrmConfiguracionPerfil();
+            frmConfiguracionPerfil.Show();
         }
 
         private void AbrirFormEnPanelSubmenu(Form subMenu)

@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Alumno;
 using System;
 using System.Collections.Generic;
@@ -196,6 +197,36 @@ namespace SistemaEducativo.DAO
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+        }
+
+        public static bool ActualizarPerfil(string? contraseñaActual, string? contraseñaNueva, string? path_foto_Perfil)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ActualizarPerfil", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_matricula_Usuario", SesionUsuario.Instancia.Matricula);
+                        cmd.Parameters.AddWithValue("@p_contraseña_Actual", contraseñaActual);
+                        cmd.Parameters.AddWithValue("@p_contraseña_Nueva", contraseñaNueva);
+                        cmd.Parameters.AddWithValue("@p_path_foto_Perfil", path_foto_Perfil);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                return false;
             }
         }
     }

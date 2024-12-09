@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using SistemaEducativo.Sesion;
+using SistemaEducativo.Views;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Maestro;
 
@@ -36,6 +37,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmMenuAdmin.btnGrupos.Click += btnGrupos_Click;
             _frmMenuAdmin.btnUsuarios.Click += btnUsuarios_Click;
             _frmMenuAdmin.btnMaterias.Click += btnMaterias_Click;
+
+            _frmMenuAdmin.configurarPerfilToolStripMenuItem.Click += btnConfigurarPerfil_Click;
         }
 
         // FUNCION QUE SE EJECUTA AL INICIA EL FORMULARIO DE MENU ADMIN
@@ -86,6 +89,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             FrmGestionMaterias frmGestionMaterias = new FrmGestionMaterias(); // ABRE FORMULARIO GESTION MATERIAS
             AbrirFormEnPanelSubmenu(frmGestionMaterias);
+        }
+
+        private void btnConfigurarPerfil_Click(object sender, EventArgs e)
+        {
+            FrmConfiguracionPerfil frmConfiguracionPerfil = new FrmConfiguracionPerfil();
+            frmConfiguracionPerfil.Show();
         }
 
         // FUNCION PARA ABRIR FORMULARIOS EN EL PANEL SUBMENU
