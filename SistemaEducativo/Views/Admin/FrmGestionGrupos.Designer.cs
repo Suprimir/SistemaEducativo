@@ -34,12 +34,18 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dataGridViewGrupos = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            carrera = new DataGridViewTextBoxColumn();
+            nombreGrupo = new DataGridViewTextBoxColumn();
+            semestreActual = new DataGridViewTextBoxColumn();
+            fechaInicio = new DataGridViewTextBoxColumn();
+            editar = new DataGridViewButtonColumn();
+            eliminar = new DataGridViewCheckBoxColumn();
             textBoxFiltroNombre = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
             panelMenuStrip = new Panel();
             menuStripTareasMaestro = new MenuStrip();
             crearGrupoToolStripMenuItem = new ToolStripMenuItem();
-            editarGrupoToolStripMenuItem = new ToolStripMenuItem();
             eliminarGrupoToolStripMenuItem = new ToolStripMenuItem();
             asignarMaestrosToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).BeginInit();
@@ -58,20 +64,21 @@
             dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewGrupos.BackgroundColor = Color.FromArgb(251, 225, 141);
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Control;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, carrera, nombreGrupo, semestreActual, fechaInicio, editar, eliminar });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Control;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewGrupos.Location = new Point(20, 98);
@@ -88,11 +95,54 @@
             dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewGrupos.RowHeadersVisible = false;
             dataGridViewGrupos.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewGrupos.Size = new Size(699, 229);
             dataGridViewGrupos.TabIndex = 0;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // carrera
+            // 
+            carrera.HeaderText = "Carrera";
+            carrera.MinimumWidth = 6;
+            carrera.Name = "carrera";
+            // 
+            // nombreGrupo
+            // 
+            nombreGrupo.HeaderText = "Nombre Grupo";
+            nombreGrupo.MinimumWidth = 6;
+            nombreGrupo.Name = "nombreGrupo";
+            // 
+            // semestreActual
+            // 
+            semestreActual.HeaderText = "Semestre Cursando";
+            semestreActual.MinimumWidth = 6;
+            semestreActual.Name = "semestreActual";
+            // 
+            // fechaInicio
+            // 
+            fechaInicio.HeaderText = "Fecha Inicio";
+            fechaInicio.MinimumWidth = 6;
+            fechaInicio.Name = "fechaInicio";
+            // 
+            // editar
+            // 
+            editar.HeaderText = "Editar";
+            editar.MinimumWidth = 6;
+            editar.Name = "editar";
+            // 
+            // eliminar
+            // 
+            eliminar.HeaderText = "Seleccion";
+            eliminar.MinimumWidth = 6;
+            eliminar.Name = "eliminar";
             // 
             // textBoxFiltroNombre
             // 
@@ -127,7 +177,7 @@
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
-            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, editarGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Size = new Size(699, 38);
@@ -139,12 +189,6 @@
             crearGrupoToolStripMenuItem.Name = "crearGrupoToolStripMenuItem";
             crearGrupoToolStripMenuItem.Size = new Size(103, 34);
             crearGrupoToolStripMenuItem.Text = "Crear Grupo";
-            // 
-            // editarGrupoToolStripMenuItem
-            // 
-            editarGrupoToolStripMenuItem.Name = "editarGrupoToolStripMenuItem";
-            editarGrupoToolStripMenuItem.Size = new Size(107, 34);
-            editarGrupoToolStripMenuItem.Text = "Editar Grupo";
             // 
             // eliminarGrupoToolStripMenuItem
             // 
@@ -188,8 +232,14 @@
         private Panel panelMenuStrip;
         public MenuStrip menuStripTareasMaestro;
         public ToolStripMenuItem crearGrupoToolStripMenuItem;
-        public ToolStripMenuItem editarGrupoToolStripMenuItem;
         public ToolStripMenuItem eliminarGrupoToolStripMenuItem;
         public ToolStripMenuItem asignarMaestrosToolStripMenuItem;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn carrera;
+        private DataGridViewTextBoxColumn nombreGrupo;
+        private DataGridViewTextBoxColumn semestreActual;
+        private DataGridViewTextBoxColumn fechaInicio;
+        private DataGridViewButtonColumn editar;
+        private DataGridViewCheckBoxColumn eliminar;
     }
 }

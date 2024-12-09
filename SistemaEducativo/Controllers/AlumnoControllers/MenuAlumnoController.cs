@@ -39,6 +39,9 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmMenuAlumno.lblBienvenida.Text = $"~ Hola {SesionUsuario.Instancia.NombreUsuario} como va tu dia?";
             _frmMenuAlumno.lblBienvenidaSub.Text = "  Espero que muy bien!";
 
+            _frmMenuAlumno.lblUsuario.Text = SesionUsuario.Instancia.Matricula;
+            _frmMenuAlumno.lblCarrera.Text = SesionUsuario.Instancia.Carrera;
+
             _frmMenuAlumno.pictureBoxMPfp.ImageLocation = SesionUsuario.Instancia.PathImagen;
         }
 
