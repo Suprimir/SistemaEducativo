@@ -125,12 +125,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
             {
                 foreach (var materia in lstMateriasSeleccionadas)
                 {
-                    if (MateriaDAO.EliminarMateria(Convert.ToInt32(materia.Id)))
-                    {
-                        actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
-                    }
+                    MateriaDAO.EliminarMateria(Convert.ToInt32(materia.Id));
                 }
-            } else
+
+                actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla
+            }
+            else
             {
                 MessageBox.Show("Selecciona 1 o más materias.");
             }
