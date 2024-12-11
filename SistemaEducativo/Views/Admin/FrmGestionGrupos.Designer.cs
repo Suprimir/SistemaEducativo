@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             dataGridViewGrupos = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             carrera = new DataGridViewTextBoxColumn();
@@ -59,49 +59,55 @@
             dataGridViewGrupos.AllowUserToDeleteRows = false;
             dataGridViewGrupos.AllowUserToResizeColumns = false;
             dataGridViewGrupos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewGrupos.BackgroundColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewGrupos.BackgroundColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.BorderStyle = BorderStyle.None;
+            dataGridViewGrupos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewGrupos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, carrera, nombreGrupo, semestreActual, fechaInicio, editar, eliminar });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle8;
             dataGridViewGrupos.EnableHeadersVisualStyles = false;
-            dataGridViewGrupos.GridColor = Color.FromArgb(251, 225, 141);
-            dataGridViewGrupos.Location = new Point(0, 86);
-            dataGridViewGrupos.Margin = new Padding(4);
+            dataGridViewGrupos.GridColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.Location = new Point(0, 69);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewGrupos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dataGridViewGrupos.RowHeadersVisible = false;
             dataGridViewGrupos.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGrupos.Size = new Size(746, 258);
+            dataGridViewGrupos.Size = new Size(597, 206);
             dataGridViewGrupos.TabIndex = 0;
             // 
             // id
@@ -161,76 +167,83 @@
             // 
             // textBoxFiltroNombre
             // 
-            textBoxFiltroNombre.Location = new Point(0, 5);
-            textBoxFiltroNombre.Margin = new Padding(4);
+            textBoxFiltroNombre.BorderStyle = BorderStyle.None;
+            textBoxFiltroNombre.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxFiltroNombre.Location = new Point(0, 4);
             textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            textBoxFiltroNombre.Size = new Size(554, 27);
+            textBoxFiltroNombre.PlaceholderText = "Nombre del Grupo";
+            textBoxFiltroNombre.Size = new Size(444, 23);
             textBoxFiltroNombre.TabIndex = 6;
             // 
             // comboBoxFiltroCarrera
             // 
             comboBoxFiltroCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFiltroCarrera.FlatStyle = FlatStyle.Flat;
             comboBoxFiltroCarrera.FormattingEnabled = true;
             comboBoxFiltroCarrera.Items.AddRange(new object[] { "" });
-            comboBoxFiltroCarrera.Location = new Point(562, 5);
-            comboBoxFiltroCarrera.Margin = new Padding(4);
+            comboBoxFiltroCarrera.Location = new Point(450, 4);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
-            comboBoxFiltroCarrera.Size = new Size(183, 28);
+            comboBoxFiltroCarrera.Size = new Size(147, 23);
             comboBoxFiltroCarrera.TabIndex = 7;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(0, 41);
-            panelMenuStrip.Margin = new Padding(4);
+            panelMenuStrip.Location = new Point(0, 33);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(746, 38);
+            panelMenuStrip.Size = new Size(597, 30);
             panelMenuStrip.TabIndex = 13;
             // 
             // menuStripTareasMaestro
             // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Size = new Size(746, 38);
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(597, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearGrupoToolStripMenuItem
             // 
+            crearGrupoToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            crearGrupoToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             crearGrupoToolStripMenuItem.Name = "crearGrupoToolStripMenuItem";
-            crearGrupoToolStripMenuItem.Size = new Size(103, 34);
+            crearGrupoToolStripMenuItem.Size = new Size(82, 26);
             crearGrupoToolStripMenuItem.Text = "Crear Grupo";
             // 
             // eliminarGrupoToolStripMenuItem
             // 
+            eliminarGrupoToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            eliminarGrupoToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             eliminarGrupoToolStripMenuItem.Name = "eliminarGrupoToolStripMenuItem";
-            eliminarGrupoToolStripMenuItem.Size = new Size(122, 34);
+            eliminarGrupoToolStripMenuItem.Size = new Size(98, 26);
             eliminarGrupoToolStripMenuItem.Text = "Eliminar Grupo";
             // 
             // asignarMaestrosToolStripMenuItem
             // 
+            asignarMaestrosToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            asignarMaestrosToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             asignarMaestrosToolStripMenuItem.Name = "asignarMaestrosToolStripMenuItem";
-            asignarMaestrosToolStripMenuItem.Size = new Size(137, 34);
+            asignarMaestrosToolStripMenuItem.Size = new Size(110, 26);
             asignarMaestrosToolStripMenuItem.Text = "Asignar Maestros";
             // 
             // FrmGestionGrupos
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(745, 344);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroNombre);
             Controls.Add(dataGridViewGrupos);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmGestionGrupos";
             Text = "Gestionar Grupos";
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();

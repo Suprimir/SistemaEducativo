@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridViewMaterias = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             nombreMateria = new DataGridViewTextBoxColumn();
@@ -56,26 +56,30 @@
             dataGridViewMaterias.AllowUserToResizeColumns = false;
             dataGridViewMaterias.AllowUserToResizeRows = false;
             dataGridViewMaterias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewMaterias.BackgroundColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewMaterias.BackgroundColor = Color.FromArgb(221, 223, 244);
+            dataGridViewMaterias.BorderStyle = BorderStyle.None;
+            dataGridViewMaterias.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewMaterias.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewMaterias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMaterias.Columns.AddRange(new DataGridViewColumn[] { id, nombreMateria, descripcion, semestre, editar, eliminar });
             dataGridViewMaterias.EnableHeadersVisualStyles = false;
-            dataGridViewMaterias.GridColor = Color.FromArgb(251, 225, 141);
+            dataGridViewMaterias.GridColor = Color.FromArgb(221, 223, 244);
             dataGridViewMaterias.Location = new Point(0, 69);
             dataGridViewMaterias.MultiSelect = false;
             dataGridViewMaterias.Name = "dataGridViewMaterias";
+            dataGridViewMaterias.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewMaterias.RowHeadersVisible = false;
-            dataGridViewMaterias.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
             dataGridViewMaterias.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
-            dataGridViewMaterias.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewMaterias.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
             dataGridViewMaterias.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewMaterias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewMaterias.Size = new Size(597, 206);
@@ -124,14 +128,18 @@
             // 
             // textBoxFiltroMateria
             // 
+            textBoxFiltroMateria.BorderStyle = BorderStyle.None;
+            textBoxFiltroMateria.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxFiltroMateria.Location = new Point(0, 4);
             textBoxFiltroMateria.Name = "textBoxFiltroMateria";
+            textBoxFiltroMateria.PlaceholderText = "Nombre de Materia";
             textBoxFiltroMateria.Size = new Size(470, 23);
             textBoxFiltroMateria.TabIndex = 4;
             // 
             // comboBoxFiltroCarrera
             // 
             comboBoxFiltroCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFiltroCarrera.FlatStyle = FlatStyle.Flat;
             comboBoxFiltroCarrera.FormattingEnabled = true;
             comboBoxFiltroCarrera.Items.AddRange(new object[] { "" });
             comboBoxFiltroCarrera.Location = new Point(475, 4);
@@ -150,7 +158,7 @@
             // 
             // menuStripTareasMaestro
             // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
@@ -164,33 +172,41 @@
             // 
             // crearMateriaToolStripMenuItem
             // 
+            crearMateriaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            crearMateriaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             crearMateriaToolStripMenuItem.Name = "crearMateriaToolStripMenuItem";
-            crearMateriaToolStripMenuItem.Size = new Size(90, 26);
+            crearMateriaToolStripMenuItem.Size = new Size(89, 26);
             crearMateriaToolStripMenuItem.Text = "Crear Materia";
             // 
             // eliminarMateriaToolStripMenuItem
             // 
+            eliminarMateriaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            eliminarMateriaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             eliminarMateriaToolStripMenuItem.Name = "eliminarMateriaToolStripMenuItem";
             eliminarMateriaToolStripMenuItem.Size = new Size(105, 26);
             eliminarMateriaToolStripMenuItem.Text = "Eliminar Materia";
             // 
             // asignarMateriaToolStripMenuItem
             // 
+            asignarMateriaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            asignarMateriaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             asignarMateriaToolStripMenuItem.Name = "asignarMateriaToolStripMenuItem";
             asignarMateriaToolStripMenuItem.Size = new Size(102, 26);
             asignarMateriaToolStripMenuItem.Text = "Asignar Materia";
             // 
             // desasignarMateriaToolStripMenuItem
             // 
+            desasignarMateriaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            desasignarMateriaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             desasignarMateriaToolStripMenuItem.Name = "desasignarMateriaToolStripMenuItem";
-            desasignarMateriaToolStripMenuItem.Size = new Size(119, 26);
+            desasignarMateriaToolStripMenuItem.Size = new Size(120, 26);
             desasignarMateriaToolStripMenuItem.Text = "Desasignar Materia";
             // 
             // FrmGestionMaterias
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroCarrera);

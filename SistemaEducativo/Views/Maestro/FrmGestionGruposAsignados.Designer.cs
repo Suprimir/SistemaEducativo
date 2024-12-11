@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewGrupos = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             grupoNombre = new DataGridViewTextBoxColumn();
@@ -49,49 +50,73 @@
             dataGridViewGrupos.AllowUserToResizeColumns = false;
             dataGridViewGrupos.AllowUserToResizeRows = false;
             dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewGrupos.BackgroundColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.BorderStyle = BorderStyle.None;
+            dataGridViewGrupos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewGrupos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, grupoNombre, materia, semestre });
-            dataGridViewGrupos.Location = new Point(16, 48);
+            dataGridViewGrupos.EnableHeadersVisualStyles = false;
+            dataGridViewGrupos.GridColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.Location = new Point(0, 36);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
+            dataGridViewGrupos.ReadOnly = true;
+            dataGridViewGrupos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewGrupos.RowHeadersVisible = false;
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
+            dataGridViewGrupos.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGrupos.Size = new Size(559, 213);
+            dataGridViewGrupos.Size = new Size(597, 239);
             dataGridViewGrupos.TabIndex = 3;
             // 
             // id
             // 
             id.HeaderText = "ID";
             id.Name = "id";
+            id.ReadOnly = true;
             id.Visible = false;
             // 
             // grupoNombre
             // 
             grupoNombre.HeaderText = "Nombre Grupo";
             grupoNombre.Name = "grupoNombre";
+            grupoNombre.ReadOnly = true;
             // 
             // materia
             // 
             materia.HeaderText = "Materia";
             materia.Name = "materia";
+            materia.ReadOnly = true;
             // 
             // semestre
             // 
             semestre.HeaderText = "Semestre";
             semestre.Name = "semestre";
+            semestre.ReadOnly = true;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(16, 12);
+            panelMenuStrip.Location = new Point(0, 0);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(559, 30);
+            panelMenuStrip.Size = new Size(597, 30);
             panelMenuStrip.TabIndex = 14;
             // 
             // menuStripTareasMaestro
             // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
@@ -99,27 +124,31 @@
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(559, 30);
+            menuStripTareasMaestro.Size = new Size(597, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // verAlumnosToolStripMenuItem
             // 
+            verAlumnosToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            verAlumnosToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             verAlumnosToolStripMenuItem.Name = "verAlumnosToolStripMenuItem";
-            verAlumnosToolStripMenuItem.Size = new Size(86, 26);
+            verAlumnosToolStripMenuItem.Size = new Size(87, 26);
             verAlumnosToolStripMenuItem.Text = "Ver Alumnos";
             // 
             // verTareasToolStripMenuItem
             // 
+            verTareasToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            verTareasToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             verTareasToolStripMenuItem.Name = "verTareasToolStripMenuItem";
-            verTareasToolStripMenuItem.Size = new Size(71, 26);
+            verTareasToolStripMenuItem.Size = new Size(72, 26);
             verTareasToolStripMenuItem.Text = "Ver Tareas";
             // 
             // FrmGestionGruposAsignados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(dataGridViewGrupos);

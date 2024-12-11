@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewAlumnos = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             matricula = new DataGridViewTextBoxColumn();
@@ -47,14 +48,33 @@
             dataGridViewAlumnos.AllowUserToResizeColumns = false;
             dataGridViewAlumnos.AllowUserToResizeRows = false;
             dataGridViewAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewAlumnos.BackgroundColor = Color.FromArgb(221, 223, 244);
+            dataGridViewAlumnos.BorderStyle = BorderStyle.None;
+            dataGridViewAlumnos.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewAlumnos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewAlumnos.Columns.AddRange(new DataGridViewColumn[] { id, matricula, nombreCompleto });
-            dataGridViewAlumnos.Location = new Point(16, 48);
+            dataGridViewAlumnos.EnableHeadersVisualStyles = false;
+            dataGridViewAlumnos.GridColor = Color.FromArgb(221, 223, 244);
+            dataGridViewAlumnos.Location = new Point(0, 36);
             dataGridViewAlumnos.MultiSelect = false;
             dataGridViewAlumnos.Name = "dataGridViewAlumnos";
+            dataGridViewAlumnos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewAlumnos.RowHeadersVisible = false;
+            dataGridViewAlumnos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
+            dataGridViewAlumnos.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
+            dataGridViewAlumnos.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
+            dataGridViewAlumnos.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewAlumnos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewAlumnos.Size = new Size(559, 213);
+            dataGridViewAlumnos.Size = new Size(596, 239);
             dataGridViewAlumnos.TabIndex = 4;
             // 
             // id
@@ -77,14 +97,14 @@
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(16, 12);
+            panelMenuStrip.Location = new Point(0, 0);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(559, 30);
+            panelMenuStrip.Size = new Size(596, 30);
             panelMenuStrip.TabIndex = 15;
             // 
             // menuStripTareasMaestro
             // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
@@ -92,12 +112,14 @@
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(559, 30);
+            menuStripTareasMaestro.Size = new Size(596, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // verCalificacionesToolStripMenuItem
             // 
+            verCalificacionesToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            verCalificacionesToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             verCalificacionesToolStripMenuItem.Name = "verCalificacionesToolStripMenuItem";
             verCalificacionesToolStripMenuItem.Size = new Size(111, 26);
             verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
@@ -106,7 +128,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(dataGridViewAlumnos);

@@ -42,84 +42,100 @@
             // labelCarreraStatic
             // 
             labelCarreraStatic.AutoSize = true;
-            labelCarreraStatic.Location = new Point(27, 30);
+            labelCarreraStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelCarreraStatic.Location = new Point(12, 9);
             labelCarreraStatic.Name = "labelCarreraStatic";
-            labelCarreraStatic.Size = new Size(45, 15);
+            labelCarreraStatic.Size = new Size(44, 15);
             labelCarreraStatic.TabIndex = 0;
             labelCarreraStatic.Text = "Carrera";
             // 
             // labelNombreGStatic
             // 
             labelNombreGStatic.AutoSize = true;
-            labelNombreGStatic.Location = new Point(27, 64);
+            labelNombreGStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNombreGStatic.Location = new Point(12, 64);
             labelNombreGStatic.Name = "labelNombreGStatic";
-            labelNombreGStatic.Size = new Size(100, 15);
+            labelNombreGStatic.Size = new Size(114, 15);
             labelNombreGStatic.TabIndex = 1;
-            labelNombreGStatic.Text = "Nom. Generacion";
+            labelNombreGStatic.Text = "Nombre Generacion";
             // 
             // lblFechaStatic
             // 
             lblFechaStatic.AutoSize = true;
-            lblFechaStatic.Location = new Point(27, 105);
+            lblFechaStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFechaStatic.Location = new Point(12, 122);
             lblFechaStatic.Name = "lblFechaStatic";
-            lblFechaStatic.Size = new Size(70, 15);
+            lblFechaStatic.Size = new Size(71, 15);
             lblFechaStatic.TabIndex = 3;
             lblFechaStatic.Text = "Fecha Inicio";
             // 
             // comboBoxCarreras
             // 
+            comboBoxCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCarreras.FlatStyle = FlatStyle.Flat;
             comboBoxCarreras.FormattingEnabled = true;
-            comboBoxCarreras.Location = new Point(164, 22);
+            comboBoxCarreras.Location = new Point(12, 27);
             comboBoxCarreras.Name = "comboBoxCarreras";
-            comboBoxCarreras.Size = new Size(121, 23);
+            comboBoxCarreras.Size = new Size(194, 23);
             comboBoxCarreras.TabIndex = 4;
             // 
             // textBoxNombreG
             // 
-            textBoxNombreG.Location = new Point(164, 61);
+            textBoxNombreG.BorderStyle = BorderStyle.None;
+            textBoxNombreG.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxNombreG.Location = new Point(12, 82);
             textBoxNombreG.MaxLength = 50;
             textBoxNombreG.Name = "textBoxNombreG";
-            textBoxNombreG.Size = new Size(121, 23);
+            textBoxNombreG.Size = new Size(194, 23);
             textBoxNombreG.TabIndex = 5;
             // 
             // dateTimePickerFechaInicio
             // 
-            dateTimePickerFechaInicio.Location = new Point(164, 97);
+            dateTimePickerFechaInicio.Location = new Point(12, 140);
             dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
-            dateTimePickerFechaInicio.Size = new Size(191, 23);
+            dateTimePickerFechaInicio.Size = new Size(194, 23);
             dateTimePickerFechaInicio.TabIndex = 6;
             // 
             // btnRegistrarGrupo
             // 
-            btnRegistrarGrupo.Location = new Point(138, 172);
+            btnRegistrarGrupo.BackColor = Color.FromArgb(51, 63, 167);
+            btnRegistrarGrupo.FlatAppearance.BorderSize = 0;
+            btnRegistrarGrupo.FlatStyle = FlatStyle.Flat;
+            btnRegistrarGrupo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarGrupo.ForeColor = SystemColors.ControlLightLight;
+            btnRegistrarGrupo.Location = new Point(225, 140);
             btnRegistrarGrupo.Name = "btnRegistrarGrupo";
-            btnRegistrarGrupo.Size = new Size(75, 23);
+            btnRegistrarGrupo.Size = new Size(87, 23);
             btnRegistrarGrupo.TabIndex = 7;
             btnRegistrarGrupo.Text = "Registrar";
-            btnRegistrarGrupo.UseVisualStyleBackColor = true;
+            btnRegistrarGrupo.UseVisualStyleBackColor = false;
             // 
             // lblSemestreStatic
             // 
             lblSemestreStatic.AutoSize = true;
-            lblSemestreStatic.Location = new Point(27, 138);
+            lblSemestreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSemestreStatic.Location = new Point(225, 9);
             lblSemestreStatic.Name = "lblSemestreStatic";
-            lblSemestreStatic.Size = new Size(55, 15);
+            lblSemestreStatic.Size = new Size(56, 15);
             lblSemestreStatic.TabIndex = 8;
             lblSemestreStatic.Text = "Semestre";
             // 
             // comboBoxSemestres
             // 
+            comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSemestres.FlatStyle = FlatStyle.Flat;
             comboBoxSemestres.FormattingEnabled = true;
-            comboBoxSemestres.Location = new Point(164, 135);
+            comboBoxSemestres.Location = new Point(225, 27);
             comboBoxSemestres.Name = "comboBoxSemestres";
-            comboBoxSemestres.Size = new Size(121, 23);
+            comboBoxSemestres.Size = new Size(87, 23);
             comboBoxSemestres.TabIndex = 9;
             // 
             // FrmRegistroGrupo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(381, 218);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(335, 177);
             Controls.Add(comboBoxSemestres);
             Controls.Add(lblSemestreStatic);
             Controls.Add(btnRegistrarGrupo);
@@ -129,8 +145,10 @@
             Controls.Add(lblFechaStatic);
             Controls.Add(labelNombreGStatic);
             Controls.Add(labelCarreraStatic);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FrmRegistroGrupo";
-            Text = "FrmRegistroGrupo";
+            Text = "Registrar Grupo";
             ResumeLayout(false);
             PerformLayout();
         }

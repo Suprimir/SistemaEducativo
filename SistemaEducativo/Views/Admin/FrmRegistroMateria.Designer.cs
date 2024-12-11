@@ -38,56 +38,69 @@
             // lblNombreStatic
             // 
             lblNombreStatic.AutoSize = true;
-            lblNombreStatic.Location = new Point(12, 23);
+            lblNombreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombreStatic.Location = new Point(12, 9);
             lblNombreStatic.Name = "lblNombreStatic";
-            lblNombreStatic.Size = new Size(97, 15);
+            lblNombreStatic.Size = new Size(94, 15);
             lblNombreStatic.TabIndex = 0;
-            lblNombreStatic.Text = "Nombre Materia:";
+            lblNombreStatic.Text = "Nombre Materia";
             // 
             // textBoxNombreMateria
             // 
-            textBoxNombreMateria.Location = new Point(115, 20);
+            textBoxNombreMateria.BorderStyle = BorderStyle.None;
+            textBoxNombreMateria.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxNombreMateria.Location = new Point(12, 27);
             textBoxNombreMateria.MaxLength = 50;
             textBoxNombreMateria.Name = "textBoxNombreMateria";
-            textBoxNombreMateria.Size = new Size(144, 23);
+            textBoxNombreMateria.Size = new Size(304, 23);
             textBoxNombreMateria.TabIndex = 1;
             // 
             // lblDescripcionStatic
             // 
             lblDescripcionStatic.AutoSize = true;
-            lblDescripcionStatic.Location = new Point(12, 58);
+            lblDescripcionStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDescripcionStatic.Location = new Point(12, 66);
             lblDescripcionStatic.Name = "lblDescripcionStatic";
-            lblDescripcionStatic.Size = new Size(72, 15);
+            lblDescripcionStatic.Size = new Size(70, 15);
             lblDescripcionStatic.TabIndex = 2;
-            lblDescripcionStatic.Text = "Descripcion:";
+            lblDescripcionStatic.Text = "Descripcion";
             // 
             // richTextBoxDescripcion
             // 
-            richTextBoxDescripcion.Location = new Point(12, 85);
+            richTextBoxDescripcion.BorderStyle = BorderStyle.None;
+            richTextBoxDescripcion.Location = new Point(12, 84);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
-            richTextBoxDescripcion.Size = new Size(247, 103);
+            richTextBoxDescripcion.Size = new Size(304, 103);
             richTextBoxDescripcion.TabIndex = 3;
             richTextBoxDescripcion.Text = "";
             // 
             // btnRegistrarMateria
             // 
-            btnRegistrarMateria.Location = new Point(98, 202);
+            btnRegistrarMateria.BackColor = Color.FromArgb(51, 63, 167);
+            btnRegistrarMateria.FlatAppearance.BorderSize = 0;
+            btnRegistrarMateria.FlatStyle = FlatStyle.Flat;
+            btnRegistrarMateria.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarMateria.ForeColor = SystemColors.ControlLightLight;
+            btnRegistrarMateria.Location = new Point(241, 210);
             btnRegistrarMateria.Name = "btnRegistrarMateria";
             btnRegistrarMateria.Size = new Size(75, 23);
             btnRegistrarMateria.TabIndex = 4;
             btnRegistrarMateria.Text = "Registrar";
-            btnRegistrarMateria.UseVisualStyleBackColor = true;
+            btnRegistrarMateria.UseVisualStyleBackColor = false;
             // 
             // FrmRegistroMateria
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(276, 237);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(328, 245);
             Controls.Add(btnRegistrarMateria);
             Controls.Add(richTextBoxDescripcion);
             Controls.Add(lblDescripcionStatic);
             Controls.Add(textBoxNombreMateria);
             Controls.Add(lblNombreStatic);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FrmRegistroMateria";
             Text = "Registrar Materia";
             ResumeLayout(false);

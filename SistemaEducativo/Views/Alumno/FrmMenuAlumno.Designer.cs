@@ -71,7 +71,7 @@
             // 
             // panelPerfil
             // 
-            panelPerfil.BackColor = Color.FromArgb(251, 225, 141);
+            panelPerfil.BackColor = Color.FromArgb(221, 223, 244);
             panelPerfil.Controls.Add(btnPerfil);
             panelPerfil.Controls.Add(lblCarrera);
             panelPerfil.Controls.Add(pictureBoxMPfp);
@@ -85,7 +85,7 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.BackColor = Color.FromArgb(251, 225, 141);
+            btnPerfil.BackColor = Color.FromArgb(221, 223, 244);
             btnPerfil.Cursor = Cursors.Hand;
             btnPerfil.FlatAppearance.BorderSize = 0;
             btnPerfil.FlatStyle = FlatStyle.Flat;
@@ -161,7 +161,7 @@
             // 
             // panelSubMenu
             // 
-            panelSubMenu.BackColor = Color.FromArgb(251, 225, 141);
+            panelSubMenu.BackColor = Color.FromArgb(221, 223, 244);
             panelSubMenu.Location = new Point(238, 162);
             panelSubMenu.Name = "panelSubMenu";
             panelSubMenu.Size = new Size(596, 275);
@@ -185,7 +185,7 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.BackColor = Color.FromArgb(251, 225, 141);
+            tableLayoutPanel2.BackColor = Color.FromArgb(51, 63, 167);
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
@@ -206,6 +206,7 @@
             btnMinimizarVentana.FlatAppearance.BorderSize = 0;
             btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
             btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMinimizarVentana.ForeColor = SystemColors.ControlLightLight;
             btnMinimizarVentana.Location = new Point(806, 0);
             btnMinimizarVentana.Margin = new Padding(0);
             btnMinimizarVentana.Name = "btnMinimizarVentana";
@@ -219,6 +220,7 @@
             lblMenuTitulo.AutoSize = true;
             lblMenuTitulo.Cursor = Cursors.Hand;
             lblMenuTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMenuTitulo.ForeColor = SystemColors.ControlLightLight;
             lblMenuTitulo.Location = new Point(3, 3);
             lblMenuTitulo.Margin = new Padding(3, 3, 3, 0);
             lblMenuTitulo.Name = "lblMenuTitulo";
@@ -231,7 +233,7 @@
             btnCerrarVentana.FlatAppearance.BorderSize = 0;
             btnCerrarVentana.FlatStyle = FlatStyle.Flat;
             btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarVentana.ForeColor = SystemColors.ControlText;
+            btnCerrarVentana.ForeColor = SystemColors.ControlLightLight;
             btnCerrarVentana.Location = new Point(835, 0);
             btnCerrarVentana.Margin = new Padding(0);
             btnCerrarVentana.Name = "btnCerrarVentana";
@@ -263,7 +265,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(251, 225, 141);
+            panel2.BackColor = Color.FromArgb(221, 223, 244);
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(panel8);
@@ -386,7 +388,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(228, 220, 201);
+            BackColor = Color.FromArgb(254, 254, 255);
             ClientSize = new Size(863, 469);
             Controls.Add(lblBienvenidaSub);
             Controls.Add(panel6);

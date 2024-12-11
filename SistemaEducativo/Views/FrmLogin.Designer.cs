@@ -58,7 +58,6 @@
             textBoxUsuario.PlaceholderText = "Usuario";
             textBoxUsuario.Size = new Size(194, 26);
             textBoxUsuario.TabIndex = 1;
-            textBoxUsuario.TabStop = false;
             textBoxUsuario.TextAlign = HorizontalAlignment.Center;
             // 
             // textBoxPass
@@ -72,7 +71,6 @@
             textBoxPass.PlaceholderText = "Contraseña";
             textBoxPass.Size = new Size(194, 26);
             textBoxPass.TabIndex = 2;
-            textBoxPass.TabStop = false;
             textBoxPass.TextAlign = HorizontalAlignment.Center;
             // 
             // btnIniciarSesion
@@ -80,10 +78,12 @@
             btnIniciarSesion.BackColor = Color.Black;
             btnIniciarSesion.Cursor = Cursors.Hand;
             btnIniciarSesion.FlatAppearance.BorderSize = 0;
+            btnIniciarSesion.FlatAppearance.MouseDownBackColor = SystemColors.ControlText;
+            btnIniciarSesion.FlatAppearance.MouseOverBackColor = SystemColors.ControlText;
             btnIniciarSesion.FlatStyle = FlatStyle.Flat;
             btnIniciarSesion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnIniciarSesion.ForeColor = SystemColors.ControlLightLight;
-            btnIniciarSesion.Location = new Point(101, 329);
+            btnIniciarSesion.Location = new Point(108, 327);
             btnIniciarSesion.Name = "btnIniciarSesion";
             btnIniciarSesion.Size = new Size(164, 39);
             btnIniciarSesion.TabIndex = 3;
@@ -105,12 +105,13 @@
             btnCerrarVentana.FlatAppearance.BorderSize = 0;
             btnCerrarVentana.FlatStyle = FlatStyle.Flat;
             btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarVentana.ForeColor = SystemColors.ControlText;
+            btnCerrarVentana.ForeColor = SystemColors.ControlLightLight;
             btnCerrarVentana.Location = new Point(679, 0);
             btnCerrarVentana.Margin = new Padding(0);
             btnCerrarVentana.Name = "btnCerrarVentana";
             btnCerrarVentana.Size = new Size(29, 37);
             btnCerrarVentana.TabIndex = 0;
+            btnCerrarVentana.TabStop = false;
             btnCerrarVentana.Text = "X";
             btnCerrarVentana.UseVisualStyleBackColor = true;
             // 
@@ -119,17 +120,19 @@
             btnMinimizarVentana.FlatAppearance.BorderSize = 0;
             btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
             btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMinimizarVentana.ForeColor = SystemColors.ControlLightLight;
             btnMinimizarVentana.Location = new Point(650, 0);
             btnMinimizarVentana.Margin = new Padding(0);
             btnMinimizarVentana.Name = "btnMinimizarVentana";
             btnMinimizarVentana.Size = new Size(29, 37);
             btnMinimizarVentana.TabIndex = 8;
+            btnMinimizarVentana.TabStop = false;
             btnMinimizarVentana.Text = "-";
             btnMinimizarVentana.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = SystemColors.ControlLight;
+            tableLayoutPanel1.BackColor = Color.FromArgb(51, 63, 167);
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 650F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
@@ -150,6 +153,7 @@
             // 
             lblLoginTitle.AutoSize = true;
             lblLoginTitle.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLoginTitle.ForeColor = SystemColors.ControlLightLight;
             lblLoginTitle.Location = new Point(3, 3);
             lblLoginTitle.Margin = new Padding(3, 3, 3, 0);
             lblLoginTitle.Name = "lblLoginTitle";
@@ -191,7 +195,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = SystemColors.ControlLightLight;
+            BackColor = Color.FromArgb(254, 254, 255);
             ClientSize = new Size(708, 429);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);

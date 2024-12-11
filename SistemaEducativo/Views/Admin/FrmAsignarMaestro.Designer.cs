@@ -31,7 +31,6 @@
             lblGrupoStatic = new Label();
             lblMateriasStatic = new Label();
             comboBoxMaterias = new ComboBox();
-            comboBoxAlumnos = new ComboBox();
             lblAlumnosStatic = new Label();
             btnAsignarMaestro = new Button();
             lblSemestreStatic = new Label();
@@ -39,12 +38,14 @@
             lblCarreraStatic = new Label();
             lblCarrera = new Label();
             lblGrupo = new Label();
+            comboBoxAlumnos = new ComboBox();
             SuspendLayout();
             // 
             // lblGrupoStatic
             // 
             lblGrupoStatic.AutoSize = true;
-            lblGrupoStatic.Location = new Point(12, 20);
+            lblGrupoStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGrupoStatic.Location = new Point(12, 9);
             lblGrupoStatic.Name = "lblGrupoStatic";
             lblGrupoStatic.Size = new Size(40, 15);
             lblGrupoStatic.TabIndex = 0;
@@ -53,7 +54,8 @@
             // lblMateriasStatic
             // 
             lblMateriasStatic.AutoSize = true;
-            lblMateriasStatic.Location = new Point(265, 20);
+            lblMateriasStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMateriasStatic.Location = new Point(146, 62);
             lblMateriasStatic.Name = "lblMateriasStatic";
             lblMateriasStatic.Size = new Size(47, 15);
             lblMateriasStatic.TabIndex = 2;
@@ -61,24 +63,19 @@
             // 
             // comboBoxMaterias
             // 
+            comboBoxMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaterias.FlatStyle = FlatStyle.Flat;
             comboBoxMaterias.FormattingEnabled = true;
-            comboBoxMaterias.Location = new Point(265, 38);
+            comboBoxMaterias.Location = new Point(146, 78);
             comboBoxMaterias.Name = "comboBoxMaterias";
             comboBoxMaterias.Size = new Size(121, 23);
             comboBoxMaterias.TabIndex = 3;
             // 
-            // comboBoxAlumnos
-            // 
-            comboBoxAlumnos.FormattingEnabled = true;
-            comboBoxAlumnos.Location = new Point(265, 115);
-            comboBoxAlumnos.Name = "comboBoxAlumnos";
-            comboBoxAlumnos.Size = new Size(266, 23);
-            comboBoxAlumnos.TabIndex = 5;
-            // 
             // lblAlumnosStatic
             // 
             lblAlumnosStatic.AutoSize = true;
-            lblAlumnosStatic.Location = new Point(265, 97);
+            lblAlumnosStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblAlumnosStatic.Location = new Point(12, 111);
             lblAlumnosStatic.Name = "lblAlumnosStatic";
             lblAlumnosStatic.Size = new Size(55, 15);
             lblAlumnosStatic.TabIndex = 4;
@@ -86,26 +83,34 @@
             // 
             // btnAsignarMaestro
             // 
-            btnAsignarMaestro.Location = new Point(457, 144);
+            btnAsignarMaestro.BackColor = Color.FromArgb(51, 63, 167);
+            btnAsignarMaestro.FlatAppearance.BorderSize = 0;
+            btnAsignarMaestro.FlatStyle = FlatStyle.Flat;
+            btnAsignarMaestro.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAsignarMaestro.ForeColor = SystemColors.ControlLightLight;
+            btnAsignarMaestro.Location = new Point(286, 130);
             btnAsignarMaestro.Name = "btnAsignarMaestro";
             btnAsignarMaestro.Size = new Size(75, 23);
             btnAsignarMaestro.TabIndex = 7;
             btnAsignarMaestro.Text = "Asignar";
-            btnAsignarMaestro.UseVisualStyleBackColor = true;
+            btnAsignarMaestro.UseVisualStyleBackColor = false;
             // 
             // lblSemestreStatic
             // 
             lblSemestreStatic.AutoSize = true;
-            lblSemestreStatic.Location = new Point(12, 97);
+            lblSemestreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSemestreStatic.Location = new Point(146, 8);
             lblSemestreStatic.Name = "lblSemestreStatic";
-            lblSemestreStatic.Size = new Size(55, 15);
+            lblSemestreStatic.Size = new Size(56, 15);
             lblSemestreStatic.TabIndex = 8;
             lblSemestreStatic.Text = "Semestre";
             // 
             // comboBoxSemestres
             // 
+            comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSemestres.FlatStyle = FlatStyle.Flat;
             comboBoxSemestres.FormattingEnabled = true;
-            comboBoxSemestres.Location = new Point(12, 115);
+            comboBoxSemestres.Location = new Point(146, 26);
             comboBoxSemestres.Name = "comboBoxSemestres";
             comboBoxSemestres.Size = new Size(121, 23);
             comboBoxSemestres.TabIndex = 9;
@@ -113,16 +118,17 @@
             // lblCarreraStatic
             // 
             lblCarreraStatic.AutoSize = true;
-            lblCarreraStatic.Location = new Point(149, 20);
+            lblCarreraStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCarreraStatic.Location = new Point(12, 66);
             lblCarreraStatic.Name = "lblCarreraStatic";
-            lblCarreraStatic.Size = new Size(45, 15);
+            lblCarreraStatic.Size = new Size(44, 15);
             lblCarreraStatic.TabIndex = 10;
             lblCarreraStatic.Text = "Carrera";
             // 
             // lblCarrera
             // 
             lblCarrera.AutoSize = true;
-            lblCarrera.Location = new Point(149, 46);
+            lblCarrera.Location = new Point(12, 81);
             lblCarrera.Name = "lblCarrera";
             lblCarrera.Size = new Size(87, 15);
             lblCarrera.TabIndex = 11;
@@ -131,30 +137,43 @@
             // lblGrupo
             // 
             lblGrupo.AutoSize = true;
-            lblGrupo.Location = new Point(14, 46);
+            lblGrupo.Location = new Point(12, 24);
             lblGrupo.Name = "lblGrupo";
             lblGrupo.Size = new Size(82, 15);
             lblGrupo.TabIndex = 12;
             lblGrupo.Text = "nombreGrupo";
             // 
+            // comboBoxAlumnos
+            // 
+            comboBoxAlumnos.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxAlumnos.FlatStyle = FlatStyle.Flat;
+            comboBoxAlumnos.FormattingEnabled = true;
+            comboBoxAlumnos.Location = new Point(12, 130);
+            comboBoxAlumnos.Name = "comboBoxAlumnos";
+            comboBoxAlumnos.Size = new Size(255, 23);
+            comboBoxAlumnos.TabIndex = 13;
+            // 
             // FrmAsignarMaestro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(543, 179);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(373, 165);
+            Controls.Add(comboBoxAlumnos);
             Controls.Add(lblGrupo);
             Controls.Add(lblCarrera);
             Controls.Add(lblCarreraStatic);
             Controls.Add(comboBoxSemestres);
             Controls.Add(lblSemestreStatic);
             Controls.Add(btnAsignarMaestro);
-            Controls.Add(comboBoxAlumnos);
             Controls.Add(lblAlumnosStatic);
             Controls.Add(comboBoxMaterias);
             Controls.Add(lblMateriasStatic);
             Controls.Add(lblGrupoStatic);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FrmAsignarMaestro";
-            Text = "FrmAsignarMaestro";
+            Text = "Asignar Maestro";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,7 +189,7 @@
         public Label lblGrupo;
         public Label lblCarrera;
         public ComboBox comboBoxMaterias;
-        public ComboBox comboBoxAlumnos;
         public Button btnAsignarMaestro;
+        public ComboBox comboBoxAlumnos;
     }
 }

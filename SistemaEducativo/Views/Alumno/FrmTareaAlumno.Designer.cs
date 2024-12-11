@@ -31,12 +31,13 @@
             lblTitulo = new Label();
             lblParcial = new Label();
             btnVerTarea = new Button();
+            lblMateria = new Label();
             SuspendLayout();
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(18, 17);
+            lblTitulo.Location = new Point(11, 9);
             lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);
@@ -46,7 +47,7 @@
             // lblParcial
             // 
             lblParcial.AutoSize = true;
-            lblParcial.Location = new Point(18, 46);
+            lblParcial.Location = new Point(11, 28);
             lblParcial.Margin = new Padding(2, 0, 2, 0);
             lblParcial.Name = "lblParcial";
             lblParcial.Size = new Size(42, 15);
@@ -55,20 +56,33 @@
             // 
             // btnVerTarea
             // 
+            btnVerTarea.BackColor = Color.FromArgb(221, 223, 244);
+            btnVerTarea.FlatAppearance.BorderSize = 0;
+            btnVerTarea.FlatStyle = FlatStyle.Flat;
             btnVerTarea.Location = new Point(159, 78);
             btnVerTarea.Margin = new Padding(2);
             btnVerTarea.Name = "btnVerTarea";
             btnVerTarea.Size = new Size(95, 23);
             btnVerTarea.TabIndex = 2;
             btnVerTarea.Text = "Ver Detalles";
-            btnVerTarea.UseVisualStyleBackColor = true;
+            btnVerTarea.UseVisualStyleBackColor = false;
+            // 
+            // lblMateria
+            // 
+            lblMateria.AutoSize = true;
+            lblMateria.Location = new Point(12, 50);
+            lblMateria.Name = "lblMateria";
+            lblMateria.Size = new Size(47, 15);
+            lblMateria.TabIndex = 3;
+            lblMateria.Text = "Materia";
             // 
             // FrmTareaAlumno
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(228, 220, 201);
+            BackColor = Color.FromArgb(254, 254, 255);
             ClientSize = new Size(266, 110);
+            Controls.Add(lblMateria);
             Controls.Add(btnVerTarea);
             Controls.Add(lblParcial);
             Controls.Add(lblTitulo);
@@ -85,5 +99,6 @@
         public Label lblTitulo;
         public Label lblParcial;
         public Button btnVerTarea;
+        public Label lblMateria;
     }
 }

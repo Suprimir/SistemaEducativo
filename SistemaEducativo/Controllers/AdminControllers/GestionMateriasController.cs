@@ -143,6 +143,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
             {
                 FrmAsignarMateria frmAsignarMateria = new FrmAsignarMateria(lstMateriasSeleccionadas);
                 frmAsignarMateria.Show();
+            } else
+            {
+                MessageBox.Show("Selecciona 1 o más materias.");
             }
         }
 

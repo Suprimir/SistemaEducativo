@@ -41,24 +41,24 @@
             // flowLayoutPanelTareas
             // 
             flowLayoutPanelTareas.AutoScroll = true;
-            flowLayoutPanelTareas.Location = new Point(17, 45);
+            flowLayoutPanelTareas.Location = new Point(0, 33);
             flowLayoutPanelTareas.Margin = new Padding(0);
             flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
-            flowLayoutPanelTareas.Size = new Size(557, 221);
+            flowLayoutPanelTareas.Size = new Size(597, 243);
             flowLayoutPanelTareas.TabIndex = 9;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(17, 12);
+            panelMenuStrip.Location = new Point(0, 0);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(540, 30);
+            panelMenuStrip.Size = new Size(597, 30);
             panelMenuStrip.TabIndex = 10;
             // 
             // menuStripTareasMaestro
             // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
             menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
             menuStripTareasMaestro.Dock = DockStyle.Fill;
             menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
@@ -66,24 +66,30 @@
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(540, 30);
+            menuStripTareasMaestro.Size = new Size(597, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearTareaToolStripMenuItem
             // 
+            crearTareaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            crearTareaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             crearTareaToolStripMenuItem.Name = "crearTareaToolStripMenuItem";
-            crearTareaToolStripMenuItem.Size = new Size(78, 26);
+            crearTareaToolStripMenuItem.Size = new Size(77, 26);
             crearTareaToolStripMenuItem.Text = "Crear Tarea";
             // 
             // editarTareaToolStripMenuItem
             // 
+            editarTareaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            editarTareaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             editarTareaToolStripMenuItem.Name = "editarTareaToolStripMenuItem";
             editarTareaToolStripMenuItem.Size = new Size(80, 26);
             editarTareaToolStripMenuItem.Text = "Editar Tarea";
             // 
             // eliminarTareaToolStripMenuItem
             // 
+            eliminarTareaToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            eliminarTareaToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
             eliminarTareaToolStripMenuItem.Name = "eliminarTareaToolStripMenuItem";
             eliminarTareaToolStripMenuItem.Size = new Size(93, 26);
             eliminarTareaToolStripMenuItem.Text = "Eliminar Tarea";
@@ -92,7 +98,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(flowLayoutPanelTareas);

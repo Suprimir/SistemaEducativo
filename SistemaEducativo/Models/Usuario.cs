@@ -47,7 +47,7 @@ namespace SistemaEducativo.Models
 
         public override string ToString()
         {
-            return $"{Nombre} {ApellidoP} {ApellidoM}";
+            return $"{Matricula} - {NombreCompleto}";
         }
     }
 }

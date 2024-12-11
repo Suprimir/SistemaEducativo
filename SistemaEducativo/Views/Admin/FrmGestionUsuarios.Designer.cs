@@ -30,13 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewUsuarios = new DataGridView();
-            textBoxFiltroUsuarios = new TextBox();
-            comboBoxFiltroRol = new ComboBox();
-            panelMenuStrip = new Panel();
-            menuStripTareasMaestro = new MenuStrip();
-            crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            eliminarUsuarioToolStripMenuItem = new ToolStripMenuItem();
-            verCalificacionesToolStripMenuItem = new ToolStripMenuItem();
             id = new DataGridViewTextBoxColumn();
             matricula = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
@@ -45,6 +38,13 @@
             grupoID = new DataGridViewTextBoxColumn();
             editar = new DataGridViewImageColumn();
             eliminar = new DataGridViewCheckBoxColumn();
+            textBoxFiltroUsuarios = new TextBox();
+            comboBoxFiltroRol = new ComboBox();
+            panelMenuStrip = new Panel();
+            menuStripTareasMaestro = new MenuStrip();
+            crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            eliminarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            verCalificacionesToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
@@ -57,91 +57,34 @@
             dataGridViewUsuarios.AllowUserToResizeColumns = false;
             dataGridViewUsuarios.AllowUserToResizeRows = false;
             dataGridViewUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewUsuarios.BackgroundColor = Color.FromArgb(251, 225, 141);
+            dataGridViewUsuarios.BackgroundColor = Color.FromArgb(221, 223, 244);
+            dataGridViewUsuarios.BorderStyle = BorderStyle.None;
+            dataGridViewUsuarios.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewUsuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 63, 167);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewUsuarios.Columns.AddRange(new DataGridViewColumn[] { id, matricula, nombre, correo, rol, grupoID, editar, eliminar });
             dataGridViewUsuarios.EnableHeadersVisualStyles = false;
-            dataGridViewUsuarios.GridColor = Color.FromArgb(251, 225, 141);
-            dataGridViewUsuarios.Location = new Point(0, 86);
-            dataGridViewUsuarios.Margin = new Padding(4);
+            dataGridViewUsuarios.GridColor = Color.FromArgb(221, 223, 244);
+            dataGridViewUsuarios.Location = new Point(0, 69);
             dataGridViewUsuarios.Name = "dataGridViewUsuarios";
+            dataGridViewUsuarios.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewUsuarios.RowHeadersVisible = false;
             dataGridViewUsuarios.RowHeadersWidth = 51;
-            dataGridViewUsuarios.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewUsuarios.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
-            dataGridViewUsuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewUsuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUsuarios.Size = new Size(746, 258);
+            dataGridViewUsuarios.Size = new Size(597, 206);
             dataGridViewUsuarios.TabIndex = 0;
-            // 
-            // textBoxFiltroUsuarios
-            // 
-            textBoxFiltroUsuarios.Location = new Point(0, 5);
-            textBoxFiltroUsuarios.Margin = new Padding(4);
-            textBoxFiltroUsuarios.Name = "textBoxFiltroUsuarios";
-            textBoxFiltroUsuarios.Size = new Size(586, 27);
-            textBoxFiltroUsuarios.TabIndex = 1;
-            // 
-            // comboBoxFiltroRol
-            // 
-            comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxFiltroRol.FormattingEnabled = true;
-            comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
-            comboBoxFiltroRol.Location = new Point(595, 5);
-            comboBoxFiltroRol.Margin = new Padding(4);
-            comboBoxFiltroRol.Name = "comboBoxFiltroRol";
-            comboBoxFiltroRol.Size = new Size(150, 28);
-            comboBoxFiltroRol.TabIndex = 2;
-            // 
-            // panelMenuStrip
-            // 
-            panelMenuStrip.AutoSize = true;
-            panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(0, 41);
-            panelMenuStrip.Margin = new Padding(4);
-            panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(746, 38);
-            panelMenuStrip.TabIndex = 11;
-            // 
-            // menuStripTareasMaestro
-            // 
-            menuStripTareasMaestro.BackColor = Color.FromArgb(228, 220, 201);
-            menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
-            menuStripTareasMaestro.Dock = DockStyle.Fill;
-            menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
-            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem, verCalificacionesToolStripMenuItem });
-            menuStripTareasMaestro.Location = new Point(0, 0);
-            menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Size = new Size(746, 38);
-            menuStripTareasMaestro.TabIndex = 2;
-            menuStripTareasMaestro.Text = "menuStrip1";
-            // 
-            // crearUsuarioToolStripMenuItem
-            // 
-            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            crearUsuarioToolStripMenuItem.Size = new Size(112, 34);
-            crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
-            // 
-            // eliminarUsuarioToolStripMenuItem
-            // 
-            eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            eliminarUsuarioToolStripMenuItem.Size = new Size(131, 34);
-            eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
-            // 
-            // verCalificacionesToolStripMenuItem
-            // 
-            verCalificacionesToolStripMenuItem.Name = "verCalificacionesToolStripMenuItem";
-            verCalificacionesToolStripMenuItem.Size = new Size(139, 34);
-            verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
             // 
             // id
             // 
@@ -204,18 +147,85 @@
             eliminar.MinimumWidth = 6;
             eliminar.Name = "eliminar";
             // 
+            // textBoxFiltroUsuarios
+            // 
+            textBoxFiltroUsuarios.BorderStyle = BorderStyle.None;
+            textBoxFiltroUsuarios.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxFiltroUsuarios.Location = new Point(0, 4);
+            textBoxFiltroUsuarios.Name = "textBoxFiltroUsuarios";
+            textBoxFiltroUsuarios.PlaceholderText = "Nombre de Usuario";
+            textBoxFiltroUsuarios.Size = new Size(470, 23);
+            textBoxFiltroUsuarios.TabIndex = 1;
+            // 
+            // comboBoxFiltroRol
+            // 
+            comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxFiltroRol.FlatStyle = FlatStyle.Flat;
+            comboBoxFiltroRol.FormattingEnabled = true;
+            comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
+            comboBoxFiltroRol.Location = new Point(476, 4);
+            comboBoxFiltroRol.Name = "comboBoxFiltroRol";
+            comboBoxFiltroRol.Size = new Size(121, 23);
+            comboBoxFiltroRol.TabIndex = 2;
+            // 
+            // panelMenuStrip
+            // 
+            panelMenuStrip.AutoSize = true;
+            panelMenuStrip.Controls.Add(menuStripTareasMaestro);
+            panelMenuStrip.Location = new Point(0, 33);
+            panelMenuStrip.Name = "panelMenuStrip";
+            panelMenuStrip.Size = new Size(597, 30);
+            panelMenuStrip.TabIndex = 11;
+            // 
+            // menuStripTareasMaestro
+            // 
+            menuStripTareasMaestro.BackColor = Color.FromArgb(51, 63, 167);
+            menuStripTareasMaestro.BackgroundImageLayout = ImageLayout.None;
+            menuStripTareasMaestro.Dock = DockStyle.Fill;
+            menuStripTareasMaestro.ImageScalingSize = new Size(20, 20);
+            menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem, verCalificacionesToolStripMenuItem });
+            menuStripTareasMaestro.Location = new Point(0, 0);
+            menuStripTareasMaestro.Name = "menuStripTareasMaestro";
+            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
+            menuStripTareasMaestro.Size = new Size(597, 30);
+            menuStripTareasMaestro.TabIndex = 2;
+            menuStripTareasMaestro.Text = "menuStrip1";
+            // 
+            // crearUsuarioToolStripMenuItem
+            // 
+            crearUsuarioToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            crearUsuarioToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
+            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            crearUsuarioToolStripMenuItem.Size = new Size(89, 26);
+            crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
+            // 
+            // eliminarUsuarioToolStripMenuItem
+            // 
+            eliminarUsuarioToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            eliminarUsuarioToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
+            eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
+            eliminarUsuarioToolStripMenuItem.Size = new Size(105, 26);
+            eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
+            // 
+            // verCalificacionesToolStripMenuItem
+            // 
+            verCalificacionesToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            verCalificacionesToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
+            verCalificacionesToolStripMenuItem.Name = "verCalificacionesToolStripMenuItem";
+            verCalificacionesToolStripMenuItem.Size = new Size(111, 26);
+            verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
+            // 
             // FrmGestionUsuarios
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(745, 344);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(596, 275);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroRol);
             Controls.Add(textBoxFiltroUsuarios);
             Controls.Add(dataGridViewUsuarios);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4);
             Name = "FrmGestionUsuarios";
             Text = "Gestionar Usuarios";
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).EndInit();

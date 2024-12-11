@@ -32,7 +32,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmMenuAdmin.lblMenuTitulo.Click += CargarSubMenuDefault;
 
             // Configuracion Botones Menu
-            _frmMenuAdmin.panelPerfil.Click += btnPerfil_Click;
             _frmMenuAdmin.btnPerfil.Click += btnPerfil_Click;
             _frmMenuAdmin.btnGrupos.Click += btnGrupos_Click;
             _frmMenuAdmin.btnUsuarios.Click += btnUsuarios_Click;

@@ -39,7 +39,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 }
             }
 
-            _frmGestionGrupos.Load += CargarDatosEnTabla;
+            _frmGestionGrupos.Load += frmGestionGrupos_Load;
 
             _frmGestionGrupos.textBoxFiltroNombre.TextChanged += textBoxFiltroNombre_TextChanged;
             _frmGestionGrupos.comboBoxFiltroCarrera.SelectedIndexChanged += comboBoxFiltroCarrera_SelectedIndexChanged;
@@ -54,9 +54,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void ActualizarTablaAction()
         {
-            lstGrupos = GrupoDAO.ObtenerGrupos(); 
+            lstGrupos = GrupoDAO.ObtenerGrupos();
 
-            CargarDatosEnTabla(null, null);
+            frmGestionGrupos_Load(null, null);
 
             _frmGestionGrupos.comboBoxFiltroCarrera.Items.Clear();
             _frmGestionGrupos.comboBoxFiltroCarrera.Items.Add("");
@@ -70,7 +70,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             }
         }
 
-        private void CargarDatosEnTabla(object sender, EventArgs e)
+        private void frmGestionGrupos_Load(object sender, EventArgs e)
         {
             _frmGestionGrupos.dataGridViewGrupos.Rows.Clear();
 
@@ -87,14 +87,14 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             filtroNombre = _frmGestionGrupos.textBoxFiltroNombre.Text;
 
-            CargarDatosEnTabla(sender, e);
+            frmGestionGrupos_Load(sender, e);
         }
 
         private void comboBoxFiltroCarrera_SelectedIndexChanged(object sender, EventArgs e)
         {
             filtroCarrera = _frmGestionGrupos.comboBoxFiltroCarrera.Text;
 
-            CargarDatosEnTabla(sender, e);
+            frmGestionGrupos_Load(sender, e);
         }
 
         // Abre formulario de registro de grupo 
@@ -107,27 +107,35 @@ namespace SistemaEducativo.Controllers.AdminControllers
         // Pregunta si en verdad desea eliminar un grupo y si dice que si le pide a la base de datos eliminar ese registro.
         private void btnEliminarGrupo_Click(object sender, EventArgs e)
         {
-            Grupo grupoSeleccionado = lstGrupos.First(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
-
-            DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el grupo seleccionado.", "Eliminar Grupo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (lstGruposSeleccionados.Count > 0)
             {
-                foreach (var grupo in lstGruposSeleccionados)
+                DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el grupo seleccionado.", "Eliminar Grupo", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    GrupoDAO.EliminarGrupo(grupo);
-                }
+                    foreach (var grupo in lstGruposSeleccionados)
+                    {
+                        GrupoDAO.EliminarGrupo(grupo);
+                    }
 
-                actualizarTabla?.Invoke();
+                    actualizarTabla?.Invoke();
+                }
+            } else
+            {
+                MessageBox.Show("Seleccione 1 o más grupos para esta accion.");
             }
         }
 
         // Abre el formulario para asignar maestros a los grupos y que materia impartira
         private void btnAsignarMaestro_Click(object sender, EventArgs e)
         {
-            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
-
-            FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro(grupoSeleccionado);
-            frmAsignarMaestro.Show();
+            if (lstGruposSeleccionados.Count == 1)
+            {
+                FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro(lstGruposSeleccionados[0]);
+                frmAsignarMaestro.Show();
+            } else
+            {
+                MessageBox.Show("Seleccione 1 solo grupo para esta accion.");
+            }
         }
 
         private void dataGridViewGrupos_CellClick(object sender, DataGridViewCellEventArgs e)

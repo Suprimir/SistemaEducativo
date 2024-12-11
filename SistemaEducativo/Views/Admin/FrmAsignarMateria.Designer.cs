@@ -40,53 +40,64 @@
             // lblNombreMateriaStatic
             // 
             lblNombreMateriaStatic.AutoSize = true;
+            lblNombreMateriaStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNombreMateriaStatic.Location = new Point(12, 9);
             lblNombreMateriaStatic.Name = "lblNombreMateriaStatic";
-            lblNombreMateriaStatic.Size = new Size(119, 15);
+            lblNombreMateriaStatic.Size = new Size(130, 15);
             lblNombreMateriaStatic.TabIndex = 1;
-            lblNombreMateriaStatic.Text = "Materia Seleccionada";
+            lblNombreMateriaStatic.Text = "Materias Seleccionadas";
             // 
             // lblCarrerasStatic
             // 
             lblCarrerasStatic.AutoSize = true;
-            lblCarrerasStatic.Location = new Point(139, 9);
+            lblCarrerasStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCarrerasStatic.Location = new Point(166, 9);
             lblCarrerasStatic.Name = "lblCarrerasStatic";
-            lblCarrerasStatic.Size = new Size(50, 15);
+            lblCarrerasStatic.Size = new Size(49, 15);
             lblCarrerasStatic.TabIndex = 2;
             lblCarrerasStatic.Text = "Carreras";
+            lblCarrerasStatic.Click += lblCarrerasStatic_Click;
             // 
             // comboBoxCarreras
             // 
             comboBoxCarreras.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCarreras.FlatStyle = FlatStyle.Flat;
             comboBoxCarreras.FormattingEnabled = true;
-            comboBoxCarreras.Location = new Point(139, 27);
+            comboBoxCarreras.Location = new Point(166, 27);
             comboBoxCarreras.Name = "comboBoxCarreras";
             comboBoxCarreras.Size = new Size(121, 23);
             comboBoxCarreras.TabIndex = 3;
             // 
             // btnAsignarMateria
             // 
-            btnAsignarMateria.Location = new Point(185, 120);
+            btnAsignarMateria.BackColor = Color.FromArgb(51, 63, 167);
+            btnAsignarMateria.FlatAppearance.BorderSize = 0;
+            btnAsignarMateria.FlatStyle = FlatStyle.Flat;
+            btnAsignarMateria.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAsignarMateria.ForeColor = SystemColors.ControlLightLight;
+            btnAsignarMateria.Location = new Point(212, 127);
             btnAsignarMateria.Name = "btnAsignarMateria";
             btnAsignarMateria.Size = new Size(75, 23);
             btnAsignarMateria.TabIndex = 4;
             btnAsignarMateria.Text = "Asignar";
-            btnAsignarMateria.UseVisualStyleBackColor = true;
+            btnAsignarMateria.UseVisualStyleBackColor = false;
             // 
             // lblSemestreStatic
             // 
             lblSemestreStatic.AutoSize = true;
-            lblSemestreStatic.Location = new Point(139, 63);
+            lblSemestreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSemestreStatic.Location = new Point(166, 64);
             lblSemestreStatic.Name = "lblSemestreStatic";
-            lblSemestreStatic.Size = new Size(55, 15);
+            lblSemestreStatic.Size = new Size(56, 15);
             lblSemestreStatic.TabIndex = 5;
             lblSemestreStatic.Text = "Semestre";
             // 
             // comboBoxSemestres
             // 
             comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSemestres.FlatStyle = FlatStyle.Flat;
             comboBoxSemestres.FormattingEnabled = true;
-            comboBoxSemestres.Location = new Point(139, 81);
+            comboBoxSemestres.Location = new Point(166, 82);
             comboBoxSemestres.Name = "comboBoxSemestres";
             comboBoxSemestres.Size = new Size(121, 23);
             comboBoxSemestres.TabIndex = 6;
@@ -104,7 +115,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(277, 153);
+            BackColor = Color.FromArgb(221, 223, 244);
+            ClientSize = new Size(310, 162);
             Controls.Add(lblNombreMateria);
             Controls.Add(comboBoxSemestres);
             Controls.Add(lblSemestreStatic);
@@ -112,8 +124,10 @@
             Controls.Add(comboBoxCarreras);
             Controls.Add(lblCarrerasStatic);
             Controls.Add(lblNombreMateriaStatic);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FrmAsignarMateria";
-            Text = "FrmAsignarMateria";
+            Text = "Asignar Materias";
             ResumeLayout(false);
             PerformLayout();
         }

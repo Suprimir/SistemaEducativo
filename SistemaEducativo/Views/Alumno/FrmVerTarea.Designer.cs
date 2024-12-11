@@ -50,21 +50,28 @@
             // 
             // btnSubirTarea
             // 
+            btnSubirTarea.BackColor = Color.FromArgb(51, 63, 167);
+            btnSubirTarea.FlatAppearance.BorderSize = 0;
+            btnSubirTarea.FlatStyle = FlatStyle.Flat;
+            btnSubirTarea.ForeColor = SystemColors.ControlLightLight;
             btnSubirTarea.Location = new Point(433, 188);
             btnSubirTarea.Name = "btnSubirTarea";
             btnSubirTarea.Size = new Size(151, 41);
             btnSubirTarea.TabIndex = 1;
             btnSubirTarea.Text = "Entregar";
-            btnSubirTarea.UseVisualStyleBackColor = true;
+            btnSubirTarea.UseVisualStyleBackColor = false;
             // 
             // btnAdjuntarArchivo
             // 
+            btnAdjuntarArchivo.BackColor = Color.White;
+            btnAdjuntarArchivo.FlatAppearance.BorderSize = 0;
+            btnAdjuntarArchivo.FlatStyle = FlatStyle.Flat;
             btnAdjuntarArchivo.Location = new Point(433, 140);
             btnAdjuntarArchivo.Name = "btnAdjuntarArchivo";
             btnAdjuntarArchivo.Size = new Size(151, 42);
             btnAdjuntarArchivo.TabIndex = 2;
             btnAdjuntarArchivo.Text = "Adjuntar Archivo";
-            btnAdjuntarArchivo.UseVisualStyleBackColor = true;
+            btnAdjuntarArchivo.UseVisualStyleBackColor = false;
             // 
             // lblNombreArchivo
             // 
@@ -77,7 +84,8 @@
             // 
             // richTextBoxDescripcion
             // 
-            richTextBoxDescripcion.BackColor = Color.FromArgb(228, 220, 201);
+            richTextBoxDescripcion.BackColor = Color.FromArgb(254, 254, 255);
+            richTextBoxDescripcion.BorderStyle = BorderStyle.None;
             richTextBoxDescripcion.Location = new Point(15, 46);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             richTextBoxDescripcion.ReadOnly = true;
@@ -91,27 +99,34 @@
             // 
             // btnCancelarEntrega
             // 
+            btnCancelarEntrega.BackColor = Color.LightCoral;
+            btnCancelarEntrega.FlatAppearance.BorderSize = 0;
+            btnCancelarEntrega.FlatStyle = FlatStyle.Flat;
+            btnCancelarEntrega.ForeColor = SystemColors.ControlLightLight;
             btnCancelarEntrega.Location = new Point(433, 235);
             btnCancelarEntrega.Name = "btnCancelarEntrega";
             btnCancelarEntrega.Size = new Size(151, 28);
             btnCancelarEntrega.TabIndex = 5;
             btnCancelarEntrega.Text = "Cancelar Entrega";
-            btnCancelarEntrega.UseVisualStyleBackColor = true;
+            btnCancelarEntrega.UseVisualStyleBackColor = false;
             // 
             // btnVerArchivo
             // 
+            btnVerArchivo.BackColor = Color.White;
+            btnVerArchivo.FlatAppearance.BorderSize = 0;
+            btnVerArchivo.FlatStyle = FlatStyle.Flat;
             btnVerArchivo.Location = new Point(433, 109);
             btnVerArchivo.Name = "btnVerArchivo";
             btnVerArchivo.Size = new Size(151, 25);
             btnVerArchivo.TabIndex = 6;
             btnVerArchivo.Text = "Ver Archivo";
-            btnVerArchivo.UseVisualStyleBackColor = true;
+            btnVerArchivo.UseVisualStyleBackColor = false;
             // 
             // FrmVerTarea
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(btnVerArchivo);
             Controls.Add(btnCancelarEntrega);
@@ -120,6 +135,7 @@
             Controls.Add(btnAdjuntarArchivo);
             Controls.Add(btnSubirTarea);
             Controls.Add(lblTitulo);
+            ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmVerTarea";
             Text = "FrmVerTarea";

@@ -34,17 +34,17 @@
             // flowLayoutPanelTareas
             // 
             flowLayoutPanelTareas.AutoScroll = true;
-            flowLayoutPanelTareas.Location = new Point(9, 9);
+            flowLayoutPanelTareas.Location = new Point(0, 0);
             flowLayoutPanelTareas.Margin = new Padding(0);
             flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
-            flowLayoutPanelTareas.Size = new Size(578, 257);
+            flowLayoutPanelTareas.Size = new Size(596, 275);
             flowLayoutPanelTareas.TabIndex = 10;
             // 
             // FrmGestionTareasAlumno
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(251, 225, 141);
+            BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
             Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;

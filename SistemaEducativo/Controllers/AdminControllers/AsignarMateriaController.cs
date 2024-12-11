@@ -22,7 +22,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             lstMateriasSeleccionadas = lstMaterias;
 
             lstCarreras = CarreraDAO.ObtenerCarreras();
-
+            
             _frmAsignarMateria.Load += frmAsignarMateria_Load;
             _frmAsignarMateria.comboBoxCarreras.TextChanged += comboBoxCarreras_TextChanged;
             _frmAsignarMateria.btnAsignarMateria.Click += btnAsignarMateria_Click;
@@ -40,6 +40,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void comboBoxCarreras_TextChanged(object sender, EventArgs e)
         {
+            _frmAsignarMateria.comboBoxSemestres.Items.Clear();
+
             Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmAsignarMateria.comboBoxCarreras.Text);
 
             for (int i = 1; i <= carrera.TotalSemestres; i++)

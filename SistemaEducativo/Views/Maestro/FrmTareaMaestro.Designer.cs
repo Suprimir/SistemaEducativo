@@ -56,13 +56,16 @@
             // 
             // btnRevisarTarea
             // 
+            btnRevisarTarea.BackColor = Color.FromArgb(221, 223, 244);
+            btnRevisarTarea.FlatAppearance.BorderSize = 0;
+            btnRevisarTarea.FlatStyle = FlatStyle.Flat;
             btnRevisarTarea.Location = new Point(159, 78);
             btnRevisarTarea.Margin = new Padding(2);
             btnRevisarTarea.Name = "btnRevisarTarea";
             btnRevisarTarea.Size = new Size(95, 23);
             btnRevisarTarea.TabIndex = 2;
             btnRevisarTarea.Text = "Revisar Tareas";
-            btnRevisarTarea.UseVisualStyleBackColor = true;
+            btnRevisarTarea.UseVisualStyleBackColor = false;
             // 
             // checkBoxSeleccionado
             // 
@@ -77,7 +80,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(228, 220, 201);
+            BackColor = Color.FromArgb(254, 254, 255);
             ClientSize = new Size(266, 110);
             Controls.Add(checkBoxSeleccionado);
             Controls.Add(btnRevisarTarea);

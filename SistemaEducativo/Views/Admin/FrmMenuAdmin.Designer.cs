@@ -85,9 +85,9 @@
             // 
             // btnGrupos
             // 
-            btnGrupos.BackColor = Color.FromArgb(251, 225, 141);
+            btnGrupos.BackColor = Color.FromArgb(221, 223, 244);
             btnGrupos.Cursor = Cursors.Hand;
-            btnGrupos.FlatAppearance.BorderColor = Color.Black;
+            btnGrupos.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
             btnGrupos.FlatAppearance.BorderSize = 0;
             btnGrupos.FlatStyle = FlatStyle.Flat;
             btnGrupos.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -96,13 +96,13 @@
             btnGrupos.Location = new Point(-80, 0);
             btnGrupos.Name = "btnGrupos";
             btnGrupos.Size = new Size(273, 46);
-            btnGrupos.TabIndex = 14;
+            btnGrupos.TabIndex = 1;
             btnGrupos.Text = "                        Grupos";
             btnGrupos.UseVisualStyleBackColor = false;
             // 
             // panelPerfil
             // 
-            panelPerfil.BackColor = Color.FromArgb(251, 225, 141);
+            panelPerfil.BackColor = Color.FromArgb(221, 223, 244);
             panelPerfil.ContextMenuStrip = contextMenuStripPerfil;
             panelPerfil.Controls.Add(btnPerfil);
             panelPerfil.Controls.Add(lblRol);
@@ -117,12 +117,13 @@
             // 
             // contextMenuStripPerfil
             // 
-            contextMenuStripPerfil.AutoSize = false;
+            contextMenuStripPerfil.BackColor = Color.FromArgb(221, 223, 244);
             contextMenuStripPerfil.Items.AddRange(new ToolStripItem[] { configurarPerfilToolStripMenuItem });
             contextMenuStripPerfil.Name = "contextMenuStripPerfil";
             contextMenuStripPerfil.RenderMode = ToolStripRenderMode.System;
             contextMenuStripPerfil.ShowCheckMargin = true;
-            contextMenuStripPerfil.Size = new Size(229, 52);
+            contextMenuStripPerfil.ShowItemToolTips = false;
+            contextMenuStripPerfil.Size = new Size(219, 52);
             // 
             // configurarPerfilToolStripMenuItem
             // 
@@ -136,7 +137,7 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.BackColor = Color.FromArgb(251, 225, 141);
+            btnPerfil.BackColor = Color.FromArgb(221, 223, 244);
             btnPerfil.ContextMenuStrip = contextMenuStripPerfil;
             btnPerfil.Cursor = Cursors.Hand;
             btnPerfil.FlatAppearance.BorderSize = 0;
@@ -146,6 +147,7 @@
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(24, 21);
             btnPerfil.TabIndex = 13;
+            btnPerfil.TabStop = false;
             btnPerfil.UseVisualStyleBackColor = false;
             // 
             // lblRol
@@ -192,7 +194,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(251, 225, 141);
+            panel2.BackColor = Color.FromArgb(221, 223, 244);
             panel2.Controls.Add(lblGestionStatic);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
@@ -224,9 +226,9 @@
             // 
             // btnMaterias
             // 
-            btnMaterias.BackColor = Color.FromArgb(251, 225, 141);
+            btnMaterias.BackColor = Color.FromArgb(221, 223, 244);
             btnMaterias.Cursor = Cursors.Hand;
-            btnMaterias.FlatAppearance.BorderColor = Color.Black;
+            btnMaterias.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
             btnMaterias.FlatAppearance.BorderSize = 0;
             btnMaterias.FlatStyle = FlatStyle.Flat;
             btnMaterias.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -235,7 +237,7 @@
             btnMaterias.Location = new Point(-83, 0);
             btnMaterias.Name = "btnMaterias";
             btnMaterias.Size = new Size(273, 46);
-            btnMaterias.TabIndex = 14;
+            btnMaterias.TabIndex = 3;
             btnMaterias.Text = "                        Materias";
             btnMaterias.UseVisualStyleBackColor = false;
             // 
@@ -250,9 +252,9 @@
             // 
             // btnUsuarios
             // 
-            btnUsuarios.BackColor = Color.FromArgb(251, 225, 141);
+            btnUsuarios.BackColor = Color.FromArgb(221, 223, 244);
             btnUsuarios.Cursor = Cursors.Hand;
-            btnUsuarios.FlatAppearance.BorderColor = Color.Black;
+            btnUsuarios.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
             btnUsuarios.FlatAppearance.BorderSize = 0;
             btnUsuarios.FlatStyle = FlatStyle.Flat;
             btnUsuarios.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -261,7 +263,7 @@
             btnUsuarios.Location = new Point(-80, 0);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.Size = new Size(273, 46);
-            btnUsuarios.TabIndex = 14;
+            btnUsuarios.TabIndex = 2;
             btnUsuarios.Text = "                        Usuarios";
             btnUsuarios.UseVisualStyleBackColor = false;
             // 
@@ -293,16 +295,16 @@
             btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
             btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
-            btnCerrarSesion.Location = new Point(-108, 0);
+            btnCerrarSesion.Location = new Point(-102, 0);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(301, 46);
-            btnCerrarSesion.TabIndex = 14;
+            btnCerrarSesion.TabIndex = 4;
             btnCerrarSesion.Text = "                                Cerrar Sesión";
             btnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // panelSubMenu
             // 
-            panelSubMenu.BackColor = Color.FromArgb(251, 225, 141);
+            panelSubMenu.BackColor = Color.FromArgb(221, 223, 244);
             panelSubMenu.Location = new Point(239, 163);
             panelSubMenu.Name = "panelSubMenu";
             panelSubMenu.Size = new Size(596, 275);
@@ -353,12 +355,13 @@
             btnCerrarVentana.FlatAppearance.BorderSize = 0;
             btnCerrarVentana.FlatStyle = FlatStyle.Flat;
             btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCerrarVentana.ForeColor = SystemColors.ControlText;
+            btnCerrarVentana.ForeColor = SystemColors.ControlLightLight;
             btnCerrarVentana.Location = new Point(835, 0);
             btnCerrarVentana.Margin = new Padding(0);
             btnCerrarVentana.Name = "btnCerrarVentana";
             btnCerrarVentana.Size = new Size(29, 36);
             btnCerrarVentana.TabIndex = 0;
+            btnCerrarVentana.TabStop = false;
             btnCerrarVentana.Text = "X";
             btnCerrarVentana.UseVisualStyleBackColor = true;
             // 
@@ -367,6 +370,7 @@
             lblMenuTitulo.AutoSize = true;
             lblMenuTitulo.Cursor = Cursors.Hand;
             lblMenuTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMenuTitulo.ForeColor = SystemColors.ControlLightLight;
             lblMenuTitulo.Location = new Point(3, 3);
             lblMenuTitulo.Margin = new Padding(3, 3, 3, 0);
             lblMenuTitulo.Name = "lblMenuTitulo";
@@ -379,17 +383,19 @@
             btnMinimizarVentana.FlatAppearance.BorderSize = 0;
             btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
             btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMinimizarVentana.ForeColor = SystemColors.ControlLightLight;
             btnMinimizarVentana.Location = new Point(806, 0);
             btnMinimizarVentana.Margin = new Padding(0);
             btnMinimizarVentana.Name = "btnMinimizarVentana";
             btnMinimizarVentana.Size = new Size(29, 36);
             btnMinimizarVentana.TabIndex = 8;
+            btnMinimizarVentana.TabStop = false;
             btnMinimizarVentana.Text = "-";
             btnMinimizarVentana.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanelCustom
             // 
-            tableLayoutPanelCustom.BackColor = Color.FromArgb(251, 225, 141);
+            tableLayoutPanelCustom.BackColor = Color.FromArgb(51, 63, 167);
             tableLayoutPanelCustom.ColumnCount = 3;
             tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
             tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
@@ -419,7 +425,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = Color.FromArgb(228, 220, 201);
+            BackColor = Color.FromArgb(254, 254, 255);
             ClientSize = new Size(863, 469);
             Controls.Add(lblBienvenidaSub);
             Controls.Add(panel6);

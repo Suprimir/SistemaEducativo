@@ -30,11 +30,12 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             {
                 Label lblParcialSeparador = new Label();
                 lblParcialSeparador.Text = $"Parcial {i}";
+                lblParcialSeparador.ForeColor = Color.White;
 
                 Panel panelParcialSeparador = new Panel();
-                panelParcialSeparador.Width = _frmGestionTareasAlumno.flowLayoutPanelTareas.ClientSize.Width - 25;
+                panelParcialSeparador.Width = _frmGestionTareasAlumno.flowLayoutPanelTareas.ClientSize.Width - 10;
                 panelParcialSeparador.Height = lblParcialSeparador.ClientSize.Height;
-                panelParcialSeparador.BackColor = ColorTranslator.FromHtml("#e4dcc9");
+                panelParcialSeparador.BackColor = ColorTranslator.FromHtml("#333fa7");
                 lblParcialSeparador.Location = new Point((panelParcialSeparador.Width - lblParcialSeparador.Width) / 2, (panelParcialSeparador.Height - lblParcialSeparador.Height) / 2);
 
                 panelParcialSeparador.Controls.Add(lblParcialSeparador);
