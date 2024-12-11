@@ -96,10 +96,11 @@ namespace SistemaEducativo.DAO
                                 Tarea tarea = new Tarea();
 
                                 tarea.ID = reader.GetInt32(0);
-                                tarea.Parcial = reader.GetInt32(1);
-                                tarea.Titulo = reader.GetString(2);
-                                tarea.Descripcion = reader.GetString(3);
-                                tarea.Fecha_Limite = reader.GetDateTime(4);
+                                tarea.Semestre = reader.GetInt32(1);
+                                tarea.Parcial = reader.GetInt32(2);
+                                tarea.Titulo = reader.GetString(3);
+                                tarea.Descripcion = reader.GetString(4);
+                                tarea.Fecha_Limite = reader.GetDateTime(5);
 
                                 lstTareas.Add(tarea);
                             }
@@ -198,6 +199,7 @@ namespace SistemaEducativo.DAO
                                     tareaObtenida.PathArchivoTarea = reader.GetString(3);
                                     tareaObtenida.FechaEntregada = reader.GetDateTime(4);
                                     tareaObtenida.Estado = reader.GetString(5);
+                                    tareaObtenida.Calificacion = reader.IsDBNull(6) ? null : reader.GetDouble(6);
                                 }
 
                                 return tareaObtenida;

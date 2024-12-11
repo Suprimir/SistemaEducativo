@@ -1,5 +1,6 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 
@@ -9,14 +10,24 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     {
         private FrmGestionTareasAlumno _frmGestionTareasAlumno;
         private List<Tarea> lstTareas;
+        private Carrera carrera;
+        private int semestre = 1;
 
         public GestionTareasAlumnoController(FrmGestionTareasAlumno frmGestionTareasAlumno)
         {
             _frmGestionTareasAlumno = frmGestionTareasAlumno;
 
             lstTareas = TareaDAO.ObtenerTareas(new GrupoProfesor());
+            carrera = CarreraDAO.ObtenerCarreras().First(carrera => carrera.NombreCarrera == SesionUsuario.Instancia.Carrera);
+            _frmGestionTareasAlumno.comboBoxSemestres.Items.Clear();
+
+            for (int i = 1; i <= carrera.TotalSemestres; i++)
+            {
+                _frmGestionTareasAlumno.comboBoxSemestres.Items.Add(i);
+            }
 
             _frmGestionTareasAlumno.Load += frmGestionTareasAlumno_Load;
+            _frmGestionTareasAlumno.comboBoxSemestres.SelectedIndexChanged += comboBoxSemestres_SelectedIndexChanged; 
         }
 
         private void frmGestionTareasAlumno_Load(object sender, EventArgs e)
@@ -26,10 +37,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Clear();
             }
 
-            for (int i = 1; i <= 3; i++)
+            for (int j = 1; j <= 3; j++)
             {
                 Label lblParcialSeparador = new Label();
-                lblParcialSeparador.Text = $"Parcial {i}";
+                lblParcialSeparador.Text = $"Parcial {j}";
                 lblParcialSeparador.ForeColor = Color.White;
 
                 Panel panelParcialSeparador = new Panel();
@@ -42,7 +53,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
                 _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(panelParcialSeparador);
 
-                foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == i))
+                foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == j && tarea.Semestre == semestre))
                 {
                     FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
                     frmTareaAlumno.TopLevel = false;
@@ -52,9 +63,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             }
         }
 
-        private void btnVerTarea_Click(object sender, EventArgs e)
+        private void comboBoxSemestres_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            semestre = (int)_frmGestionTareasAlumno.comboBoxSemestres.SelectedItem;
+            frmGestionTareasAlumno_Load(sender, e);
         }
     }
 }

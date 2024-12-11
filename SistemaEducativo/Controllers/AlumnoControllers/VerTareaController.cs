@@ -27,8 +27,6 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
             actualizarEstado = () => { tareaEntregada = TareaDAO.ValidarTareaAlumno(tarea); frmVerTarea_Load(null, null); };
 
-            MessageBox.Show(tareaEntregada != null ? "Existe" : "No existe");
-
             _frmVerTarea.Load += frmVerTarea_Load;
             _frmVerTarea.btnAdjuntarArchivo.Click += btnAdjuntarArchivo_Click;
             _frmVerTarea.btnSubirTarea.Click += btnSubirTarea_Click;
@@ -49,6 +47,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnCancelarEntrega.Enabled = true;
+
+                _frmVerTarea.lblCalificacionStatic.Visible = true;
+                _frmVerTarea.lblCalificacion.Text = tareaEntregada.Calificacion.ToString();
+                _frmVerTarea.lblEstado.Text = tareaEntregada.Estado;
             }
             else
             {
@@ -57,6 +59,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 _frmVerTarea.btnCancelarEntrega.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = true;
+
+                _frmVerTarea.lblCalificacionStatic.Visible = false;
+                _frmVerTarea.lblCalificacion.Text = "";
+                _frmVerTarea.lblEstado.Text = "Pendiente";
             }
         }
 
