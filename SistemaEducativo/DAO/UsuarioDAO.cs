@@ -83,12 +83,10 @@ namespace SistemaEducativo.DAO
                                 usuario.Id = reader.GetInt32(0);
                                 usuario.Matricula = reader.GetString(1);
                                 usuario.Pass = reader.GetString(2);
-                                usuario.Nombre = reader.GetString(3);
-                                usuario.ApellidoP = reader.GetString(4);
-                                usuario.ApellidoM = reader.GetString(5);
-                                usuario.Correo = reader.GetString(6);
-                                usuario.Rol = reader.GetString(7);
-                                usuario.GrupoId = reader.IsDBNull(8) ? null : reader.GetInt32(8);
+                                usuario.NombreCompleto = reader.GetString(3);
+                                usuario.Correo = reader.GetString(4);
+                                usuario.Rol = reader.GetString(5);
+                                usuario.GrupoId = reader.IsDBNull(6) ? null : reader.GetInt32(6);
 
                                 lstUsuarios.Add(usuario);
                             }

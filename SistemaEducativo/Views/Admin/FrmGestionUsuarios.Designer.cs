@@ -30,16 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewUsuarios = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            matricula = new DataGridViewTextBoxColumn();
-            nombre = new DataGridViewTextBoxColumn();
-            apellidoP = new DataGridViewTextBoxColumn();
-            apellidoM = new DataGridViewTextBoxColumn();
-            correo = new DataGridViewTextBoxColumn();
-            rol = new DataGridViewTextBoxColumn();
-            grupoID = new DataGridViewTextBoxColumn();
-            editar = new DataGridViewImageColumn();
-            eliminar = new DataGridViewCheckBoxColumn();
             textBoxFiltroUsuarios = new TextBox();
             comboBoxFiltroRol = new ComboBox();
             panelMenuStrip = new Panel();
@@ -47,6 +37,14 @@
             crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
             eliminarUsuarioToolStripMenuItem = new ToolStripMenuItem();
             verCalificacionesToolStripMenuItem = new ToolStripMenuItem();
+            id = new DataGridViewTextBoxColumn();
+            matricula = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            correo = new DataGridViewTextBoxColumn();
+            rol = new DataGridViewTextBoxColumn();
+            grupoID = new DataGridViewTextBoxColumn();
+            editar = new DataGridViewImageColumn();
+            eliminar = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).BeginInit();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
@@ -69,93 +67,28 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridViewUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewUsuarios.Columns.AddRange(new DataGridViewColumn[] { id, matricula, nombre, apellidoP, apellidoM, correo, rol, grupoID, editar, eliminar });
+            dataGridViewUsuarios.Columns.AddRange(new DataGridViewColumn[] { id, matricula, nombre, correo, rol, grupoID, editar, eliminar });
             dataGridViewUsuarios.EnableHeadersVisualStyles = false;
             dataGridViewUsuarios.GridColor = Color.FromArgb(251, 225, 141);
-            dataGridViewUsuarios.Location = new Point(0, 69);
+            dataGridViewUsuarios.Location = new Point(0, 86);
+            dataGridViewUsuarios.Margin = new Padding(4);
             dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             dataGridViewUsuarios.RowHeadersVisible = false;
+            dataGridViewUsuarios.RowHeadersWidth = 51;
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(228, 220, 201);
             dataGridViewUsuarios.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUsuarios.Size = new Size(597, 206);
+            dataGridViewUsuarios.Size = new Size(746, 258);
             dataGridViewUsuarios.TabIndex = 0;
-            // 
-            // id
-            // 
-            id.FillWeight = 80F;
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // matricula
-            // 
-            matricula.FillWeight = 70F;
-            matricula.HeaderText = "Matricula";
-            matricula.Name = "matricula";
-            matricula.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            nombre.FillWeight = 60F;
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            // 
-            // apellidoP
-            // 
-            apellidoP.FillWeight = 65F;
-            apellidoP.HeaderText = "A. Pat.";
-            apellidoP.Name = "apellidoP";
-            apellidoP.ReadOnly = true;
-            // 
-            // apellidoM
-            // 
-            apellidoM.FillWeight = 65F;
-            apellidoM.HeaderText = "A. Mat.";
-            apellidoM.Name = "apellidoM";
-            apellidoM.ReadOnly = true;
-            // 
-            // correo
-            // 
-            correo.HeaderText = "Correo";
-            correo.Name = "correo";
-            correo.ReadOnly = true;
-            // 
-            // rol
-            // 
-            rol.FillWeight = 50F;
-            rol.HeaderText = "Rol";
-            rol.Name = "rol";
-            rol.ReadOnly = true;
-            // 
-            // grupoID
-            // 
-            grupoID.FillWeight = 42F;
-            grupoID.HeaderText = "Grupo";
-            grupoID.Name = "grupoID";
-            grupoID.ReadOnly = true;
-            // 
-            // editar
-            // 
-            editar.FillWeight = 45F;
-            editar.HeaderText = "";
-            editar.Image = Properties.Resources.editarIcon;
-            editar.Name = "editar";
-            // 
-            // eliminar
-            // 
-            eliminar.FillWeight = 45F;
-            eliminar.HeaderText = "";
-            eliminar.Name = "eliminar";
             // 
             // textBoxFiltroUsuarios
             // 
-            textBoxFiltroUsuarios.Location = new Point(0, 4);
+            textBoxFiltroUsuarios.Location = new Point(0, 5);
+            textBoxFiltroUsuarios.Margin = new Padding(4);
             textBoxFiltroUsuarios.Name = "textBoxFiltroUsuarios";
-            textBoxFiltroUsuarios.Size = new Size(470, 23);
+            textBoxFiltroUsuarios.Size = new Size(586, 27);
             textBoxFiltroUsuarios.TabIndex = 1;
             // 
             // comboBoxFiltroRol
@@ -163,18 +96,20 @@
             comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroRol.FormattingEnabled = true;
             comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
-            comboBoxFiltroRol.Location = new Point(476, 4);
+            comboBoxFiltroRol.Location = new Point(595, 5);
+            comboBoxFiltroRol.Margin = new Padding(4);
             comboBoxFiltroRol.Name = "comboBoxFiltroRol";
-            comboBoxFiltroRol.Size = new Size(121, 23);
+            comboBoxFiltroRol.Size = new Size(150, 28);
             comboBoxFiltroRol.TabIndex = 2;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(0, 33);
+            panelMenuStrip.Location = new Point(0, 41);
+            panelMenuStrip.Margin = new Padding(4);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(597, 30);
+            panelMenuStrip.Size = new Size(746, 38);
             panelMenuStrip.TabIndex = 11;
             // 
             // menuStripTareasMaestro
@@ -186,40 +121,101 @@
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, eliminarUsuarioToolStripMenuItem, verCalificacionesToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(597, 30);
+            menuStripTareasMaestro.Size = new Size(746, 38);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearUsuarioToolStripMenuItem
             // 
             crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            crearUsuarioToolStripMenuItem.Size = new Size(90, 26);
+            crearUsuarioToolStripMenuItem.Size = new Size(112, 34);
             crearUsuarioToolStripMenuItem.Text = "Crear Usuario";
             // 
             // eliminarUsuarioToolStripMenuItem
             // 
             eliminarUsuarioToolStripMenuItem.Name = "eliminarUsuarioToolStripMenuItem";
-            eliminarUsuarioToolStripMenuItem.Size = new Size(105, 26);
+            eliminarUsuarioToolStripMenuItem.Size = new Size(131, 34);
             eliminarUsuarioToolStripMenuItem.Text = "Eliminar Usuario";
             // 
             // verCalificacionesToolStripMenuItem
             // 
             verCalificacionesToolStripMenuItem.Name = "verCalificacionesToolStripMenuItem";
-            verCalificacionesToolStripMenuItem.Size = new Size(111, 26);
+            verCalificacionesToolStripMenuItem.Size = new Size(139, 34);
             verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
+            // 
+            // id
+            // 
+            id.FillWeight = 80F;
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // matricula
+            // 
+            matricula.FillWeight = 60F;
+            matricula.HeaderText = "Matricula";
+            matricula.MinimumWidth = 6;
+            matricula.Name = "matricula";
+            matricula.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            // 
+            // correo
+            // 
+            correo.HeaderText = "Correo";
+            correo.MinimumWidth = 6;
+            correo.Name = "correo";
+            correo.ReadOnly = true;
+            // 
+            // rol
+            // 
+            rol.FillWeight = 50F;
+            rol.HeaderText = "Rol";
+            rol.MinimumWidth = 6;
+            rol.Name = "rol";
+            rol.ReadOnly = true;
+            // 
+            // grupoID
+            // 
+            grupoID.FillWeight = 42F;
+            grupoID.HeaderText = "Grupo";
+            grupoID.MinimumWidth = 6;
+            grupoID.Name = "grupoID";
+            grupoID.ReadOnly = true;
+            // 
+            // editar
+            // 
+            editar.FillWeight = 35F;
+            editar.HeaderText = "";
+            editar.Image = Properties.Resources.editarIcon;
+            editar.MinimumWidth = 6;
+            editar.Name = "editar";
+            // 
+            // eliminar
+            // 
+            eliminar.FillWeight = 35F;
+            eliminar.HeaderText = "";
+            eliminar.MinimumWidth = 6;
+            eliminar.Name = "eliminar";
             // 
             // FrmGestionUsuarios
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(596, 275);
+            ClientSize = new Size(745, 344);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroRol);
             Controls.Add(textBoxFiltroUsuarios);
             Controls.Add(dataGridViewUsuarios);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "FrmGestionUsuarios";
             Text = "Gestionar Usuarios";
             ((System.ComponentModel.ISupportInitialize)dataGridViewUsuarios).EndInit();
@@ -243,8 +239,6 @@
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn matricula;
         private DataGridViewTextBoxColumn nombre;
-        private DataGridViewTextBoxColumn apellidoP;
-        private DataGridViewTextBoxColumn apellidoM;
         private DataGridViewTextBoxColumn correo;
         private DataGridViewTextBoxColumn rol;
         private DataGridViewTextBoxColumn grupoID;

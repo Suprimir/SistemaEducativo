@@ -57,26 +57,29 @@
             // lblMatriculaStatic
             // 
             lblMatriculaStatic.AutoSize = true;
-            lblMatriculaStatic.Location = new Point(26, 78);
+            lblMatriculaStatic.Location = new Point(32, 98);
+            lblMatriculaStatic.Margin = new Padding(4, 0, 4, 0);
             lblMatriculaStatic.Name = "lblMatriculaStatic";
-            lblMatriculaStatic.Size = new Size(57, 15);
+            lblMatriculaStatic.Size = new Size(71, 20);
             lblMatriculaStatic.TabIndex = 0;
             lblMatriculaStatic.Text = "Matricula";
             // 
             // textBoxMatricula
             // 
-            textBoxMatricula.Location = new Point(98, 75);
+            textBoxMatricula.Location = new Point(122, 94);
+            textBoxMatricula.Margin = new Padding(4, 4, 4, 4);
             textBoxMatricula.MaxLength = 10;
             textBoxMatricula.Name = "textBoxMatricula";
-            textBoxMatricula.Size = new Size(128, 23);
+            textBoxMatricula.Size = new Size(159, 27);
             textBoxMatricula.TabIndex = 1;
             // 
             // checkBoxMatricula
             // 
             checkBoxMatricula.AutoSize = true;
-            checkBoxMatricula.Location = new Point(162, 100);
+            checkBoxMatricula.Location = new Point(202, 125);
+            checkBoxMatricula.Margin = new Padding(4, 4, 4, 4);
             checkBoxMatricula.Name = "checkBoxMatricula";
-            checkBoxMatricula.Size = new Size(64, 19);
+            checkBoxMatricula.Size = new Size(80, 24);
             checkBoxMatricula.TabIndex = 2;
             checkBoxMatricula.Text = "Default";
             checkBoxMatricula.UseVisualStyleBackColor = true;
@@ -84,26 +87,29 @@
             // lblContraseñaStatic
             // 
             lblContraseñaStatic.AutoSize = true;
-            lblContraseñaStatic.Location = new Point(26, 130);
+            lblContraseñaStatic.Location = new Point(32, 162);
+            lblContraseñaStatic.Margin = new Padding(4, 0, 4, 0);
             lblContraseñaStatic.Name = "lblContraseñaStatic";
-            lblContraseñaStatic.Size = new Size(67, 15);
+            lblContraseñaStatic.Size = new Size(83, 20);
             lblContraseñaStatic.TabIndex = 3;
             lblContraseñaStatic.Text = "Contraseña";
             // 
             // textBoxContraseña
             // 
-            textBoxContraseña.Location = new Point(98, 127);
+            textBoxContraseña.Location = new Point(122, 159);
+            textBoxContraseña.Margin = new Padding(4, 4, 4, 4);
             textBoxContraseña.MaxLength = 50;
             textBoxContraseña.Name = "textBoxContraseña";
-            textBoxContraseña.Size = new Size(128, 23);
+            textBoxContraseña.Size = new Size(159, 27);
             textBoxContraseña.TabIndex = 4;
             // 
             // checkBoxContraseña
             // 
             checkBoxContraseña.AutoSize = true;
-            checkBoxContraseña.Location = new Point(162, 156);
+            checkBoxContraseña.Location = new Point(202, 195);
+            checkBoxContraseña.Margin = new Padding(4, 4, 4, 4);
             checkBoxContraseña.Name = "checkBoxContraseña";
-            checkBoxContraseña.Size = new Size(64, 19);
+            checkBoxContraseña.Size = new Size(80, 24);
             checkBoxContraseña.TabIndex = 5;
             checkBoxContraseña.Text = "Default";
             checkBoxContraseña.UseVisualStyleBackColor = true;
@@ -111,77 +117,86 @@
             // lblNombreStatic
             // 
             lblNombreStatic.AutoSize = true;
-            lblNombreStatic.Location = new Point(26, 20);
+            lblNombreStatic.Location = new Point(32, 25);
+            lblNombreStatic.Margin = new Padding(4, 0, 4, 0);
             lblNombreStatic.Name = "lblNombreStatic";
-            lblNombreStatic.Size = new Size(51, 15);
+            lblNombreStatic.Size = new Size(64, 20);
             lblNombreStatic.TabIndex = 6;
             lblNombreStatic.Text = "Nombre";
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(26, 38);
+            textBoxNombre.Location = new Point(32, 48);
+            textBoxNombre.Margin = new Padding(4, 4, 4, 4);
             textBoxNombre.MaxLength = 50;
             textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(143, 23);
+            textBoxNombre.Size = new Size(178, 27);
             textBoxNombre.TabIndex = 7;
             // 
             // lblApellidoPStatic
             // 
             lblApellidoPStatic.AutoSize = true;
-            lblApellidoPStatic.Location = new Point(175, 20);
+            lblApellidoPStatic.Location = new Point(219, 25);
+            lblApellidoPStatic.Margin = new Padding(4, 0, 4, 0);
             lblApellidoPStatic.Name = "lblApellidoPStatic";
-            lblApellidoPStatic.Size = new Size(95, 15);
+            lblApellidoPStatic.Size = new Size(120, 20);
             lblApellidoPStatic.TabIndex = 8;
             lblApellidoPStatic.Text = "Apellido Paterno";
             // 
             // lblApellidoMStatic
             // 
             lblApellidoMStatic.AutoSize = true;
-            lblApellidoMStatic.Location = new Point(281, 20);
+            lblApellidoMStatic.Location = new Point(351, 25);
+            lblApellidoMStatic.Margin = new Padding(4, 0, 4, 0);
             lblApellidoMStatic.Name = "lblApellidoMStatic";
-            lblApellidoMStatic.Size = new Size(99, 15);
+            lblApellidoMStatic.Size = new Size(126, 20);
             lblApellidoMStatic.TabIndex = 9;
             lblApellidoMStatic.Text = "Apellido Materno";
             // 
             // textBoxApellidoP
             // 
-            textBoxApellidoP.Location = new Point(175, 38);
+            textBoxApellidoP.Location = new Point(219, 48);
+            textBoxApellidoP.Margin = new Padding(4, 4, 4, 4);
             textBoxApellidoP.MaxLength = 30;
             textBoxApellidoP.Name = "textBoxApellidoP";
-            textBoxApellidoP.Size = new Size(100, 23);
+            textBoxApellidoP.Size = new Size(124, 27);
             textBoxApellidoP.TabIndex = 10;
             // 
             // textBoxApellidoM
             // 
-            textBoxApellidoM.Location = new Point(281, 38);
+            textBoxApellidoM.Location = new Point(351, 48);
+            textBoxApellidoM.Margin = new Padding(4, 4, 4, 4);
             textBoxApellidoM.MaxLength = 30;
             textBoxApellidoM.Name = "textBoxApellidoM";
-            textBoxApellidoM.Size = new Size(100, 23);
+            textBoxApellidoM.Size = new Size(124, 27);
             textBoxApellidoM.TabIndex = 11;
             // 
             // lblCorreoStatic
             // 
             lblCorreoStatic.AutoSize = true;
-            lblCorreoStatic.Location = new Point(26, 187);
+            lblCorreoStatic.Location = new Point(32, 234);
+            lblCorreoStatic.Margin = new Padding(4, 0, 4, 0);
             lblCorreoStatic.Name = "lblCorreoStatic";
-            lblCorreoStatic.Size = new Size(43, 15);
+            lblCorreoStatic.Size = new Size(54, 20);
             lblCorreoStatic.TabIndex = 12;
             lblCorreoStatic.Text = "Correo";
             // 
             // textBoxCorreo
             // 
-            textBoxCorreo.Location = new Point(26, 205);
+            textBoxCorreo.Location = new Point(32, 256);
+            textBoxCorreo.Margin = new Padding(4, 4, 4, 4);
             textBoxCorreo.MaxLength = 50;
             textBoxCorreo.Name = "textBoxCorreo";
-            textBoxCorreo.Size = new Size(200, 23);
+            textBoxCorreo.Size = new Size(249, 27);
             textBoxCorreo.TabIndex = 13;
             // 
             // checkBoxCorreo
             // 
             checkBoxCorreo.AutoSize = true;
-            checkBoxCorreo.Location = new Point(26, 234);
+            checkBoxCorreo.Location = new Point(32, 292);
+            checkBoxCorreo.Margin = new Padding(4, 4, 4, 4);
             checkBoxCorreo.Name = "checkBoxCorreo";
-            checkBoxCorreo.Size = new Size(64, 19);
+            checkBoxCorreo.Size = new Size(80, 24);
             checkBoxCorreo.TabIndex = 14;
             checkBoxCorreo.Text = "Default";
             checkBoxCorreo.UseVisualStyleBackColor = true;
@@ -191,51 +206,57 @@
             comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRol.FormattingEnabled = true;
             comboBoxRol.Items.AddRange(new object[] { "alumno", "maestro", "admin" });
-            comboBoxRol.Location = new Point(280, 205);
+            comboBoxRol.Location = new Point(350, 256);
+            comboBoxRol.Margin = new Padding(4, 4, 4, 4);
             comboBoxRol.Name = "comboBoxRol";
-            comboBoxRol.Size = new Size(99, 23);
+            comboBoxRol.Size = new Size(123, 28);
             comboBoxRol.TabIndex = 15;
             // 
             // lblRolStatic
             // 
             lblRolStatic.AutoSize = true;
-            lblRolStatic.Location = new Point(280, 187);
+            lblRolStatic.Location = new Point(350, 234);
+            lblRolStatic.Margin = new Padding(4, 0, 4, 0);
             lblRolStatic.Name = "lblRolStatic";
-            lblRolStatic.Size = new Size(24, 15);
+            lblRolStatic.Size = new Size(31, 20);
             lblRolStatic.TabIndex = 16;
             lblRolStatic.Text = "Rol";
             // 
             // comboBoxGrupo
             // 
             comboBoxGrupo.FormattingEnabled = true;
-            comboBoxGrupo.Location = new Point(280, 260);
+            comboBoxGrupo.Location = new Point(350, 325);
+            comboBoxGrupo.Margin = new Padding(4, 4, 4, 4);
             comboBoxGrupo.Name = "comboBoxGrupo";
-            comboBoxGrupo.Size = new Size(100, 23);
+            comboBoxGrupo.Size = new Size(124, 28);
             comboBoxGrupo.TabIndex = 17;
             // 
             // lblAsignarGStatic
             // 
             lblAsignarGStatic.AutoSize = true;
-            lblAsignarGStatic.Location = new Point(280, 242);
+            lblAsignarGStatic.Location = new Point(350, 302);
+            lblAsignarGStatic.Margin = new Padding(4, 0, 4, 0);
             lblAsignarGStatic.Name = "lblAsignarGStatic";
-            lblAsignarGStatic.Size = new Size(88, 15);
+            lblAsignarGStatic.Size = new Size(110, 20);
             lblAsignarGStatic.TabIndex = 18;
             lblAsignarGStatic.Text = "Asignar Grupos";
             // 
             // btnRegistrarUsuario
             // 
-            btnRegistrarUsuario.Location = new Point(26, 260);
+            btnRegistrarUsuario.Location = new Point(32, 325);
+            btnRegistrarUsuario.Margin = new Padding(4, 4, 4, 4);
             btnRegistrarUsuario.Name = "btnRegistrarUsuario";
-            btnRegistrarUsuario.Size = new Size(200, 23);
+            btnRegistrarUsuario.Size = new Size(250, 29);
             btnRegistrarUsuario.TabIndex = 19;
             btnRegistrarUsuario.Text = "Registrar";
             btnRegistrarUsuario.UseVisualStyleBackColor = true;
             // 
             // btnSubirFoto
             // 
-            btnSubirFoto.Location = new Point(280, 154);
+            btnSubirFoto.Location = new Point(350, 192);
+            btnSubirFoto.Margin = new Padding(4, 4, 4, 4);
             btnSubirFoto.Name = "btnSubirFoto";
-            btnSubirFoto.Size = new Size(99, 23);
+            btnSubirFoto.Size = new Size(124, 29);
             btnSubirFoto.TabIndex = 20;
             btnSubirFoto.Text = "Subir Foto";
             btnSubirFoto.UseVisualStyleBackColor = true;
@@ -243,22 +264,19 @@
             // pictureBoxPfp
             // 
             pictureBoxPfp.Image = Properties.Resources.userIcon;
-            pictureBoxPfp.Location = new Point(289, 75);
+            pictureBoxPfp.Location = new Point(361, 94);
+            pictureBoxPfp.Margin = new Padding(4, 4, 4, 4);
             pictureBoxPfp.Name = "pictureBoxPfp";
-            pictureBoxPfp.Size = new Size(80, 80);
+            pictureBoxPfp.Size = new Size(100, 100);
             pictureBoxPfp.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxPfp.TabIndex = 21;
             pictureBoxPfp.TabStop = false;
             // 
-            // openFileDialogPfp
-            // 
-            openFileDialogPfp.FileName = "openFileDialogPfp";
-            // 
             // FrmRegistroUsuario
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(412, 304);
+            ClientSize = new Size(515, 380);
             Controls.Add(pictureBoxPfp);
             Controls.Add(btnSubirFoto);
             Controls.Add(btnRegistrarUsuario);
@@ -281,6 +299,7 @@
             Controls.Add(checkBoxMatricula);
             Controls.Add(textBoxMatricula);
             Controls.Add(lblMatriculaStatic);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "FrmRegistroUsuario";
             Text = "FrmRegistroUsuario";
             ((System.ComponentModel.ISupportInitialize)pictureBoxPfp).EndInit();

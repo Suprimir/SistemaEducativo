@@ -46,12 +46,11 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             _frmGestionUsuarios.dataGridViewUsuarios.Rows.Clear();
 
-            List<Usuario> lstUsuariosFiltroNombre = lstUsuarios.Where(usuario => usuario.Nombre.Contains(nombreFiltro, StringComparison.OrdinalIgnoreCase)).ToList();
-            List<Usuario> lstUsuariosFiltroRol = lstUsuariosFiltroNombre.Where(usuario => usuario.Rol.Contains(_frmGestionUsuarios.comboBoxFiltroRol.Text)).ToList();
+            List<Usuario> lstUsuariosFiltro = lstUsuarios.Where(u => u.NombreCompleto.Contains(nombreFiltro, StringComparison.OrdinalIgnoreCase) && u.Rol.Contains(rolFiltro)).ToList();
 
-            foreach (var usuario in lstUsuariosFiltroRol)
+            foreach (var usuario in lstUsuariosFiltro)
             {
-                _frmGestionUsuarios.dataGridViewUsuarios.Rows.Add(usuario.Id, usuario.Matricula, usuario.Nombre, usuario.ApellidoP, usuario.ApellidoM, usuario.Correo, usuario.Rol, usuario.GrupoId);
+                _frmGestionUsuarios.dataGridViewUsuarios.Rows.Add(usuario.Id, usuario.Matricula, usuario.NombreCompleto, usuario.Correo, usuario.Rol, usuario.GrupoId);
             }
         }
 

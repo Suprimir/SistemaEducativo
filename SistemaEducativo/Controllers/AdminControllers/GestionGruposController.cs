@@ -20,6 +20,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         public static Action actualizarTabla;
 
         private string filtroNombre = "";
+        private string filtroCarrera = "";
 
         public GestionGruposController(FrmGestionGrupos frmGestionGrupos)
         {
@@ -28,11 +29,20 @@ namespace SistemaEducativo.Controllers.AdminControllers
             lstGrupos = GrupoDAO.ObtenerGrupos(); // Obtiene la lista de grupos de la base de datos.
 
             // Accion que ejecuta la actualizacion de la tabla de grupos
-            actualizarTabla = () => { lstGrupos = GrupoDAO.ObtenerGrupos(); CargarDatosEnTabla(null, null); };
+            actualizarTabla = () => ActualizarTablaAction();
 
-            _frmGestionGrupos.Load += CargarDatosEnTabla; 
+            foreach (var grupo in lstGrupos)
+            {
+                if (!_frmGestionGrupos.comboBoxFiltroCarrera.Items.Contains(grupo.Carrera))
+                {
+                    _frmGestionGrupos.comboBoxFiltroCarrera.Items.Add(grupo.Carrera);
+                }
+            }
+
+            _frmGestionGrupos.Load += CargarDatosEnTabla;
 
             _frmGestionGrupos.textBoxFiltroNombre.TextChanged += textBoxFiltroNombre_TextChanged;
+            _frmGestionGrupos.comboBoxFiltroCarrera.SelectedIndexChanged += comboBoxFiltroCarrera_SelectedIndexChanged;
 
             // Funciones para los botones del gestion de grupos
             _frmGestionGrupos.crearGrupoToolStripMenuItem.Click += btnCrearGrupo_Click;
@@ -42,9 +52,29 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmGestionGrupos.dataGridViewGrupos.CellContentClick += dataGridViewGrupos_CellContentClick;
         }
 
+        private void ActualizarTablaAction()
+        {
+            lstGrupos = GrupoDAO.ObtenerGrupos(); 
+
+            CargarDatosEnTabla(null, null);
+
+            _frmGestionGrupos.comboBoxFiltroCarrera.Items.Clear();
+            _frmGestionGrupos.comboBoxFiltroCarrera.Items.Add("");
+
+            foreach (var grupo in lstGrupos)
+            {
+                if (!_frmGestionGrupos.comboBoxFiltroCarrera.Items.Contains(grupo.Carrera))
+                {
+                    _frmGestionGrupos.comboBoxFiltroCarrera.Items.Add(grupo.Carrera);
+                }
+            }
+        }
+
         private void CargarDatosEnTabla(object sender, EventArgs e)
         {
-            List<Grupo> lstGruposFiltro = lstGrupos.Where(grupo => grupo.NombreGrupo.Contains(filtroNombre, StringComparison.OrdinalIgnoreCase)).ToList();
+            _frmGestionGrupos.dataGridViewGrupos.Rows.Clear();
+
+            List<Grupo> lstGruposFiltro = lstGrupos.Where(g => g.NombreGrupo.Contains(filtroNombre, StringComparison.OrdinalIgnoreCase) && g.Carrera.Contains(filtroCarrera, StringComparison.OrdinalIgnoreCase)).ToList();
 
             foreach (var grupo in lstGruposFiltro)
             {
@@ -60,6 +90,13 @@ namespace SistemaEducativo.Controllers.AdminControllers
             CargarDatosEnTabla(sender, e);
         }
 
+        private void comboBoxFiltroCarrera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroCarrera = _frmGestionGrupos.comboBoxFiltroCarrera.Text;
+
+            CargarDatosEnTabla(sender, e);
+        }
+
         // Abre formulario de registro de grupo 
         private void btnCrearGrupo_Click(object sender, EventArgs e)
         {
@@ -70,7 +107,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         // Pregunta si en verdad desea eliminar un grupo y si dice que si le pide a la base de datos eliminar ese registro.
         private void btnEliminarGrupo_Click(object sender, EventArgs e)
         {
-            Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
+            Grupo grupoSeleccionado = lstGrupos.First(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.SelectedRows[0].Cells[0].Value));
 
             DialogResult dialogResult = MessageBox.Show("¿Estas seguro de realizar esta accion? Borrara todo lo relacionado con el grupo seleccionado.", "Eliminar Grupo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -97,7 +134,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             if (e.RowIndex >= 0 && _frmGestionGrupos.dataGridViewGrupos.Columns[e.ColumnIndex].Name == "editar")
             {
-                Grupo grupoSeleccionado = lstGrupos.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
+                Grupo grupoSeleccionado = lstGrupos.First(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
 
                 FrmRegistroGrupo frmRegistroGrupo = new FrmRegistroGrupo(grupoSeleccionado);
                 frmRegistroGrupo.Show();

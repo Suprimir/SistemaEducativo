@@ -67,12 +67,15 @@ namespace SistemaEducativo.Controllers.AdminControllers
                     Directory.CreateDirectory(path);
                 }
 
-                string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
-                string pathFinal = Path.Combine(path, usuarioSeleccionado.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
+                if (_frmRegistroUsuario.openFileDialogPfp.FileName != "")
+                {
+                    string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
+                    string pathFinal = Path.Combine(path, usuarioSeleccionado.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
 
-                File.Copy(pathArchivoInicial, pathFinal, true);
+                    File.Copy(pathArchivoInicial, pathFinal, true);
 
-                usuarioSeleccionado.PathFotoPerfil = pathFinal;
+                    usuarioSeleccionado.PathFotoPerfil = pathFinal;
+                }
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuarioSeleccionado))
                 {
@@ -100,12 +103,15 @@ namespace SistemaEducativo.Controllers.AdminControllers
                     Directory.CreateDirectory(path);
                 }
 
-                string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
-                string pathFinal = Path.Combine(path, usuario.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
+                if (_frmRegistroUsuario.openFileDialogPfp.FileName != "")
+                {
+                    string pathArchivoInicial = _frmRegistroUsuario.openFileDialogPfp.FileName;
+                    string pathFinal = Path.Combine(path, usuario.Matricula.ToString() + Path.GetExtension(pathArchivoInicial));
 
-                File.Copy(pathArchivoInicial, pathFinal, true);
+                    File.Copy(pathArchivoInicial, pathFinal, true);
 
-                usuario.PathFotoPerfil = pathFinal;
+                    usuario.PathFotoPerfil = pathFinal;
+                }
 
                 if (UsuarioDAO.CrearActualizarUsuario(usuario))
                 {

@@ -83,7 +83,8 @@
             dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewGrupos.EnableHeadersVisualStyles = false;
             dataGridViewGrupos.GridColor = Color.FromArgb(251, 225, 141);
-            dataGridViewGrupos.Location = new Point(0, 69);
+            dataGridViewGrupos.Location = new Point(0, 86);
+            dataGridViewGrupos.Margin = new Padding(4);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -100,7 +101,7 @@
             dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(251, 225, 141);
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewGrupos.Size = new Size(597, 206);
+            dataGridViewGrupos.Size = new Size(746, 258);
             dataGridViewGrupos.TabIndex = 0;
             // 
             // id
@@ -160,26 +161,31 @@
             // 
             // textBoxFiltroNombre
             // 
-            textBoxFiltroNombre.Location = new Point(0, 4);
+            textBoxFiltroNombre.Location = new Point(0, 5);
+            textBoxFiltroNombre.Margin = new Padding(4);
             textBoxFiltroNombre.Name = "textBoxFiltroNombre";
-            textBoxFiltroNombre.Size = new Size(444, 23);
+            textBoxFiltroNombre.Size = new Size(554, 27);
             textBoxFiltroNombre.TabIndex = 6;
             // 
             // comboBoxFiltroCarrera
             // 
+            comboBoxFiltroCarrera.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroCarrera.FormattingEnabled = true;
-            comboBoxFiltroCarrera.Location = new Point(450, 4);
+            comboBoxFiltroCarrera.Items.AddRange(new object[] { "" });
+            comboBoxFiltroCarrera.Location = new Point(562, 5);
+            comboBoxFiltroCarrera.Margin = new Padding(4);
             comboBoxFiltroCarrera.Name = "comboBoxFiltroCarrera";
-            comboBoxFiltroCarrera.Size = new Size(147, 23);
+            comboBoxFiltroCarrera.Size = new Size(183, 28);
             comboBoxFiltroCarrera.TabIndex = 7;
             // 
             // panelMenuStrip
             // 
             panelMenuStrip.AutoSize = true;
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
-            panelMenuStrip.Location = new Point(0, 33);
+            panelMenuStrip.Location = new Point(0, 41);
+            panelMenuStrip.Margin = new Padding(4);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(597, 30);
+            panelMenuStrip.Size = new Size(746, 38);
             panelMenuStrip.TabIndex = 13;
             // 
             // menuStripTareasMaestro
@@ -191,40 +197,40 @@
             menuStripTareasMaestro.Items.AddRange(new ToolStripItem[] { crearGrupoToolStripMenuItem, eliminarGrupoToolStripMenuItem, asignarMaestrosToolStripMenuItem });
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
-            menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(597, 30);
+            menuStripTareasMaestro.Size = new Size(746, 38);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 
             // crearGrupoToolStripMenuItem
             // 
             crearGrupoToolStripMenuItem.Name = "crearGrupoToolStripMenuItem";
-            crearGrupoToolStripMenuItem.Size = new Size(83, 26);
+            crearGrupoToolStripMenuItem.Size = new Size(103, 34);
             crearGrupoToolStripMenuItem.Text = "Crear Grupo";
             // 
             // eliminarGrupoToolStripMenuItem
             // 
             eliminarGrupoToolStripMenuItem.Name = "eliminarGrupoToolStripMenuItem";
-            eliminarGrupoToolStripMenuItem.Size = new Size(98, 26);
+            eliminarGrupoToolStripMenuItem.Size = new Size(122, 34);
             eliminarGrupoToolStripMenuItem.Text = "Eliminar Grupo";
             // 
             // asignarMaestrosToolStripMenuItem
             // 
             asignarMaestrosToolStripMenuItem.Name = "asignarMaestrosToolStripMenuItem";
-            asignarMaestrosToolStripMenuItem.Size = new Size(110, 26);
+            asignarMaestrosToolStripMenuItem.Size = new Size(137, 34);
             asignarMaestrosToolStripMenuItem.Text = "Asignar Maestros";
             // 
             // FrmGestionGrupos
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(251, 225, 141);
-            ClientSize = new Size(596, 275);
+            ClientSize = new Size(745, 344);
             Controls.Add(panelMenuStrip);
             Controls.Add(comboBoxFiltroCarrera);
             Controls.Add(textBoxFiltroNombre);
             Controls.Add(dataGridViewGrupos);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "FrmGestionGrupos";
             Text = "Gestionar Grupos";
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).EndInit();

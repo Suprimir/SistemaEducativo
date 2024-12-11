@@ -1,9 +1,11 @@
 ﻿using SistemaEducativo.DAO;
+using SistemaEducativo.Sesion;
 using SistemaEducativo.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Text;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,11 +58,23 @@ namespace SistemaEducativo.Controllers
             string contraseñaActual = _frmConfiguracionPerfil.textBoxContraseñaActual.Text;
             string contraseñaNueva = _frmConfiguracionPerfil.textBoxContraseñaNueva.Text;
 
+            string path = Path.Combine(Application.StartupPath, "fotosPerfil");
+
             if (!string.IsNullOrEmpty(contraseñaActual) && !string.IsNullOrEmpty(contraseñaNueva))
             {
                 if (cambioFoto == true)
                 {
-                    if (UsuarioDAO.ActualizarPerfil(contraseñaActual, contraseñaNueva, _frmConfiguracionPerfil.openFileDialogPfp.FileName))
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    string pathArchivoInicial = _frmConfiguracionPerfil.openFileDialogPfp.FileName;
+                    string pathFinal = Path.Combine(path, SesionUsuario.Instancia.Matricula + Path.GetExtension(pathArchivoInicial));
+
+                    File.Copy(pathArchivoInicial, pathFinal, true);
+
+                    if (UsuarioDAO.ActualizarPerfil(contraseñaActual, contraseñaNueva, pathFinal))
                     {
                         MessageBox.Show("Foto y contraseña actualizada.");
                     }
@@ -75,6 +89,16 @@ namespace SistemaEducativo.Controllers
             {
                 if (cambioFoto == true)
                 {
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    string pathArchivoInicial = _frmConfiguracionPerfil.openFileDialogPfp.FileName;
+                    string pathFinal = Path.Combine(path, SesionUsuario.Instancia.Matricula + Path.GetExtension(pathArchivoInicial));
+
+                    File.Copy(pathArchivoInicial, pathFinal, true);
+
                     if (UsuarioDAO.ActualizarPerfil(null, null, _frmConfiguracionPerfil.openFileDialogPfp.FileName))
                     {
                         MessageBox.Show("Foto actualizada.");
