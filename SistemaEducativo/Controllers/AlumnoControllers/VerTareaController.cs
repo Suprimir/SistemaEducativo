@@ -1,6 +1,7 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Sesion;
+using SistemaEducativo.Views;
 using SistemaEducativo.Views.Alumno;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmVerTarea.btnAdjuntarArchivo.Click += btnAdjuntarArchivo_Click;
             _frmVerTarea.btnSubirTarea.Click += btnSubirTarea_Click;
             _frmVerTarea.btnCancelarEntrega.Click += btnCancelarEntrega_Click;
-            _frmVerTarea.btnVerArchivo.Click += btnVerArchivo_Click;
+            _frmVerTarea.panelTareaPreview.Click += btnVerArchivo_Click;
             _frmVerTarea.openFileDialogTarea.FileOk += openFileDialogTarea_FileOk;
         }
 
@@ -42,24 +43,31 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
             if (tareaEntregada != null)
             {
-                _frmVerTarea.lblNombreArchivo.Visible = false;
-                _frmVerTarea.btnVerArchivo.Visible = true;
+                if (_frmVerTarea.panelTareaPreview.Controls.Count > 0)
+                {
+                    _frmVerTarea.panelTareaPreview.Controls.Clear();
+                }
+
+                FrmTareaPreview frmTareaPreview = new FrmTareaPreview(tareaEntregada);
+                _frmVerTarea.panelTareaPreview.Controls.Add(frmTareaPreview);
+                frmTareaPreview.Show();
+
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnCancelarEntrega.Enabled = true;
 
+                _frmVerTarea.panelTareaPreview.Visible = true;
                 _frmVerTarea.lblCalificacionStatic.Visible = true;
                 _frmVerTarea.lblCalificacion.Text = tareaEntregada.Calificacion.ToString();
                 _frmVerTarea.lblEstado.Text = tareaEntregada.Estado;
             }
             else
             {
-                _frmVerTarea.lblNombreArchivo.Visible = true;
-                _frmVerTarea.btnVerArchivo.Visible = false;
                 _frmVerTarea.btnCancelarEntrega.Enabled = false;
                 _frmVerTarea.btnSubirTarea.Enabled = false;
                 _frmVerTarea.btnAdjuntarArchivo.Enabled = true;
 
+                _frmVerTarea.panelTareaPreview.Visible = false;
                 _frmVerTarea.lblCalificacionStatic.Visible = false;
                 _frmVerTarea.lblCalificacion.Text = "";
                 _frmVerTarea.lblEstado.Text = "Pendiente";
@@ -137,8 +145,6 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
         private void openFileDialogTarea_FileOk(object sender, EventArgs e)
         {
             _frmVerTarea.btnSubirTarea.Enabled = true;
-
-            _frmVerTarea.lblNombreArchivo.Text = _frmVerTarea.openFileDialogTarea.SafeFileName;
         }
     }
 }

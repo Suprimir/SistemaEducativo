@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaEducativo.Models
 {
-    internal class TareaPorAlumno
+    public class TareaPorAlumno
     {
         private int? id;
         private string nombreAlumno;
