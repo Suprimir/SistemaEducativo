@@ -16,11 +16,11 @@ namespace SistemaEducativo.Views.Maestro
     public partial class FrmTareaMaestro : Form
     {
         private TareaMaestroController controller;
-        public FrmTareaMaestro(Tarea tarea)
+        public FrmTareaMaestro(GrupoProfesor grupo, Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new TareaMaestroController(this, tarea);
+            controller = new TareaMaestroController(this, grupo, tarea);
         }
     }
 }

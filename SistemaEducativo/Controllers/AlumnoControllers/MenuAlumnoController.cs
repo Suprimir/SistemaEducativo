@@ -10,6 +10,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     internal class MenuAlumnoController
     {
         private FrmMenuAlumno _frmMenuAlumno;
+        private FrmSubmenuAlumno frmSubmenuAlumno = new FrmSubmenuAlumno();
         public static Action<Form> actualizarSubmenu;
 
         public MenuAlumnoController(FrmMenuAlumno frmMenuAlumno)
@@ -27,6 +28,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmMenuAlumno.FormClosing += (sender, e) => _frmMenuAlumno._frmLogin.Dispose();
 
             _frmMenuAlumno.Load += frmMenuAlumno_Load;
+            _frmMenuAlumno.lblMenuTitulo.Click += lblTitulo_Click;
             _frmMenuAlumno.btnPerfil.Click += btnPerfil_Click;
             _frmMenuAlumno.btnTareas.Click += btnTareas_Click;
             _frmMenuAlumno.btnCalificaciones.Click += btnCalificaciones_Click;
@@ -43,6 +45,13 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmMenuAlumno.lblCarrera.Text = SesionUsuario.Instancia.Carrera;
 
             _frmMenuAlumno.pictureBoxMPfp.ImageLocation = SesionUsuario.Instancia.PathImagen;
+
+            AbrirFormEnPanelSubmenu(frmSubmenuAlumno);
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanelSubmenu(frmSubmenuAlumno);
         }
 
         private void btnPerfil_Click(object sender, EventArgs e)

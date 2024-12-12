@@ -58,6 +58,8 @@
             btnMinimizarVentana = new Button();
             tableLayoutPanelCustom = new TableLayoutPanel();
             lblBienvenidaSub = new Label();
+            panel7 = new Panel();
+            btnCarreras = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
             panelPerfil.SuspendLayout();
             contextMenuStripPerfil.SuspendLayout();
@@ -70,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanelCustom.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBoxMPfp
@@ -123,7 +126,7 @@
             contextMenuStripPerfil.RenderMode = ToolStripRenderMode.System;
             contextMenuStripPerfil.ShowCheckMargin = true;
             contextMenuStripPerfil.ShowItemToolTips = false;
-            contextMenuStripPerfil.Size = new Size(219, 52);
+            contextMenuStripPerfil.Size = new Size(219, 30);
             // 
             // configurarPerfilToolStripMenuItem
             // 
@@ -195,6 +198,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(221, 223, 244);
+            panel2.Controls.Add(panel7);
             panel2.Controls.Add(lblGestionStatic);
             panel2.Controls.Add(panel5);
             panel2.Controls.Add(panel4);
@@ -209,7 +213,7 @@
             // 
             lblGestionStatic.AutoSize = true;
             lblGestionStatic.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblGestionStatic.Location = new Point(59, 38);
+            lblGestionStatic.Location = new Point(59, 15);
             lblGestionStatic.Name = "lblGestionStatic";
             lblGestionStatic.Size = new Size(72, 17);
             lblGestionStatic.TabIndex = 24;
@@ -218,7 +222,7 @@
             // panel5
             // 
             panel5.Controls.Add(btnMaterias);
-            panel5.Location = new Point(0, 185);
+            panel5.Location = new Point(0, 139);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Size = new Size(204, 49);
@@ -244,7 +248,7 @@
             // panel4
             // 
             panel4.Controls.Add(btnUsuarios);
-            panel4.Location = new Point(0, 136);
+            panel4.Location = new Point(0, 90);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Size = new Size(204, 49);
@@ -270,7 +274,7 @@
             // panel3
             // 
             panel3.Controls.Add(btnGrupos);
-            panel3.Location = new Point(0, 84);
+            panel3.Location = new Point(0, 38);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Size = new Size(204, 49);
@@ -421,6 +425,32 @@
             lblBienvenidaSub.TabIndex = 29;
             lblBienvenidaSub.Text = "Bienvenido";
             // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnCarreras);
+            panel7.Location = new Point(0, 188);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(204, 49);
+            panel7.TabIndex = 27;
+            // 
+            // btnCarreras
+            // 
+            btnCarreras.BackColor = Color.FromArgb(221, 223, 244);
+            btnCarreras.Cursor = Cursors.Hand;
+            btnCarreras.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
+            btnCarreras.FlatAppearance.BorderSize = 0;
+            btnCarreras.FlatStyle = FlatStyle.Flat;
+            btnCarreras.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCarreras.ForeColor = SystemColors.ControlText;
+            btnCarreras.Image = Properties.Resources.tituloIcon;
+            btnCarreras.Location = new Point(-83, 0);
+            btnCarreras.Name = "btnCarreras";
+            btnCarreras.Size = new Size(273, 46);
+            btnCarreras.TabIndex = 3;
+            btnCarreras.Text = "                        Carreras";
+            btnCarreras.UseVisualStyleBackColor = false;
+            // 
             // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -453,6 +483,7 @@
             panel1.ResumeLayout(false);
             tableLayoutPanelCustom.ResumeLayout(false);
             tableLayoutPanelCustom.PerformLayout();
+            panel7.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -490,5 +521,7 @@
         public Label lblBienvenidaSub;
         public TableLayoutPanel tableLayoutPanelCustom;
         public PictureBox pictureBoxMPfp;
+        private Panel panel7;
+        public Button btnCarreras;
     }
 }

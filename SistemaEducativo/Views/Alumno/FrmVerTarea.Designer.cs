@@ -47,23 +47,22 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = SystemColors.ControlText;
-            lblTitulo.Location = new Point(14, 12);
+            lblTitulo.Location = new Point(12, 9);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(131, 32);
+            lblTitulo.Size = new Size(103, 25);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "tituloTarea";
             // 
             // btnSubirTarea
             // 
-            btnSubirTarea.BackColor = Color.FromArgb(51, 63, 167);
+            btnSubirTarea.BackColor = SystemColors.MenuHighlight;
             btnSubirTarea.FlatAppearance.BorderSize = 0;
             btnSubirTarea.FlatStyle = FlatStyle.Flat;
             btnSubirTarea.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSubirTarea.ForeColor = Color.White;
-            btnSubirTarea.Location = new Point(495, 251);
-            btnSubirTarea.Margin = new Padding(3, 4, 3, 4);
+            btnSubirTarea.Location = new Point(433, 188);
             btnSubirTarea.Name = "btnSubirTarea";
-            btnSubirTarea.Size = new Size(173, 55);
+            btnSubirTarea.Size = new Size(151, 41);
             btnSubirTarea.TabIndex = 1;
             btnSubirTarea.Text = "Entregar";
             btnSubirTarea.UseVisualStyleBackColor = false;
@@ -74,10 +73,9 @@
             btnAdjuntarArchivo.FlatAppearance.BorderSize = 0;
             btnAdjuntarArchivo.FlatStyle = FlatStyle.Flat;
             btnAdjuntarArchivo.ForeColor = SystemColors.ControlText;
-            btnAdjuntarArchivo.Location = new Point(495, 187);
-            btnAdjuntarArchivo.Margin = new Padding(3, 4, 3, 4);
+            btnAdjuntarArchivo.Location = new Point(433, 140);
             btnAdjuntarArchivo.Name = "btnAdjuntarArchivo";
-            btnAdjuntarArchivo.Size = new Size(173, 56);
+            btnAdjuntarArchivo.Size = new Size(151, 42);
             btnAdjuntarArchivo.TabIndex = 2;
             btnAdjuntarArchivo.Text = "Adjuntar Archivo";
             btnAdjuntarArchivo.UseVisualStyleBackColor = false;
@@ -85,9 +83,9 @@
             // lblNombreArchivo
             // 
             lblNombreArchivo.AutoSize = true;
-            lblNombreArchivo.Location = new Point(495, 163);
+            lblNombreArchivo.Location = new Point(433, 122);
             lblNombreArchivo.Name = "lblNombreArchivo";
-            lblNombreArchivo.Size = new Size(112, 20);
+            lblNombreArchivo.Size = new Size(90, 15);
             lblNombreArchivo.TabIndex = 3;
             lblNombreArchivo.Text = "archivoNombre";
             // 
@@ -95,11 +93,10 @@
             // 
             richTextBoxDescripcion.BackColor = Color.FromArgb(254, 254, 255);
             richTextBoxDescripcion.BorderStyle = BorderStyle.None;
-            richTextBoxDescripcion.Location = new Point(17, 61);
-            richTextBoxDescripcion.Margin = new Padding(3, 4, 3, 4);
+            richTextBoxDescripcion.Location = new Point(15, 46);
             richTextBoxDescripcion.Name = "richTextBoxDescripcion";
             richTextBoxDescripcion.ReadOnly = true;
-            richTextBoxDescripcion.Size = new Size(456, 289);
+            richTextBoxDescripcion.Size = new Size(399, 217);
             richTextBoxDescripcion.TabIndex = 4;
             richTextBoxDescripcion.Text = "";
             // 
@@ -114,10 +111,9 @@
             btnCancelarEntrega.FlatStyle = FlatStyle.Flat;
             btnCancelarEntrega.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelarEntrega.ForeColor = Color.White;
-            btnCancelarEntrega.Location = new Point(495, 313);
-            btnCancelarEntrega.Margin = new Padding(3, 4, 3, 4);
+            btnCancelarEntrega.Location = new Point(433, 235);
             btnCancelarEntrega.Name = "btnCancelarEntrega";
-            btnCancelarEntrega.Size = new Size(173, 37);
+            btnCancelarEntrega.Size = new Size(151, 28);
             btnCancelarEntrega.TabIndex = 5;
             btnCancelarEntrega.Text = "Cancelar Entrega";
             btnCancelarEntrega.UseVisualStyleBackColor = false;
@@ -128,10 +124,9 @@
             btnVerArchivo.FlatAppearance.BorderSize = 0;
             btnVerArchivo.FlatStyle = FlatStyle.Flat;
             btnVerArchivo.ForeColor = SystemColors.ControlText;
-            btnVerArchivo.Location = new Point(495, 145);
-            btnVerArchivo.Margin = new Padding(3, 4, 3, 4);
+            btnVerArchivo.Location = new Point(433, 109);
             btnVerArchivo.Name = "btnVerArchivo";
-            btnVerArchivo.Size = new Size(173, 33);
+            btnVerArchivo.Size = new Size(151, 25);
             btnVerArchivo.TabIndex = 6;
             btnVerArchivo.Text = "Ver Archivo";
             btnVerArchivo.UseVisualStyleBackColor = false;
@@ -140,9 +135,9 @@
             // 
             lblCalificacionStatic.AutoSize = true;
             lblCalificacionStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCalificacionStatic.Location = new Point(495, 88);
+            lblCalificacionStatic.Location = new Point(433, 66);
             lblCalificacionStatic.Name = "lblCalificacionStatic";
-            lblCalificacionStatic.Size = new Size(91, 20);
+            lblCalificacionStatic.Size = new Size(71, 15);
             lblCalificacionStatic.TabIndex = 7;
             lblCalificacionStatic.Text = "Calificación:";
             lblCalificacionStatic.Visible = false;
@@ -151,35 +146,35 @@
             // 
             lblEstadoStatic.AutoSize = true;
             lblEstadoStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEstadoStatic.Location = new Point(495, 61);
+            lblEstadoStatic.Location = new Point(433, 46);
             lblEstadoStatic.Name = "lblEstadoStatic";
-            lblEstadoStatic.Size = new Size(58, 20);
+            lblEstadoStatic.Size = new Size(45, 15);
             lblEstadoStatic.TabIndex = 8;
             lblEstadoStatic.Text = "Estado:";
             // 
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(591, 61);
+            lblEstado.Location = new Point(517, 46);
             lblEstado.Name = "lblEstado";
-            lblEstado.Size = new Size(74, 20);
+            lblEstado.Size = new Size(60, 15);
             lblEstado.TabIndex = 9;
             lblEstado.Text = "Pendiente";
             // 
             // lblCalificacion
             // 
             lblCalificacion.AutoSize = true;
-            lblCalificacion.Location = new Point(592, 88);
+            lblCalificacion.Location = new Point(518, 66);
             lblCalificacion.Name = "lblCalificacion";
-            lblCalificacion.Size = new Size(0, 20);
+            lblCalificacion.Size = new Size(0, 15);
             lblCalificacion.TabIndex = 10;
             // 
             // FrmVerTarea
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 223, 244);
-            ClientSize = new Size(681, 367);
+            ClientSize = new Size(596, 275);
             Controls.Add(lblCalificacion);
             Controls.Add(lblEstado);
             Controls.Add(lblEstadoStatic);
@@ -193,7 +188,6 @@
             Controls.Add(lblTitulo);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmVerTarea";
             Text = "     ";
             ResumeLayout(false);

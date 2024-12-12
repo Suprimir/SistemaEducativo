@@ -37,7 +37,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(11, 9);
+            lblTitulo.Location = new Point(11, 33);
             lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);
@@ -47,7 +47,7 @@
             // lblParcial
             // 
             lblParcial.AutoSize = true;
-            lblParcial.Location = new Point(11, 28);
+            lblParcial.Location = new Point(12, 56);
             lblParcial.Margin = new Padding(2, 0, 2, 0);
             lblParcial.Name = "lblParcial";
             lblParcial.Size = new Size(42, 15);
@@ -59,7 +59,8 @@
             btnVerTarea.BackColor = Color.FromArgb(221, 223, 244);
             btnVerTarea.FlatAppearance.BorderSize = 0;
             btnVerTarea.FlatStyle = FlatStyle.Flat;
-            btnVerTarea.Location = new Point(159, 78);
+            btnVerTarea.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerTarea.Location = new Point(178, 52);
             btnVerTarea.Margin = new Padding(2);
             btnVerTarea.Name = "btnVerTarea";
             btnVerTarea.Size = new Size(95, 23);
@@ -70,7 +71,7 @@
             // lblMateria
             // 
             lblMateria.AutoSize = true;
-            lblMateria.Location = new Point(12, 50);
+            lblMateria.Location = new Point(12, 9);
             lblMateria.Name = "lblMateria";
             lblMateria.Size = new Size(47, 15);
             lblMateria.TabIndex = 3;
@@ -81,7 +82,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(254, 254, 255);
-            ClientSize = new Size(266, 110);
+            ClientSize = new Size(284, 86);
             Controls.Add(lblMateria);
             Controls.Add(btnVerTarea);
             Controls.Add(lblParcial);

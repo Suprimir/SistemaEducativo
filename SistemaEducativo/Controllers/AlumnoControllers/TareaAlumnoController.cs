@@ -25,6 +25,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
         private void frmTareaAlumno_Load(object sender, EventArgs e)
         {
             _frmTareaAlumno.lblTitulo.Text = tareaSeleccionada.Titulo;
+            _frmTareaAlumno.lblMateria.Text = tareaSeleccionada.MateriaNombre;
             _frmTareaAlumno.lblParcial.Text = $"Parcial: {tareaSeleccionada.Parcial}";
         }
 

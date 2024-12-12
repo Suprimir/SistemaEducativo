@@ -96,11 +96,12 @@ namespace SistemaEducativo.DAO
                                 Tarea tarea = new Tarea();
 
                                 tarea.ID = reader.GetInt32(0);
-                                tarea.Semestre = reader.GetInt32(1);
+                                tarea.Semestre = reader.IsDBNull(1) ? null : reader.GetInt32(1);
                                 tarea.Parcial = reader.GetInt32(2);
                                 tarea.Titulo = reader.GetString(3);
                                 tarea.Descripcion = reader.GetString(4);
                                 tarea.Fecha_Limite = reader.GetDateTime(5);
+                                tarea.MateriaNombre = reader.IsDBNull(6) ? null : reader.GetString(6);
 
                                 lstTareas.Add(tarea);
                             }
@@ -215,7 +216,7 @@ namespace SistemaEducativo.DAO
             }
         }
 
-        public static List<TareaPorAlumno> ObtenerTareasAlumno(Tarea tareaSeleccionada)
+        public static List<TareaPorAlumno> ObtenerTareasAlumno(GrupoProfesor grupoSeleccionado, Tarea tareaSeleccionada)
         {
             try
             {
@@ -229,6 +230,7 @@ namespace SistemaEducativo.DAO
 
                         cmd.Parameters.AddWithValue("@p_Matricula_Usuario", SesionUsuario.Instancia.Matricula);
                         cmd.Parameters.AddWithValue("@p_tarea_ID", tareaSeleccionada.ID);
+                        cmd.Parameters.AddWithValue("@p_grupo_ID", grupoSeleccionado.Id);
 
                         conn.Open();
 
@@ -238,10 +240,10 @@ namespace SistemaEducativo.DAO
                             {
                                 TareaPorAlumno tarea = new TareaPorAlumno();
 
-                                tarea.ID = reader.GetInt32(0);
+                                tarea.ID = reader.IsDBNull(0) ? null : reader.GetInt32(0);
                                 tarea.NombreAlumno = reader.GetString(1);
-                                tarea.PathArchivoTarea = reader.GetString(2);
-                                tarea.FechaEntregada = reader.GetDateTime(3);
+                                tarea.PathArchivoTarea = reader.IsDBNull(2) ? null : reader.GetString(2);
+                                tarea.FechaEntregada = reader.IsDBNull(3) ? null : reader.GetDateTime(3);
                                 tarea.Estado = reader.GetString(4);
                                 tarea.Calificacion = reader.IsDBNull(5) ? null : reader.GetDouble(5);
                                 

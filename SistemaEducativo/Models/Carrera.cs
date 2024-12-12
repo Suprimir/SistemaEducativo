@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SistemaEducativo.Models
 {
-    internal class Carrera
+    public class Carrera
     {
-        private int id;
+        private int? id;
         private string nombreCarrera;
         private string descripcion;
         private int totalSemestres;
 
-        public int Id { get { return id; } set { id = value; } }
+        public int? Id { get { return id; } set { id = value; } }
 
         public string NombreCarrera { get { return nombreCarrera; } set { nombreCarrera = value; } }
 

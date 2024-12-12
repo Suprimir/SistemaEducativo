@@ -124,11 +124,17 @@
   <data name="gatoTrono" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gatoTrono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="editarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="maestroPfp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maestroPfp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logInBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logInBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="userIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\userIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BorderImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BorderImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,17 +151,23 @@
   <data name="passIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\passIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="userIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\userIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MateriasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MateriasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GrupoIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GrupoIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BuhoSubmenuMaestro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuhoSubmenuMaestro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bunnyLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bunnyLogin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MateriasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MateriasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logInBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logInBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CerrarSesionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CerrarSesionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UsuarioIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UsuarioIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,22 +175,16 @@
   <data name="PanelWhiteRounded1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PanelWhiteRounded1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gatitoAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gatitoAdmin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CerrarSesionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CerrarSesionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PanelRounded" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PanelRounded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BuhoSubmenuMaestro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BuhoSubmenuMaestro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gatitoAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gatitoAdmin.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notasIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\notasIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gatoAlumno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gatoAlumno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="editarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\editarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tituloIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tituloIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

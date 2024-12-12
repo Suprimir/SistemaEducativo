@@ -14,24 +14,30 @@ namespace SistemaEducativo.Controllers
     {
         private FrmVistaCalificaciones _frmVistaCalificacionesAlumno;
         private List<Calificacion> lstCalificaciones;
+        private List<Calificacion> lstCalificacionesFiltro = new List<Calificacion>();
         private Grupo grupo;
         private Carrera carrera;
         private Usuario usuarioSeleccionado;
+        private string? nombreMateriaSeleccionada;
         private int semestreFiltro = 1;
 
         public VistaCalificacionesController(FrmVistaCalificaciones frmVistaCalificacionesAlumno, Usuario usuario, string? nombreMateria)
         {
             _frmVistaCalificacionesAlumno = frmVistaCalificacionesAlumno;
 
-             usuarioSeleccionado = usuario;
+            usuarioSeleccionado = usuario;
+            nombreMateriaSeleccionada = nombreMateria;
 
-            if (nombreMateria != null)
+            if (nombreMateriaSeleccionada != null)
             {
                 _frmVistaCalificacionesAlumno.lblSemestreStatic.Visible = false;
-                _frmVistaCalificacionesAlumno.comboBoxSemestres.Visible = false;    
+                _frmVistaCalificacionesAlumno.comboBoxSemestres.Visible = false;
+
+                _frmVistaCalificacionesAlumno.checkBoxSemestral.Visible = false;
+                _frmVistaCalificacionesAlumno.checkBoxFinales.Visible = false;
             }
 
-            lstCalificaciones = CalificacionDAO.ObtenerCalificacionesParciales(null, usuarioSeleccionado.Matricula, nombreMateria);
+            lstCalificaciones = CalificacionDAO.ObtenerCalificacionesParciales(null, usuarioSeleccionado.Matricula, nombreMateriaSeleccionada);
 
             grupo = GrupoDAO.ObtenerGrupos().First(g => g.Id == usuario.GrupoId);
             carrera = CarreraDAO.ObtenerCarreras().First(carrera => carrera.NombreCarrera == grupo.Carrera);
@@ -44,6 +50,8 @@ namespace SistemaEducativo.Controllers
             _frmVistaCalificacionesAlumno.comboBoxSemestres.SelectedItem = 1;
 
             _frmVistaCalificacionesAlumno.Load += frmVistaCalificacionesAlumno_Load;
+            _frmVistaCalificacionesAlumno.checkBoxSemestral.CheckedChanged += checkBoxSemestral_CheckedChanged;
+            _frmVistaCalificacionesAlumno.checkBoxFinales.CheckedChanged += checkBoxFinales_CheckedChanged;
             _frmVistaCalificacionesAlumno.comboBoxSemestres.SelectedIndexChanged += comboBoxSemestres_SelectedIndexChanged;
         }
 
@@ -51,12 +59,68 @@ namespace SistemaEducativo.Controllers
         {
             _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Rows.Clear();
 
-            List<Calificacion> lstCalificacionesFiltro = lstCalificaciones.Where(cal => cal.Semestre == semestreFiltro).ToList();
+            if (_frmVistaCalificacionesAlumno.checkBoxFinales.Checked)
+            {
+                lstCalificacionesFiltro = lstCalificaciones;
+            }
+            else
+            {
+                lstCalificacionesFiltro = lstCalificaciones.Where(cal => cal.Semestre == semestreFiltro).ToList();
+            }
 
             foreach (var calificacion in lstCalificacionesFiltro)
             {
-                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Rows.Add(calificacion.Materia, calificacion.Parcial, calificacion.CalificacionNumero);
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Rows.Add(calificacion.Semestre, calificacion.Materia, calificacion.Parcial, calificacion.CalificacionNumero);
             }
+        }
+
+        private void checkBoxSemestral_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_frmVistaCalificacionesAlumno.checkBoxSemestral.Checked == true)
+            {
+                _frmVistaCalificacionesAlumno.checkBoxFinales.Enabled = false;
+
+                lstCalificaciones = CalificacionDAO.ObtenerCalificacionesSemestral(semestreFiltro, usuarioSeleccionado.Matricula);
+            
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["parcial"].Visible = false;
+            } else
+            {
+                _frmVistaCalificacionesAlumno.checkBoxFinales.Enabled = true;
+
+                lstCalificaciones = CalificacionDAO.ObtenerCalificacionesParciales(null, usuarioSeleccionado.Matricula, nombreMateriaSeleccionada);
+
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["parcial"].Visible = true;
+            }
+
+            frmVistaCalificacionesAlumno_Load(sender, e);
+        }
+
+        private void checkBoxFinales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_frmVistaCalificacionesAlumno.checkBoxFinales.Checked == true)
+            {
+                _frmVistaCalificacionesAlumno.checkBoxSemestral.Enabled = false;
+
+                lstCalificaciones = CalificacionDAO.ObtenerCalificacionesFinales(usuarioSeleccionado.Matricula);
+
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["parcial"].Visible = false;
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["nombreMateria"].Visible = false;
+
+                _frmVistaCalificacionesAlumno.comboBoxSemestres.Enabled = false;
+            }
+            else
+            {
+                _frmVistaCalificacionesAlumno.checkBoxSemestral.Enabled = true;
+
+                lstCalificaciones = CalificacionDAO.ObtenerCalificacionesParciales(null, usuarioSeleccionado.Matricula, nombreMateriaSeleccionada);
+
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["parcial"].Visible = true;
+                _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Columns["nombreMateria"].Visible = true;
+
+                _frmVistaCalificacionesAlumno.comboBoxSemestres.Enabled = true;
+            }
+
+            frmVistaCalificacionesAlumno_Load(sender, e);
         }
 
         private void comboBoxSemestres_SelectedIndexChanged(object sender, EventArgs e)

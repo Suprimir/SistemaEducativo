@@ -55,5 +55,85 @@ namespace SistemaEducativo.DAO
                 return null;
             }
         }
+
+        public static List<Calificacion> ObtenerCalificacionesSemestral(int? nivelSemetral, string matricula)
+        {
+            try
+            {
+                List<Calificacion> lstCalificaciones = new List<Calificacion>();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerCalificacionesSemestral", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_matricula_Alumno", matricula);
+                        cmd.Parameters.AddWithValue("@p_nivelSemestral", nivelSemetral);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Calificacion calificacion = new Calificacion();
+
+                                calificacion.Semestre = reader.GetInt32(0);
+                                calificacion.Materia = reader.GetString(1);
+                                calificacion.CalificacionNumero = reader.GetDouble(2);
+
+                                lstCalificaciones.Add(calificacion);
+                            }
+
+                            return lstCalificaciones;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        public static List<Calificacion> ObtenerCalificacionesFinales(string matricula)
+        {
+            try
+            {
+                List<Calificacion> lstCalificaciones = new List<Calificacion>();
+
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("ObtenerCalificacionesFinales", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_matricula_Alumno", matricula);
+
+                        conn.Open();
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Calificacion calificacion = new Calificacion();
+
+                                calificacion.Semestre = reader.GetInt32(0);
+                                calificacion.CalificacionNumero = reader.GetDouble(1);
+
+                                lstCalificaciones.Add(calificacion);
+                            }
+
+                            return lstCalificaciones;
+                        }
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
     }
 }

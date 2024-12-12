@@ -2,6 +2,7 @@
 using Org.BouncyCastle.Asn1;
 using SistemaEducativo.Models;
 using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -51,5 +52,58 @@ namespace SistemaEducativo.DAO
             }
         }
 
+        public static bool CrearActualizarCarrera(Carrera carrera)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("CrearActualizarCarrera", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_carrera_ID", carrera.Id);
+                        cmd.Parameters.AddWithValue("@p_nombre_Carrera", carrera.NombreCarrera);
+                        cmd.Parameters.AddWithValue("@p_descripcion", carrera.Descripcion);
+                        cmd.Parameters.AddWithValue("@p_total_Semestres", carrera.TotalSemestres);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
+
+        public static bool EliminarCarrera(Carrera carrera)
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("EliminarCarrera", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@p_carrera_ID", carrera.Id);
+
+                        conn.Open();
+
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
     }
 }

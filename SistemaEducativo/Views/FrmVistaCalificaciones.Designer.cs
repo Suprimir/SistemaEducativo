@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dataGridViewCalificaciones = new DataGridView();
+            lblSemestreStatic = new Label();
+            comboBoxSemestres = new ComboBox();
+            checkBoxSemestral = new CheckBox();
+            checkBoxFinales = new CheckBox();
+            semestre = new DataGridViewTextBoxColumn();
             nombreMateria = new DataGridViewTextBoxColumn();
             parcial = new DataGridViewTextBoxColumn();
             calificacion = new DataGridViewTextBoxColumn();
-            lblSemestreStatic = new Label();
-            comboBoxSemestres = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCalificaciones).BeginInit();
             SuspendLayout();
             // 
@@ -49,16 +52,16 @@
             dataGridViewCalificaciones.BorderStyle = BorderStyle.None;
             dataGridViewCalificaciones.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewCalificaciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridViewCalificaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewCalificaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCalificaciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCalificaciones.Columns.AddRange(new DataGridViewColumn[] { nombreMateria, parcial, calificacion });
+            dataGridViewCalificaciones.Columns.AddRange(new DataGridViewColumn[] { semestre, nombreMateria, parcial, calificacion });
             dataGridViewCalificaciones.EnableHeadersVisualStyles = false;
             dataGridViewCalificaciones.GridColor = Color.FromArgb(221, 223, 244);
             dataGridViewCalificaciones.Location = new Point(0, 35);
@@ -73,24 +76,6 @@
             dataGridViewCalificaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCalificaciones.Size = new Size(597, 240);
             dataGridViewCalificaciones.TabIndex = 0;
-            // 
-            // nombreMateria
-            // 
-            nombreMateria.HeaderText = "Materia";
-            nombreMateria.Name = "nombreMateria";
-            nombreMateria.ReadOnly = true;
-            // 
-            // parcial
-            // 
-            parcial.HeaderText = "Parcial";
-            parcial.Name = "parcial";
-            parcial.ReadOnly = true;
-            // 
-            // calificacion
-            // 
-            calificacion.HeaderText = "Calificacion";
-            calificacion.Name = "calificacion";
-            calificacion.ReadOnly = true;
             // 
             // lblSemestreStatic
             // 
@@ -112,12 +97,58 @@
             comboBoxSemestres.Size = new Size(121, 23);
             comboBoxSemestres.TabIndex = 2;
             // 
+            // checkBoxSemestral
+            // 
+            checkBoxSemestral.AutoSize = true;
+            checkBoxSemestral.Location = new Point(435, 8);
+            checkBoxSemestral.Name = "checkBoxSemestral";
+            checkBoxSemestral.Size = new Size(77, 19);
+            checkBoxSemestral.TabIndex = 3;
+            checkBoxSemestral.Text = "Semestral";
+            checkBoxSemestral.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxFinales
+            // 
+            checkBoxFinales.AutoSize = true;
+            checkBoxFinales.Location = new Point(518, 8);
+            checkBoxFinales.Name = "checkBoxFinales";
+            checkBoxFinales.Size = new Size(62, 19);
+            checkBoxFinales.TabIndex = 4;
+            checkBoxFinales.Text = "Finales";
+            checkBoxFinales.UseVisualStyleBackColor = true;
+            // 
+            // semestre
+            // 
+            semestre.HeaderText = "Semestre";
+            semestre.Name = "semestre";
+            semestre.ReadOnly = true;
+            // 
+            // nombreMateria
+            // 
+            nombreMateria.HeaderText = "Materia";
+            nombreMateria.Name = "nombreMateria";
+            nombreMateria.ReadOnly = true;
+            // 
+            // parcial
+            // 
+            parcial.HeaderText = "Parcial";
+            parcial.Name = "parcial";
+            parcial.ReadOnly = true;
+            // 
+            // calificacion
+            // 
+            calificacion.HeaderText = "Calificacion";
+            calificacion.Name = "calificacion";
+            calificacion.ReadOnly = true;
+            // 
             // FrmVistaCalificaciones
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
+            Controls.Add(checkBoxFinales);
+            Controls.Add(checkBoxSemestral);
             Controls.Add(comboBoxSemestres);
             Controls.Add(lblSemestreStatic);
             Controls.Add(dataGridViewCalificaciones);
@@ -130,11 +161,14 @@
         }
 
         #endregion
-        private DataGridViewTextBoxColumn nombreMateria;
-        private DataGridViewTextBoxColumn parcial;
-        private DataGridViewTextBoxColumn calificacion;
         public DataGridView dataGridViewCalificaciones;
         public ComboBox comboBoxSemestres;
         public Label lblSemestreStatic;
+        public CheckBox checkBoxSemestral;
+        public CheckBox checkBoxFinales;
+        private DataGridViewTextBoxColumn semestre;
+        private DataGridViewTextBoxColumn nombreMateria;
+        private DataGridViewTextBoxColumn parcial;
+        private DataGridViewTextBoxColumn calificacion;
     }
 }

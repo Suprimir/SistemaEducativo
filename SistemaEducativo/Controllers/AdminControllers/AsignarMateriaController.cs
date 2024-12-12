@@ -57,11 +57,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 materia.NombreCarrera = _frmAsignarMateria.comboBoxCarreras.Text;
                 materia.Semestre = Convert.ToInt32(_frmAsignarMateria.comboBoxSemestres.Text);
 
-                if (MateriaDAO.AsignarMateriaCarrera(materia))
-                {
-                    MessageBox.Show("Registro exitoso.");
-                }
-            } 
+                MateriaDAO.AsignarMateriaCarrera(materia);
+            }
+            MessageBox.Show("Registro exitoso.");
 
             _frmAsignarMateria.Close();
         }

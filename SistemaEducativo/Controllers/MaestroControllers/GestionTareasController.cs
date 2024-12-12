@@ -48,7 +48,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
                 lblParcialSeparador.ForeColor = Color.White;
 
                 Panel panelParcialSeparador = new Panel();
-                panelParcialSeparador.Width = _frmGestionTareas.flowLayoutPanelTareas.ClientSize.Width - 10;
+                panelParcialSeparador.Width = _frmGestionTareas.flowLayoutPanelTareas.ClientSize.Width - 24;
                 panelParcialSeparador.Height = lblParcialSeparador.ClientSize.Height;
                 panelParcialSeparador.BackColor = ColorTranslator.FromHtml("#333fa7");
                 lblParcialSeparador.Location = new Point((panelParcialSeparador.Width - lblParcialSeparador.Width) / 2, (panelParcialSeparador.Height - lblParcialSeparador.Height) / 2);
@@ -59,7 +59,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
                 foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == i))
                 {
-                    FrmTareaMaestro frmTareaAlumno = new FrmTareaMaestro(tarea);
+                    FrmTareaMaestro frmTareaAlumno = new FrmTareaMaestro(grupoSeleccionado, tarea);
                     frmTareaAlumno.TopLevel = false;
                     _frmGestionTareas.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
                     frmTareaAlumno.Show();
@@ -87,15 +87,24 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnEliminarTarea_Click(object sender, EventArgs e)
         {
-            foreach (var tarea in lstTareasSeleccionadas)
+            if (lstTareasSeleccionadas.Count > 0)
             {
-                TareaDAO.EliminarTarea(tarea);
+                DialogResult dialogResult = MessageBox.Show("Estas seguro de eliminar esta tarea?", "Eliminar Tarea", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    foreach (var tarea in lstTareasSeleccionadas)
+                    {
+                        TareaDAO.EliminarTarea(tarea);
+                    }
+
+                    actualizarTabla?.Invoke();
+                    lstTareasSeleccionadas.Clear();
+                }
+            } else
+            {
+                MessageBox.Show("Seleccione 1 o mas tareas a eliminar");
             }
-
-            MessageBox.Show("Registro exitoso.");
-            actualizarTabla?.Invoke();
-
-            lstTareasSeleccionadas.Clear();
         }
     }
 }

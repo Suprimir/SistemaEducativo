@@ -1,6 +1,7 @@
 ﻿using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Sesion;
+using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 
@@ -10,8 +11,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     {
         private FrmGestionTareasAlumno _frmGestionTareasAlumno;
         private List<Tarea> lstTareas;
+        private List<Materia> lstMaterias;
         private Carrera carrera;
-        private int semestre = 1;
+        private int filtroSemestre = 1;
+        private string filtroMateria = "";
 
         public GestionTareasAlumnoController(FrmGestionTareasAlumno frmGestionTareasAlumno)
         {
@@ -26,8 +29,13 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 _frmGestionTareasAlumno.comboBoxSemestres.Items.Add(i);
             }
 
+            _frmGestionTareasAlumno.comboBoxSemestres.SelectedIndex = 0;
+            comboBoxSemestres_SelectedIndexChanged(null, null);
+            comboBoxMaterias_SelectedIndexChanged(null, null);
+
             _frmGestionTareasAlumno.Load += frmGestionTareasAlumno_Load;
-            _frmGestionTareasAlumno.comboBoxSemestres.SelectedIndexChanged += comboBoxSemestres_SelectedIndexChanged; 
+            _frmGestionTareasAlumno.comboBoxSemestres.SelectedIndexChanged += comboBoxSemestres_SelectedIndexChanged;
+            _frmGestionTareasAlumno.comboBoxMaterias.SelectedIndexChanged += comboBoxMaterias_SelectedIndexChanged;
         }
 
         private void frmGestionTareasAlumno_Load(object sender, EventArgs e)
@@ -44,7 +52,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 lblParcialSeparador.ForeColor = Color.White;
 
                 Panel panelParcialSeparador = new Panel();
-                panelParcialSeparador.Width = _frmGestionTareasAlumno.flowLayoutPanelTareas.ClientSize.Width - 10;
+                panelParcialSeparador.Width = _frmGestionTareasAlumno.flowLayoutPanelTareas.ClientSize.Width - 24;
                 panelParcialSeparador.Height = lblParcialSeparador.ClientSize.Height;
                 panelParcialSeparador.BackColor = ColorTranslator.FromHtml("#333fa7");
                 lblParcialSeparador.Location = new Point((panelParcialSeparador.Width - lblParcialSeparador.Width) / 2, (panelParcialSeparador.Height - lblParcialSeparador.Height) / 2);
@@ -53,7 +61,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
                 _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(panelParcialSeparador);
 
-                foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == j && tarea.Semestre == semestre))
+                foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == j && tarea.Semestre == filtroSemestre && tarea.MateriaNombre == filtroMateria))
                 {
                     FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
                     frmTareaAlumno.TopLevel = false;
@@ -65,7 +73,25 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
         private void comboBoxSemestres_SelectedIndexChanged(object sender, EventArgs e)
         {
-            semestre = (int)_frmGestionTareasAlumno.comboBoxSemestres.SelectedItem;
+            filtroSemestre = (int)_frmGestionTareasAlumno.comboBoxSemestres.SelectedItem;
+            frmGestionTareasAlumno_Load(sender, e);
+
+            lstMaterias = MateriaDAO.ObtenerMaterias(carrera.NombreCarrera, filtroSemestre);
+
+            _frmGestionTareasAlumno.comboBoxMaterias.Items.Clear();
+
+            foreach (var materia in lstMaterias)
+            {
+                _frmGestionTareasAlumno.comboBoxMaterias.Items.Add(materia);
+            }
+
+            _frmGestionTareasAlumno.comboBoxMaterias.SelectedIndex = 0;
+        }
+
+        private void comboBoxMaterias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filtroMateria = _frmGestionTareasAlumno.comboBoxMaterias.Text;
+
             frmGestionTareasAlumno_Load(sender, e);
         }
     }

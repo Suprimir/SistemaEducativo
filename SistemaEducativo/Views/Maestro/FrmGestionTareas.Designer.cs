@@ -53,7 +53,7 @@
             panelMenuStrip.Controls.Add(menuStripTareasMaestro);
             panelMenuStrip.Location = new Point(0, 0);
             panelMenuStrip.Name = "panelMenuStrip";
-            panelMenuStrip.Size = new Size(597, 30);
+            panelMenuStrip.Size = new Size(579, 30);
             panelMenuStrip.TabIndex = 10;
             // 
             // menuStripTareasMaestro
@@ -66,7 +66,7 @@
             menuStripTareasMaestro.Location = new Point(0, 0);
             menuStripTareasMaestro.Name = "menuStripTareasMaestro";
             menuStripTareasMaestro.Padding = new Padding(5, 2, 0, 2);
-            menuStripTareasMaestro.Size = new Size(597, 30);
+            menuStripTareasMaestro.Size = new Size(579, 30);
             menuStripTareasMaestro.TabIndex = 2;
             menuStripTareasMaestro.Text = "menuStrip1";
             // 

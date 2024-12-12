@@ -37,7 +37,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(18, 17);
+            lblTitulo.Location = new Point(11, 12);
             lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);
@@ -47,7 +47,7 @@
             // lblParcial
             // 
             lblParcial.AutoSize = true;
-            lblParcial.Location = new Point(18, 46);
+            lblParcial.Location = new Point(11, 37);
             lblParcial.Margin = new Padding(2, 0, 2, 0);
             lblParcial.Name = "lblParcial";
             lblParcial.Size = new Size(42, 15);
@@ -59,7 +59,8 @@
             btnRevisarTarea.BackColor = Color.FromArgb(221, 223, 244);
             btnRevisarTarea.FlatAppearance.BorderSize = 0;
             btnRevisarTarea.FlatStyle = FlatStyle.Flat;
-            btnRevisarTarea.Location = new Point(159, 78);
+            btnRevisarTarea.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRevisarTarea.Location = new Point(178, 52);
             btnRevisarTarea.Margin = new Padding(2);
             btnRevisarTarea.Name = "btnRevisarTarea";
             btnRevisarTarea.Size = new Size(95, 23);
@@ -70,7 +71,7 @@
             // checkBoxSeleccionado
             // 
             checkBoxSeleccionado.AutoSize = true;
-            checkBoxSeleccionado.Location = new Point(239, 12);
+            checkBoxSeleccionado.Location = new Point(257, 12);
             checkBoxSeleccionado.Name = "checkBoxSeleccionado";
             checkBoxSeleccionado.Size = new Size(15, 14);
             checkBoxSeleccionado.TabIndex = 3;
@@ -81,7 +82,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(254, 254, 255);
-            ClientSize = new Size(266, 110);
+            ClientSize = new Size(284, 86);
             Controls.Add(checkBoxSeleccionado);
             Controls.Add(btnRevisarTarea);
             Controls.Add(lblParcial);

@@ -123,9 +123,14 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             if (lstMateriasSeleccionadas.Count > 0) // checa que tengas un registro seleccionado
             {
-                foreach (var materia in lstMateriasSeleccionadas)
+                DialogResult dialogResult = MessageBox.Show("Estas seguro de eliminar esta materia?", "Eliminar Materia", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MateriaDAO.EliminarMateria(Convert.ToInt32(materia.Id));
+                    foreach (var materia in lstMateriasSeleccionadas)
+                    {
+                        MateriaDAO.EliminarMateria(Convert.ToInt32(materia.Id));
+                    }
                 }
 
                 actualizarTabla?.Invoke(); // invoca la accion que recarga la tabla

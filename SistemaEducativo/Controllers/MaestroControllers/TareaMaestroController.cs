@@ -12,10 +12,12 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     {
         private FrmTareaMaestro _frmTareaMaestro;
         private Tarea tareaSeleccionada;
+        private GrupoProfesor grupoSeleccionado;
 
-        public TareaMaestroController(FrmTareaMaestro frmTareaMaestro, Tarea tarea)
+        public TareaMaestroController(FrmTareaMaestro frmTareaMaestro,GrupoProfesor grupo, Tarea tarea)
         {
             _frmTareaMaestro = frmTareaMaestro;
+            grupoSeleccionado = grupo;
             tareaSeleccionada = tarea;
 
             _frmTareaMaestro.Load += frmTareaMaestro_Load;
@@ -31,7 +33,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnRevisarTarea_Click(object sender, EventArgs e)
         {
-            FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(tareaSeleccionada);
+            FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(grupoSeleccionado, tareaSeleccionada);
             MenuMaestroController.actualizarSubmenu(frmRevisionTareas);
         }
 

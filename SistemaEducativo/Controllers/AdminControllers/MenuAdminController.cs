@@ -36,6 +36,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmMenuAdmin.btnGrupos.Click += btnGrupos_Click;
             _frmMenuAdmin.btnUsuarios.Click += btnUsuarios_Click;
             _frmMenuAdmin.btnMaterias.Click += btnMaterias_Click;
+            _frmMenuAdmin.btnCarreras.Click += btnCarreras_Click;
 
             _frmMenuAdmin.configurarPerfilToolStripMenuItem.Click += btnConfigurarPerfil_Click;
         }
@@ -88,6 +89,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             FrmGestionMaterias frmGestionMaterias = new FrmGestionMaterias(); // ABRE FORMULARIO GESTION MATERIAS
             AbrirFormEnPanelSubmenu(frmGestionMaterias);
+        }
+
+        private void btnCarreras_Click(object sender, EventArgs e)
+        {
+            FrmGestionCarreras frmGestionCarreras = new FrmGestionCarreras(); // abre formulario gestion carreras
+            AbrirFormEnPanelSubmenu(frmGestionCarreras);
         }
 
         private void btnConfigurarPerfil_Click(object sender, EventArgs e)
