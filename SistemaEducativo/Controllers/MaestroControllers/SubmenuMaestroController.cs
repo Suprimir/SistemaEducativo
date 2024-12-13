@@ -14,10 +14,13 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     {
         private FrmSubmenuMaestro _frmSubmenuMaestro;
         private TotalRegistros totalRegistros;
+        public static Action actualizarSubMenu;
 
         public SubmenuMaestroController(FrmSubmenuMaestro frmSubmenuMaestro)
         {
             _frmSubmenuMaestro = frmSubmenuMaestro;
+            actualizarSubMenu = () => { totalRegistros = TotalRegistrosDAO.DatosMenuMaestro(); frmSubmenuMaestro_Load(null, null); };
+
             totalRegistros = TotalRegistrosDAO.DatosMenuMaestro();
 
             _frmSubmenuMaestro.Load += frmSubmenuMaestro_Load;

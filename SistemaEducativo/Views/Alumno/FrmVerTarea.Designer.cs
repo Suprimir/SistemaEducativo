@@ -129,7 +129,7 @@
             // lblEstado
             // 
             lblEstado.AutoSize = true;
-            lblEstado.Location = new Point(517, 46);
+            lblEstado.Location = new Point(484, 46);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(60, 15);
             lblEstado.TabIndex = 9;

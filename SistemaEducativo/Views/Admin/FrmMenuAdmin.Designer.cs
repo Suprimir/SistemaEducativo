@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuAdmin));
             pictureBoxMPfp = new PictureBox();
             btnGrupos = new Button();
             panelPerfil = new Panel();
@@ -40,6 +41,8 @@
             lblUsuarioStatic = new Label();
             lblMatricula = new Label();
             panel2 = new Panel();
+            panel7 = new Panel();
+            btnCarreras = new Button();
             lblGestionStatic = new Label();
             panel5 = new Panel();
             btnMaterias = new Button();
@@ -58,12 +61,11 @@
             btnMinimizarVentana = new Button();
             tableLayoutPanelCustom = new TableLayoutPanel();
             lblBienvenidaSub = new Label();
-            panel7 = new Panel();
-            btnCarreras = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
             panelPerfil.SuspendLayout();
             contextMenuStripPerfil.SuspendLayout();
             panel2.SuspendLayout();
+            panel7.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -72,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
             tableLayoutPanelCustom.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBoxMPfp
@@ -208,6 +209,32 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(187, 237);
             panel2.TabIndex = 23;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnCarreras);
+            panel7.Location = new Point(0, 188);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(204, 49);
+            panel7.TabIndex = 27;
+            // 
+            // btnCarreras
+            // 
+            btnCarreras.BackColor = Color.FromArgb(221, 223, 244);
+            btnCarreras.Cursor = Cursors.Hand;
+            btnCarreras.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
+            btnCarreras.FlatAppearance.BorderSize = 0;
+            btnCarreras.FlatStyle = FlatStyle.Flat;
+            btnCarreras.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCarreras.ForeColor = SystemColors.ControlText;
+            btnCarreras.Image = Properties.Resources.tituloIcon;
+            btnCarreras.Location = new Point(-83, 0);
+            btnCarreras.Name = "btnCarreras";
+            btnCarreras.Size = new Size(273, 46);
+            btnCarreras.TabIndex = 3;
+            btnCarreras.Text = "                        Carreras";
+            btnCarreras.UseVisualStyleBackColor = false;
             // 
             // lblGestionStatic
             // 
@@ -425,32 +452,6 @@
             lblBienvenidaSub.TabIndex = 29;
             lblBienvenidaSub.Text = "Bienvenido";
             // 
-            // panel7
-            // 
-            panel7.Controls.Add(btnCarreras);
-            panel7.Location = new Point(0, 188);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(204, 49);
-            panel7.TabIndex = 27;
-            // 
-            // btnCarreras
-            // 
-            btnCarreras.BackColor = Color.FromArgb(221, 223, 244);
-            btnCarreras.Cursor = Cursors.Hand;
-            btnCarreras.FlatAppearance.BorderColor = Color.FromArgb(221, 223, 244);
-            btnCarreras.FlatAppearance.BorderSize = 0;
-            btnCarreras.FlatStyle = FlatStyle.Flat;
-            btnCarreras.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCarreras.ForeColor = SystemColors.ControlText;
-            btnCarreras.Image = Properties.Resources.tituloIcon;
-            btnCarreras.Location = new Point(-83, 0);
-            btnCarreras.Name = "btnCarreras";
-            btnCarreras.Size = new Size(273, 46);
-            btnCarreras.TabIndex = 3;
-            btnCarreras.Text = "                        Carreras";
-            btnCarreras.UseVisualStyleBackColor = false;
-            // 
             // FrmMenuAdmin
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -466,6 +467,8 @@
             Controls.Add(tableLayoutPanelCustom);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMenuAdmin";
             Text = "FrmMenuAdmin";
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).EndInit();
@@ -474,6 +477,7 @@
             contextMenuStripPerfil.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel7.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -483,7 +487,6 @@
             panel1.ResumeLayout(false);
             tableLayoutPanelCustom.ResumeLayout(false);
             tableLayoutPanelCustom.PerformLayout();
-            panel7.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -14,10 +14,12 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     {
         private FrmSubmenuAlumno _frmSubmenuAlumno;
         private TotalRegistros totalRegistros;
+        public static Action actualizarSubMenu;
 
         public SubmenuAlumnoController(FrmSubmenuAlumno frmSubmenuAlumno)
         {
             _frmSubmenuAlumno = frmSubmenuAlumno;
+            actualizarSubMenu = () => { totalRegistros = TotalRegistrosDAO.DatosMenuAlumno(); frmSubmenuAlumno_Load(null, null); };
 
             totalRegistros = TotalRegistrosDAO.DatosMenuAlumno();
 

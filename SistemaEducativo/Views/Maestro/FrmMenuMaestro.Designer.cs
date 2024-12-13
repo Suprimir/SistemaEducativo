@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuMaestro));
             panelSubMenu = new Panel();
-            tableLayoutPanel = new TableLayoutPanel();
+            tableLayoutPanelCustom = new TableLayoutPanel();
             btnMinimizarVentana = new Button();
             lblMenuTitulo = new Label();
             btnCerrarVentana = new Button();
@@ -54,7 +55,7 @@
             lblBienvenida = new Label();
             contextMenuStripPerfil = new ContextMenuStrip(components);
             configurarPerfilToolStripMenuItem = new ToolStripMenuItem();
-            tableLayoutPanel.SuspendLayout();
+            tableLayoutPanelCustom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxMPfp).BeginInit();
@@ -69,29 +70,28 @@
             // panelSubMenu
             // 
             panelSubMenu.BackColor = Color.FromArgb(221, 223, 244);
-            panelSubMenu.Location = new Point(298, 202);
-            panelSubMenu.Margin = new Padding(4, 4, 4, 4);
+            panelSubMenu.Location = new Point(238, 162);
             panelSubMenu.Name = "panelSubMenu";
-            panelSubMenu.Size = new Size(745, 344);
+            panelSubMenu.Size = new Size(596, 275);
             panelSubMenu.TabIndex = 30;
             // 
-            // tableLayoutPanel
+            // tableLayoutPanelCustom
             // 
-            tableLayoutPanel.BackColor = Color.FromArgb(51, 63, 167);
-            tableLayoutPanel.ColumnCount = 3;
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 1008F));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
-            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
-            tableLayoutPanel.Controls.Add(btnMinimizarVentana, 1, 0);
-            tableLayoutPanel.Controls.Add(lblMenuTitulo, 0, 0);
-            tableLayoutPanel.Controls.Add(btnCerrarVentana, 2, 0);
-            tableLayoutPanel.Location = new Point(-1, -1);
-            tableLayoutPanel.Margin = new Padding(0);
-            tableLayoutPanel.Name = "tableLayoutPanel";
-            tableLayoutPanel.RowCount = 1;
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel.Size = new Size(1080, 45);
-            tableLayoutPanel.TabIndex = 27;
+            tableLayoutPanelCustom.BackColor = Color.FromArgb(51, 63, 167);
+            tableLayoutPanelCustom.ColumnCount = 3;
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 806F));
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanelCustom.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 29F));
+            tableLayoutPanelCustom.Controls.Add(btnMinimizarVentana, 1, 0);
+            tableLayoutPanelCustom.Controls.Add(lblMenuTitulo, 0, 0);
+            tableLayoutPanelCustom.Controls.Add(btnCerrarVentana, 2, 0);
+            tableLayoutPanelCustom.Location = new Point(-1, -1);
+            tableLayoutPanelCustom.Margin = new Padding(0);
+            tableLayoutPanelCustom.Name = "tableLayoutPanelCustom";
+            tableLayoutPanelCustom.RowCount = 1;
+            tableLayoutPanelCustom.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelCustom.Size = new Size(864, 36);
+            tableLayoutPanelCustom.TabIndex = 27;
             // 
             // btnMinimizarVentana
             // 
@@ -99,10 +99,10 @@
             btnMinimizarVentana.FlatStyle = FlatStyle.Flat;
             btnMinimizarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMinimizarVentana.ForeColor = SystemColors.ControlLightLight;
-            btnMinimizarVentana.Location = new Point(1008, 0);
+            btnMinimizarVentana.Location = new Point(806, 0);
             btnMinimizarVentana.Margin = new Padding(0);
             btnMinimizarVentana.Name = "btnMinimizarVentana";
-            btnMinimizarVentana.Size = new Size(36, 45);
+            btnMinimizarVentana.Size = new Size(29, 36);
             btnMinimizarVentana.TabIndex = 8;
             btnMinimizarVentana.Text = "-";
             btnMinimizarVentana.UseVisualStyleBackColor = true;
@@ -113,10 +113,10 @@
             lblMenuTitulo.Cursor = Cursors.Hand;
             lblMenuTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMenuTitulo.ForeColor = SystemColors.ControlLightLight;
-            lblMenuTitulo.Location = new Point(4, 4);
-            lblMenuTitulo.Margin = new Padding(4, 4, 4, 0);
+            lblMenuTitulo.Location = new Point(3, 3);
+            lblMenuTitulo.Margin = new Padding(3, 3, 3, 0);
             lblMenuTitulo.Name = "lblMenuTitulo";
-            lblMenuTitulo.Size = new Size(90, 37);
+            lblMenuTitulo.Size = new Size(70, 30);
             lblMenuTitulo.TabIndex = 10;
             lblMenuTitulo.Text = "Menú";
             // 
@@ -126,10 +126,10 @@
             btnCerrarVentana.FlatStyle = FlatStyle.Flat;
             btnCerrarVentana.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCerrarVentana.ForeColor = SystemColors.ControlLightLight;
-            btnCerrarVentana.Location = new Point(1044, 0);
+            btnCerrarVentana.Location = new Point(835, 0);
             btnCerrarVentana.Margin = new Padding(0);
             btnCerrarVentana.Name = "btnCerrarVentana";
-            btnCerrarVentana.Size = new Size(36, 45);
+            btnCerrarVentana.Size = new Size(29, 36);
             btnCerrarVentana.TabIndex = 0;
             btnCerrarVentana.Text = "X";
             btnCerrarVentana.UseVisualStyleBackColor = true;
@@ -137,10 +137,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.PanelRounded;
-            pictureBox1.Location = new Point(275, 175);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Location = new Point(220, 140);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(788, 395);
+            pictureBox1.Size = new Size(630, 316);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 32;
             pictureBox1.TabStop = false;
@@ -154,10 +153,9 @@
             panelPerfil.Controls.Add(lblRolStatic);
             panelPerfil.Controls.Add(lblUsuarioStatic);
             panelPerfil.Controls.Add(lblMatricula);
-            panelPerfil.Location = new Point(764, 71);
-            panelPerfil.Margin = new Padding(4, 4, 4, 4);
+            panelPerfil.Location = new Point(611, 57);
             panelPerfil.Name = "panelPerfil";
-            panelPerfil.Size = new Size(286, 81);
+            panelPerfil.Size = new Size(229, 65);
             panelPerfil.TabIndex = 33;
             // 
             // btnPerfil
@@ -167,20 +165,18 @@
             btnPerfil.FlatAppearance.BorderSize = 0;
             btnPerfil.FlatStyle = FlatStyle.Flat;
             btnPerfil.Image = Properties.Resources.ArrowDown;
-            btnPerfil.Location = new Point(256, 55);
-            btnPerfil.Margin = new Padding(4, 4, 4, 4);
+            btnPerfil.Location = new Point(205, 44);
             btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(30, 26);
+            btnPerfil.Size = new Size(24, 21);
             btnPerfil.TabIndex = 13;
             btnPerfil.UseVisualStyleBackColor = false;
             // 
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(168, 50);
-            lblRol.Margin = new Padding(4, 0, 4, 0);
+            lblRol.Location = new Point(134, 40);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(27, 20);
+            lblRol.Size = new Size(21, 15);
             lblRol.TabIndex = 11;
             lblRol.Text = "rol";
             lblRol.TextAlign = ContentAlignment.MiddleCenter;
@@ -191,7 +187,7 @@
             pictureBoxMPfp.Location = new Point(0, 0);
             pictureBoxMPfp.Margin = new Padding(0);
             pictureBoxMPfp.Name = "pictureBoxMPfp";
-            pictureBoxMPfp.Size = new Size(80, 80);
+            pictureBoxMPfp.Size = new Size(64, 64);
             pictureBoxMPfp.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxMPfp.TabIndex = 11;
             pictureBoxMPfp.TabStop = false;
@@ -200,10 +196,9 @@
             // 
             lblRolStatic.AutoSize = true;
             lblRolStatic.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRolStatic.Location = new Point(91, 50);
-            lblRolStatic.Margin = new Padding(4, 0, 4, 0);
+            lblRolStatic.Location = new Point(73, 40);
             lblRolStatic.Name = "lblRolStatic";
-            lblRolStatic.Size = new Size(36, 20);
+            lblRolStatic.Size = new Size(28, 15);
             lblRolStatic.TabIndex = 11;
             lblRolStatic.Text = "Rol:";
             lblRolStatic.TextAlign = ContentAlignment.MiddleCenter;
@@ -212,10 +207,9 @@
             // 
             lblUsuarioStatic.AutoSize = true;
             lblUsuarioStatic.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUsuarioStatic.Location = new Point(91, 12);
-            lblUsuarioStatic.Margin = new Padding(4, 0, 4, 0);
+            lblUsuarioStatic.Location = new Point(73, 10);
             lblUsuarioStatic.Name = "lblUsuarioStatic";
-            lblUsuarioStatic.Size = new Size(79, 20);
+            lblUsuarioStatic.Size = new Size(62, 15);
             lblUsuarioStatic.TabIndex = 12;
             lblUsuarioStatic.Text = "Matricula:";
             lblUsuarioStatic.TextAlign = ContentAlignment.MiddleCenter;
@@ -223,10 +217,9 @@
             // lblMatricula
             // 
             lblMatricula.AutoSize = true;
-            lblMatricula.Location = new Point(168, 12);
-            lblMatricula.Margin = new Padding(4, 0, 4, 0);
+            lblMatricula.Location = new Point(134, 10);
             lblMatricula.Name = "lblMatricula";
-            lblMatricula.Size = new Size(57, 20);
+            lblMatricula.Size = new Size(46, 15);
             lblMatricula.TabIndex = 11;
             lblMatricula.Text = "usuario";
             lblMatricula.TextAlign = ContentAlignment.MiddleCenter;
@@ -234,10 +227,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.PanelRounded;
-            pictureBox2.Location = new Point(749, 58);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Location = new Point(599, 46);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(315, 109);
+            pictureBox2.Size = new Size(252, 87);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 34;
             pictureBox2.TabStop = false;
@@ -248,10 +240,9 @@
             panel1.BackgroundImage = Properties.Resources.PanelRounded;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.Controls.Add(panel4);
-            panel1.Location = new Point(11, 176);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Location = new Point(9, 141);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 311);
+            panel1.Size = new Size(200, 249);
             panel1.TabIndex = 35;
             // 
             // panel4
@@ -259,30 +250,29 @@
             panel4.BackColor = Color.FromArgb(221, 223, 244);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(panel8);
-            panel4.Location = new Point(9, 9);
+            panel4.Location = new Point(7, 7);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(234, 296);
+            panel4.Size = new Size(187, 237);
             panel4.TabIndex = 23;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(74, 48);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(59, 38);
             label1.Name = "label1";
-            label1.Size = new Size(93, 23);
+            label1.Size = new Size(72, 17);
             label1.TabIndex = 24;
             label1.Text = "- Gestion -";
             // 
             // panel8
             // 
             panel8.Controls.Add(btnGrupos);
-            panel8.Location = new Point(0, 105);
+            panel8.Location = new Point(0, 84);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(255, 61);
+            panel8.Size = new Size(204, 49);
             panel8.TabIndex = 24;
             // 
             // btnGrupos
@@ -295,10 +285,9 @@
             btnGrupos.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGrupos.ForeColor = SystemColors.ControlText;
             btnGrupos.Image = Properties.Resources.GrupoIcon;
-            btnGrupos.Location = new Point(-100, 0);
-            btnGrupos.Margin = new Padding(4, 4, 4, 4);
+            btnGrupos.Location = new Point(-80, 0);
             btnGrupos.Name = "btnGrupos";
-            btnGrupos.Size = new Size(341, 58);
+            btnGrupos.Size = new Size(273, 46);
             btnGrupos.TabIndex = 14;
             btnGrupos.Text = "                        Grupos";
             btnGrupos.UseVisualStyleBackColor = false;
@@ -306,10 +295,10 @@
             // panel6
             // 
             panel6.Controls.Add(btnCerrarSesion);
-            panel6.Location = new Point(20, 510);
+            panel6.Location = new Point(16, 408);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Size = new Size(236, 61);
+            panel6.Size = new Size(189, 49);
             panel6.TabIndex = 27;
             // 
             // btnCerrarSesion
@@ -322,10 +311,9 @@
             btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCerrarSesion.ForeColor = SystemColors.ControlLightLight;
             btnCerrarSesion.Image = Properties.Resources.CerrarSesionIcon;
-            btnCerrarSesion.Location = new Point(-135, 0);
-            btnCerrarSesion.Margin = new Padding(4, 4, 4, 4);
+            btnCerrarSesion.Location = new Point(-108, 0);
             btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(376, 58);
+            btnCerrarSesion.Size = new Size(301, 46);
             btnCerrarSesion.TabIndex = 14;
             btnCerrarSesion.Text = "                                Cerrar Sesión";
             btnCerrarSesion.UseVisualStyleBackColor = false;
@@ -334,10 +322,9 @@
             // 
             lblBienvenidaSub.AutoSize = true;
             lblBienvenidaSub.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblBienvenidaSub.Location = new Point(29, 115);
-            lblBienvenidaSub.Margin = new Padding(4, 0, 4, 0);
+            lblBienvenidaSub.Location = new Point(23, 92);
             lblBienvenidaSub.Name = "lblBienvenidaSub";
-            lblBienvenidaSub.Size = new Size(106, 28);
+            lblBienvenidaSub.Size = new Size(87, 21);
             lblBienvenidaSub.TabIndex = 37;
             lblBienvenidaSub.Text = "Bienvenido";
             // 
@@ -345,10 +332,9 @@
             // 
             lblBienvenida.AutoSize = true;
             lblBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblBienvenida.Location = new Point(29, 84);
-            lblBienvenida.Margin = new Padding(4, 0, 4, 0);
+            lblBienvenida.Location = new Point(23, 67);
             lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(159, 37);
+            lblBienvenida.Size = new Size(124, 30);
             lblBienvenida.TabIndex = 36;
             lblBienvenida.Text = "Bienvenido";
             // 
@@ -375,10 +361,10 @@
             // 
             // FrmMenuMaestro
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(254, 254, 255);
-            ClientSize = new Size(1079, 586);
+            ClientSize = new Size(863, 469);
             Controls.Add(lblBienvenidaSub);
             Controls.Add(lblBienvenida);
             Controls.Add(panel1);
@@ -386,13 +372,14 @@
             Controls.Add(panelPerfil);
             Controls.Add(pictureBox2);
             Controls.Add(panelSubMenu);
-            Controls.Add(tableLayoutPanel);
+            Controls.Add(tableLayoutPanelCustom);
             Controls.Add(pictureBox1);
-            Margin = new Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMenuMaestro";
             Text = "FrmMenuMaestro";
-            tableLayoutPanel.ResumeLayout(false);
-            tableLayoutPanel.PerformLayout();
+            tableLayoutPanelCustom.ResumeLayout(false);
+            tableLayoutPanelCustom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelPerfil.ResumeLayout(false);
             panelPerfil.PerformLayout();
@@ -436,5 +423,6 @@
         public PictureBox pictureBoxMPfp;
         public ContextMenuStrip contextMenuStripPerfil;
         public ToolStripMenuItem configurarPerfilToolStripMenuItem;
+        public TableLayoutPanel tableLayoutPanelCustom;
     }
 }

@@ -55,7 +55,7 @@
             // 
             lblMateriasStatic.AutoSize = true;
             lblMateriasStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMateriasStatic.Location = new Point(146, 62);
+            lblMateriasStatic.Location = new Point(205, 66);
             lblMateriasStatic.Name = "lblMateriasStatic";
             lblMateriasStatic.Size = new Size(47, 15);
             lblMateriasStatic.TabIndex = 2;
@@ -66,9 +66,9 @@
             comboBoxMaterias.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxMaterias.FlatStyle = FlatStyle.Flat;
             comboBoxMaterias.FormattingEnabled = true;
-            comboBoxMaterias.Location = new Point(146, 78);
+            comboBoxMaterias.Location = new Point(205, 81);
             comboBoxMaterias.Name = "comboBoxMaterias";
-            comboBoxMaterias.Size = new Size(121, 23);
+            comboBoxMaterias.Size = new Size(156, 23);
             comboBoxMaterias.TabIndex = 3;
             // 
             // lblAlumnosStatic
@@ -99,7 +99,7 @@
             // 
             lblSemestreStatic.AutoSize = true;
             lblSemestreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSemestreStatic.Location = new Point(146, 8);
+            lblSemestreStatic.Location = new Point(205, 11);
             lblSemestreStatic.Name = "lblSemestreStatic";
             lblSemestreStatic.Size = new Size(56, 15);
             lblSemestreStatic.TabIndex = 8;
@@ -110,9 +110,9 @@
             comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxSemestres.FlatStyle = FlatStyle.Flat;
             comboBoxSemestres.FormattingEnabled = true;
-            comboBoxSemestres.Location = new Point(146, 26);
+            comboBoxSemestres.Location = new Point(205, 29);
             comboBoxSemestres.Name = "comboBoxSemestres";
-            comboBoxSemestres.Size = new Size(121, 23);
+            comboBoxSemestres.Size = new Size(156, 23);
             comboBoxSemestres.TabIndex = 9;
             // 
             // lblCarreraStatic

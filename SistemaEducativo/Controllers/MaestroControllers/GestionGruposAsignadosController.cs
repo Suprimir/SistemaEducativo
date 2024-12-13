@@ -55,9 +55,9 @@ namespace SistemaEducativo.Controllers.MaestroControllers
         {
             GrupoProfesor grupoSeleccionado = new GrupoProfesor();
 
-            if (_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows.Count > 0)
+            if (_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows.Count == 1)
             {
-                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()));
+                grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()) && grupo.SemestreActual == Convert.ToInt32(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[3].Value));
                 
                 FrmGestionTareas frmGestionTareas = new FrmGestionTareas(_frmGestionGruposAsignados, grupoSeleccionado);
                 MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);

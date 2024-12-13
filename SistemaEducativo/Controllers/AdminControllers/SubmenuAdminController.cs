@@ -14,10 +14,12 @@ namespace SistemaEducativo.Controllers.AdminControllers
     {
         private FrmSubmenuAdmin _frmSubmenuAdmin;
         private TotalRegistros totalRegistros;
+        public static Action actualizarSubMenu;
 
         public SubmenuAdminController(FrmSubmenuAdmin frmSubmenuAdmin)
         {
             _frmSubmenuAdmin = frmSubmenuAdmin;
+            actualizarSubMenu = () => { totalRegistros = TotalRegistrosDAO.ObtenerRegistros(); frmSubmenuAdmin_Load(null, null); };
 
             totalRegistros = TotalRegistrosDAO.ObtenerRegistros();
 

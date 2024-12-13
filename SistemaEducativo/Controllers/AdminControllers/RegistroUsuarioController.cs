@@ -13,6 +13,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class RegistroUsuarioController
     {
         private FrmRegistroUsuario _frmRegistroUsuario;
+        private List<Grupo> lstGrupos;
         private Usuario usuarioSeleccionado; // En caso de que se quiera editar un usuario
 
         public RegistroUsuarioController(FrmRegistroUsuario frmRegistroUsuario, Usuario usuario)
@@ -20,15 +21,21 @@ namespace SistemaEducativo.Controllers.AdminControllers
             _frmRegistroUsuario = frmRegistroUsuario;
             usuarioSeleccionado = usuario;
 
+            lstGrupos = GrupoDAO.ObtenerGrupos();
+
+            foreach (var grupo in lstGrupos)
+            {
+                _frmRegistroUsuario.comboBoxGrupo.Items.Add(grupo.NombreGrupo);
+            }
+
             _frmRegistroUsuario.lblAsignarGStatic.Enabled = false;
             _frmRegistroUsuario.comboBoxGrupo.Enabled = false;
+            _frmRegistroUsuario.textBoxCorreo.Enabled = false;
 
             if (usuarioSeleccionado != null)
             {
                 _frmRegistroUsuario.Load += frmRegistroUsuario_Load;
             }
-
-            _frmRegistroUsuario.textBoxCorreo.Enabled = false;
 
             _frmRegistroUsuario.textBoxMatricula.TextChanged += textBoxMatricula_TextChanged;
             _frmRegistroUsuario.checkBoxCorreo.CheckedChanged += checkBoxCorreo_CheckedChanged;
@@ -113,6 +120,8 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 }
                 else
                 {
+                    Grupo grupo = lstGrupos.First(g => g.NombreGrupo == _frmRegistroUsuario.comboBoxGrupo.Text);
+
                     // OBTENER TODOS LOS VALORES
                     Usuario usuario = new Usuario();
 
@@ -123,6 +132,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                     usuario.Pass = _frmRegistroUsuario.textBoxContraseña.Text;
                     usuario.Correo = _frmRegistroUsuario.textBoxCorreo.Text;
                     usuario.Rol = _frmRegistroUsuario.comboBoxRol.Text;
+                    usuario.GrupoId = grupo.Id;
 
                     string path = Path.Combine(Application.StartupPath, "fotosPerfil");
 
@@ -166,7 +176,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void comboBoxRol_TextChanged(object sender, EventArgs e)
         {
-            if (_frmRegistroUsuario.comboBoxRol.Text == "alumno")
+            if (_frmRegistroUsuario.comboBoxRol.Text == "Alumno")
             {
                 _frmRegistroUsuario.lblAsignarGStatic.Enabled = true;
                 _frmRegistroUsuario.comboBoxGrupo.Enabled = true;

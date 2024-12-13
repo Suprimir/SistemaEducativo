@@ -9,7 +9,11 @@ namespace SistemaEducativo.Controllers.AdminControllers
     internal class MenuAdminController
     {
         private FrmMenuAdmin _frmMenuAdmin;
+        private FrmSubmenuAdmin frmSubmenuAdmin = new FrmSubmenuAdmin();
         public static Action<Form> actualizarSubmenu;
+
+        private bool dragging = false;
+        private Point offset;
 
         public MenuAdminController(FrmMenuAdmin frmMenuAdmin)
         {
@@ -27,6 +31,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             // FUNCION A EJECUTAR AL ABRIR EL FORMULARIO
             _frmMenuAdmin.Load += frmMenuAdmin_Load;
+            _frmMenuAdmin.tableLayoutPanelCustom.MouseDown += tableLayoutPanelCustom_MouseDown;
+            _frmMenuAdmin.tableLayoutPanelCustom.MouseMove += tableLayoutPanelCustom_MouseMove;
+            _frmMenuAdmin.tableLayoutPanelCustom.MouseUp += tableLayoutPanelCustom_MouseUp;
 
             // SI DA CLICK AL TEXTO MENU DE ARRIBA A LA IZQUIERDA COLOCA EL SUBMENU DEFAULT
             _frmMenuAdmin.lblMenuTitulo.Click += CargarSubMenuDefault;
@@ -55,11 +62,36 @@ namespace SistemaEducativo.Controllers.AdminControllers
             CargarSubMenuDefault(sender, e);
         }
 
+        private void tableLayoutPanelCustom_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                offset = new Point(e.X, e.Y);  // Captura la posición relativa del mouse
+            }
+        }
+
+        private void tableLayoutPanelCustom_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void tableLayoutPanelCustom_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (dragging)
+                {
+                    _frmMenuAdmin.Location = new Point(_frmMenuAdmin.Left + e.X - offset.X, _frmMenuAdmin.Top + e.Y - offset.Y);
+                }
+            }
+        }
+
         // Funcion para "reiniciar el menu" basicamente pone el submenu default
 
         private void CargarSubMenuDefault(object sender, EventArgs e)
         {
-            FrmSubmenuAdmin frmSubmenuAdmin = new FrmSubmenuAdmin();
+            SubmenuAdminController.actualizarSubMenu();
             AbrirFormEnPanelSubmenu(frmSubmenuAdmin);
         }
 

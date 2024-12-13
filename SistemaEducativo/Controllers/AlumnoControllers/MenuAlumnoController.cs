@@ -13,6 +13,9 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
         private FrmSubmenuAlumno frmSubmenuAlumno = new FrmSubmenuAlumno();
         public static Action<Form> actualizarSubmenu;
 
+        private bool dragging = false;
+        private Point offset;
+
         public MenuAlumnoController(FrmMenuAlumno frmMenuAlumno)
         {
             _frmMenuAlumno = frmMenuAlumno;
@@ -28,6 +31,10 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             _frmMenuAlumno.FormClosing += (sender, e) => _frmMenuAlumno._frmLogin.Dispose();
 
             _frmMenuAlumno.Load += frmMenuAlumno_Load;
+            _frmMenuAlumno.tableLayoutPanelCustom.MouseDown += tableLayoutPanelCustom_MouseDown;
+            _frmMenuAlumno.tableLayoutPanelCustom.MouseMove += tableLayoutPanelCustom_MouseMove;
+            _frmMenuAlumno.tableLayoutPanelCustom.MouseUp += tableLayoutPanelCustom_MouseUp;
+
             _frmMenuAlumno.lblMenuTitulo.Click += lblTitulo_Click;
             _frmMenuAlumno.btnPerfil.Click += btnPerfil_Click;
             _frmMenuAlumno.btnTareas.Click += btnTareas_Click;
@@ -49,8 +56,34 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             AbrirFormEnPanelSubmenu(frmSubmenuAlumno);
         }
 
+        private void tableLayoutPanelCustom_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                offset = new Point(e.X, e.Y);  // Captura la posición relativa del mouse
+            }
+        }
+
+        private void tableLayoutPanelCustom_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
+        }
+
+        private void tableLayoutPanelCustom_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (dragging)
+                {
+                    _frmMenuAlumno.Location = new Point(_frmMenuAlumno.Left + e.X - offset.X, _frmMenuAlumno.Top + e.Y - offset.Y);
+                }
+            }
+        }
+
         private void lblTitulo_Click(object sender, EventArgs e)
         {
+            SubmenuAlumnoController.actualizarSubMenu?.Invoke();
             AbrirFormEnPanelSubmenu(frmSubmenuAlumno);
         }
 
