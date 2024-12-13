@@ -1,4 +1,5 @@
-﻿using SistemaEducativo.DAO;
+﻿using SistemaEducativo.Controllers.MaestroControllers;
+using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Sesion;
 using SistemaEducativo.Views;
@@ -15,24 +16,29 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     internal class VerTareaController
     {
         private FrmVerTarea _frmVerTarea;
+        private FrmGestionTareasAlumno frmAnterior;
         private Tarea tareaSeleccionada;
         public Action actualizarEstado;
         TareaPorAlumno tareaEntregada; // Por si ya esta entregada la tarea realizar ciertas validaciones
 
-        public VerTareaController(FrmVerTarea frmVerTarea, Tarea tarea)
+        public VerTareaController(FrmVerTarea frmVerTarea, FrmGestionTareasAlumno form, Tarea tarea)
         {
             _frmVerTarea = frmVerTarea;
+            frmAnterior = form;
+            
             tareaSeleccionada = tarea;
 
             tareaEntregada = TareaDAO.ValidarTareaAlumno(tarea);
 
             actualizarEstado = () => { tareaEntregada = TareaDAO.ValidarTareaAlumno(tarea); frmVerTarea_Load(null, null); };
 
+            _frmVerTarea.openFileDialogTarea.Filter = "PDF (*.pdf) |*.pdf|JPG (*.jpg) |*.jpg|PNG (*.png) |*.png";
+
             _frmVerTarea.Load += frmVerTarea_Load;
+            _frmVerTarea.btnRegresarForm.Click += btnRegresarForm_Click;
             _frmVerTarea.btnAdjuntarArchivo.Click += btnAdjuntarArchivo_Click;
             _frmVerTarea.btnSubirTarea.Click += btnSubirTarea_Click;
             _frmVerTarea.btnCancelarEntrega.Click += btnCancelarEntrega_Click;
-            _frmVerTarea.panelTareaPreview.Click += btnVerArchivo_Click;
             _frmVerTarea.openFileDialogTarea.FileOk += openFileDialogTarea_FileOk;
         }
 
@@ -49,6 +55,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 }
 
                 FrmTareaPreview frmTareaPreview = new FrmTareaPreview(tareaEntregada);
+                frmTareaPreview.TopLevel = false;
                 _frmVerTarea.panelTareaPreview.Controls.Add(frmTareaPreview);
                 frmTareaPreview.Show();
 
@@ -72,6 +79,11 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 _frmVerTarea.lblCalificacion.Text = "";
                 _frmVerTarea.lblEstado.Text = "Pendiente";
             }
+        }
+
+        private void btnRegresarForm_Click(object sender, EventArgs e)
+        {
+            MenuAlumnoController.actualizarSubmenu(frmAnterior);
         }
 
         private void btnAdjuntarArchivo_Click(object sender, EventArgs e)
@@ -104,7 +116,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                 File.Copy(pathArchivoInicial, pathArchivoFinal, true);
 
                 tarea.ID = tareaSeleccionada.ID;
-                tarea.PathArchivoTarea = pathArchivoInicial;
+                tarea.PathArchivoTarea = pathArchivoFinal;
                 tarea.FechaEntregada = DateTime.Now;
 
                 if (TareaDAO.EntregarTarea(tarea))
@@ -131,15 +143,6 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
                     actualizarEstado?.Invoke();
                 }
             }
-        }
-
-        private void btnVerArchivo_Click(object sender, EventArgs e)
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                FileName = tareaEntregada.PathArchivoTarea
-            });
         }
 
         private void openFileDialogTarea_FileOk(object sender, EventArgs e)

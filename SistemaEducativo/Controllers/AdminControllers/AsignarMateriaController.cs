@@ -52,16 +52,46 @@ namespace SistemaEducativo.Controllers.AdminControllers
         
         private void btnAsignarMateria_Click(object sender, EventArgs e)
         {
-            foreach (var materia in lstMateriasSeleccionadas)
+            bool validarInputs = _frmAsignarMateria.Controls.OfType<ComboBox>().All(cb => !string.IsNullOrEmpty(cb.Text));
+
+            if (validarInputs)
             {
-                materia.NombreCarrera = _frmAsignarMateria.comboBoxCarreras.Text;
-                materia.Semestre = Convert.ToInt32(_frmAsignarMateria.comboBoxSemestres.Text);
+                List<Materia> lstMateriasYaExistentes = new List<Materia>();
+                List<Materia> lstMateriasAgregadasCorrectamente = new List<Materia>();
 
-                MateriaDAO.AsignarMateriaCarrera(materia);
+                foreach (var materia in lstMateriasSeleccionadas)
+                {
+                    materia.NombreCarrera = _frmAsignarMateria.comboBoxCarreras.Text;
+                    materia.Semestre = Convert.ToInt32(_frmAsignarMateria.comboBoxSemestres.Text);
+
+                    if (MateriaDAO.AsignarMateriaCarrera(materia))
+                    {
+                        lstMateriasAgregadasCorrectamente.Add(materia);
+                    }
+                    else
+                    {
+                        lstMateriasYaExistentes.Add(materia);
+                    }
+                }
+
+                if (lstMateriasYaExistentes.Count > 0)
+                {
+                    StringBuilder mensaje = new StringBuilder();
+                    mensaje.Append($"{lstMateriasYaExistentes.Count} Materias ya pertenecen a esa carrera \n\n Solo se agregaron las sigs. materias: ");
+
+                    foreach (var materia in lstMateriasAgregadasCorrectamente)
+                    {
+                        mensaje.Append(materia.NombreMateria);
+                    }
+
+                    MessageBox.Show(mensaje.ToString());
+                }
+
+                _frmAsignarMateria.Close();
+            } else
+            {
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
-            MessageBox.Show("Registro exitoso.");
-
-            _frmAsignarMateria.Close();
         }
     }
 }

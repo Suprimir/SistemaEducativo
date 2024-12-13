@@ -74,7 +74,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
             usuario.Carrera = SesionUsuario.Instancia.Carrera;
             usuario.GrupoId = SesionUsuario.Instancia.GrupoID;
 
-            FrmVistaCalificaciones frmVistaCalificacionesAlumno = new FrmVistaCalificaciones(usuario, null);
+            FrmVistaCalificaciones frmVistaCalificacionesAlumno = new FrmVistaCalificaciones(null, usuario, null);
             AbrirFormEnPanelSubmenu(frmVistaCalificacionesAlumno);
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaEducativo.Controllers.MaestroControllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace SistemaEducativo.Views.Maestro
 {
     public partial class FrmSubmenuMaestro : Form
     {
+        private SubmenuMaestroController controller;
+
         public FrmSubmenuMaestro()
         {
             InitializeComponent();
+
+            controller = new SubmenuMaestroController(this);
         }
     }
 }

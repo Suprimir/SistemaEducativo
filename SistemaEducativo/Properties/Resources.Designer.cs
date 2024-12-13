@@ -183,6 +183,16 @@ namespace SistemaEducativo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imagenIcon {
+            get {
+                object obj = ResourceManager.GetObject("imagenIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logInBox {
             get {
                 object obj = ResourceManager.GetObject("logInBox", resourceCulture);
@@ -256,6 +266,46 @@ namespace SistemaEducativo.Properties {
         internal static System.Drawing.Bitmap passIcon {
             get {
                 object obj = ResourceManager.GetObject("passIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pdfIcon {
+            get {
+                object obj = ResourceManager.GetObject("pdfIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regresarIcon {
+            get {
+                object obj = ResourceManager.GetObject("regresarIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap regresarIconWhite {
+            get {
+                object obj = ResourceManager.GetObject("regresarIconWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchIcon {
+            get {
+                object obj = ResourceManager.GetObject("searchIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

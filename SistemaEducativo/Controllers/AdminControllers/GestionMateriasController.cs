@@ -147,7 +147,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             if (lstMateriasSeleccionadas.Count > 0)
             {
                 FrmAsignarMateria frmAsignarMateria = new FrmAsignarMateria(lstMateriasSeleccionadas);
-                frmAsignarMateria.Show();
+                frmAsignarMateria.ShowDialog();
             } else
             {
                 MessageBox.Show("Selecciona 1 o más materias.");
@@ -158,7 +158,6 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             if (lstMateriasSeleccionadas.Count > 0)
             {
-                MessageBox.Show($"{lstMateriasSeleccionadas.Count}");
                 Carrera carreraSeleccionada = lstCarreras.First(carrera => carrera.NombreCarrera == _frmGestionMaterias.comboBoxFiltroCarrera.Text);
 
                 foreach (var materia in lstMateriasSeleccionadas)
@@ -177,7 +176,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 Materia materiaSeleccionada = lstMaterias.FirstOrDefault(g => g.Id == Convert.ToInt32(_frmGestionMaterias.dataGridViewMaterias.Rows[e.RowIndex].Cells[0].Value));
 
                 FrmRegistroMateria frmRegistroMateria = new FrmRegistroMateria(materiaSeleccionada);
-                frmRegistroMateria.Show();
+                frmRegistroMateria.ShowDialog();
             }
         }
 

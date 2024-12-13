@@ -35,8 +35,6 @@
             textBoxNombreG = new TextBox();
             dateTimePickerFechaInicio = new DateTimePicker();
             btnRegistrarGrupo = new Button();
-            lblSemestreStatic = new Label();
-            comboBoxSemestres = new ComboBox();
             SuspendLayout();
             // 
             // labelCarreraStatic
@@ -110,34 +108,12 @@
             btnRegistrarGrupo.Text = "Registrar";
             btnRegistrarGrupo.UseVisualStyleBackColor = false;
             // 
-            // lblSemestreStatic
-            // 
-            lblSemestreStatic.AutoSize = true;
-            lblSemestreStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSemestreStatic.Location = new Point(225, 9);
-            lblSemestreStatic.Name = "lblSemestreStatic";
-            lblSemestreStatic.Size = new Size(56, 15);
-            lblSemestreStatic.TabIndex = 8;
-            lblSemestreStatic.Text = "Semestre";
-            // 
-            // comboBoxSemestres
-            // 
-            comboBoxSemestres.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSemestres.FlatStyle = FlatStyle.Flat;
-            comboBoxSemestres.FormattingEnabled = true;
-            comboBoxSemestres.Location = new Point(225, 27);
-            comboBoxSemestres.Name = "comboBoxSemestres";
-            comboBoxSemestres.Size = new Size(87, 23);
-            comboBoxSemestres.TabIndex = 9;
-            // 
             // FrmRegistroGrupo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(335, 177);
-            Controls.Add(comboBoxSemestres);
-            Controls.Add(lblSemestreStatic);
             Controls.Add(btnRegistrarGrupo);
             Controls.Add(dateTimePickerFechaInicio);
             Controls.Add(textBoxNombreG);
@@ -163,7 +139,5 @@
         public DateTimePicker dateTimePickerFechaInicio;
         public Button btnRegistrarGrupo;
         private TextBox textBox1;
-        private Label lblSemestreStatic;
-        public ComboBox comboBoxSemestres;
     }
 }

@@ -25,19 +25,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             lstCarreras = CarreraDAO.ObtenerCarreras(); // LLAMA A LA BASE DE DATOS PARA OBTENER LAS CARRERAS
 
-            if(grupoSeleccionado != null)
-            {
-                _frmRegistroGrupo.comboBoxCarreras.Text = grupoSeleccionado.Carrera;
-                _frmRegistroGrupo.comboBoxCarreras.Enabled = false;
-                _frmRegistroGrupo.textBoxNombreG.Text = grupoSeleccionado.NombreGrupo;
-                _frmRegistroGrupo.dateTimePickerFechaInicio.Value = grupoSeleccionado.FechaInicio;
-                _frmRegistroGrupo.dateTimePickerFechaInicio.Enabled = false;
-                _frmRegistroGrupo.comboBoxSemestres.Text = grupoSeleccionado.SemestreActual.ToString();
-                _frmRegistroGrupo.comboBoxSemestres.Enabled = false;
-            }
-
             _frmRegistroGrupo.Load += frmRegistroGrupo_Load;
-            _frmRegistroGrupo.comboBoxCarreras.TextChanged += comboBoxCarreras_TextChanged;
             _frmRegistroGrupo.btnRegistrarGrupo.Click += btnRegistrarGrupo_Click;
         }
 
@@ -47,27 +35,26 @@ namespace SistemaEducativo.Controllers.AdminControllers
             {
                 _frmRegistroGrupo.comboBoxCarreras.Items.Add(carrera.NombreCarrera);
             }
-        }
 
-        private void comboBoxCarreras_TextChanged(object sender, EventArgs e)
-        {
-            _frmRegistroGrupo.comboBoxSemestres.Items.Clear();
-
-            Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmRegistroGrupo.comboBoxCarreras.Text);
-
-            for (int i = 1; i <= carrera.TotalSemestres; i++)
+            if (grupoSeleccionado != null)
             {
-                _frmRegistroGrupo.comboBoxSemestres.Items.Add(i);
+                _frmRegistroGrupo.comboBoxCarreras.SelectedItem = grupoSeleccionado.Carrera;
+                _frmRegistroGrupo.comboBoxCarreras.Enabled = false;
+                _frmRegistroGrupo.textBoxNombreG.Text = grupoSeleccionado.NombreGrupo;
+                _frmRegistroGrupo.dateTimePickerFechaInicio.Value = grupoSeleccionado.FechaInicio;
+                _frmRegistroGrupo.dateTimePickerFechaInicio.Enabled = false;
             }
         }
 
         private void btnRegistrarGrupo_Click(object sender, EventArgs e)
         {
-            Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmRegistroGrupo.comboBoxCarreras.Text);
+            bool validarInputs = _frmRegistroGrupo.Controls.OfType<TextBox>().All(tb => !string.IsNullOrEmpty(tb.Text));
 
-            if (grupoSeleccionado != null)
+            if (validarInputs)
             {
-                if (!string.IsNullOrEmpty(_frmRegistroGrupo.textBoxNombreG.Text))
+                Carrera carrera = lstCarreras.FirstOrDefault(carrera => carrera.NombreCarrera == _frmRegistroGrupo.comboBoxCarreras.Text);
+
+                if (grupoSeleccionado != null)
                 {
                     grupoSeleccionado.NombreGrupo = _frmRegistroGrupo.textBoxNombreG.Text;
 
@@ -77,22 +64,23 @@ namespace SistemaEducativo.Controllers.AdminControllers
                         _frmRegistroGrupo.Dispose();
                     }
                 }
-            }
-            else
-            {
-                Grupo grupo = new Grupo();
-                grupo.NombreGrupo = _frmRegistroGrupo.textBoxNombreG.Text;
-                grupo.FechaInicio = _frmRegistroGrupo.dateTimePickerFechaInicio.Value;
-                grupo.SemestreActual = Convert.ToInt32(_frmRegistroGrupo.comboBoxSemestres.Text);
-
-                if (!string.IsNullOrEmpty(_frmRegistroGrupo.comboBoxCarreras.Text) || !string.IsNullOrEmpty(_frmRegistroGrupo.comboBoxSemestres.Text))
+                else
                 {
+                    Grupo grupo = new Grupo();
+                    grupo.NombreGrupo = _frmRegistroGrupo.textBoxNombreG.Text;
+                    grupo.FechaInicio = _frmRegistroGrupo.dateTimePickerFechaInicio.Value;
+                    grupo.SemestreActual = 1;
+
+
                     if (GrupoDAO.CrearActualizarGrupo(grupo, carrera))
                     {
                         GestionGruposController.actualizarTabla?.Invoke();
                         _frmRegistroGrupo.Dispose();
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
         }
     }

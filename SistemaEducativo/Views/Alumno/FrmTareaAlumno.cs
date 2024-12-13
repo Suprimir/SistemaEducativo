@@ -15,11 +15,11 @@ namespace SistemaEducativo.Views.Alumno
     public partial class FrmTareaAlumno : Form
     {
         private TareaAlumnoController controller;
-        public FrmTareaAlumno(Tarea tarea)
+        public FrmTareaAlumno(FrmGestionTareasAlumno form, Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new TareaAlumnoController(this, tarea);
+            controller = new TareaAlumnoController(this, form, tarea);
         }
     }
 }

@@ -37,7 +37,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(11, 33);
+            lblTitulo.Location = new Point(12, 24);
             lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(38, 15);

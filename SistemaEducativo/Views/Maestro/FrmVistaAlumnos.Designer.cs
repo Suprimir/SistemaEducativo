@@ -36,6 +36,7 @@
             panelMenuStrip = new Panel();
             menuStripTareasMaestro = new MenuStrip();
             verCalificacionesToolStripMenuItem = new ToolStripMenuItem();
+            btnRegresarForm = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewAlumnos).BeginInit();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
@@ -124,12 +125,25 @@
             verCalificacionesToolStripMenuItem.Size = new Size(111, 26);
             verCalificacionesToolStripMenuItem.Text = "Ver Calificaciones";
             // 
+            // btnRegresarForm
+            // 
+            btnRegresarForm.BackColor = Color.FromArgb(51, 63, 167);
+            btnRegresarForm.FlatAppearance.BorderSize = 0;
+            btnRegresarForm.FlatStyle = FlatStyle.Flat;
+            btnRegresarForm.Image = Properties.Resources.regresarIconWhite;
+            btnRegresarForm.Location = new Point(567, 2);
+            btnRegresarForm.Name = "btnRegresarForm";
+            btnRegresarForm.Size = new Size(23, 23);
+            btnRegresarForm.TabIndex = 16;
+            btnRegresarForm.UseVisualStyleBackColor = false;
+            // 
             // FrmVistaAlumnos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
+            Controls.Add(btnRegresarForm);
             Controls.Add(panelMenuStrip);
             Controls.Add(dataGridViewAlumnos);
             FormBorderStyle = FormBorderStyle.None;
@@ -153,5 +167,6 @@
         private Panel panelMenuStrip;
         public MenuStrip menuStripTareasMaestro;
         public ToolStripMenuItem verCalificacionesToolStripMenuItem;
+        public Button btnRegresarForm;
     }
 }

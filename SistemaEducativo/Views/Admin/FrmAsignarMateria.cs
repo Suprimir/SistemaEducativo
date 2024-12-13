@@ -22,10 +22,5 @@ namespace SistemaEducativo.Views.Admin
 
             controller = new AsignarMateriaController(this, lstMaterias);
         }
-
-        private void lblCarrerasStatic_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

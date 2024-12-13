@@ -57,7 +57,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         private void btnCrearCarrera_Click(object sender, EventArgs e)
         {
             FrmRegistroCarrera frmRegistroCarrera = new FrmRegistroCarrera(null);
-            frmRegistroCarrera.Show();
+            frmRegistroCarrera.ShowDialog();
         }
 
         private void btnEliminarCarrera_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 Carrera carreraSeleccionada = lstCarreras.First(g => g.Id == Convert.ToInt32(_frmGestionCarreras.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
 
                 FrmRegistroCarrera frmRegistroCarrera = new FrmRegistroCarrera(carreraSeleccionada);
-                frmRegistroCarrera.Show();
+                frmRegistroCarrera.ShowDialog();
             }
         }
 

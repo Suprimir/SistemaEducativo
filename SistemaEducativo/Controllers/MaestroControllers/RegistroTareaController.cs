@@ -1,4 +1,5 @@
-﻿using SistemaEducativo.DAO;
+﻿using Org.BouncyCastle.Asn1.Crmf;
+using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Views.Admin;
 using SistemaEducativo.Views.Maestro;
@@ -41,33 +42,40 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnRegistrarTarea_Click(object sender, EventArgs e)
         {
-            if (tareaSeleccionada != null)
+            if (!string.IsNullOrEmpty(_frmRegistroTarea.comboBoxParciales.Text) && !string.IsNullOrEmpty(_frmRegistroTarea.textBoxTitulo.Text) && !string.IsNullOrEmpty(_frmRegistroTarea.richTextBoxDescripcion.Text))
             {
-                tareaSeleccionada.Titulo = _frmRegistroTarea.textBoxTitulo.Text;
-                tareaSeleccionada.Descripcion = _frmRegistroTarea.richTextBoxDescripcion.Text;
-                tareaSeleccionada.Fecha_Limite = _frmRegistroTarea.dateTimePickerFechaLimite.Value;
-
-                if (TareaDAO.CrearActualizarTarea(grupoSeleccionado, tareaSeleccionada))
+                if (tareaSeleccionada != null)
                 {
-                    MessageBox.Show("Registro exitoso");
-                    GestionTareasController.actualizarTabla?.Invoke();
-                    _frmRegistroTarea.Close();
+                    tareaSeleccionada.Titulo = _frmRegistroTarea.textBoxTitulo.Text;
+                    tareaSeleccionada.Descripcion = _frmRegistroTarea.richTextBoxDescripcion.Text;
+                    tareaSeleccionada.Fecha_Limite = _frmRegistroTarea.dateTimePickerFechaLimite.Value;
+
+                    if (TareaDAO.CrearActualizarTarea(grupoSeleccionado, tareaSeleccionada))
+                    {
+                        MessageBox.Show("Registro exitoso");
+                        GestionTareasController.actualizarTabla?.Invoke();
+                        _frmRegistroTarea.Close();
+                    }
+                }
+                else
+                {
+                    Tarea tarea = new Tarea();
+
+                    tarea.Parcial = Convert.ToInt32(_frmRegistroTarea.comboBoxParciales.Text);
+                    tarea.Titulo = _frmRegistroTarea.textBoxTitulo.Text;
+                    tarea.Descripcion = _frmRegistroTarea.richTextBoxDescripcion.Text;
+                    tarea.Fecha_Limite = _frmRegistroTarea.dateTimePickerFechaLimite.Value;
+
+                    if (TareaDAO.CrearActualizarTarea(grupoSeleccionado, tarea))
+                    {
+                        MessageBox.Show("Registro exitoso");
+                        GestionTareasController.actualizarTabla?.Invoke();
+                        _frmRegistroTarea.Close();
+                    }
                 }
             } else
             {
-                Tarea tarea = new Tarea();
-
-                tarea.Parcial = Convert.ToInt32(_frmRegistroTarea.comboBoxParciales.Text);
-                tarea.Titulo = _frmRegistroTarea.textBoxTitulo.Text;
-                tarea.Descripcion = _frmRegistroTarea.richTextBoxDescripcion.Text;
-                tarea.Fecha_Limite = _frmRegistroTarea.dateTimePickerFechaLimite.Value;
-
-                if (TareaDAO.CrearActualizarTarea(grupoSeleccionado, tarea))
-                {
-                    MessageBox.Show("Registro exitoso");
-                    GestionTareasController.actualizarTabla?.Invoke();
-                    _frmRegistroTarea.Close();
-                }
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
         }
     }

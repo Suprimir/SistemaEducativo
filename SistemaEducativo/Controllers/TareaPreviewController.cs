@@ -1,7 +1,9 @@
 ﻿using SistemaEducativo.Models;
+using SistemaEducativo.Properties;
 using SistemaEducativo.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace SistemaEducativo.Controllers
             tareaSeleccionado = tarea;
 
             _frmTareaPreview.Load += frmTareaPreview_Load;
+            _frmTareaPreview.btnVerArchivo.Click += btnVerArchivo_Click;
         }
 
         private void frmTareaPreview_Load(object sender, EventArgs e)
@@ -44,6 +47,25 @@ namespace SistemaEducativo.Controllers
                 _frmTareaPreview.lblPeso.Text = $"{gigaBytes} Gb";
             }
 
+            switch (fileInfo.Extension)
+            {
+                case ".pdf":
+                    _frmTareaPreview.pictureBoxFileIcon.Image = Resources.pdfIcon;
+                    break;
+                case ".jpg":
+                case ".png":
+                    _frmTareaPreview.pictureBoxFileIcon.Image = Resources.imagenIcon;
+                    break;
+            }
+        }
+
+        private void btnVerArchivo_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                FileName = tareaSeleccionado.PathArchivoTarea
+            });
         }
     }
 }

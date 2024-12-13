@@ -65,6 +65,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
                         _frmRegistroCarrera.Close();
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
         }
     }

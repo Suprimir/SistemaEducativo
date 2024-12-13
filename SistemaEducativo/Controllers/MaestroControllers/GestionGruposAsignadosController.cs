@@ -45,7 +45,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             {
                 grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()));
 
-                FrmVistaAlumnos frmVistaAlumnos = new FrmVistaAlumnos(grupoSeleccionado);
+                FrmVistaAlumnos frmVistaAlumnos = new FrmVistaAlumnos(_frmGestionGruposAsignados, grupoSeleccionado);
                 MenuMaestroController.actualizarSubmenu?.Invoke(frmVistaAlumnos);
             }
         }
@@ -59,7 +59,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
             {
                 grupoSeleccionado = lstGrupos.FirstOrDefault(grupo => grupo.NombreGrupo.Contains(_frmGestionGruposAsignados.dataGridViewGrupos.SelectedRows[0].Cells[0].Value.ToString()));
                 
-                FrmGestionTareas frmGestionTareas = new FrmGestionTareas(grupoSeleccionado);
+                FrmGestionTareas frmGestionTareas = new FrmGestionTareas(_frmGestionGruposAsignados, grupoSeleccionado);
                 MenuMaestroController.actualizarSubmenu?.Invoke(frmGestionTareas);
             }
         }

@@ -14,6 +14,7 @@ namespace SistemaEducativo.Models
         private int totalMaestros;
         private int totalAdmins;
         private int totalMaterias;
+        private int totalTareas;
 
         public int TotalGrupos { get { return totalGrupos; } set { totalGrupos = value; } }
         public int TotalUsuarios { get { return totalUsuarios; } set { totalUsuarios = value; } }
@@ -21,5 +22,6 @@ namespace SistemaEducativo.Models
         public int TotalMaestros { get { return totalMaestros; } set { totalMaestros = value; } }
         public int TotalAdmins { get { return totalAdmins; } set { totalAdmins = value; } }
         public int TotalMaterias { get { return totalMaterias; } set { totalMaterias = value; } }
+        public int TotalTareas { get { return totalTareas; } set { totalTareas = value; } }
     }
 }

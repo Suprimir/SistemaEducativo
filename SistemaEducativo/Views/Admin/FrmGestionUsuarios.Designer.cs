@@ -162,7 +162,7 @@
             comboBoxFiltroRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxFiltroRol.FlatStyle = FlatStyle.Flat;
             comboBoxFiltroRol.FormattingEnabled = true;
-            comboBoxFiltroRol.Items.AddRange(new object[] { "", "alumno", "maestro", "admin" });
+            comboBoxFiltroRol.Items.AddRange(new object[] { "", "Alumno", "Maestro", "Admin" });
             comboBoxFiltroRol.Location = new Point(476, 4);
             comboBoxFiltroRol.Name = "comboBoxFiltroRol";
             comboBoxFiltroRol.Size = new Size(121, 23);

@@ -131,9 +131,8 @@ namespace SistemaEducativo.DAO
                         return true;
                     }
                 }
-            } catch (Exception ex)
+            } catch
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
                 return false;
             }
         }
@@ -143,7 +142,7 @@ namespace SistemaEducativo.DAO
             {
                 using (MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlDB"].ConnectionString))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("DesasignarMateriaCarrera", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("RevocarMateriaCarrera", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 

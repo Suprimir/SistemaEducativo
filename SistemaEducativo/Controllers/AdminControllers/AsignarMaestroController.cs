@@ -47,7 +47,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
             foreach (var maestro in lstMaestros)
             {
-                _frmAsignarMaestro.comboBoxAlumnos.Items.Add(maestro);
+                _frmAsignarMaestro.comboBoxMaestros.Items.Add(maestro);
             }
         }
 
@@ -66,10 +66,19 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void btnAsignarMaestro_Click(object sender, EventArgs e)
         {
-            if (GrupoDAO.AsignarMaestroGrupo(_frmAsignarMaestro.comboBoxAlumnos.SelectedItem as Usuario, grupoSeleccionado, _frmAsignarMaestro.comboBoxMaterias.SelectedItem as Materia))
+            bool validarInputs = _frmAsignarMaestro.Controls.OfType<ComboBox>().All(cb => !string.IsNullOrEmpty(cb.Text));
+
+            if (validarInputs)
             {
-                MessageBox.Show("Registro exitoso.");
-                _frmAsignarMaestro.Close();
+                if (GrupoDAO.AsignarMaestroGrupo(_frmAsignarMaestro.comboBoxMaestros.SelectedItem as Usuario, grupoSeleccionado, _frmAsignarMaestro.comboBoxMaterias.SelectedItem as Materia))
+                {
+                    MessageBox.Show("Registro exitoso.");
+
+                    _frmAsignarMaestro.Close();
+                }
+            } else
+            {
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
         }
     }

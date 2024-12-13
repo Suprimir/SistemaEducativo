@@ -1,4 +1,5 @@
 ﻿using SistemaEducativo.Models;
+using SistemaEducativo.Views.Alumno;
 using SistemaEducativo.Views.Maestro;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     internal class TareaMaestroController
     {
         private FrmTareaMaestro _frmTareaMaestro;
+        private FrmGestionTareas frmGestionTareas;
         private Tarea tareaSeleccionada;
         private GrupoProfesor grupoSeleccionado;
 
-        public TareaMaestroController(FrmTareaMaestro frmTareaMaestro,GrupoProfesor grupo, Tarea tarea)
+        public TareaMaestroController(FrmTareaMaestro frmTareaMaestro, FrmGestionTareas form, GrupoProfesor grupo, Tarea tarea)
         {
             _frmTareaMaestro = frmTareaMaestro;
+            frmGestionTareas = form;
             grupoSeleccionado = grupo;
             tareaSeleccionada = tarea;
 
@@ -33,7 +36,7 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
         private void btnRevisarTarea_Click(object sender, EventArgs e)
         {
-            FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(grupoSeleccionado, tareaSeleccionada);
+            FrmRevisionTareas frmRevisionTareas = new FrmRevisionTareas(frmGestionTareas, grupoSeleccionado, tareaSeleccionada);
             MenuMaestroController.actualizarSubmenu(frmRevisionTareas);
         }
 

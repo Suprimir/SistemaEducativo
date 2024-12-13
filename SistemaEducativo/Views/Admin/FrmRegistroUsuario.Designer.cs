@@ -30,10 +30,8 @@
         {
             lblMatriculaStatic = new Label();
             textBoxMatricula = new TextBox();
-            checkBoxMatricula = new CheckBox();
             lblContraseñaStatic = new Label();
             textBoxContraseña = new TextBox();
-            checkBoxContraseña = new CheckBox();
             lblNombreStatic = new Label();
             textBoxNombre = new TextBox();
             lblApellidoPStatic = new Label();
@@ -70,18 +68,8 @@
             textBoxMatricula.Location = new Point(12, 84);
             textBoxMatricula.MaxLength = 10;
             textBoxMatricula.Name = "textBoxMatricula";
-            textBoxMatricula.Size = new Size(128, 23);
+            textBoxMatricula.Size = new Size(143, 23);
             textBoxMatricula.TabIndex = 1;
-            // 
-            // checkBoxMatricula
-            // 
-            checkBoxMatricula.AutoSize = true;
-            checkBoxMatricula.Location = new Point(146, 86);
-            checkBoxMatricula.Name = "checkBoxMatricula";
-            checkBoxMatricula.Size = new Size(64, 19);
-            checkBoxMatricula.TabIndex = 2;
-            checkBoxMatricula.Text = "Default";
-            checkBoxMatricula.UseVisualStyleBackColor = true;
             // 
             // lblContraseñaStatic
             // 
@@ -99,18 +87,8 @@
             textBoxContraseña.Location = new Point(12, 137);
             textBoxContraseña.MaxLength = 50;
             textBoxContraseña.Name = "textBoxContraseña";
-            textBoxContraseña.Size = new Size(128, 23);
+            textBoxContraseña.Size = new Size(143, 23);
             textBoxContraseña.TabIndex = 4;
-            // 
-            // checkBoxContraseña
-            // 
-            checkBoxContraseña.AutoSize = true;
-            checkBoxContraseña.Location = new Point(146, 141);
-            checkBoxContraseña.Name = "checkBoxContraseña";
-            checkBoxContraseña.Size = new Size(64, 19);
-            checkBoxContraseña.TabIndex = 5;
-            checkBoxContraseña.Text = "Default";
-            checkBoxContraseña.UseVisualStyleBackColor = true;
             // 
             // lblNombreStatic
             // 
@@ -191,6 +169,8 @@
             // checkBoxCorreo
             // 
             checkBoxCorreo.AutoSize = true;
+            checkBoxCorreo.Checked = true;
+            checkBoxCorreo.CheckState = CheckState.Checked;
             checkBoxCorreo.Location = new Point(15, 225);
             checkBoxCorreo.Name = "checkBoxCorreo";
             checkBoxCorreo.Size = new Size(64, 19);
@@ -203,7 +183,7 @@
             comboBoxRol.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRol.FlatStyle = FlatStyle.Flat;
             comboBoxRol.FormattingEnabled = true;
-            comboBoxRol.Items.AddRange(new object[] { "alumno", "maestro", "admin" });
+            comboBoxRol.Items.AddRange(new object[] { "Alumno", "Maestro", "Admin" });
             comboBoxRol.Location = new Point(268, 196);
             comboBoxRol.Name = "comboBoxRol";
             comboBoxRol.Size = new Size(99, 23);
@@ -242,7 +222,7 @@
             btnRegistrarUsuario.BackColor = Color.FromArgb(51, 63, 167);
             btnRegistrarUsuario.FlatAppearance.BorderSize = 0;
             btnRegistrarUsuario.FlatStyle = FlatStyle.Flat;
-            btnRegistrarUsuario.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistrarUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistrarUsuario.ForeColor = SystemColors.ControlLightLight;
             btnRegistrarUsuario.Location = new Point(10, 260);
             btnRegistrarUsuario.Name = "btnRegistrarUsuario";
@@ -296,10 +276,8 @@
             Controls.Add(lblApellidoPStatic);
             Controls.Add(textBoxNombre);
             Controls.Add(lblNombreStatic);
-            Controls.Add(checkBoxContraseña);
             Controls.Add(textBoxContraseña);
             Controls.Add(lblContraseñaStatic);
-            Controls.Add(checkBoxMatricula);
             Controls.Add(textBoxMatricula);
             Controls.Add(lblMatriculaStatic);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -324,9 +302,7 @@
         public TextBox textBoxApellidoP;
         public TextBox textBoxApellidoM;
         public TextBox textBoxMatricula;
-        public CheckBox checkBoxMatricula;
         public TextBox textBoxContraseña;
-        public CheckBox checkBoxContraseña;
         public TextBox textBoxCorreo;
         public ComboBox comboBoxRol;
         public ComboBox comboBoxGrupo;

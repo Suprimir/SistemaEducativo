@@ -100,7 +100,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         private void btnConfigurarPerfil_Click(object sender, EventArgs e)
         {
             FrmConfiguracionPerfil frmConfiguracionPerfil = new FrmConfiguracionPerfil();
-            frmConfiguracionPerfil.Show();
+            frmConfiguracionPerfil.ShowDialog();
         }
 
         // FUNCION PARA ABRIR FORMULARIOS EN EL PANEL SUBMENU

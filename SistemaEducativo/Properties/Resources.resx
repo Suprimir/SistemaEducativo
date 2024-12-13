@@ -187,4 +187,19 @@
   <data name="tituloIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tituloIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="imagenIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imagenIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pdfIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pdfIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="regresarIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\regresarIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="regresarIconWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\regresarIconWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\searchIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

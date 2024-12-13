@@ -28,19 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             dataGridViewGrupos = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            carrera = new DataGridViewTextBoxColumn();
-            nombreGrupo = new DataGridViewTextBoxColumn();
-            semestreActual = new DataGridViewTextBoxColumn();
-            fechaInicio = new DataGridViewTextBoxColumn();
-            editar = new DataGridViewImageColumn();
-            eliminar = new DataGridViewCheckBoxColumn();
             textBoxFiltroNombre = new TextBox();
             comboBoxFiltroCarrera = new ComboBox();
             panelMenuStrip = new Panel();
@@ -48,6 +41,13 @@
             crearGrupoToolStripMenuItem = new ToolStripMenuItem();
             eliminarGrupoToolStripMenuItem = new ToolStripMenuItem();
             asignarMaestrosToolStripMenuItem = new ToolStripMenuItem();
+            id = new DataGridViewTextBoxColumn();
+            carrera = new DataGridViewTextBoxColumn();
+            nombreGrupo = new DataGridViewTextBoxColumn();
+            semestreActual = new DataGridViewTextBoxColumn();
+            fechaInicio = new DataGridViewTextBoxColumn();
+            editar = new DataGridViewImageColumn();
+            eliminar = new DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewGrupos).BeginInit();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
@@ -59,49 +59,49 @@
             dataGridViewGrupos.AllowUserToDeleteRows = false;
             dataGridViewGrupos.AllowUserToResizeColumns = false;
             dataGridViewGrupos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewGrupos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewGrupos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewGrupos.BackgroundColor = Color.FromArgb(221, 223, 244);
             dataGridViewGrupos.BorderStyle = BorderStyle.None;
             dataGridViewGrupos.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewGrupos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewGrupos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewGrupos.Columns.AddRange(new DataGridViewColumn[] { id, carrera, nombreGrupo, semestreActual, fechaInicio, editar, eliminar });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(228, 220, 201);
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(228, 220, 201);
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dataGridViewGrupos.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewGrupos.EnableHeadersVisualStyles = false;
             dataGridViewGrupos.GridColor = Color.FromArgb(221, 223, 244);
             dataGridViewGrupos.Location = new Point(0, 69);
             dataGridViewGrupos.MultiSelect = false;
             dataGridViewGrupos.Name = "dataGridViewGrupos";
             dataGridViewGrupos.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewGrupos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewGrupos.RowHeadersVisible = false;
             dataGridViewGrupos.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.BackColor = Color.FromArgb(251, 225, 141);
-            dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(251, 225, 141);
+            dataGridViewGrupos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewGrupos.RowTemplate.DefaultCellStyle.BackColor = Color.FromArgb(221, 223, 244);
             dataGridViewGrupos.RowTemplate.DefaultCellStyle.ForeColor = SystemColors.WindowText;
             dataGridViewGrupos.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
@@ -109,61 +109,6 @@
             dataGridViewGrupos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewGrupos.Size = new Size(597, 206);
             dataGridViewGrupos.TabIndex = 0;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // carrera
-            // 
-            carrera.FillWeight = 120.815475F;
-            carrera.HeaderText = "Carrera";
-            carrera.MinimumWidth = 6;
-            carrera.Name = "carrera";
-            carrera.ReadOnly = true;
-            // 
-            // nombreGrupo
-            // 
-            nombreGrupo.FillWeight = 120.815475F;
-            nombreGrupo.HeaderText = "Nombre Grupo";
-            nombreGrupo.MinimumWidth = 6;
-            nombreGrupo.Name = "nombreGrupo";
-            nombreGrupo.ReadOnly = true;
-            // 
-            // semestreActual
-            // 
-            semestreActual.FillWeight = 55F;
-            semestreActual.HeaderText = "Semestre";
-            semestreActual.MinimumWidth = 6;
-            semestreActual.Name = "semestreActual";
-            semestreActual.ReadOnly = true;
-            // 
-            // fechaInicio
-            // 
-            fechaInicio.FillWeight = 120.815475F;
-            fechaInicio.HeaderText = "Fecha Inicio";
-            fechaInicio.MinimumWidth = 6;
-            fechaInicio.Name = "fechaInicio";
-            fechaInicio.ReadOnly = true;
-            // 
-            // editar
-            // 
-            editar.FillWeight = 40F;
-            editar.HeaderText = "";
-            editar.Image = Properties.Resources.editarIcon;
-            editar.MinimumWidth = 6;
-            editar.Name = "editar";
-            editar.Resizable = DataGridViewTriState.True;
-            // 
-            // eliminar
-            // 
-            eliminar.FillWeight = 40F;
-            eliminar.HeaderText = "";
-            eliminar.MinimumWidth = 6;
-            eliminar.Name = "eliminar";
             // 
             // textBoxFiltroNombre
             // 
@@ -232,6 +177,62 @@
             asignarMaestrosToolStripMenuItem.Name = "asignarMaestrosToolStripMenuItem";
             asignarMaestrosToolStripMenuItem.Size = new Size(110, 26);
             asignarMaestrosToolStripMenuItem.Text = "Asignar Maestros";
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // carrera
+            // 
+            carrera.FillWeight = 120.815475F;
+            carrera.HeaderText = "Carrera";
+            carrera.MinimumWidth = 6;
+            carrera.Name = "carrera";
+            carrera.ReadOnly = true;
+            // 
+            // nombreGrupo
+            // 
+            nombreGrupo.FillWeight = 120.815475F;
+            nombreGrupo.HeaderText = "Nombre Grupo";
+            nombreGrupo.MinimumWidth = 6;
+            nombreGrupo.Name = "nombreGrupo";
+            nombreGrupo.ReadOnly = true;
+            // 
+            // semestreActual
+            // 
+            semestreActual.FillWeight = 55F;
+            semestreActual.HeaderText = "Semestre";
+            semestreActual.MinimumWidth = 6;
+            semestreActual.Name = "semestreActual";
+            semestreActual.ReadOnly = true;
+            semestreActual.Visible = false;
+            // 
+            // fechaInicio
+            // 
+            fechaInicio.FillWeight = 120.815475F;
+            fechaInicio.HeaderText = "Fecha Inicio";
+            fechaInicio.MinimumWidth = 6;
+            fechaInicio.Name = "fechaInicio";
+            fechaInicio.ReadOnly = true;
+            // 
+            // editar
+            // 
+            editar.FillWeight = 40F;
+            editar.HeaderText = "";
+            editar.Image = Properties.Resources.editarIcon;
+            editar.MinimumWidth = 6;
+            editar.Name = "editar";
+            editar.Resizable = DataGridViewTriState.True;
+            // 
+            // eliminar
+            // 
+            eliminar.FillWeight = 40F;
+            eliminar.HeaderText = "";
+            eliminar.MinimumWidth = 6;
+            eliminar.Name = "eliminar";
             // 
             // FrmGestionGrupos
             // 

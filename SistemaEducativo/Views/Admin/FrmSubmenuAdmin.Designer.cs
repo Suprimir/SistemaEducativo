@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             pictureBox1 = new PictureBox();
             lblCantGruposStatic = new Label();
             lblCantUsuariosStatic = new Label();
@@ -41,6 +42,9 @@
             lblCantMaestros = new Label();
             lblCantAdmins = new Label();
             lblCantMaterias = new Label();
+            lblHora = new Label();
+            label2 = new Label();
+            timerMenu = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +72,7 @@
             // 
             lblCantUsuariosStatic.AutoSize = true;
             lblCantUsuariosStatic.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCantUsuariosStatic.Location = new Point(318, 93);
+            lblCantUsuariosStatic.Location = new Point(318, 80);
             lblCantUsuariosStatic.Name = "lblCantUsuariosStatic";
             lblCantUsuariosStatic.Size = new Size(147, 17);
             lblCantUsuariosStatic.TabIndex = 2;
@@ -78,7 +82,7 @@
             // 
             lblCantMateriasStatic.AutoSize = true;
             lblCantMateriasStatic.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCantMateriasStatic.Location = new Point(310, 215);
+            lblCantMateriasStatic.Location = new Point(310, 191);
             lblCantMateriasStatic.Name = "lblCantMateriasStatic";
             lblCantMateriasStatic.Size = new Size(147, 17);
             lblCantMateriasStatic.TabIndex = 3;
@@ -88,7 +92,7 @@
             // 
             lblCantAlumnosStatic.AutoSize = true;
             lblCantAlumnosStatic.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCantAlumnosStatic.Location = new Point(400, 119);
+            lblCantAlumnosStatic.Location = new Point(400, 106);
             lblCantAlumnosStatic.Name = "lblCantAlumnosStatic";
             lblCantAlumnosStatic.Size = new Size(65, 17);
             lblCantAlumnosStatic.TabIndex = 4;
@@ -98,7 +102,7 @@
             // 
             lblCantMaestrosStatic.AutoSize = true;
             lblCantMaestrosStatic.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCantMaestrosStatic.Location = new Point(398, 145);
+            lblCantMaestrosStatic.Location = new Point(398, 132);
             lblCantMaestrosStatic.Name = "lblCantMaestrosStatic";
             lblCantMaestrosStatic.Size = new Size(67, 17);
             lblCantMaestrosStatic.TabIndex = 5;
@@ -108,7 +112,7 @@
             // 
             lblCantAdminsStatic.AutoSize = true;
             lblCantAdminsStatic.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCantAdminsStatic.Location = new Point(408, 172);
+            lblCantAdminsStatic.Location = new Point(408, 159);
             lblCantAdminsStatic.Name = "lblCantAdminsStatic";
             lblCantAdminsStatic.Size = new Size(57, 17);
             lblCantAdminsStatic.TabIndex = 6;
@@ -126,7 +130,7 @@
             // lblCantUsuarios
             // 
             lblCantUsuarios.AutoSize = true;
-            lblCantUsuarios.Location = new Point(491, 95);
+            lblCantUsuarios.Location = new Point(491, 82);
             lblCantUsuarios.Name = "lblCantUsuarios";
             lblCantUsuarios.Size = new Size(38, 15);
             lblCantUsuarios.TabIndex = 8;
@@ -135,7 +139,7 @@
             // lblCantAlumnos
             // 
             lblCantAlumnos.AutoSize = true;
-            lblCantAlumnos.Location = new Point(491, 121);
+            lblCantAlumnos.Location = new Point(491, 108);
             lblCantAlumnos.Name = "lblCantAlumnos";
             lblCantAlumnos.Size = new Size(38, 15);
             lblCantAlumnos.TabIndex = 9;
@@ -144,7 +148,7 @@
             // lblCantMaestros
             // 
             lblCantMaestros.AutoSize = true;
-            lblCantMaestros.Location = new Point(491, 147);
+            lblCantMaestros.Location = new Point(491, 134);
             lblCantMaestros.Name = "lblCantMaestros";
             lblCantMaestros.Size = new Size(38, 15);
             lblCantMaestros.TabIndex = 10;
@@ -153,7 +157,7 @@
             // lblCantAdmins
             // 
             lblCantAdmins.AutoSize = true;
-            lblCantAdmins.Location = new Point(491, 174);
+            lblCantAdmins.Location = new Point(491, 161);
             lblCantAdmins.Name = "lblCantAdmins";
             lblCantAdmins.Size = new Size(38, 15);
             lblCantAdmins.TabIndex = 11;
@@ -162,11 +166,34 @@
             // lblCantMaterias
             // 
             lblCantMaterias.AutoSize = true;
-            lblCantMaterias.Location = new Point(491, 217);
+            lblCantMaterias.Location = new Point(491, 193);
             lblCantMaterias.Name = "lblCantMaterias";
             lblCantMaterias.Size = new Size(38, 15);
             lblCantMaterias.TabIndex = 12;
             lblCantMaterias.Text = "label1";
+            // 
+            // lblHora
+            // 
+            lblHora.AutoSize = true;
+            lblHora.Location = new Point(491, 217);
+            lblHora.Name = "lblHora";
+            lblHora.Size = new Size(31, 15);
+            lblHora.TabIndex = 14;
+            lblHora.Text = "hora";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(310, 215);
+            label2.Name = "label2";
+            label2.Size = new Size(80, 17);
+            label2.TabIndex = 13;
+            label2.Text = "Hora Actual";
+            // 
+            // timerMenu
+            // 
+            timerMenu.Interval = 1000;
             // 
             // FrmSubmenuAdmin
             // 
@@ -174,6 +201,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
+            Controls.Add(lblHora);
+            Controls.Add(label2);
             Controls.Add(lblCantMaterias);
             Controls.Add(lblCantAdmins);
             Controls.Add(lblCantMaestros);
@@ -210,5 +239,8 @@
         public Label lblCantMaestros;
         public Label lblCantAdmins;
         public Label lblCantMaterias;
+        public Label lblHora;
+        private Label label2;
+        public System.Windows.Forms.Timer timerMenu;
     }
 }

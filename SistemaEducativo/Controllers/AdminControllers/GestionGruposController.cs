@@ -101,7 +101,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         private void btnCrearGrupo_Click(object sender, EventArgs e)
         {
             FrmRegistroGrupo frmRegistroGrupo = new FrmRegistroGrupo(null);
-            frmRegistroGrupo.Show();
+            frmRegistroGrupo.ShowDialog();
         }
 
         // Pregunta si en verdad desea eliminar un grupo y si dice que si le pide a la base de datos eliminar ese registro.
@@ -131,7 +131,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
             if (lstGruposSeleccionados.Count == 1)
             {
                 FrmAsignarMaestro frmAsignarMaestro = new FrmAsignarMaestro(lstGruposSeleccionados[0]);
-                frmAsignarMaestro.Show();
+                frmAsignarMaestro.ShowDialog();
             } else
             {
                 MessageBox.Show("Seleccione 1 solo grupo para esta accion.");
@@ -145,7 +145,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 Grupo grupoSeleccionado = lstGrupos.First(g => g.Id == Convert.ToInt32(_frmGestionGrupos.dataGridViewGrupos.Rows[e.RowIndex].Cells[0].Value));
 
                 FrmRegistroGrupo frmRegistroGrupo = new FrmRegistroGrupo(grupoSeleccionado);
-                frmRegistroGrupo.Show();
+                frmRegistroGrupo.ShowDialog();
             }
         }
 

@@ -34,30 +34,37 @@ namespace SistemaEducativo.Controllers.AdminControllers
 
         private void btnRegistrarMateria_Click(object sender, EventArgs e)
         {
-            if(materiaSeleccionado != null)
+            if (!string.IsNullOrEmpty(_frmRegistroMateria.textBoxNombreMateria.Text) && !string.IsNullOrEmpty(_frmRegistroMateria.richTextBoxDescripcion.Text))
             {
-                materiaSeleccionado.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
-                materiaSeleccionado.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
-
-                if (MateriaDAO.CrearActualizarMateria(materiaSeleccionado)) 
+                if (materiaSeleccionado != null)
                 {
-                    MessageBox.Show("Registro exitoso.");
-                    GestionMateriasController.actualizarTabla?.Invoke();
-                    _frmRegistroMateria.Close();
+                    materiaSeleccionado.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
+                    materiaSeleccionado.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
+
+                    if (MateriaDAO.CrearActualizarMateria(materiaSeleccionado))
+                    {
+                        MessageBox.Show("Registro exitoso.");
+                        GestionMateriasController.actualizarTabla?.Invoke();
+                        _frmRegistroMateria.Close();
+                    }
+                }
+                else
+                {
+                    Materia materia = new Materia();
+
+                    materia.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
+                    materia.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
+
+                    if (MateriaDAO.CrearActualizarMateria(materia))
+                    {
+                        MessageBox.Show("Registro exitoso.");
+                        GestionMateriasController.actualizarTabla?.Invoke();
+                        _frmRegistroMateria.Close();
+                    }
                 }
             } else
             {
-                Materia materia = new Materia();
-
-                materia.NombreMateria = _frmRegistroMateria.textBoxNombreMateria.Text;
-                materia.Descripcion = _frmRegistroMateria.richTextBoxDescripcion.Text;
-
-                if (MateriaDAO.CrearActualizarMateria(materia))
-                {
-                    MessageBox.Show("Registro exitoso.");
-                    GestionMateriasController.actualizarTabla?.Invoke();
-                    _frmRegistroMateria.Close();
-                }
+                MessageBox.Show("Debes rellenar todos los campos.");
             }
         }
     }

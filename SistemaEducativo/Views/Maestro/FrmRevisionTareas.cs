@@ -15,11 +15,11 @@ namespace SistemaEducativo.Views.Maestro
     public partial class FrmRevisionTareas : Form
     {
         private RevisionTareasController controller;
-        public FrmRevisionTareas(GrupoProfesor grupo, Tarea tarea)
+        public FrmRevisionTareas(Form form, GrupoProfesor grupo, Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new RevisionTareasController(this, grupo, tarea);
+            controller = new RevisionTareasController(this, form, grupo, tarea);
         }
     }
 }

@@ -16,11 +16,11 @@ namespace SistemaEducativo.Views.Maestro
     {
         private GestionTareasController controller;
 
-        public FrmGestionTareas(GrupoProfesor grupo)
+        public FrmGestionTareas(Form form, GrupoProfesor grupo)
         {
             InitializeComponent();
 
-            controller = new GestionTareasController(this, grupo);
+            controller = new GestionTareasController(this, form, grupo);
         }
     }
 }

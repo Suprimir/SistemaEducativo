@@ -44,6 +44,7 @@
             textBoxContraseñaActual.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             textBoxContraseñaActual.Location = new Point(10, 12);
             textBoxContraseñaActual.Name = "textBoxContraseñaActual";
+            textBoxContraseñaActual.PasswordChar = '●';
             textBoxContraseñaActual.PlaceholderText = "Contraseña Actual";
             textBoxContraseñaActual.Size = new Size(156, 23);
             textBoxContraseñaActual.TabIndex = 1;

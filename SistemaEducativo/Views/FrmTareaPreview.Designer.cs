@@ -28,59 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            pictureBoxFileIcon = new PictureBox();
             lblExtension = new Label();
             lblPeso = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            btnVerArchivo = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxFileIcon).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBoxFileIcon
             // 
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(73, 73);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pictureBoxFileIcon.Location = new Point(12, 7);
+            pictureBoxFileIcon.Margin = new Padding(3, 2, 3, 2);
+            pictureBoxFileIcon.Name = "pictureBoxFileIcon";
+            pictureBoxFileIcon.Size = new Size(39, 42);
+            pictureBoxFileIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxFileIcon.TabIndex = 0;
+            pictureBoxFileIcon.TabStop = false;
             // 
             // lblExtension
             // 
             lblExtension.AutoSize = true;
             lblExtension.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblExtension.Location = new Point(79, 9);
+            lblExtension.Location = new Point(57, 7);
             lblExtension.Name = "lblExtension";
-            lblExtension.Size = new Size(75, 20);
+            lblExtension.Size = new Size(58, 15);
             lblExtension.TabIndex = 1;
             lblExtension.Text = "extension";
             // 
             // lblPeso
             // 
             lblPeso.AutoSize = true;
-            lblPeso.Location = new Point(79, 46);
+            lblPeso.Location = new Point(57, 34);
             lblPeso.Name = "lblPeso";
-            lblPeso.Size = new Size(41, 20);
+            lblPeso.Size = new Size(32, 15);
             lblPeso.TabIndex = 2;
             lblPeso.Text = "peso";
             // 
+            // btnVerArchivo
+            // 
+            btnVerArchivo.FlatAppearance.BorderSize = 0;
+            btnVerArchivo.FlatStyle = FlatStyle.Flat;
+            btnVerArchivo.Image = Properties.Resources.searchIcon;
+            btnVerArchivo.Location = new Point(129, 34);
+            btnVerArchivo.Name = "btnVerArchivo";
+            btnVerArchivo.Size = new Size(23, 23);
+            btnVerArchivo.TabIndex = 3;
+            btnVerArchivo.UseVisualStyleBackColor = true;
+            // 
             // FrmTareaPreview
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(174, 75);
+            BackColor = Color.FromArgb(254, 254, 255);
+            ClientSize = new Size(152, 56);
+            Controls.Add(btnVerArchivo);
             Controls.Add(lblPeso);
             Controls.Add(lblExtension);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBoxFileIcon);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmTareaPreview";
             Text = "FrmTareaPreview";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxFileIcon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        public PictureBox pictureBox1;
+        public PictureBox pictureBoxFileIcon;
         public Label lblExtension;
         public Label lblPeso;
+        public Button btnVerArchivo;
     }
 }

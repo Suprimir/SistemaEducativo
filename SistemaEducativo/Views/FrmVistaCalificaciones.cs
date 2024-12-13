@@ -15,11 +15,11 @@ namespace SistemaEducativo.Views.Alumno
     public partial class FrmVistaCalificaciones : Form
     {
         private VistaCalificacionesController controller;
-        public FrmVistaCalificaciones(Usuario usuario, string? materiaNombre)
+        public FrmVistaCalificaciones(Form? form, Usuario usuario, string? materiaNombre)
         {
             InitializeComponent();
 
-            controller = new VistaCalificacionesController(this, usuario, materiaNombre);
+            controller = new VistaCalificacionesController(this, form, usuario, materiaNombre);
         }
     }
 }

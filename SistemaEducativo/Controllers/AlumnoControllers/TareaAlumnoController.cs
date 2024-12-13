@@ -11,11 +11,13 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
     internal class TareaAlumnoController
     {
         private FrmTareaAlumno _frmTareaAlumno;
+        private FrmGestionTareasAlumno frmGestionTareasAlumno;
         private Tarea tareaSeleccionada;
 
-        public TareaAlumnoController(FrmTareaAlumno frmTareaAlumno, Tarea tarea)
+        public TareaAlumnoController(FrmTareaAlumno frmTareaAlumno, FrmGestionTareasAlumno form, Tarea tarea)
         {
             _frmTareaAlumno = frmTareaAlumno;
+            frmGestionTareasAlumno = form;
             tareaSeleccionada = tarea;
 
             _frmTareaAlumno.Load += frmTareaAlumno_Load;
@@ -31,7 +33,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
         private void btnVerTarea_Click(object sender, EventArgs e)
         {
-            FrmVerTarea frmVerTarea = new FrmVerTarea(tareaSeleccionada);
+            FrmVerTarea frmVerTarea = new FrmVerTarea(frmGestionTareasAlumno, tareaSeleccionada);
             MenuAlumnoController.actualizarSubmenu(frmVerTarea);
         }
     }

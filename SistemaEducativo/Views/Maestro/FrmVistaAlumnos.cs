@@ -15,11 +15,11 @@ namespace SistemaEducativo.Views.Maestro
     public partial class FrmVistaAlumnos : Form
     {
         private VistaAlumnosController controller;
-        public FrmVistaAlumnos(GrupoProfesor grupo)
+        public FrmVistaAlumnos(Form form, GrupoProfesor grupo)
         {
             InitializeComponent();
 
-            controller = new VistaAlumnosController(this, grupo);
+            controller = new VistaAlumnosController(this, form, grupo);
         }
     }
 }

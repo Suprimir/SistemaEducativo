@@ -46,15 +46,15 @@ namespace SistemaEducativo.Controllers
 
                     switch (usuario.Rol)
                     {
-                        case "alumno":
+                        case "Alumno":
                             frmMenuAlumno = new FrmMenuAlumno(_frmLogin);
                             frmMenuAlumno.Show();
                             break;
-                        case "maestro":
+                        case "Maestro":
                             frmMenuMaestro = new FrmMenuMaestro(_frmLogin, usuario);
                             frmMenuMaestro.Show();
                             break;
-                        case "admin":
+                        case "Admin":
                             frmMenuAdmin = new FrmMenuAdmin(_frmLogin, usuario);
                             frmMenuAdmin.Show();
                             break;

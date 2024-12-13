@@ -15,20 +15,23 @@ namespace SistemaEducativo.Controllers.MaestroControllers
     public class GestionTareasController
     {
         private FrmGestionTareas _frmGestionTareas;
+        private Form frmAnterior;
         public GrupoProfesor grupoSeleccionado;
         public static List<Tarea> lstTareasSeleccionadas = new List<Tarea>();
         private List<Tarea> lstTareas;
         public static Action actualizarTabla;
 
-        public GestionTareasController(FrmGestionTareas frmGestionTareas, GrupoProfesor grupo)
+        public GestionTareasController(FrmGestionTareas frmGestionTareas, Form form, GrupoProfesor grupo)
         {
             _frmGestionTareas = frmGestionTareas;
+            frmAnterior = form;
             grupoSeleccionado = grupo;
 
             lstTareas = TareaDAO.ObtenerTareas(grupoSeleccionado);
             actualizarTabla = () => { lstTareas = TareaDAO.ObtenerTareas(grupoSeleccionado); frmGestionTareas_Load(null, null); };
 
             _frmGestionTareas.Load += frmGestionTareas_Load;
+            _frmGestionTareas.btnRegresarForm.Click += btnRegresarForm_Click;
             _frmGestionTareas.crearTareaToolStripMenuItem.Click += btnCrearTarea_Click; // Crear Tarea Asignado a Boton
             _frmGestionTareas.editarTareaToolStripMenuItem.Click += btnEditarTarea_Click; // Crear Tarea Asignado a Boton
             _frmGestionTareas.eliminarTareaToolStripMenuItem.Click += btnEliminarTarea_Click;
@@ -59,12 +62,17 @@ namespace SistemaEducativo.Controllers.MaestroControllers
 
                 foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == i))
                 {
-                    FrmTareaMaestro frmTareaAlumno = new FrmTareaMaestro(grupoSeleccionado, tarea);
+                    FrmTareaMaestro frmTareaAlumno = new FrmTareaMaestro(_frmGestionTareas, grupoSeleccionado, tarea);
                     frmTareaAlumno.TopLevel = false;
                     _frmGestionTareas.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
                     frmTareaAlumno.Show();
                 }
             }
+        }
+
+        private void btnRegresarForm_Click(object sender, EventArgs e)
+        {
+            MenuMaestroController.actualizarSubmenu(frmAnterior);
         }
 
         private void btnCrearTarea_Click(object sender, EventArgs e) // Funcion Crear Tarea

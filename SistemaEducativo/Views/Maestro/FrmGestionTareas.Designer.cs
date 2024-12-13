@@ -34,6 +34,7 @@
             crearTareaToolStripMenuItem = new ToolStripMenuItem();
             editarTareaToolStripMenuItem = new ToolStripMenuItem();
             eliminarTareaToolStripMenuItem = new ToolStripMenuItem();
+            btnRegresarForm = new Button();
             panelMenuStrip.SuspendLayout();
             menuStripTareasMaestro.SuspendLayout();
             SuspendLayout();
@@ -94,12 +95,25 @@
             eliminarTareaToolStripMenuItem.Size = new Size(93, 26);
             eliminarTareaToolStripMenuItem.Text = "Eliminar Tarea";
             // 
+            // btnRegresarForm
+            // 
+            btnRegresarForm.BackColor = Color.FromArgb(51, 63, 167);
+            btnRegresarForm.FlatAppearance.BorderSize = 0;
+            btnRegresarForm.FlatStyle = FlatStyle.Flat;
+            btnRegresarForm.Image = Properties.Resources.regresarIconWhite;
+            btnRegresarForm.Location = new Point(549, 2);
+            btnRegresarForm.Name = "btnRegresarForm";
+            btnRegresarForm.Size = new Size(23, 23);
+            btnRegresarForm.TabIndex = 17;
+            btnRegresarForm.UseVisualStyleBackColor = false;
+            // 
             // FrmGestionTareas
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(596, 275);
+            Controls.Add(btnRegresarForm);
             Controls.Add(panelMenuStrip);
             Controls.Add(flowLayoutPanelTareas);
             FormBorderStyle = FormBorderStyle.None;
@@ -120,5 +134,6 @@
         public ToolStripMenuItem crearTareaToolStripMenuItem;
         public ToolStripMenuItem editarTareaToolStripMenuItem;
         public ToolStripMenuItem eliminarTareaToolStripMenuItem;
+        public Button btnRegresarForm;
     }
 }

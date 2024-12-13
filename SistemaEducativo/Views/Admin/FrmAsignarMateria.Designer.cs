@@ -56,7 +56,6 @@
             lblCarrerasStatic.Size = new Size(49, 15);
             lblCarrerasStatic.TabIndex = 2;
             lblCarrerasStatic.Text = "Carreras";
-            lblCarrerasStatic.Click += lblCarrerasStatic_Click;
             // 
             // comboBoxCarreras
             // 

@@ -63,7 +63,7 @@ namespace SistemaEducativo.Controllers.AlumnoControllers
 
                 foreach (var tarea in lstTareas.Where(tarea => tarea.Parcial == j && tarea.Semestre == filtroSemestre && tarea.MateriaNombre == filtroMateria))
                 {
-                    FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(tarea);
+                    FrmTareaAlumno frmTareaAlumno = new FrmTareaAlumno(_frmGestionTareasAlumno, tarea);
                     frmTareaAlumno.TopLevel = false;
                     _frmGestionTareasAlumno.flowLayoutPanelTareas.Controls.Add(frmTareaAlumno);
                     frmTareaAlumno.Show();

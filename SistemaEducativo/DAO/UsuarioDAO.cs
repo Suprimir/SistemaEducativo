@@ -160,7 +160,7 @@ namespace SistemaEducativo.DAO
                 MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
                 return false;
             }
-        } // Ocupa explicacion ?? bueno elimina un usuario 
+        } // bueno elimina un usuario 
 
         public static List<Usuario> ObtenerAlumnos(Grupo grupo)
         {
@@ -226,7 +226,7 @@ namespace SistemaEducativo.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrio un problema | ERROR {ex}");
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }

@@ -16,11 +16,11 @@ namespace SistemaEducativo.Views.Alumno
     {
         private VerTareaController controller;
 
-        public FrmVerTarea(Tarea tarea)
+        public FrmVerTarea(FrmGestionTareasAlumno form, Tarea tarea)
         {
             InitializeComponent();
 
-            controller = new VerTareaController(this, tarea);
+            controller = new VerTareaController(this, form, tarea);
         }
     }
 }

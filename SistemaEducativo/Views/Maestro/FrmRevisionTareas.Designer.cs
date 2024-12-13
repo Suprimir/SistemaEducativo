@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dataGridViewTareas = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
@@ -37,10 +37,12 @@
             calificacion = new DataGridViewTextBoxColumn();
             btnCalificarTarea = new Button();
             lblCalificacionStatic = new Label();
-            textBoxCalificacion = new TextBox();
-            btnVisualizarTarea = new Button();
             textBoxFiltroNombre = new TextBox();
+            panelTareaPreview = new Panel();
+            btnRegresarForm = new Button();
+            numericUpDownCalificacion = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownCalificacion).BeginInit();
             SuspendLayout();
             // 
             // dataGridViewTareas
@@ -54,14 +56,14 @@
             dataGridViewTareas.BorderStyle = BorderStyle.None;
             dataGridViewTareas.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dataGridViewTareas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(51, 63, 167);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.Window;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(51, 63, 167);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Window;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewTareas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTareas.Columns.AddRange(new DataGridViewColumn[] { id, nombre, estado, fechaEntregada, calificacion });
             dataGridViewTareas.EnableHeadersVisualStyles = false;
@@ -77,7 +79,7 @@
             dataGridViewTareas.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.FromArgb(254, 254, 255);
             dataGridViewTareas.RowTemplate.DefaultCellStyle.SelectionForeColor = SystemColors.WindowText;
             dataGridViewTareas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewTareas.Size = new Size(451, 242);
+            dataGridViewTareas.Size = new Size(428, 242);
             dataGridViewTareas.TabIndex = 0;
             // 
             // id
@@ -121,9 +123,9 @@
             btnCalificarTarea.FlatStyle = FlatStyle.Flat;
             btnCalificarTarea.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCalificarTarea.ForeColor = SystemColors.Window;
-            btnCalificarTarea.Location = new Point(457, 225);
+            btnCalificarTarea.Location = new Point(434, 225);
             btnCalificarTarea.Name = "btnCalificarTarea";
-            btnCalificarTarea.Size = new Size(127, 38);
+            btnCalificarTarea.Size = new Size(150, 38);
             btnCalificarTarea.TabIndex = 1;
             btnCalificarTarea.Text = "Calificar";
             btnCalificarTarea.UseVisualStyleBackColor = false;
@@ -132,33 +134,11 @@
             // 
             lblCalificacionStatic.AutoSize = true;
             lblCalificacionStatic.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCalificacionStatic.Location = new Point(457, 33);
+            lblCalificacionStatic.Location = new Point(434, 33);
             lblCalificacionStatic.Name = "lblCalificacionStatic";
             lblCalificacionStatic.Size = new Size(68, 15);
             lblCalificacionStatic.TabIndex = 2;
             lblCalificacionStatic.Text = "Calificacion";
-            // 
-            // textBoxCalificacion
-            // 
-            textBoxCalificacion.BorderStyle = BorderStyle.None;
-            textBoxCalificacion.Font = new Font("Segoe UI", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxCalificacion.Location = new Point(457, 51);
-            textBoxCalificacion.MaxLength = 2;
-            textBoxCalificacion.Name = "textBoxCalificacion";
-            textBoxCalificacion.Size = new Size(127, 23);
-            textBoxCalificacion.TabIndex = 5;
-            // 
-            // btnVisualizarTarea
-            // 
-            btnVisualizarTarea.BackColor = Color.FromArgb(254, 254, 255);
-            btnVisualizarTarea.FlatAppearance.BorderSize = 0;
-            btnVisualizarTarea.FlatStyle = FlatStyle.Flat;
-            btnVisualizarTarea.Location = new Point(457, 80);
-            btnVisualizarTarea.Name = "btnVisualizarTarea";
-            btnVisualizarTarea.Size = new Size(127, 38);
-            btnVisualizarTarea.TabIndex = 6;
-            btnVisualizarTarea.Text = "Visualizar Tarea";
-            btnVisualizarTarea.UseVisualStyleBackColor = false;
             // 
             // textBoxFiltroNombre
             // 
@@ -167,8 +147,38 @@
             textBoxFiltroNombre.Location = new Point(0, 4);
             textBoxFiltroNombre.Name = "textBoxFiltroNombre";
             textBoxFiltroNombre.PlaceholderText = "Nombre del Alumno";
-            textBoxFiltroNombre.Size = new Size(451, 23);
+            textBoxFiltroNombre.Size = new Size(428, 23);
             textBoxFiltroNombre.TabIndex = 7;
+            // 
+            // panelTareaPreview
+            // 
+            panelTareaPreview.Location = new Point(434, 81);
+            panelTareaPreview.Margin = new Padding(3, 2, 3, 2);
+            panelTareaPreview.Name = "panelTareaPreview";
+            panelTareaPreview.Size = new Size(152, 56);
+            panelTareaPreview.TabIndex = 12;
+            // 
+            // btnRegresarForm
+            // 
+            btnRegresarForm.BackColor = Color.FromArgb(221, 223, 244);
+            btnRegresarForm.FlatAppearance.BorderSize = 0;
+            btnRegresarForm.FlatStyle = FlatStyle.Flat;
+            btnRegresarForm.Image = Properties.Resources.regresarIcon;
+            btnRegresarForm.Location = new Point(563, 4);
+            btnRegresarForm.Name = "btnRegresarForm";
+            btnRegresarForm.Size = new Size(23, 23);
+            btnRegresarForm.TabIndex = 17;
+            btnRegresarForm.UseVisualStyleBackColor = false;
+            // 
+            // numericUpDownCalificacion
+            // 
+            numericUpDownCalificacion.BorderStyle = BorderStyle.None;
+            numericUpDownCalificacion.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            numericUpDownCalificacion.Location = new Point(434, 51);
+            numericUpDownCalificacion.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDownCalificacion.Name = "numericUpDownCalificacion";
+            numericUpDownCalificacion.Size = new Size(152, 25);
+            numericUpDownCalificacion.TabIndex = 18;
             // 
             // FrmRevisionTareas
             // 
@@ -176,9 +186,10 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(592, 275);
+            Controls.Add(numericUpDownCalificacion);
+            Controls.Add(btnRegresarForm);
+            Controls.Add(panelTareaPreview);
             Controls.Add(textBoxFiltroNombre);
-            Controls.Add(btnVisualizarTarea);
-            Controls.Add(textBoxCalificacion);
             Controls.Add(lblCalificacionStatic);
             Controls.Add(btnCalificarTarea);
             Controls.Add(dataGridViewTareas);
@@ -187,6 +198,7 @@
             Name = "FrmRevisionTareas";
             Text = "Revision Tareas";
             ((System.ComponentModel.ISupportInitialize)dataGridViewTareas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownCalificacion).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,13 +208,14 @@
         private Button button2;
         public DataGridView dataGridViewTareas;
         public Button btnCalificarTarea;
-        public Button btnVisualizarTarea;
-        public TextBox textBoxCalificacion;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn estado;
         private DataGridViewTextBoxColumn fechaEntregada;
         private DataGridViewTextBoxColumn calificacion;
         public TextBox textBoxFiltroNombre;
+        public Panel panelTareaPreview;
+        public Button btnRegresarForm;
+        public NumericUpDown numericUpDownCalificacion;
     }
 }

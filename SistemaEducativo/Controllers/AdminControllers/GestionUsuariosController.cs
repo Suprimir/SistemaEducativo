@@ -72,7 +72,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
         private void btnCrearUsuario_Click(object sender, EventArgs e)
         {
             FrmRegistroUsuario frmRegistroUsuario = new FrmRegistroUsuario(null);
-            frmRegistroUsuario.Show();
+            frmRegistroUsuario.ShowDialog();
         }
 
         // elimina el usuario obteniendo el id de la fila seleccionada
@@ -101,9 +101,9 @@ namespace SistemaEducativo.Controllers.AdminControllers
         {
             if (lstUsuariosSeleccionados.Count == 1)
             {
-                if (lstUsuariosSeleccionados[0].Rol == "alumno")
+                if (lstUsuariosSeleccionados[0].Rol == "Alumno")
                 {
-                    FrmVistaCalificaciones frmVistaCalificaciones = new FrmVistaCalificaciones(lstUsuariosSeleccionados[0], null);
+                    FrmVistaCalificaciones frmVistaCalificaciones = new FrmVistaCalificaciones(_frmGestionUsuarios, lstUsuariosSeleccionados[0], null);
                     MenuAdminController.actualizarSubmenu(frmVistaCalificaciones);
                 } else
                 {
@@ -122,7 +122,7 @@ namespace SistemaEducativo.Controllers.AdminControllers
                 Usuario usuarioSeleccionado = lstUsuarios.First(g => g.Id == Convert.ToInt32(_frmGestionUsuarios.dataGridViewUsuarios.Rows[e.RowIndex].Cells[0].Value));
                 
                 FrmRegistroUsuario frmRegistroUsuario = new FrmRegistroUsuario(usuarioSeleccionado);
-                frmRegistroUsuario.Show();
+                frmRegistroUsuario.ShowDialog();
             }
         }
 

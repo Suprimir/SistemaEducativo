@@ -38,7 +38,7 @@
             lblCarreraStatic = new Label();
             lblCarrera = new Label();
             lblGrupo = new Label();
-            comboBoxAlumnos = new ComboBox();
+            comboBoxMaestros = new ComboBox();
             SuspendLayout();
             // 
             // lblGrupoStatic
@@ -143,15 +143,15 @@
             lblGrupo.TabIndex = 12;
             lblGrupo.Text = "nombreGrupo";
             // 
-            // comboBoxAlumnos
+            // comboBoxMaestros
             // 
-            comboBoxAlumnos.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxAlumnos.FlatStyle = FlatStyle.Flat;
-            comboBoxAlumnos.FormattingEnabled = true;
-            comboBoxAlumnos.Location = new Point(12, 130);
-            comboBoxAlumnos.Name = "comboBoxAlumnos";
-            comboBoxAlumnos.Size = new Size(255, 23);
-            comboBoxAlumnos.TabIndex = 13;
+            comboBoxMaestros.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMaestros.FlatStyle = FlatStyle.Flat;
+            comboBoxMaestros.FormattingEnabled = true;
+            comboBoxMaestros.Location = new Point(12, 130);
+            comboBoxMaestros.Name = "comboBoxMaestros";
+            comboBoxMaestros.Size = new Size(255, 23);
+            comboBoxMaestros.TabIndex = 13;
             // 
             // FrmAsignarMaestro
             // 
@@ -159,7 +159,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(221, 223, 244);
             ClientSize = new Size(373, 165);
-            Controls.Add(comboBoxAlumnos);
+            Controls.Add(comboBoxMaestros);
             Controls.Add(lblGrupo);
             Controls.Add(lblCarrera);
             Controls.Add(lblCarreraStatic);
@@ -190,6 +190,6 @@
         public Label lblCarrera;
         public ComboBox comboBoxMaterias;
         public Button btnAsignarMaestro;
-        public ComboBox comboBoxAlumnos;
+        public ComboBox comboBoxMaestros;
     }
 }

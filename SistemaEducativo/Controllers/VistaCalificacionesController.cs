@@ -1,4 +1,7 @@
-﻿using SistemaEducativo.DAO;
+﻿using SistemaEducativo.Controllers.AdminControllers;
+using SistemaEducativo.Controllers.AlumnoControllers;
+using SistemaEducativo.Controllers.MaestroControllers;
+using SistemaEducativo.DAO;
 using SistemaEducativo.Models;
 using SistemaEducativo.Sesion;
 using SistemaEducativo.Views.Alumno;
@@ -13,6 +16,7 @@ namespace SistemaEducativo.Controllers
     internal class VistaCalificacionesController
     {
         private FrmVistaCalificaciones _frmVistaCalificacionesAlumno;
+        private Form? frmAnterior;
         private List<Calificacion> lstCalificaciones;
         private List<Calificacion> lstCalificacionesFiltro = new List<Calificacion>();
         private Grupo grupo;
@@ -21,9 +25,10 @@ namespace SistemaEducativo.Controllers
         private string? nombreMateriaSeleccionada;
         private int semestreFiltro = 1;
 
-        public VistaCalificacionesController(FrmVistaCalificaciones frmVistaCalificacionesAlumno, Usuario usuario, string? nombreMateria)
+        public VistaCalificacionesController(FrmVistaCalificaciones frmVistaCalificacionesAlumno, Form? form, Usuario usuario, string? nombreMateria)
         {
             _frmVistaCalificacionesAlumno = frmVistaCalificacionesAlumno;
+            frmAnterior = form;
 
             usuarioSeleccionado = usuario;
             nombreMateriaSeleccionada = nombreMateria;
@@ -37,6 +42,11 @@ namespace SistemaEducativo.Controllers
                 _frmVistaCalificacionesAlumno.checkBoxFinales.Visible = false;
             }
 
+            if (frmAnterior == null)
+            {
+                _frmVistaCalificacionesAlumno.btnRegresarForm.Visible = false;
+            }
+
             lstCalificaciones = CalificacionDAO.ObtenerCalificacionesParciales(null, usuarioSeleccionado.Matricula, nombreMateriaSeleccionada);
 
             grupo = GrupoDAO.ObtenerGrupos().First(g => g.Id == usuario.GrupoId);
@@ -48,6 +58,8 @@ namespace SistemaEducativo.Controllers
             }
 
             _frmVistaCalificacionesAlumno.comboBoxSemestres.SelectedItem = 1;
+
+            _frmVistaCalificacionesAlumno.btnRegresarForm.Click += btnRegresarForm_Click;
 
             _frmVistaCalificacionesAlumno.Load += frmVistaCalificacionesAlumno_Load;
             _frmVistaCalificacionesAlumno.checkBoxSemestral.CheckedChanged += checkBoxSemestral_CheckedChanged;
@@ -72,6 +84,25 @@ namespace SistemaEducativo.Controllers
             {
                 _frmVistaCalificacionesAlumno.dataGridViewCalificaciones.Rows.Add(calificacion.Semestre, calificacion.Materia, calificacion.Parcial, calificacion.CalificacionNumero);
             }
+        }
+
+        private void btnRegresarForm_Click(object sender, EventArgs e)
+        {
+            if (frmAnterior != null)
+            {
+                switch (SesionUsuario.Instancia.Rol)
+                {
+                    case "Alumno":
+                        MenuAlumnoController.actualizarSubmenu(frmAnterior);
+                        break;
+                    case "Maestro":
+                        MenuMaestroController.actualizarSubmenu(frmAnterior);
+                        break;
+                    case "Admin":
+                        MenuAdminController.actualizarSubmenu(frmAnterior);
+                        break;
+                }
+            } 
         }
 
         private void checkBoxSemestral_CheckedChanged(object sender, EventArgs e)
